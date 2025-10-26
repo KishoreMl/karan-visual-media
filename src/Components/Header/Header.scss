@@ -1,0 +1,77 @@
+.header{
+    color: white;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    padding: 2rem 2rem 0.3rem 3rem;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+
+    // Animated stars background
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+            radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+            radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+            radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+            radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+        background-repeat: repeat;
+        background-size: 200px 100px;
+        animation: sparkle 20s linear infinite;
+        opacity: 0.3;
+        z-index: 1;
+    }
+
+    .logo{
+        position: relative;
+        z-index: 2;
+        
+        img{
+            height: 50px;
+            width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+    }
+
+    .nav-bar{
+        display: flex;
+        gap: 2rem;
+        margin-left: auto;
+        align-items: center;
+        padding-bottom: 1rem;
+        background: transparent;
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 2;
+
+        .nav-bar-item{
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            
+            &:hover {
+                background: rgba(138, 43, 226, 0.2);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+            }
+        }
+    }
+}
+
+@keyframes sparkle {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-100px); }
+}
