@@ -1,18 +1,37 @@
-import React from 'react';
-import './Content.scss';
+import React, { useEffect, useRef } from 'react';
+import './Home.scss';
 
 const Content = () => {
+    const titleRef = useRef(null);
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            if (titleRef.current) {
+                const rect = titleRef.current.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Update CSS custom properties for glow position
+                titleRef.current.style.setProperty('--mouse-x', `${x}px`);
+                titleRef.current.style.setProperty('--mouse-y', `${y}px`);
+            }
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
     return (
         <div className="content-container">
-            {/* Background with stars */}
-            <div className="stars-background"></div>
-            
             {/* Header Section */}
             <div className="header-section">
-                <h1 className="main-title">Accelerate performance</h1>
+                <h1 ref={titleRef} className="main-title">Creative Knacks</h1>
                 <p className="main-description">
-                    With GitHub Copilot embedded throughout the platform, you can simplify your toolchain, 
-                    automate tasks, and improve the developer experience.
+                    We are creative agency, specialized in strategy, branding design, and development. <br></br>
+                    Our work is always at the intersection of design and technology. 
                 </p>
             </div>
 
@@ -89,13 +108,9 @@ const Content = () => {
                         <select className="model-dropdown">
                             <option>Claude 3.5 Sonnet</option>
                         </select>
-                        <button className="play-button">▶</button>
                     </div>
                 </div>
             </div>
-
-            {/* Bottom Right Play Button */}
-            <button className="bottom-play-button">▶</button>
         </div>
     );
 };
