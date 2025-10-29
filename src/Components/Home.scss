@@ -1,35 +1,8 @@
 /* Content.scss */
 .content-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
   position: relative;
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  overflow-x: hidden;
-}
-
-/* Animated stars background */
-.stars-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
-    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
-  background-repeat: repeat;
-  background-size: 200px 100px;
-  animation: sparkle 20s linear infinite;
-  opacity: 0.3;
-}
-
-@keyframes sparkle {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-100px); }
 }
 
 /* Header Section */
@@ -38,6 +11,10 @@
   margin-bottom: 3rem;
   z-index: 2;
   position: relative;
+
+  h1{
+    font-size: 7.5rem;
+  }
 }
 
 .main-title {
@@ -45,7 +22,58 @@
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  position: relative;
+  cursor: default;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  
+  // Multi-layered glow effect
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(138, 43, 226, 0.4),
+    0 0 60px rgba(138, 43, 226, 0.2);
+  
+  // Cursor-following glow behind the text
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle 200px at var(--mouse-x) var(--mouse-y),
+      rgba(138, 43, 226, 0.8),
+      rgba(65, 105, 225, 0.6) 30%,
+      rgba(138, 43, 226, 0.4) 50%,
+      transparent 70%
+    );
+    filter: blur(30px);
+    opacity: 0.8;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  // Extra glow layer for more depth
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle 150px at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.4),
+      rgba(138, 43, 226, 0.3) 40%,
+      transparent 70%
+    );
+    filter: blur(20px);
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+  }
 }
 
 .main-description {
