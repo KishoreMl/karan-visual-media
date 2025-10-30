@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Home.scss';
 
-const Content = () => {
+const Home = () => {
     const titleRef = useRef(null);
 
     useEffect(() => {
@@ -47,15 +47,9 @@ const Content = () => {
                         <li>The search term is preserved when navigating between pages</li>
                     </ol>
                     <p className="follow-up-question">
-                        Is there anything specific about the implementation you'd like me to explain or would you like to update and run tests for validation?
+                         we craft powerful brand experiences that connect creativity with strategy. From 3D animations to digital marketing, we help businesses stand out in a crowded world with visuals that captivate and campaigns that convert.
                     </p>
                     
-                    {/* Action Icons */}
-                    <div className="action-icons">
-                        <button className="icon-button">↻</button>
-                        <button className="icon-button">👍</button>
-                        <button className="icon-button">👎</button>
-                    </div>
                 </div>
 
                 {/* File Changes Section */}
@@ -85,34 +79,10 @@ const Content = () => {
                             <span className="add-icon">+</span>
                         </div>
                     </div>
-                </div>
-
-                {/* Input Section */}
-                <div className="input-section">
-                    <button className="add-context-button">
-                        <span className="plus-icon">+</span>
-                        Add Context...
-                    </button>
-                    <input 
-                        type="text" 
-                        placeholder="Edit files in your workspace in agent mode"
-                        className="workspace-input"
-                    />
-                    
-                    {/* Bottom Control Bar */}
-                    <div className="control-bar">
-                        <button className="mic-button">🎤</button>
-                        <select className="agent-dropdown">
-                            <option>Agent</option>
-                        </select>
-                        <select className="model-dropdown">
-                            <option>Claude 3.5 Sonnet</option>
-                        </select>
-                    </div>
-                </div>
+                </div>         
             </div>
         </div>
     );
 };
 
-export default Content;
+export default Home;

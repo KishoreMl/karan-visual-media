@@ -1,0 +1,84 @@
+.about-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    position: relative;
+    padding: 6rem 2rem;
+
+    .about-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+
+            &.orb-1 {
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(circle, #667eea, transparent);
+                top: 10%;
+                left: 10%;
+            }
+
+            &.orb-2 {
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, #f093fb, transparent);
+                bottom: 10%;
+                right: 10%;
+                animation-delay: 7s;
+            }
+        }
+    }
+
+    .about-container {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+
+        .about-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #667eea 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .about-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+        }
+
+        .about-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(30px, -30px); }
+    }
+}
+

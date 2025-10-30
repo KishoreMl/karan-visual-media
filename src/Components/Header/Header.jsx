@@ -14,16 +14,16 @@ const Header = () => {
             </Link>
            </div>
             <div className="nav-bar">
-                <Link to="/" className={`nav-bar-item ${location.pathname === '/' ? 'active' : ''}`}>
+                <Link to="/" className="nav-bar-item">
                     Home
                 </Link>
-                <Link to="/services" className={`nav-bar-item ${location.pathname === '/services' ? 'active' : ''}`}>
+                <Link to="/services" className="nav-bar-item">
                     Services
                 </Link>
-                <Link to="/about" className={`nav-bar-item ${location.pathname === '/about' ? 'active' : ''}`}>
+                <Link to="/about" className="nav-bar-item">
                     About
                 </Link>
-                <Link to="/contact" className={`nav-bar-item ${location.pathname === '/contact' ? 'active' : ''}`}>
+                <Link to="/contact" className="nav-bar-item">
                     Contact
                 </Link>
             </div>
