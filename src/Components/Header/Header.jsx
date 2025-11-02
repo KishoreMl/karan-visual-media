@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/images/logo.webp';
+import logo from '../../assets/images/primary_logo.png';
 import './Header.scss';
 
 const Header = () => {
-    const location = useLocation();
+
 
     return (
         <header className="header">
