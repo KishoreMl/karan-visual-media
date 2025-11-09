@@ -20,11 +20,11 @@ const Header = () => {
                 <Link to="/services" className="nav-bar-item">
                     Services
                 </Link>
+                <Link to="/contact" className="nav-bar-item">
+                    Works
+                </Link>
                 <Link to="/about" className="nav-bar-item">
                     About
-                </Link>
-                <Link to="/contact" className="nav-bar-item">
-                    Contact
                 </Link>
             </div>
         </header>
