@@ -1,62 +1,99 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Services.scss';
 
 const Services = () => {
-    // Mock data for services
+    const cardsRef = useRef([]);
+    const [visibleCards, setVisibleCards] = useState([]);
+
+    useEffect(() => {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '50px'
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                const cardIndex = parseInt(entry.target.dataset.index);
+                if (entry.isIntersecting) {
+                    setVisibleCards(prev => {
+                        if (!prev.includes(cardIndex)) {
+                            return [...prev, cardIndex];
+                        }
+                        return prev;
+                    });
+                } else {
+                    setVisibleCards(prev => prev.filter(index => index !== cardIndex));
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        const currentCards = cardsRef.current;
+
+        currentCards.forEach((card) => {
+            if (card) observer.observe(card);
+        });
+
+        return () => {
+            currentCards.forEach((card) => {
+                if (card) observer.unobserve(card);
+            });
+        };
+    }, []);
+
+    const addToRefs = (el, index) => {
+        if (el && !cardsRef.current.includes(el)) {
+            cardsRef.current[index] = el;
+        }
+    };
     const servicesData = [
         {
             id: 1,
-            title: "Video Production",
-            description: "Professional video production services from concept to final cut. We create engaging stories that captivate your audience.",
-            icon: "🎬",
-            features: ["4K Resolution", "Color Grading", "Motion Graphics", "Sound Design"],
-            price: "Starting at $2,500",
-            bgGradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+            title: "Motion Graphics",
+            description: "Create compelling motion graphics that bring your brand to life. From animated logos to dynamic explainer videos, we deliver stunning visual storytelling.",
+            features: ["Animated Logos", "Explainer Videos", "Title Sequences", "Brand Animation"]
         },
         {
             id: 2,
-            title: "Photography",
-            description: "Stunning photography that captures the essence of your brand. From corporate events to product shoots.",
-            icon: "📸",
-            features: ["High-Res Images", "Photo Editing", "Studio Setup", "On-Location"],
-            price: "Starting at $800",
-            bgGradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+            title: "3D Animation",
+            description: "Professional 3D animation services that transform concepts into photorealistic visual experiences. Perfect for product showcases and immersive storytelling.",
+            features: ["Product Animation", "Character Animation", "3D Modeling", "Rendering"]
         },
         {
             id: 3,
-            title: "Animation Services",
-            description: "Bring your ideas to life with captivating 2D and 3D animations. Perfect for explainer videos and brand stories.",
-            icon: "✨",
-            features: ["2D Animation", "3D Modeling", "Character Design", "VFX"],
-            price: "Starting at $3,200",
-            bgGradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+            title: "Visual Effects",
+            description: "Industry-leading VFX services that seamlessly blend reality with imagination. Enhance your footage with stunning visual effects and compositing.",
+            features: ["Compositing", "CGI Integration", "Color Grading", "Post-Production VFX"]
         },
         {
             id: 4,
-            title: "Content Strategy",
-            description: "Data-driven content strategies that boost engagement and drive results. Let's tell your story effectively.",
-            icon: "📊",
-            features: ["SEO Optimization", "Content Planning", "Analytics", "Brand Voice"],
-            price: "Starting at $1,500",
-            bgGradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+            title: "Branding & Design",
+            description: "Comprehensive branding solutions that define your identity. From logo design to complete brand guidelines, we create memorable visual identities.",
+            features: ["Logo Design", "Brand Identity", "Style Guides", "Marketing Collateral"]
         },
         {
             id: 5,
-            title: "Live Streaming",
-            description: "Professional live streaming services for events, webinars, and broadcasts with multi-camera setups.",
-            icon: "📡",
-            features: ["HD Streaming", "Multi-Camera", "Real-time Editing", "Platform Integration"],
-            price: "Starting at $1,800",
-            bgGradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+            title: "Social Media Handling",
+            description: "Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.",
+            features: ["Content Creation", "Community Management", "Strategy Planning", "Analytics & Reporting"]
         },
         {
             id: 6,
-            title: "Post Production",
-            description: "Expert post-production services including editing, color correction, sound mixing, and visual effects.",
-            icon: "🎨",
-            features: ["Advanced Editing", "Color Correction", "Audio Mixing", "VFX Integration"],
-            price: "Starting at $2,000",
-            bgGradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+            title: "Digital Marketing",
+            description: "Data-driven digital marketing campaigns that deliver measurable results. Reach your target audience and maximize your ROI.",
+            features: ["SEO Optimization", "PPC Campaigns", "Email Marketing", "Content Strategy"]
+        },
+        {
+            id: 7,
+            title: "Website Development",
+            description: "Modern, responsive websites that deliver exceptional user experiences. From design to deployment, we build digital solutions that perform.",
+            features: ["Responsive Design", "Custom Development", "E-commerce Solutions", "CMS Integration"]
+        },
+        {
+            id: 8,
+            title: "3D Interior & Exterior Walkthrough Animation",
+            description: "Photorealistic architectural visualizations that bring spaces to life. Perfect for real estate, architecture, and interior design projects.",
+            features: ["3D Walkthroughs", "Architectural Visualization", "Interior Rendering", "Virtual Tours"]
         }
     ];
 
@@ -77,59 +114,45 @@ const Services = () => {
                 </p>
             </div>
 
-            {/* Stacked Cards Container - Notebook Style */}
-            <div className="cards-stack-container">
-                {servicesData.map((service, index) => (
-                    <div 
-                        key={service.id}
-                        className="service-card-stack"
-                        style={{ 
-                            '--card-gradient': service.bgGradient, 
-                            '--card-index': index,
-                            '--total-cards': servicesData.length
-                        }}
-                    >
-                        <div className="card-glow"></div>
-                        <div className="card-content">
-                            <div className="card-header">
-                                <div className="card-icon">{service.icon}</div>
-                                <div className="card-number">0{index + 1}</div>
-                            </div>
+            {/* Horizontal Scroll Cards Container */}
+            <div className="services-scroll-wrapper">
+                <div className="services-horizontal-container">
+                    {servicesData.map((service, index) => (
+                        <div 
+                            key={service.id}
+                            ref={(el) => addToRefs(el, index)}
+                            data-index={index}
+                            className={`service-card ${visibleCards.includes(index) ? 'visible' : ''}`}
+                            style={{ '--card-index': index }}
+                        >
+                            <div className="card-background-glow"></div>
                             
-                            <h2 className="card-title">{service.title}</h2>
-                            <p className="card-description">{service.description}</p>
-                            
-                            <div className="card-features">
-                                {service.features.map((feature, idx) => (
-                                    <span key={idx} className="feature-tag">
-                                        <span className="feature-dot">•</span>
-                                        {feature}
-                                    </span>
-                                ))}
-                            </div>
-                            
-                            <div className="card-footer">
-                                <div className="card-price">
-                                    <span className="price-label">Investment</span>
-                                    <span className="price-value">{service.price}</span>
+                            <div className="card-inner">
+                                <h3 className="card-title">{service.title}</h3>
+                                
+                                <p className="card-description">{service.description}</p>
+                                
+                                <div className="card-features">
+                                    {service.features.map((feature, idx) => (
+                                        <div key={idx} className="feature-item">
+                                            <span className="feature-bullet">•</span>
+                                            <span className="feature-text">{feature}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                                <button className="card-button">
-                                    Learn More
-                                    <span className="button-arrow">→</span>
-                                </button>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
 
             {/* Bottom CTA Section */}
             <div className="services-cta">
-                <h3>Ready to bring your vision to life?</h3>
-                <p className="cta-subtitle">Let's create something extraordinary together</p>
-                <button className="cta-button">
-                    Get Started Today
-                    <span className="cta-arrow">→</span>
+                <h2>Ready to bring your vision to life?</h2>
+                <p className="cta-description">Let's create something extraordinary together</p>
+                <button className="cta-primary-button">
+                    <span>Get Started Today</span>
+                    <span className="cta-button-icon">→</span>
                 </button>
             </div>
         </div>
