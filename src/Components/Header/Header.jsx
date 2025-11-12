@@ -36,7 +36,7 @@ const Header = () => {
                     <Link to="/services" className={`nav-bar-item ${isActive('/services') ? 'active' : ''}`}>
                         Services
                     </Link>
-                    <Link to="/contact" className={`nav-bar-item ${isActive('/contact') ? 'active' : ''}`}>
+                    <Link to="/works" className={`nav-bar-item ${isActive('/works') ? 'active' : ''}`}>
                         Works
                     </Link>
                     <Link to="/about" className={`nav-bar-item ${isActive('/about') ? 'active' : ''}`}>
