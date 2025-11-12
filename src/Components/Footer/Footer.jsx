@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-content">
                 <div className="footer-top">
-                    <div>
+                    <div className='footer-item'>
                         <div className='footer-icon'>
                             <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -20,7 +20,7 @@ const Footer = () => {
                         </div>
                         <p>creativeknacks@gmail.com</p>
                     </div>
-                    <div>
+                    <div className='footer-item'>
                         <div className='footer-icon'>
                             <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -60,10 +60,8 @@ const Footer = () => {
 
                 {/* Bottom Section */}
                 <div className="footer-bottom">
-                    <div className="footer-meta">
-                        <div className="footer-legal">
+                    <div className="footer-meta">  
                             <p>Copyright © 2025 Creative Knacks. All rights reserved.</p>
-                        </div>
                     </div>
                 </div>
             </div>
