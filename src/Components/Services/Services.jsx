@@ -114,31 +114,38 @@ const Services = () => {
                 </p>
             </div>
 
-            {/* Horizontal Scroll Cards Container */}
+            {/* Services Container */}
             <div className="services-scroll-wrapper">
-                <div className="services-horizontal-container">
+                <div className="services-list-container">
                     {servicesData.map((service, index) => (
                         <div 
                             key={service.id}
                             ref={(el) => addToRefs(el, index)}
                             data-index={index}
-                            className={`service-card ${visibleCards.includes(index) ? 'visible' : ''}`}
-                            style={{ '--card-index': index }}
+                            className={`service-item ${visibleCards.includes(index) ? 'visible' : ''}`}
                         >
-                            <div className="card-background-glow"></div>
+                            <div className="service-background-glow"></div>
                             
-                            <div className="card-inner">
-                                <h3 className="card-title">{service.title}</h3>
+                            <h3 className="service-heading">{service.title}</h3>
+                            
+                            <div className="service-content">
+                                <div className="service-image">
+                                    <div className="image-placeholder">
+                                        <span className="placeholder-icon">{String(index + 1).padStart(2, '0')}</span>
+                                    </div>
+                                </div>
                                 
-                                <p className="card-description">{service.description}</p>
-                                
-                                <div className="card-features">
-                                    {service.features.map((feature, idx) => (
-                                        <div key={idx} className="feature-item">
-                                            <span className="feature-bullet">•</span>
-                                            <span className="feature-text">{feature}</span>
-                                        </div>
-                                    ))}
+                                <div className="service-details">
+                                    <p className="service-description">{service.description}</p>
+                                    
+                                    <div className="service-features">
+                                        {service.features.map((feature, idx) => (
+                                            <div key={idx} className="feature-item">
+                                                <span className="feature-bullet">•</span>
+                                                <span className="feature-text">{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
