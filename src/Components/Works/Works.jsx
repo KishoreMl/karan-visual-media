@@ -77,7 +77,6 @@ const Works = () => {
         <div className="works-container">
             <div className="works-header">
                 <h1 className="works-title">Our Works</h1>
-                <p className="works-subtitle">Explore our portfolio of creative projects</p>
             </div>
 
             {/* Filter Buttons */}
