@@ -1,3 +1,114 @@
+/* Theme Toggle Button - Fixed at Top Center */
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    .toggle-track {
+        width: 70px;
+        height: 32px;
+        background: linear-gradient(135deg, #66c0ea 0%, #4b67a2 100%);
+        border-radius: 50px;
+        position: relative;
+        box-shadow: 
+            0 4px 12px rgba(102, 126, 234, 0.4),
+            inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    &.light .toggle-track {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        box-shadow: 
+            0 4px 12px rgba(252, 182, 159, 0.4),
+            inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .toggle-thumb {
+        position: absolute;
+        top: 3px;
+        left: 4px;
+        width: 26px;
+        height: 26px;
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            color: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .moon-icon {
+            color: #764ba2;
+        }
+
+        .sun-icon {
+            color: #fcb69f;
+        }
+    }
+
+    &.light .toggle-thumb {
+        left: calc(100% - 30px);
+
+        .icon {
+            color: #fcb69f;
+        }
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .theme-toggle-container {
+        top: 15px;
+    }
+
+    .theme-toggle {
+        .toggle-track {
+            width: 60px;
+            height: 28px;
+        }
+
+        .toggle-thumb {
+            width: 22px;
+            height: 22px;
+
+            .icon {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        &.light .toggle-thumb {
+            left: calc(100% - 26px);
+        }
+    }
+}
+
 .header{
     color: white;
     background: transparent;
@@ -11,7 +122,7 @@
     .logo{
         position: relative;
         z-index: 2;
-        
+        display: flex;
         img{
             height: 50px;
             width: 100%;
@@ -35,7 +146,7 @@
         z-index: 2;
 
         .nav-bar-item{
-            cursor: pointer;
+            cursor: round($number: 3);
             padding: 0.5rem 1rem;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -44,15 +155,11 @@
             color: white;
             
             &:hover {
-                background: rgba(138, 43, 226, 0.2);
+                background: rgba(43, 144, 226, 0.4);
                 transform: translateY(-2px);
-                box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+                box-shadow: 0 4px 15px rgba(43, 174, 226, 0.2);
             }
 
-            &.active {
-                background: rgba(138, 43, 226, 0.3);
-                box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-            }
         }
     }
 

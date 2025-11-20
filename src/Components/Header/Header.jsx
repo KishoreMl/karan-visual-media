@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/images/primary_logo.png';
+import ThemeToggleButton from './ThemeToggleButton';
+import MobileMenu from './MobileMenu';
 import './Header.scss';
-
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
     const location = useLocation();
 
     const toggleMobileMenu = () => {
@@ -15,20 +17,25 @@ const Header = () => {
         setIsMobileMenuOpen(false);
     };
 
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+
     const isActive = (path) => {
         return location.pathname === path;
     };
 
     return (
         <>
+            <ThemeToggleButton isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+
             <header className="header">
-                <div className="logo">
+                <div className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Link to="/">
                         <img src={logo} alt="logo" />
                     </Link>
                 </div>
-                
-                {/* Desktop Navigation */}
+            
                 <div className="nav-bar desktop-nav">
                     <Link to="/" className={`nav-bar-item ${isActive('/') ? 'active' : ''}`}>
                         Home
@@ -36,7 +43,7 @@ const Header = () => {
                     <Link to="/services" className={`nav-bar-item ${isActive('/services') ? 'active' : ''}`}>
                         Services
                     </Link>
-                    <Link to="/contact" className={`nav-bar-item ${isActive('/contact') ? 'active' : ''}`}>
+                    <Link to="/works" className={`nav-bar-item ${isActive('/works') ? 'active' : ''}`}>
                         Works
                     </Link>
                     <Link to="/about" className={`nav-bar-item ${isActive('/about') ? 'active' : ''}`}>
@@ -44,7 +51,6 @@ const Header = () => {
                     </Link>
                 </div>
 
-                {/* Mobile Hamburger Menu Button */}
                 <button 
                     className={`mobile-menu-toggle ${isMobileMenuOpen ? 'hidden' : ''}`} 
                     onClick={toggleMobileMenu}
@@ -55,53 +61,7 @@ const Header = () => {
                 </button>
             </header>
 
-            {/* Mobile/Tablet Full Screen Menu Overlay */}
-            <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
-                <div className="mobile-menu-header">
-                    <h2 className="mobile-brand">CREATIVE KNACKS</h2>
-                    <button className="close-button" onClick={closeMobileMenu}>
-                        ✕
-                    </button>
-                </div>
-                
-                <nav className="mobile-nav">
-                    <Link 
-                        to="/" 
-                        className={`mobile-nav-item ${isActive('/') ? 'active' : ''}`}
-                        onClick={closeMobileMenu}
-                    >
-                        HOME
-                    </Link>
-                    <Link 
-                        to="/about" 
-                        className={`mobile-nav-item ${isActive('/about') ? 'active' : ''}`}
-                        onClick={closeMobileMenu}
-                    >
-                        ABOUT
-                    </Link>
-                    <Link 
-                        to="/services" 
-                        className={`mobile-nav-item ${isActive('/services') ? 'active' : ''}`}
-                        onClick={closeMobileMenu}
-                    >
-                        SERVICES
-                    </Link>
-                    <Link 
-                        to="/works" 
-                        className={`mobile-nav-item ${isActive('/works') ? 'active' : ''}`}
-                        onClick={closeMobileMenu}
-                    >
-                        WORKS
-                    </Link>
-                    <Link 
-                        to="/contact" 
-                        className={`mobile-nav-item ${isActive('/contact') ? 'active' : ''}`}
-                        onClick={closeMobileMenu}
-                    >
-                        CONTACT
-                    </Link>
-                </nav>
-            </div>
+            <MobileMenu isMobileMenuOpen={isMobileMenuOpen} closeMobileMenu={closeMobileMenu} isActive={isActive} />
         </>
     );
 };

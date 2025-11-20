@@ -111,6 +111,14 @@ const Home = () => {
                 </div>
             </div>
             <DescriptionCard />
+            
+            <div className="logo-content">
+                <div className="logo-icon">
+                    <div className="logo-dot"></div>
+                    <div className="logo-bar"></div>
+                </div>
+            </div>
+            <div class="progress"></div>
             <DescriptiveContent />
         </div>
     );
