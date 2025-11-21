@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AboutUs.scss';
 
 const AboutUs = () => {
+    const navigate = useNavigate();
     const [visibleSections, setVisibleSections] = useState([]);
     const sectionsRef = useRef([]);
 
@@ -142,7 +144,7 @@ const AboutUs = () => {
             >
                 <h2>Ready to create something extraordinary?</h2>
                 <p className="cta-description">Let's bring your vision to life</p>
-                <button className="cta-button">
+                <button className="cta-button" onClick={() => navigate('/contact')}>
                     <span>Get In Touch</span>
                     <span className="cta-arrow">→</span>
                 </button>

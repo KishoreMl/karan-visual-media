@@ -5,19 +5,22 @@ import Home from './Components/Home/Home.jsx';
 import Works from './Components/Works/Works.jsx';
 import Services from './Components/Services/Services.jsx';
 import AboutUs from './Components/AboutUs/AboutUs.jsx';
+import Contact from './Components/Contact/Contact.jsx';
 import Footer from './Components/Footer/Footer.jsx';
+import CustomCursor from './Components/CustomCursor/CustomCursor.jsx';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <CustomCursor />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/works" element={<Works />} />
-          <Route path="/contact" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>
