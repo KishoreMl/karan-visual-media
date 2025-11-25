@@ -4,23 +4,14 @@
     border-radius: 50%;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background: linear-gradient(135deg, #2B90E2 0%, #2BAEE2 100%);
-    box-shadow: 0 0 12px rgba(43, 144, 226, 0.9),
-                0 0 24px rgba(43, 174, 226, 0.5);
-    transition: all 0.15s ease;
-    
-    &.hover {
-        width: 16px;
-        height: 16px;
-        background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
-                    0 0 25px rgba(43, 144, 226, 0.6);
-    }
+    width: 12px;
+    height: 12px;
+    background: #F5A609;
+    box-shadow: 0 0 12px rgba(226, 198, 43, 0.9),
+                0 0 24px rgba(247, 225, 32, 0.5);
+    transition: all 0.04s ease;
 }
 
-/* Hide default cursor */
 body,
 body * {
     cursor: none !important;

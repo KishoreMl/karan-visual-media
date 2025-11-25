@@ -51,32 +51,16 @@ const AboutUs = () => {
 
     return (
         <div className="about-page">
-            {/* Background Elements */}
             <div className="about-background">
                 <div className="gradient-orb orb-1"></div>
                 <div className="gradient-orb orb-2"></div>
                 <div className="gradient-orb orb-3"></div>
             </div>
 
-            {/* Header Section */}
             <div className="about-header">
                 <h1 className="about-title">About Us</h1>
             </div>
 
-            {/* Photo Placeholder Section */}
-            <div 
-                ref={(el) => addToRefs(el, 0)}
-                data-section={0}
-                className={`about-image-section ${visibleSections.includes(0) ? 'visible' : ''}`}
-            >
-                <div className="image-placeholder">
-                    <div className="placeholder-overlay">
-                        <span className="placeholder-text">Team Photo</span>
-                    </div>
-                </div>
-            </div>
-
-            {/* Main Story Section */}
             <div 
                 ref={(el) => addToRefs(el, 1)}
                 data-section={1}

@@ -1,33 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import DescriptionCard from '../DescriptionCard/DescriptionCard';
 import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
 import './Home.scss';
 
 const Home = () => {
-    const titleRef = useRef(null);
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            if (titleRef.current) {
-                const rect = titleRef.current.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-        
-                titleRef.current.style.setProperty('--mouse-x', `${x}px`);
-                titleRef.current.style.setProperty('--mouse-y', `${y}px`);
-            }
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
 
     return (
         <div className="content-container">
-            {/* Header Section */}
             <div className="header-section">
-                <h1 ref={titleRef} className="main-title">Creative Knacks</h1>
+                <h1 className="main-title">Creative Knacks</h1>
                 <p>
                     We are creative agency, specialized in strategy, branding design, and development. <br></br>
                     Our work is always at the intersection of design and technology. 
