@@ -2,50 +2,68 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Services.scss';
 
 const Services = () => {
-    const cardsRef = useRef([]);
-    const [visibleCards, setVisibleCards] = useState([]);
+    const sectionsRef = useRef([]);
+    const [visibleSections, setVisibleSections] = useState([]);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '50px'
+            threshold: 0.2,
+            rootMargin: '50px 0px -100px 0px'
         };
 
         const observerCallback = (entries) => {
             entries.forEach((entry) => {
-                const cardIndex = parseInt(entry.target.dataset.index);
+                const sectionIndex = parseInt(entry.target.dataset.index);
+                
                 if (entry.isIntersecting) {
-                    setVisibleCards(prev => {
-                        if (!prev.includes(cardIndex)) {
-                            return [...prev, cardIndex];
-                        }
-                        return prev;
-                    });
+                    // Add section with a slight delay for sequential effect
+                    setTimeout(() => {
+                        setVisibleSections(prev => {
+                            if (!prev.includes(sectionIndex)) {
+                                return [...prev, sectionIndex].sort((a, b) => a - b);
+                            }
+                            return prev;
+                        });
+                    }, 50);
                 } else {
-                    setVisibleCards(prev => prev.filter(index => index !== cardIndex));
+                    // Remove section when it goes out of view
+                    setVisibleSections(prev => prev.filter(index => index !== sectionIndex));
                 }
             });
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const currentCards = cardsRef.current;
+        const currentSections = sectionsRef.current;
 
-        currentCards.forEach((card) => {
-            if (card) observer.observe(card);
+        currentSections.forEach((section) => {
+            if (section) observer.observe(section);
         });
 
+        // Scroll progress tracking
+        const handleScroll = () => {
+            const scrolled = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrolled / maxScroll) * 100;
+            setScrollProgress(progress);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
         return () => {
-            currentCards.forEach((card) => {
-                if (card) observer.unobserve(card);
+            currentSections.forEach((section) => {
+                if (section) observer.unobserve(section);
             });
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
     const addToRefs = (el, index) => {
-        if (el && !cardsRef.current.includes(el)) {
-            cardsRef.current[index] = el;
+        if (el && !sectionsRef.current.includes(el)) {
+            sectionsRef.current[index] = el;
         }
     };
+
     const servicesData = [
         {
             id: 1,
@@ -99,6 +117,11 @@ const Services = () => {
 
     return (
         <div className="services-page">
+            {/* Scroll Progress Indicator */}
+            <div className="scroll-progress-bar">
+                <div className="progress-fill" style={{ width: `${scrollProgress}%` }}></div>
+            </div>
+
             {/* Background Elements */}
             <div className="services-background">
                 <div className="gradient-orb orb-1"></div>
@@ -107,60 +130,100 @@ const Services = () => {
             </div>
 
             {/* Header Section */}
-            <div className="services-header">
-                <h1 className="services-title">Our Services</h1>
-                <p className="services-subtitle">
-                    Comprehensive visual media solutions tailored to elevate your brand
-                </p>
-            </div>
-
-            {/* Services Container */}
-            <div className="services-scroll-wrapper">
-                <div className="services-list-container">
-                    {servicesData.map((service, index) => (
-                        <div 
-                            key={service.id}
-                            ref={(el) => addToRefs(el, index)}
-                            data-index={index}
-                            className={`service-item ${visibleCards.includes(index) ? 'visible' : ''}`}
-                        >
-                            <div className="service-background-glow"></div>
-                            
-                            <h3 className="service-heading">{service.title}</h3>
-                            
-                            <div className="service-content">
-                                <div className="service-image">
-                                    <div className="image-placeholder">
-                                        <span className="placeholder-icon">{String(index + 1).padStart(2, '0')}</span>
-                                    </div>
-                                </div>
-                                
-                                <div className="service-details">
-                                    <p className="service-description">{service.description}</p>
-                                    
-                                    <div className="service-features">
-                                        {service.features.map((feature, idx) => (
-                                            <div key={idx} className="feature-item">
-                                                <span className="feature-bullet">•</span>
-                                                <span className="feature-text">{feature}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+            <div className="services-header-section">
+                <div className="services-header">
+                    <h1 className="services-title">Our Services</h1>
+                    <p className="services-subtitle">
+                        Comprehensive visual media solutions tailored to elevate your brand
+                    </p>
+                    <div className="scroll-indicator">
+                        <span className="scroll-text">Scroll to explore</span>
+                        <div className="scroll-arrow">↓</div>
+                    </div>
                 </div>
             </div>
 
+            {/* Services Scroll Container */}
+            <div className="services-scroll-container">
+                {servicesData.map((service, index) => {
+                    const gifIndex = index * 2;
+                    const contentIndex = index * 2 + 1;
+                    
+                    return (
+                        <React.Fragment key={service.id}>
+                            {/* GIF/Image Section */}
+                            <div 
+                                ref={(el) => addToRefs(el, gifIndex)}
+                                data-index={gifIndex}
+                                className={`scroll-section gif-section ${visibleSections.includes(gifIndex) ? 'visible' : ''}`}
+                                style={{ 
+                                    transitionDelay: visibleSections.includes(gifIndex) 
+                                        ? `${visibleSections.indexOf(gifIndex) * 0.1}s` 
+                                        : '0s' 
+                                }}
+                            >
+                                <div className="section-content">
+                                    <h2 className="section-title">{service.title}</h2>
+                                    <div className="gif-container">
+                                        <div className="gif-placeholder">
+                                            <div className="gif-overlay">
+                                                <span className="gif-icon">▶</span>
+                                            </div>
+                                            <div className="gif-shimmer"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Content Section */}
+                            <div 
+                                ref={(el) => addToRefs(el, contentIndex)}
+                                data-index={contentIndex}
+                                className={`scroll-section content-section ${visibleSections.includes(contentIndex) ? 'visible' : ''}`}
+                                style={{ 
+                                    transitionDelay: visibleSections.includes(contentIndex) 
+                                        ? `${visibleSections.indexOf(contentIndex) * 0.1}s` 
+                                        : '0s' 
+                                }}
+                            >
+                                <div className="section-content">
+                                    <div className="content-wrapper">
+                                        <h3 className="content-heading">{service.title}</h3>
+                                        <p className="content-description">{service.description}</p>
+                                        
+                                        <div className="content-features">
+                                            <h4 className="features-title">Key Features</h4>
+                                            <div className="features-grid">
+                                                {service.features.map((feature, idx) => (
+                                                    <div 
+                                                        key={idx} 
+                                                        className="feature-card"
+                                                        style={{ transitionDelay: `${0.35 + idx * 0.05}s` }}
+                                                    >
+                                                        <span className="feature-icon">✓</span>
+                                                        <span className="feature-text">{feature}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </React.Fragment>
+                    );
+                })}
+            </div>
+
             {/* Bottom CTA Section */}
-            <div className="services-cta">
-                <h2>Ready to bring your vision to life?</h2>
-                <p className="cta-description">Let's create something extraordinary together</p>
-                <button className="cta-primary-button">
-                    <span>Get Started Today</span>
-                    <span className="cta-button-icon">→</span>
-                </button>
+            <div className="services-cta-section">
+                <div className="services-cta">
+                    <h2>Ready to bring your vision to life?</h2>
+                    <p className="cta-description">Let's create something extraordinary together</p>
+                    <button className="cta-primary-button">
+                        <span>Get Started Today</span>
+                        <span className="cta-button-icon">→</span>
+                    </button>
+                </div>
             </div>
         </div>
     );
