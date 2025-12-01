@@ -1,7 +1,7 @@
 .services-page {
     min-height: 100vh;
-    background: #0a0a0a;
-    color: white;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     position: relative;
     overflow-x: hidden;
@@ -101,11 +101,11 @@
 
             .services-title {
                 font-size: clamp(3rem, 8vw, 6rem);
-                font-weight: 900;
-                color: #ffffff;
+                font-weight: 700;
+                color: var(--text-primary);
                 margin-bottom: 1.5rem;
                 letter-spacing: -3px;
-                background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+                background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -114,7 +114,7 @@
 
             .services-subtitle {
                 font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-                color: #b0b0b0;
+                color: var(--text-secondary);
                 margin-bottom: 3rem;
                 line-height: 1.8;
                 font-weight: 300;
@@ -224,25 +224,11 @@
         }
     }
 
-    // GIF Section Styles
     .gif-section {
-        .section-number {
-            font-size: 8rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #2B90E2 0%, #2BAEE2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0.15;
-            line-height: 1;
-            margin-bottom: 1rem;
-            transition: opacity 0.6s ease;
-        }
-
         .section-title {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            color: #ffffff;
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 3rem;
             letter-spacing: -2px;
             transition: opacity 0.5s ease 0.1s,
@@ -361,14 +347,14 @@
 
     // Content Section Styles
     .content-section {
-        background: rgba(19, 22, 31, 0.4);
+        background: var(--bg-card);
         backdrop-filter: blur(20px);
 
         .content-wrapper {
             max-width: 800px;
             margin: 0 auto;
             padding: 3rem;
-            background: rgba(19, 22, 31, 0.6);
+            background: var(--bg-card);
             border: 1px solid rgba(43, 144, 226, 0.3);
             border-radius: 30px;
             box-shadow: 
@@ -379,7 +365,7 @@
         .content-heading {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
             opacity: 0;
@@ -392,7 +378,7 @@
         .content-description {
             font-size: clamp(1rem, 2vw, 1.2rem);
             line-height: 1.8;
-            color: #d0d0d0;
+            color: var(--text-secondary);
             margin-bottom: 2.5rem;
             opacity: 0;
             transform: translateY(20px);
@@ -445,7 +431,7 @@
                 .feature-text {
                     flex: 1;
                     font-size: 0.95rem;
-                    color: #e0e0e0;
+                    color: var(--text-secondary);
                     line-height: 1.4;
                 }
 
@@ -537,7 +523,7 @@
             text-align: center;
             max-width: 900px;
             width: 100%;
-            background: rgba(19, 22, 31, 0.7);
+            background: var(--bg-card);
             backdrop-filter: blur(30px);
             border: 1px solid rgba(43, 144, 226, 0.3);
             border-radius: 30px;
@@ -548,15 +534,15 @@
 
             h2 {
                 font-size: clamp(2rem, 5vw, 3.5rem);
-                font-weight: 800;
+                font-weight: 700;
                 margin-bottom: 1.5rem;
-                color: #ffffff;
+                color: var(--text-primary);
                 letter-spacing: -1.5px;
             }
 
             .cta-description {
                 font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-                color: #d0d0d0;
+                color: var(--text-secondary);
                 margin-bottom: 3rem;
                 line-height: 1.7;
             }
@@ -645,10 +631,6 @@
         }
 
         .gif-section {
-            .section-number {
-                font-size: 5rem;
-            }
-
             .gif-container .gif-placeholder {
                 height: 45vh;
                 min-height: 300px;
@@ -695,10 +677,6 @@
         }
 
         .gif-section {
-            .section-number {
-                font-size: 4rem;
-            }
-
             .gif-container .gif-placeholder {
                 height: 40vh;
                 min-height: 250px;

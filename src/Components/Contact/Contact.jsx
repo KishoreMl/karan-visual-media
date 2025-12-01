@@ -19,7 +19,6 @@ const Contact = () => {
             ...prev,
             [name]: value
         }));
-        // Clear error when user starts typing
         if (errors[name]) {
             setErrors(prev => ({
                 ...prev,
@@ -31,28 +30,24 @@ const Contact = () => {
     const validateForm = () => {
         const newErrors = {};
 
-        // Name validation
         if (!formData.name.trim()) {
             newErrors.name = 'Name is required';
         } else if (formData.name.trim().length < 2) {
             newErrors.name = 'Name must be at least 2 characters';
         }
 
-        // Email validation
         if (!formData.email.trim()) {
             newErrors.email = 'Email is required';
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
             newErrors.email = 'Please enter a valid email address';
         }
 
-        // Phone validation
         if (!formData.phone.trim()) {
             newErrors.phone = 'Phone number is required';
         } else if (!/^[\d\s+()-]{10,}$/.test(formData.phone)) {
             newErrors.phone = 'Please enter a valid phone number';
         }
 
-        // Message validation (optional but add length check if provided)
         if (formData.message.trim() && formData.message.trim().length < 10) {
             newErrors.message = 'Message must be at least 10 characters';
         }
@@ -114,32 +109,6 @@ const Contact = () => {
                         <p className="info-text">
                             Ready to elevate your brand? Fill out the form and our team will get back to you within 24 hours.
                         </p>
-
-                        <div className="contact-details">
-                            <div className="detail-item">
-                                <div className="detail-icon">📧</div>
-                                <div className="detail-content">
-                                    <h4>Email</h4>
-                                    <p>creativeknacks@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div className="detail-item">
-                                <div className="detail-icon">📞</div>
-                                <div className="detail-content">
-                                    <h4>Phone</h4>
-                                    <p>+1 (555) 123-4567</p>
-                                </div>
-                            </div>
-
-                            <div className="detail-item">
-                                <div className="detail-icon">📍</div>
-                                <div className="detail-content">
-                                    <h4>Location</h4>
-                                    <p>Coimbatore, Tamil Nadu,India</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div className="contact-form-wrapper">

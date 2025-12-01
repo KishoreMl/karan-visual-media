@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/images/primary_logo.png';
-import ThemeToggleButton from './ThemeToggleButton';
 import MobileMenu from './MobileMenu';
 import './Header.scss';
+
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(true);
     const location = useLocation();
 
     const toggleMobileMenu = () => {
@@ -17,17 +16,12 @@ const Header = () => {
         setIsMobileMenuOpen(false);
     };
 
-    const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
-    };
-
     const isActive = (path) => {
         return location.pathname === path;
     };
 
     return (
         <>
-            <ThemeToggleButton isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
             <header className="header">
                 <div className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

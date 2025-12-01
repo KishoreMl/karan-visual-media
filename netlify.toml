@@ -1,0 +1,31 @@
+[build]
+  # Directory to change to before starting a build
+  base = "."
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "build"
+  
+  # Default build command
+  command = "npm run build"
+
+# Production context: all deploys from the Production branch
+[context.production]
+  command = "npm run build"
+  
+[context.production.environment]
+  NODE_VERSION = "18.18.0"
+
+# Deploy Preview context: all deploys generated from a pull/merge request
+[context.deploy-preview]
+  command = "npm run build"
+
+# Branch deploy context: all deploys that are not from a pull/merge request
+[context.branch-deploy]
+  command = "npm run build"
+
+# Redirect rules for React Router (SPA)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

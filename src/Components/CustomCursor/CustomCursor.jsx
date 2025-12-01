@@ -12,13 +12,11 @@ const CustomCursor = () => {
             const mouseX = e.clientX;
             const mouseY = e.clientY;
 
-            // Update dot position immediately
             if (cursorDot) {
                 cursorDot.style.left = `${mouseX}px`;
                 cursorDot.style.top = `${mouseY}px`;
             }
 
-            // Check hover state during move (more efficient than separate events)
             const target = e.target;
             const isHoverable = target.tagName === 'A' || 
                                target.tagName === 'BUTTON' || 

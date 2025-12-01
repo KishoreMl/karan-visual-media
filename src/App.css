@@ -1,6 +1,50 @@
+/* CSS Custom Properties for Themes */
+:root {
+  /* Dark Theme (Default) */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-card: #13161F;
+  --bg-gradient: linear-gradient(#0a0a0a 0%, #1a1a2e 50%, #16213e, #0a0a0a, #0a0a0a 100%);
+  
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  
+  --accent-primary: #2B90E2;
+  --accent-secondary: #2BAEE2;
+  --accent-hover: rgba(43, 144, 226, 0.4);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e0e0e0;
+  --bg-card: #ffffff;
+  --bg-gradient: linear-gradient(#ffffff 0%, #f5f5f5 50%, #e0e0e0, #f5f5f5, #ffffff 100%);
+  
+  --text-primary: #0a0a0a;
+  --text-secondary: rgba(0, 0, 0, 0.8);
+  --text-tertiary: rgba(0, 0, 0, 0.6);
+  
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  --accent-primary: #a4a5a5;
+  --accent-secondary: #929292;
+  --accent-hover: rgba(43, 144, 226, 0.2);
+}
+
 .App {
   min-height: 100vh;
-  background: linear-gradient( #0a0a0a 0%, #1a1a2e 50%, #16213e, #0a0a0a, #0a0a0a  100%);
+  background: var(--bg-gradient);
+  cursor: none;
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 * {
@@ -13,6 +57,39 @@ html, body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Interactive elements - pointer cursor */
+a, button, input[type="submit"], input[type="button"], [role="button"] {
+  cursor: url('./assets/images/cursor.png') 16 16, pointer !important;
+}
+
+/* Theme-aware text colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p, span, li {
+  color: var(--text-secondary);
+}
+
+/* Theme-aware backgrounds */
+.card, .section {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* Theme-aware borders */
+.bordered {
+  border-color: var(--border-color);
+}
+
+/* Theme-aware shadows */
+.shadowed {
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 /* Page transition styles */
