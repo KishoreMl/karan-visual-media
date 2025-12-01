@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { COMPANY_EMAIL } from '../../utils/constants';
+import { emailConfig } from '../../utils/emailConfig';
 import './Contact.scss';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
+        client_name: '',
+        client_email: '',
+        client_phone: '',
+        service: '',
+        description: ''
     });
 
     const [errors, setErrors] = useState({});
@@ -58,30 +62,44 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const data = formData();
 
         if (!validateForm()) {
             return;
         }
-
         setIsSubmitting(true);
 
-        // Simulate API call
-        setTimeout(() => {
-            console.log('Form submitted:', formData);
-            setSubmitSuccess(true);
-            setIsSubmitting(false);
+        try {
+            const templateParams = {
+                client_name: data.client_name,
+                client_email: data.client_email,
+                client_phone: data.client_phone,
+                service: data.service,
+                description: data.description,
+                email: COMPANY_EMAIL
+            };
+
+            // Send email
+            await emailjs.send(emailConfig.serviceId, emailConfig.templateId, templateParams, emailConfig.publicKey);
             
-            // Reset form after success
-            setTimeout(() => {
-                setFormData({
-                    name: '',
-                    email: '',
-                    phone: '',
-                    message: ''
-                });
-                setSubmitSuccess(false);
-            }, 3000);
-        }, 1500);
+            // Success
+            // props.onToast?.('Success!', 'success', 'Thank you! We have received your request and will contact you soon.');
+            
+            // Reset form
+            setFormData({
+                client_name: '',
+                client_email: '',
+                client_phone: '',
+                service: '',
+                description: ''
+            });
+        } catch (error) {
+            console.error('Email sending failed:', error);
+            // props.onToast?.('Error', 'error', 'Failed to send your request. Please try again or contact us directly.');
+        } finally {
+            setIsSubmitting(false);
+        }
+
     };
 
     return (
