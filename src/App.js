@@ -22,9 +22,9 @@ function App() {
     <Router>
       <div className="App" data-theme={isDarkMode ? 'dark' : 'light'}>
         <CustomCursor />
-        <Header />
+        <Header isDarkMode={isDarkMode} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/works" element={<Works />} />

@@ -17,6 +17,9 @@
   --accent-primary: #2B90E2;
   --accent-secondary: #2BAEE2;
   --accent-hover: rgba(43, 144, 226, 0.4);
+
+  --card-shadow-primary: 0 0 50px rgba(43,144,226,0.4);
+  --card-shadow-secondary: 0 0 90px rgba(43,174,226,0.2);
 }
 
 /* Light Theme */
@@ -37,6 +40,9 @@
   --accent-primary: #a4a5a5;
   --accent-secondary: #929292;
   --accent-hover: rgba(43, 144, 226, 0.2);
+
+  --card-shadow-primary: 0 20px 60px rgba(0,0,0,0.3);
+  --card-shadow-secondary: 0 0 0 1px rgba(255,255,225,0.1);
 }
 
 .App {
@@ -62,10 +68,6 @@ html, body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Interactive elements - pointer cursor */
-a, button, input[type="submit"], input[type="button"], [role="button"] {
-  cursor: url('./assets/images/cursor.png') 16 16, pointer !important;
-}
 
 /* Theme-aware text colors */
 h1, h2, h3, h4, h5, h6 {

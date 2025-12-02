@@ -1,18 +1,20 @@
 import React from 'react';
 import DescriptionCard from '../DescriptionCard/DescriptionCard';
 import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
+import darkLogo from '../../assets/images/dark_theme_logo.png';
+import lightLogo from '../../assets/images/light_theme_logo.png';
 import './Home.scss';
 
-const Home = () => {
+const Home = ({ isDarkMode }) => {
+    const logo = isDarkMode ? darkLogo : lightLogo;
 
     return (
         <div className="content-container">
             <div className="header-section">
-                <h1 className="main-title">Creative Knacks</h1>
-                <p>
-                    We are creative agency, specialized in strategy, branding design, and development. <br></br>
-                    Our work is always at the intersection of design and technology. 
-                </p>
+                <img src={logo} alt="Creative Knacks" className="logo" />
+                {/* <p>
+                    We your ideas come to life. 
+                </p> */}
             </div>
 
             <div className="card-cover">
@@ -91,8 +93,9 @@ const Home = () => {
                     <a href="https://github.com/features/security" className="explore-link">Explore our works &gt;</a>
                 </div>
             </div>
+
             <DescriptionCard />
-            
+        
             <div className="logo-content">
                 <div className="logo-icon">
                     <div className="logo-dot"></div>
@@ -100,6 +103,7 @@ const Home = () => {
                 </div>
             </div>
             <div class="progress"></div>
+            
             <DescriptiveContent />
         </div>
     );

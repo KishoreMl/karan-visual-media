@@ -65,11 +65,12 @@ const Services = () => {
     };
 
     const servicesData = [
+
         {
             id: 1,
-            title: "Motion Graphics",
-            description: "Create compelling motion graphics that bring your brand to life. From animated logos to dynamic explainer videos, we deliver stunning visual storytelling.",
-            features: ["Animated Logos", "Explainer Videos", "Title Sequences", "Brand Animation"]
+            title: "Branding & Design",
+            description: "Comprehensive branding solutions that define your identity. From logo design to complete brand guidelines, we create memorable visual identities.",
+            features: ["Logo Design", "Brand Identity", "Style Guides", "Marketing Collateral"]
         },
         {
             id: 2,
@@ -85,9 +86,9 @@ const Services = () => {
         },
         {
             id: 4,
-            title: "Branding & Design",
-            description: "Comprehensive branding solutions that define your identity. From logo design to complete brand guidelines, we create memorable visual identities.",
-            features: ["Logo Design", "Brand Identity", "Style Guides", "Marketing Collateral"]
+            title: "Motion Graphics",
+            description: "Create compelling motion graphics that bring your brand to life. From animated logos to dynamic explainer videos, we deliver stunning visual storytelling.",
+            features: ["Animated Logos", "Explainer Videos", "Title Sequences", "Brand Animation"]
         },
         {
             id: 5,
