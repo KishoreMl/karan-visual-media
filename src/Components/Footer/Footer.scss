@@ -33,6 +33,10 @@
                 svg{
                     cursor: pointer;
                 }
+                .footer-icon:hover {
+                    transform: scale(1.1);
+                    color: var(--accent-primary);
+                }
 
                 @media (max-width: 768px) {
                     margin-top: 2rem;
