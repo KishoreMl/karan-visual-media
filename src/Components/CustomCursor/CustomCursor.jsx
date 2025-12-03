@@ -40,7 +40,10 @@ const CustomCursor = () => {
     }, []);
 
     return (
-        <div className="cursor-dot" ref={cursorDotRef}></div>
+        <div className="cursor-ring" ref={cursorDotRef}>
+             <div className="cursor-dot"></div>
+        </div>
+       
     );
 };
 

@@ -1,5 +1,9 @@
 import React from 'react';
-import devImage from '../../assets/images/Dev.png';
+
+import brandingImg from '../../assets/images/Branding.png';
+import devImg from '../../assets/images/Dev.png';
+import socialMediaImg from '../../assets/images/Social_media.png';
+
 import './DescriptionCard.scss';
 
 const DescriptionCard = () => {
@@ -8,10 +12,25 @@ const DescriptionCard = () => {
             <div className='card-cover'>
                 <div className="glow-info-card">
                     <div className="card-img-container">
-                        <img src={devImage} alt="dev" />
+                        <img src={brandingImg} alt="branding" />
                     </div>
                     <div className="card-header">
-                        <h2>Card Header</h2>
+                        <h2>Branding</h2>
+                    </div>
+                    <div className="description-content">
+                        <p className="card-description">
+                            The vulnerability in the code is due to the fact that user-provided input is directly used in HTTP response without any sanitization. This can lead to a cross-site scripting (XSS) attack if the user input contains malicious scripts.
+                        </p>
+                    </div>
+                </div>
+            </div>  
+            <div className='card-cover'>
+                <div className="glow-info-card">
+                    <div className="card-img-container">
+                        <img src={socialMediaImg} alt="social media" />
+                    </div>
+                    <div className="card-header">
+                        <h2>Social Media Handling</h2>
                     </div>
                     <div className="description-content">
                         <p className="card-description">
@@ -23,25 +42,10 @@ const DescriptionCard = () => {
             <div className='card-cover'>
                 <div className="glow-info-card">
                     <div className="card-img-container">
-                        <img src={devImage} alt="dev" />
+                        <img src={devImg} alt="dev" />
                     </div>
                     <div className="card-header">
-                        <h2>Card Header</h2>
-                    </div>
-                    <div className="description-content">
-                        <p className="card-description">
-                            The vulnerability in the code is due to the fact that user-provided input is directly used in HTTP response without any sanitization. This can lead to a cross-site scripting (XSS) attack if the user input contains malicious scripts.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className='card-cover'>
-                <div className="glow-info-card">
-                    <div className="card-img-container">
-                        <img src={devImage} alt="dev" />
-                    </div>
-                    <div className="card-header">
-                        <h2>Card Header</h2>
+                        <h2>Website Development</h2>
                     </div>
                     <div className="description-content">
                         <p className="card-description">

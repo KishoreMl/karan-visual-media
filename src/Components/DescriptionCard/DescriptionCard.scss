@@ -2,8 +2,8 @@
 
 .glow-info-cards-container {
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 40px;
   padding: 0 2rem;
   margin: 11rem 0;
 
@@ -29,8 +29,8 @@
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 
-    0 0 50px rgba(43, 144, 226, 0.4),
-    0 0 90px rgba(43, 174, 226, 0.2);
+    var(--card-shadow-primary),
+    var(--card-shadow-secondary);
   position: relative;
   z-index: 2;
   backdrop-filter: blur(20px);
@@ -52,8 +52,9 @@
 
   .card-img-container {
     img{
-      width:9rem;
+      width:9.5rem;
       height:9rem;
+      transform: translateX(-16px);
     }
   }
 
