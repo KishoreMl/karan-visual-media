@@ -4,7 +4,6 @@ import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
 import './Home.scss';
-
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
 
@@ -12,9 +11,7 @@ const Home = ({ isDarkMode }) => {
         <div className="content-container">
             <div className="header-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
-                {/* <p>
-                    We your ideas come to life. 
-                </p> */}
+                <p> Where your ideas come to life.</p>
             </div>
 
             <div className="card-cover">
@@ -30,35 +27,6 @@ const Home = ({ isDarkMode }) => {
                         <p className="follow-up-question">
                             we craft powerful brand experiences that connect creativity with strategy. From 3D animations to digital marketing, we help businesses stand out in a crowded world with visuals that captivate and campaigns that convert.
                         </p>
-                    </div>
-
-                    {/* File Changes Section */}
-                    <div className="file-changes-section">
-                        <div className="file-changes-header">
-                            <span className="files-changed">3 files changed</span>
-                            <div className="file-actions">
-                                <button className="keep-button">Keep</button>
-                                <button className="undo-button">Undo</button>
-                                <button className="file-icon-button">📄</button>
-                            </div>
-                        </div>
-                        
-                        <div className="file-list">
-                            <div className="file-item">
-                                <span className="file-icon ts-icon">TS</span>
-                                <span className="file-path">race-service.ts src/lib/data</span>
-                            </div>
-                            <div className="file-item">
-                                <span className="file-icon ts-icon">TS</span>
-                                <span className="file-path">+page.server.ts src/routes</span>
-                                <span className="add-icon">+</span>
-                            </div>
-                            <div className="file-item">
-                                <span className="file-icon svelte-icon">S</span>
-                                <span className="file-path">+page.svelte src/routes</span>
-                                <span className="add-icon">+</span>
-                            </div>
-                        </div>
                     </div>  
                 </div>
             </div>

@@ -1,19 +1,9 @@
-
-#Services
-   - Motion Graphics
-   - 3D Animation
-   - Visual effects
-   - Branding & Design
-        - Logo designing
-        - Business card
-        - Brochure
-        - packaging box design
-        - pamplets
-        - banner design
-   - Social media handling
-   - Digital marketing
-   - Website development
-   - 3D interior & exterior walkthrough animation
-        
-
+#Pending Tasks
+- Light mode - remove blue color : Deeps
+- Toast Component                : Deeps
+- Contact Serivce field          : Deeps
+- Home page animation            : Kishore 
+- Email Test                     : Deeps
+- Work Detail page               :
+- Content update                 : 
 
