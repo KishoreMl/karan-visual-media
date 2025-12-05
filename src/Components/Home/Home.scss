@@ -82,6 +82,7 @@
 /* Central Card */
 .central-card {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   background: var(--bg-card);
   color: white;
@@ -93,6 +94,7 @@
   position: relative;
   z-index: 2;
   border: 1px solid rgba(138, 43, 226, 0.2);
+  overflow: hidden;
 }
 
 .central-card::before {
@@ -116,6 +118,7 @@
 .card-cover {
   margin: 0 auto;
   width: fit-content;
+  max-width: 100%;
   background: transparent;
   border: solid 1px white;
   border-radius: 16px;
@@ -511,8 +514,13 @@
     padding: 1rem;
   }
   
+  .card-cover {
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
   .main-title {
-    font-size: 2.5rem;
+    font-size: 2rem !important;
   }
   
   .main-description {
@@ -521,6 +529,28 @@
   
   .central-card {
     padding: 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .card-heading {
+    font-size: 1.1rem;
+  }
+  
+  .feature-list {
+    font-size: 0.9rem;
+    padding-left: 1rem;
+  }
+  
+  .follow-up-question {
+    font-size: 0.9rem;
+  }
+  
+  .file-changes-section {
+    padding: 1rem;
+  }
+  
+  .file-actions {
+    flex-wrap: wrap;
   }
   
   .control-bar {
@@ -532,6 +562,84 @@
     right: 1rem;
     width: 45px;
     height: 45px;
+  }
+  
+  .autofix-container {
+    padding: 3rem 1rem;
+    margin-top: 4rem;
+    
+    .text-content {
+      .main-title {
+        font-size: 2rem !important;
+        margin-bottom: 1rem;
+      }
+      
+      .main-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 0.5rem;
+  }
+  
+  .card-cover {
+    padding: 0.25rem;
+  }
+  
+  .central-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .card-heading {
+    font-size: 1rem;
+  }
+  
+  .feature-list {
+    font-size: 0.85rem;
+  }
+  
+  .follow-up-question {
+    font-size: 0.85rem;
+  }
+  
+  .file-changes-section {
+    padding: 0.75rem;
+  }
+  
+  .file-item {
+    padding: 0.4rem;
+    gap: 0.5rem;
+  }
+  
+  .file-path {
+    font-size: 0.75rem;
+    word-break: break-word;
+  }
+  
+  .autofix-container {
+    padding: 2rem 0.5rem;
+    margin-top: 3rem;
+    
+    .text-content {
+      .main-title {
+        font-size: 1.5rem !important;
+        line-height: 1.2;
+      }
+      
+      .main-description {
+        font-size: 0.9rem;
+      }
+      
+      .explore-link {
+        font-size: 1rem;
+      }
+    }
   }
 }
 
