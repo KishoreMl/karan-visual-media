@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import DescriptionCard from '../DescriptionCard/DescriptionCard';
 import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
+import Door from '../door';
 import './Home.scss';
+
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
+    const cardRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect(); // Stop observing after first trigger
+                }
+            },
+            {
+                threshold: 0.3, // Trigger when 30% of the element is visible
+                rootMargin: '0px'
+            }
+        );
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+        }
+
+        return () => {
+            if (observer) {
+                observer.disconnect();
+            }
+        };
+    }, []);
 
     return (
         <div className="content-container">
@@ -14,10 +43,10 @@ const Home = ({ isDarkMode }) => {
                 <p> Where your ideas come to life.</p>
             </div>
 
-            <div className="card-cover">
+            <div className="card-cover" ref={cardRef}>
                 <div className="central-card">
                     <div className="text-block">
-                        <h3 className="card-heading">The search functionality is now fully implemented. Users can:</h3>
+                        <h3 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h3>
                         <ol className="feature-list">
                             <li>Search for running races by name using the search box</li>
                             <li>See filtered results matching their search term</li>
@@ -64,12 +93,13 @@ const Home = ({ isDarkMode }) => {
 
             <DescriptionCard />
         
-            <div className="logo-content">
+            {/* <div className="logo-content">
                 <div className="logo-icon">
                     <div className="logo-dot"></div>
                     <div className="logo-bar"></div>
                 </div>
-            </div>
+            </div> */}
+            <Door />
             <div class="progress"></div>
             
             <DescriptiveContent />
