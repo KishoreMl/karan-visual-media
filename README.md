@@ -1,5 +1,5 @@
 #Pending Tasks
-- Light mode - remove blue color : Deeps
+- Light mode - remove blue color : Kishore - Done
 - Toast Component                : Deeps
 - Contact Serivce field          : Deeps
 - Home page animation            : Kishore 
