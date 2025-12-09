@@ -3,7 +3,7 @@ import DescriptionCard from '../DescriptionCard/DescriptionCard';
 import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
-import Door from '../door';
+// import Door from '../door';
 import './Home.scss';
 
 // Import carousel logos
