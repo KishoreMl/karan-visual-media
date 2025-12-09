@@ -6,6 +6,14 @@ import lightLogo from '../../assets/images/light_theme_logo.png';
 import Door from '../door';
 import './Home.scss';
 
+// Import carousel logos
+import animationLogo from '../../assets/images/logos/Animation.png';
+import brandingLogo from '../../assets/images/logos/Branding.png';
+import devLogo from '../../assets/images/logos/Dev.png';
+import mainLogo from '../../assets/images/logos/Logo.png';
+import socialMediaLogo from '../../assets/images/logos/Social_media.png';
+import vfxLogo from '../../assets/images/logos/VFX.png';
+
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
     const cardRef = useRef(null);
@@ -16,11 +24,10 @@ const Home = ({ isDarkMode }) => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.disconnect(); // Stop observing after first trigger
                 }
             },
             {
-                threshold: 0.3, // Trigger when 30% of the element is visible
+                threshold: 0.15,
                 rootMargin: '0px'
             }
         );
@@ -46,7 +53,7 @@ const Home = ({ isDarkMode }) => {
             <div className="card-cover" ref={cardRef}>
                 <div className="central-card">
                     <div className="text-block">
-                        <h3 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h3>
+                        <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
                         <ol className="feature-list">
                             <li>Search for running races by name using the search box</li>
                             <li>See filtered results matching their search term</li>
@@ -65,16 +72,20 @@ const Home = ({ isDarkMode }) => {
                 <div className="carousel-container">
                     <div className="carousel-track">
                         {(() => {
-                            const companies = [
-                                'Ford', 'Infosys', 'mercado\nlibre', 'Mercedes-Benz', 
-                                'Shopify', 'PayPal', 'Amazon', 'Google'
+                            const logos = [
+                                { src: animationLogo, alt: 'Animation' },
+                                { src: brandingLogo, alt: 'Branding' },
+                                { src: devLogo, alt: 'Development' },
+                                { src: mainLogo, alt: 'Main Logo' },
+                                { src: socialMediaLogo, alt: 'Social Media' },
+                                { src: vfxLogo, alt: 'VFX' }
                             ];
                             // Duplicate twice for seamless infinite loop
-                            const duplicated = [...companies, ...companies];
+                            const duplicated = [...logos, ...logos];
                             
-                            return duplicated.map((company, index) => (
+                            return duplicated.map((logo, index) => (
                                 <div key={index} className="company-logo">
-                                    <span className="logo-text">{company}</span>
+                                    <img src={logo.src} alt={logo.alt} className="logo-image" />
                                 </div>
                             ));
                         })()}
@@ -87,21 +98,18 @@ const Home = ({ isDarkMode }) => {
                     <p className="main-description">
                         Spend less time fixing vulnerabilities and more time building features with Copilot Autofix.
                     </p>
-                    <a href="https://github.com/features/security" className="explore-link">Explore our works &gt;</a>
+                    <a href="/works" className="explore-link">Explore our works &gt;</a>
                 </div>
-            </div>
-
-            <DescriptionCard />
-        
-            {/* <div className="logo-content">
+                <div className="logo-content">
                 <div className="logo-icon">
                     <div className="logo-dot"></div>
                     <div className="logo-bar"></div>
                 </div>
-            </div> */}
-            <Door />
-            <div class="progress"></div>
-            
+            </div>
+            </div>
+
+            <DescriptionCard />
+            {/* <Door /> */}
             <DescriptiveContent />
         </div>
     );

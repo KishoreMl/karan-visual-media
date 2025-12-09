@@ -2,7 +2,8 @@ import React from 'react';
 
 import brandingImg from '../../assets/images/Branding.png';
 import devImg from '../../assets/images/Dev.png';
-import socialMediaImg from '../../assets/images/Social_media.png';
+import socialMediaImg from '../../assets/images/Socialmedia.png';
+import animationImg from '../../assets/images/Animation.png';
 
 import './DescriptionCard.scss';
 
@@ -12,7 +13,7 @@ const DescriptionCard = () => {
             <div className='card-cover'>
                 <div className="glow-info-card">
                     <div className="card-img-container">
-                        <img src={brandingImg} alt="branding" />
+                        <img src={animationImg} alt="animation" />
                     </div>
                     <div className="card-header">
                         <h2>Branding</h2>

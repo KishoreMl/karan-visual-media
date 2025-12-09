@@ -5,7 +5,7 @@
   grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
   gap: 40px;
   padding: 0 2rem;
-  margin: 11rem 0;
+  margin: 9rem 0;
 
   .card-cover {
     background: transparent;
@@ -16,7 +16,7 @@
     position: relative;
     z-index: 2;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
+    // backdrop-filter: blur(20px);
   }
 }
 
@@ -33,7 +33,6 @@
     var(--card-shadow-secondary);
   position: relative;
   z-index: 2;
-  backdrop-filter: blur(20px);
 
   // &::before {
   //   content: '';

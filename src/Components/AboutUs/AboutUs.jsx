@@ -51,16 +51,9 @@ const AboutUs = () => {
 
     return (
         <div className="about-page">
-            <div className="about-background">
-                <div className="gradient-orb orb-1"></div>
-                <div className="gradient-orb orb-2"></div>
-                <div className="gradient-orb orb-3"></div>
-            </div>
-
             <div className="about-header">
                 <h1 className="about-title">About Us</h1>
             </div>
-
             <div 
                 ref={(el) => addToRefs(el, 1)}
                 data-section={1}

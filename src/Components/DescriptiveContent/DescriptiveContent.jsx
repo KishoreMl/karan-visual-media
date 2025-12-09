@@ -44,7 +44,7 @@ const DescriptiveContent = () => {
                         <span 
                             key={index} 
                             className="text-line"
-                            style={{ animationDelay: `${index * 0.2}s` }}
+                            style={{ animationDelay: `${index * 0.1}s` }}
                         >
                             {line}
                         </span>
