@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-import { LINKEDIN_URL, YOUTUBE_URL, INSTAGRAM_URL ,X_URL} from '../../utils/constants';
+import { YOUTUBE_URL} from '../../utils/constants';
 
 
 const redirectToUrl = (url) => {
