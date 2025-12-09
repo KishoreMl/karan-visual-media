@@ -1,0 +1,52 @@
+.space-container{
+    position: relative;
+    width:100%;
+    height:90vh;
+    background: transparent;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    perspective-origin: 45% 10%;
+}
+
+.door-container{
+    position: absolute;
+    width:100%;
+    height:100%;
+    transform-style: preserve-3d;
+    left:40%;
+}
+
+.back{
+    position: absolute;
+    width:3rem;
+    height:12rem;
+    box-shadow: 0 0 19px inset rgb(250, 249, 249);
+    border-top: solid 1px white;
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+}
+.bottom{
+    position:absolute;
+    height:19rem;
+    width:3rem;
+    box-shadow: 0 0 19px inset rgb(250, 249, 249);
+    transform:translateY(6rem) translateY(-3rem) translateZ(7rem) rotateX(90deg);
+}
+.left{
+    position: absolute;
+    height:12rem;
+    width:12rem;
+    border: solid 1px white;
+    background: transparent;
+    transform: translateX(-3.5rem) rotateY(30deg);
+    box-shadow: 0 0 19px inset rgb(230, 38, 38);
+}
+.right{
+    position: absolute;
+    height:12rem;
+    width:12rem;
+    border: solid 1px white;
+    background: transparent; 
+    transform: translateX(3.5rem) rotateY(40deg);
+    box-shadow: 0 0 19px inset rgb(218, 50, 50);
+}

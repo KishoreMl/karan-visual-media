@@ -1,13 +1,16 @@
 .works-container {
     padding: 80px 40px;
-    background: var(--bg-primary);
+    background: transparent;
     min-height: 100vh;
 
     .works-header {
         margin-bottom: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         .works-title {
-            font-size: 7rem;
+            font-size: 6rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
@@ -23,6 +26,8 @@
 
     .filter-buttons {
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 1rem;
         margin-bottom: 60px;
         flex-wrap: wrap;

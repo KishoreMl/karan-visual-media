@@ -1,26 +1,59 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import DescriptionCard from '../DescriptionCard/DescriptionCard';
 import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
+// import Door from '../door';
 import './Home.scss';
+
+// Import carousel logos
+import animationLogo from '../../assets/images/logos/Animation.png';
+import brandingLogo from '../../assets/images/logos/Branding.png';
+import devLogo from '../../assets/images/logos/Dev.png';
+import mainLogo from '../../assets/images/logos/Logo.png';
+import socialMediaLogo from '../../assets/images/logos/Social_media.png';
+import vfxLogo from '../../assets/images/logos/VFX.png';
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
+    const cardRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            {
+                threshold: 0.15,
+                rootMargin: '0px'
+            }
+        );
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+        }
+
+        return () => {
+            if (observer) {
+                observer.disconnect();
+            }
+        };
+    }, []);
 
     return (
         <div className="content-container">
             <div className="header-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
-                {/* <p>
-                    We your ideas come to life. 
-                </p> */}
+                <p> Where your ideas come to life.</p>
             </div>
 
-            <div className="card-cover">
+            <div className="card-cover" ref={cardRef}>
                 <div className="central-card">
                     <div className="text-block">
-                        <h3 className="card-heading">The search functionality is now fully implemented. Users can:</h3>
+                        <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
                         <ol className="feature-list">
                             <li>Search for running races by name using the search box</li>
                             <li>See filtered results matching their search term</li>
@@ -30,35 +63,6 @@ const Home = ({ isDarkMode }) => {
                         <p className="follow-up-question">
                             we craft powerful brand experiences that connect creativity with strategy. From 3D animations to digital marketing, we help businesses stand out in a crowded world with visuals that captivate and campaigns that convert.
                         </p>
-                    </div>
-
-                    {/* File Changes Section */}
-                    <div className="file-changes-section">
-                        <div className="file-changes-header">
-                            <span className="files-changed">3 files changed</span>
-                            <div className="file-actions">
-                                <button className="keep-button">Keep</button>
-                                <button className="undo-button">Undo</button>
-                                <button className="file-icon-button">📄</button>
-                            </div>
-                        </div>
-                        
-                        <div className="file-list">
-                            <div className="file-item">
-                                <span className="file-icon ts-icon">TS</span>
-                                <span className="file-path">race-service.ts src/lib/data</span>
-                            </div>
-                            <div className="file-item">
-                                <span className="file-icon ts-icon">TS</span>
-                                <span className="file-path">+page.server.ts src/routes</span>
-                                <span className="add-icon">+</span>
-                            </div>
-                            <div className="file-item">
-                                <span className="file-icon svelte-icon">S</span>
-                                <span className="file-path">+page.svelte src/routes</span>
-                                <span className="add-icon">+</span>
-                            </div>
-                        </div>
                     </div>  
                 </div>
             </div>
@@ -68,16 +72,20 @@ const Home = ({ isDarkMode }) => {
                 <div className="carousel-container">
                     <div className="carousel-track">
                         {(() => {
-                            const companies = [
-                                'Ford', 'Infosys', 'mercado\nlibre', 'Mercedes-Benz', 
-                                'Shopify', 'PayPal', 'Amazon', 'Google'
+                            const logos = [
+                                { src: animationLogo, alt: 'Animation' },
+                                { src: brandingLogo, alt: 'Branding' },
+                                { src: devLogo, alt: 'Development' },
+                                { src: mainLogo, alt: 'Main Logo' },
+                                { src: socialMediaLogo, alt: 'Social Media' },
+                                { src: vfxLogo, alt: 'VFX' }
                             ];
                             // Duplicate twice for seamless infinite loop
-                            const duplicated = [...companies, ...companies];
+                            const duplicated = [...logos, ...logos];
                             
-                            return duplicated.map((company, index) => (
+                            return duplicated.map((logo, index) => (
                                 <div key={index} className="company-logo">
-                                    <span className="logo-text">{company}</span>
+                                    <img src={logo.src} alt={logo.alt} className="logo-image" />
                                 </div>
                             ));
                         })()}
@@ -90,20 +98,18 @@ const Home = ({ isDarkMode }) => {
                     <p className="main-description">
                         Spend less time fixing vulnerabilities and more time building features with Copilot Autofix.
                     </p>
-                    <a href="https://github.com/features/security" className="explore-link">Explore our works &gt;</a>
+                    <a href="/works" className="explore-link">Explore our works &gt;</a>
                 </div>
-            </div>
-
-            <DescriptionCard />
-        
-            <div className="logo-content">
+                <div className="logo-content">
                 <div className="logo-icon">
                     <div className="logo-dot"></div>
                     <div className="logo-bar"></div>
                 </div>
             </div>
-            <div class="progress"></div>
-            
+            </div>
+
+            <DescriptionCard />
+            {/* <Door /> */}
             <DescriptiveContent />
         </div>
     );

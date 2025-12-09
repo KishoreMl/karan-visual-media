@@ -104,12 +104,6 @@ const Contact = () => {
 
     return (
         <div className="contact-page">
-            {/* Background Elements */}
-            <div className="contact-background">
-                <div className="gradient-orb orb-1"></div>
-                <div className="gradient-orb orb-2"></div>
-                <div className="gradient-orb orb-3"></div>
-            </div>
 
             {/* Header Section */}
             <div className="contact-header">
