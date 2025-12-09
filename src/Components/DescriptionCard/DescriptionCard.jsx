@@ -1,6 +1,4 @@
 import React from 'react';
-
-import brandingImg from '../../assets/images/Branding.png';
 import devImg from '../../assets/images/Dev.png';
 import socialMediaImg from '../../assets/images/Socialmedia.png';
 import animationImg from '../../assets/images/Animation.png';
