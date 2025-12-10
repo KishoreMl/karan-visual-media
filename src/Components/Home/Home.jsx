@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import DescriptionCard from '../DescriptionCard/DescriptionCard';
 import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
@@ -111,6 +112,20 @@ const Home = ({ isDarkMode }) => {
             <DescriptionCard />
             {/* <Door /> */}
             <DescriptiveContent />
+
+            {/* Contact CTA Section */}
+            <div className="contact-cta-section">
+                <div className="cta-content">
+                    <h2 className="cta-title">Have a Project in Mind?</h2>
+                    <p className="cta-description">
+                        Let's collaborate and bring your vision to life. Reach out to us for a free consultation and discover how we can help your brand stand out.
+                    </p>
+                    <Link to="/contact" className="cta-button">
+                        <span>Contact Us</span>
+                        <span className="button-arrow">→</span>
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 };

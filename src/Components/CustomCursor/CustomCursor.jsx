@@ -3,19 +3,15 @@ import './CustomCursor.scss';
 
 const CustomCursor = () => {
     const cursorDotRef = useRef(null);
+    const requestRef = useRef(null);
+    const mousePosition = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
         const cursorDot = cursorDotRef.current;
         let currentTarget = null;
 
         const handleMouseMove = (e) => {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-
-            if (cursorDot) {
-                cursorDot.style.left = `${mouseX}px`;
-                cursorDot.style.top = `${mouseY}px`;
-            }
+            mousePosition.current = { x: e.clientX, y: e.clientY };
 
             const target = e.target;
             const isHoverable = target.tagName === 'A' || 
@@ -32,10 +28,21 @@ const CustomCursor = () => {
             }
         };
 
+        const updateCursorPosition = () => {
+            if (cursorDot) {
+                cursorDot.style.transform = `translate(${mousePosition.current.x}px, ${mousePosition.current.y}px)`;
+            }
+            requestRef.current = requestAnimationFrame(updateCursorPosition);
+        };
+
         document.addEventListener('mousemove', handleMouseMove, { passive: true });
+        requestRef.current = requestAnimationFrame(updateCursorPosition);
 
         return () => {
             document.removeEventListener('mousemove', handleMouseMove);
+            if (requestRef.current) {
+                cancelAnimationFrame(requestRef.current);
+            }
         };
     }, []);
 

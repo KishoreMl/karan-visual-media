@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { COMPANY_EMAIL } from '../../utils/constants';
 import { emailConfig } from '../../utils/emailConfig';
 import './Contact.scss';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
-        client_name: '',
-        client_email: '',
-        client_phone: '',
+        name: '',
+        email: '',
+        phone: '',
         service: '',
-        description: ''
+        message: ''
     });
 
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitSuccess] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -62,40 +62,45 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = formData();
 
         if (!validateForm()) {
             return;
         }
         setIsSubmitting(true);
+        setSubmitError(false);
 
         try {
             const templateParams = {
-                client_name: data.client_name,
-                client_email: data.client_email,
-                client_phone: data.client_phone,
-                service: data.service,
-                description: data.description,
-                email: COMPANY_EMAIL
+                client_name: formData.name,
+                client_email: formData.email,
+                client_phone: formData.phone,
+                service: formData.service,
+                description: formData.message,
+                email: emailConfig.recipientEmail
             };
 
             // Send email
             await emailjs.send(emailConfig.serviceId, emailConfig.templateId, templateParams, emailConfig.publicKey);
             
             // Success
-            // props.onToast?.('Success!', 'success', 'Thank you! We have received your request and will contact you soon.');
+            setSubmitSuccess(true);
             
             // Reset form
             setFormData({
-                client_name: '',
-                client_email: '',
-                client_phone: '',
+                name: '',
+                email: '',
+                phone: '',
                 service: '',
-                description: ''
+                message: ''
             });
+
+            // Hide success message after 5 seconds
+            setTimeout(() => setSubmitSuccess(false), 5000);
         } catch (error) {
             console.error('Email sending failed:', error);
-            // props.onToast?.('Error', 'error', 'Failed to send your request. Please try again or contact us directly.');
+            setSubmitError(true);
+            // Hide error message after 5 seconds
+            setTimeout(() => setSubmitError(false), 5000);
         } finally {
             setIsSubmitting(false);
         }
@@ -125,13 +130,6 @@ const Contact = () => {
 
                     <div className="contact-form-wrapper">
                         <form className="contact-form" onSubmit={handleSubmit}>
-                            {submitSuccess && (
-                                <div className="success-message">
-                                    <span className="success-icon">✓</span>
-                                    <p>Thank you! We'll get back to you soon.</p>
-                                </div>
-                            )}
-
                             <div className="form-group">
                                 <label htmlFor="name" className="form-label">
                                     Name <span className="required">*</span>
@@ -181,6 +179,21 @@ const Contact = () => {
                             </div>
 
                             <div className="form-group">
+                                <label htmlFor="service" className="form-label">
+                                    Service <span className="optional">(Optional)</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="service"
+                                    name="service"
+                                    value={formData.service}
+                                    onChange={handleChange}
+                                    className="form-input"
+                                    placeholder="e.g., Branding, Animation, VFX, Web Development"
+                                />
+                            </div>
+
+                            <div className="form-group">
                                 <label htmlFor="message" className="form-label">
                                     Message <span className="optional">(Optional)</span>
                                 </label>
@@ -208,6 +221,21 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Toast Notifications */}
+            {submitSuccess && (
+                <div className="toast toast-success">
+                    <span className="toast-icon">✓</span>
+                    <p>Thank you! We'll get back to you soon.</p>
+                </div>
+            )}
+
+            {submitError && (
+                <div className="toast toast-error">
+                    <span className="toast-icon">✕</span>
+                    <p>Failed to send message. Please try again.</p>
+                </div>
+            )}
         </div>
     );
 };
