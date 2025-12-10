@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Services.scss';
 
 const Services = () => {
@@ -64,8 +65,14 @@ const Services = () => {
         }
     };
 
-    const servicesData = [
+    const scrollToService = (serviceId) => {
+        const element = document.getElementById(`service-${serviceId}`);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
+    const servicesData = [
         {
             id: 1,
             title: "Branding & Design",
@@ -74,42 +81,36 @@ const Services = () => {
         },
         {
             id: 2,
-            title: "3D Animation",
-            description: "Professional 3D animation services that transform concepts into photorealistic visual experiences. Perfect for product showcases and immersive storytelling.",
-            features: ["Product Animation", "Character Animation", "3D Modeling", "Rendering"]
-        },
-        {
-            id: 3,
-            title: "Visual Effects",
-            description: "Industry-leading VFX services that seamlessly blend reality with imagination. Enhance your footage with stunning visual effects and compositing.",
-            features: ["Compositing", "CGI Integration", "Color Grading", "Post-Production VFX"]
-        },
-        {
-            id: 4,
-            title: "Motion Graphics",
-            description: "Create compelling motion graphics that bring your brand to life. From animated logos to dynamic explainer videos, we deliver stunning visual storytelling.",
-            features: ["Animated Logos", "Explainer Videos", "Title Sequences", "Brand Animation"]
-        },
-        {
-            id: 5,
             title: "Social Media Handling",
             description: "Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.",
             features: ["Content Creation", "Community Management", "Strategy Planning", "Analytics & Reporting"]
         },
         {
-            id: 6,
+            id: 3,
+            title: "Motion Graphics",
+            description: "Create compelling motion graphics that bring your brand to life. From animated logos to dynamic explainer videos, we deliver stunning visual storytelling.",
+            features: ["Animated Logos", "Explainer Videos", "Title Sequences", "Brand Animation"]
+        },
+        {
+            id: 4,
             title: "Digital Marketing",
             description: "Data-driven digital marketing campaigns that deliver measurable results. Reach your target audience and maximize your ROI.",
             features: ["SEO Optimization", "PPC Campaigns", "Email Marketing", "Content Strategy"]
         },
         {
-            id: 7,
-            title: "Website Development",
-            description: "Modern, responsive websites that deliver exceptional user experiences. From design to deployment, we build digital solutions that perform.",
-            features: ["Responsive Design", "Custom Development", "E-commerce Solutions", "CMS Integration"]
+            id: 5,
+            title: "Visual Effects",
+            description: "Industry-leading VFX services that seamlessly blend reality with imagination. Enhance your footage with stunning visual effects and compositing.",
+            features: ["Compositing", "CGI Integration", "Color Grading", "Post-Production VFX"]
         },
         {
-            id: 8,
+            id: 6,
+            title: "3D Animation",
+            description: "Professional 3D animation services that transform concepts into photorealistic visual experiences. Perfect for product showcases and immersive storytelling.",
+            features: ["Product Animation", "Character Animation", "3D Modeling", "Rendering"]
+        },
+        {
+            id: 7,
             title: "3D Interior & Exterior Walkthrough Animation",
             description: "Photorealistic architectural visualizations that bring spaces to life. Perfect for real estate, architecture, and interior design projects.",
             features: ["3D Walkthroughs", "Architectural Visualization", "Interior Rendering", "Virtual Tours"]
@@ -130,6 +131,20 @@ const Services = () => {
                     <p className="services-subtitle">
                         Comprehensive visual media solutions tailored to elevate your brand
                     </p>
+                    
+                    {/* Services Navigation Menu */}
+                    <div className="services-nav-menu">
+                        {servicesData.map((service) => (
+                            <button
+                                key={service.id}
+                                className="service-nav-item"
+                                onClick={() => scrollToService(service.id)}
+                            >
+                                {service.title}
+                            </button>
+                        ))}
+                    </div>
+
                     <div className="scroll-indicator">
                         <span className="scroll-text">Scroll to explore</span>
                         <div className="scroll-arrow">↓</div>
@@ -147,6 +162,7 @@ const Services = () => {
                         <React.Fragment key={service.id}>
                             {/* GIF/Image Section */}
                             <div 
+                                id={`service-${service.id}`}
                                 ref={(el) => addToRefs(el, gifIndex)}
                                 data-index={gifIndex}
                                 className={`scroll-section gif-section ${visibleSections.includes(gifIndex) ? 'visible' : ''}`}
@@ -213,10 +229,10 @@ const Services = () => {
                 <div className="services-cta">
                     <h2>Ready to bring your vision to life?</h2>
                     <p className="cta-description">Let's create something extraordinary together</p>
-                    <button className="cta-primary-button">
+                    <Link to="/contact" className="cta-primary-button">
                         <span>Get Started Today</span>
                         <span className="cta-button-icon">→</span>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

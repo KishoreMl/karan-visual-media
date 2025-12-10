@@ -25,9 +25,13 @@
   }
   p{
     font-size: 1.6rem;
-    color: #e0e0e0;
+    color: #ffffff;
     margin: 6.5rem auto 0 auto;
     line-height: 1.6;
+
+    [data-theme="light"] & {
+      color: rgba(0, 0, 0, 0.4);
+    }
    
   }
 
@@ -734,15 +738,24 @@
     height: 7rem;
     object-fit: contain;
     transition: all 0.3s ease;
-    opacity: 0.7;
-    filter: grayscale(20%) brightness(0.95);
+    opacity: 0.8;
+    filter: grayscale(20%);
     user-select: none;
     pointer-events: none;
 
+    [data-theme="light"] & {
+      filter: grayscale(20%) invert(1) brightness(0.3);
+      opacity: 0.9;
+    }
+
     &:hover {
       opacity: 1;
-      filter: grayscale(0%) brightness(1);
+      filter: grayscale(0%);
       transform: scale(1.1);
+
+      [data-theme="light"] & {
+        filter: grayscale(0%) invert(1) brightness(0.2);
+      }
     }
   }
 }
@@ -923,6 +936,105 @@
         width: 35px;
         height: 150px;
       }
+    }
+  }
+}
+
+/* Contact CTA Section */
+.contact-cta-section {
+  padding: 6rem 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  background: var(--bg-card);
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  position: relative;
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .cta-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--secondary-yellow) 100%);
+    color: #0a0a0a;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(249, 168, 37, 0.3);
+
+    .button-arrow {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(249, 168, 37, 0.4);
+
+      .button-arrow {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-cta-section {
+    padding: 4rem 1.5rem;
+    margin: 3rem 1rem;
+    border-radius: 20px;
+
+    .cta-description {
+      font-size: 1rem;
+    }
+
+    .cta-button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-cta-section {
+    padding: 3rem 1rem;
+    margin: 2rem 0.5rem;
+
+    .cta-title {
+      font-size: 1.75rem;
+    }
+
+    .cta-description {
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: center;
     }
   }
 }
