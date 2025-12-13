@@ -1,24 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import DescriptionCard from '../DescriptionCard/DescriptionCard';
-import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
+import DescriptionCard from './DescriptionCard/DescriptionCard';
+import DescriptiveContent from './DescriptiveContent/DescriptiveContent';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
-// import Door from '../door';
+import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import './Home.scss';
 
 // Import carousel logos
-import animationLogo from '../../assets/images/logos/Animation.png';
-import brandingLogo from '../../assets/images/logos/Branding.png';
-import devLogo from '../../assets/images/logos/Dev.png';
-import mainLogo from '../../assets/images/logos/Logo.png';
-import socialMediaLogo from '../../assets/images/logos/Social_media.png';
-import vfxLogo from '../../assets/images/logos/VFX.png';
+import client_logo_1 from "../../assets/images/logos/Nutrieros_1.png";
+import client_logo_2 from "../../assets/images/logos/big_idea_dark.png";
+import client_logo_3 from "../../assets/images/logos/eagle.png";
+import client_logo_4 from "../../assets/images/logos/tamil_catering.png";
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
     const cardRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
+    const logoRef = useRef(null);
+    const [logoProgress, setLogoProgress] = useState(0);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -44,11 +44,59 @@ const Home = ({ isDarkMode }) => {
         };
     }, []);
 
+    // Logo progress bar animation - triggers when element is fully visible
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    // Element is fully visible, start animation from 0 to 100
+                    let startTime = null;
+                    const duration = 700; // 2 seconds animation
+
+                    const animate = (timestamp) => {
+                        if (!startTime) startTime = timestamp;
+                        const elapsed = timestamp - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        
+                        setLogoProgress(progress);
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        }
+                    };
+                    
+                    requestAnimationFrame(animate);
+                    observer.disconnect(); // Run animation only once
+                }
+            },
+            {
+                threshold: 1.0, // Trigger when 100% of element is visible
+                rootMargin: '0px'
+            }
+        );
+
+        if (logoRef.current) {
+            observer.observe(logoRef.current);
+        }
+
+        return () => {
+            if (observer) {
+                observer.disconnect();
+            }
+        };
+    }, []);
+
     return (
         <div className="content-container">
             <div className="header-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
-                <p> Where your ideas come to life.</p>
+                <p className="animated-text">
+                    {" Where your ideas come to life.".split(' ').map((word, index) => (
+                        <span key={index} className="word">
+                            {word}{'   '}
+                        </span>
+                    ))}
+                </p>
             </div>
 
             <div className="card-cover" ref={cardRef}>
@@ -74,15 +122,13 @@ const Home = ({ isDarkMode }) => {
                     <div className="carousel-track">
                         {(() => {
                             const logos = [
-                                { src: animationLogo, alt: 'Animation' },
-                                { src: brandingLogo, alt: 'Branding' },
-                                { src: devLogo, alt: 'Development' },
-                                { src: mainLogo, alt: 'Main Logo' },
-                                { src: socialMediaLogo, alt: 'Social Media' },
-                                { src: vfxLogo, alt: 'VFX' }
+                                { src: client_logo_1, alt: 'Nutrieros' },
+                                { src: client_logo_2, alt: 'Big Idea' },
+                                { src: client_logo_3, alt: 'Eagle' },
+                                { src: client_logo_4, alt: 'Tamil Catering' },
                             ];
                             // Duplicate twice for seamless infinite loop
-                            const duplicated = [...logos, ...logos];
+                            const duplicated = [...logos, ...logos, ...logos];
                             
                             return duplicated.map((logo, index) => (
                                 <div key={index} className="company-logo">
@@ -95,24 +141,31 @@ const Home = ({ isDarkMode }) => {
             </div>
             <div className="autofix-container">
                 <div className="text-content">
-                    <h1 className="main-title">Design it once. Design it right.</h1>
+                    <h1 className="main-title">Design it right. Design it better.</h1>
                     <p className="main-description">
                         Spend less time fixing vulnerabilities and more time building features with Copilot Autofix.
                     </p>
                     <a href="/works" className="explore-link">Explore our works &gt;</a>
                 </div>
-                <div className="logo-content">
+                <div className="logo-content" ref={logoRef}>
                 <div className="logo-icon">
                     <div className="logo-dot"></div>
-                    <div className="logo-bar"></div>
+                    <div className="logo-bar">
+                        <div 
+                            className="logo-bar-progress"
+                            style={{ height: `${logoProgress * 100}%` }}
+                        ></div>
+                    </div>
                 </div>
             </div>
             </div>
 
             <DescriptionCard />
-            {/* <Door /> */}
             <DescriptiveContent />
+            <ScaleUpScreen />
 
+            <div className="shapes-container">
+            </div>
             {/* Contact CTA Section */}
             <div className="contact-cta-section">
                 <div className="cta-content">

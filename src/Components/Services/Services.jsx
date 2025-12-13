@@ -114,6 +114,12 @@ const Services = () => {
             title: "3D Interior & Exterior Walkthrough Animation",
             description: "Photorealistic architectural visualizations that bring spaces to life. Perfect for real estate, architecture, and interior design projects.",
             features: ["3D Walkthroughs", "Architectural Visualization", "Interior Rendering", "Virtual Tours"]
+        },
+        {
+            id:8,
+            title: "Website Development",
+            description: "Professional website development services that create engaging and functional online experiences. From simple landing pages to complex web applications, we build websites that perform and convert.",
+            features: ["Website Design", "Website Development", "Website Maintenance", "Website Hosting"]
         }
     ];
 
@@ -128,9 +134,6 @@ const Services = () => {
             <div className="services-header-section">
                 <div className="services-header">
                     <h1 className="services-title">Our Services</h1>
-                    <p className="services-subtitle">
-                        Comprehensive visual media solutions tailored to elevate your brand
-                    </p>
                     
                     {/* Services Navigation Menu */}
                     <div className="services-nav-menu">

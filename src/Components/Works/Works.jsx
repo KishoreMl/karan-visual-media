@@ -67,7 +67,7 @@ const Works = () => {
         }
     ];
 
-    const categories = ['ALL', 'BRAND DESIGN', 'EVENT COLLATERAL', 'SOCIAL MEDIA'];
+    const categories = ['All', 'Branding & Design', 'Motion Graphics', '3D Animation', '3D Interior & Exterior Walkthrough Animation', 'Website Development'];
 
     const filteredProjects = filter === 'ALL' 
         ? projects 

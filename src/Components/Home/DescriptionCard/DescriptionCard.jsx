@@ -1,17 +1,24 @@
 import React from 'react';
-import devImg from '../../assets/images/Dev.png';
-import socialMediaImg from '../../assets/images/Socialmedia.png';
-import animationImg from '../../assets/images/Animation.png';
+import { useNavigate } from 'react-router-dom';
+import devImg from '../../../assets/images/Dev.png';
+import socialMediaImg from '../../../assets/images/Socialmedia.png';
+import brandingImg from '../../../assets/images/Branding.png';
 
 import './DescriptionCard.scss';
 
 const DescriptionCard = () => {
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate('/works');
+    };
+
     return (
         <div className="glow-info-cards-container">
-            <div className='card-cover'>
+            <div className='card-cover' onClick={handleCardClick}>
                 <div className="glow-info-card">
                     <div className="card-img-container">
-                        <img src={animationImg} alt="animation" />
+                        <img src={brandingImg} alt="branding" />
                     </div>
                     <div className="card-header">
                         <h2>Branding</h2>
@@ -23,7 +30,7 @@ const DescriptionCard = () => {
                     </div>
                 </div>
             </div>  
-            <div className='card-cover'>
+            <div className='card-cover' onClick={handleCardClick}>
                 <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={socialMediaImg} alt="social media" />
@@ -38,7 +45,7 @@ const DescriptionCard = () => {
                     </div>
                 </div>
             </div>
-            <div className='card-cover'>
+            <div className='card-cover' onClick={handleCardClick}>
                 <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={devImg} alt="dev" />
