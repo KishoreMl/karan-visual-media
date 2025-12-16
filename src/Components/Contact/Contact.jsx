@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../../utils/emailConfig';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Contact.scss';
 
 const Contact = () => {
@@ -94,31 +95,26 @@ const Contact = () => {
                 message: ''
             });
 
-            // Hide success message after 5 seconds
             setTimeout(() => setSubmitSuccess(false), 5000);
         } catch (error) {
             console.error('Email sending failed:', error);
             setSubmitError(true);
-            // Hide error message after 5 seconds
             setTimeout(() => setSubmitError(false), 5000);
         } finally {
             setIsSubmitting(false);
         }
-
     };
 
     return (
         <div className="contact-page">
 
-            {/* Header Section */}
             <div className="contact-header">
-                <h1 className="contact-title">Get In Touch</h1>
+                <AnimatedHeading text="Get In Touch" tag="h1" className="contact-title centered" />
                 <p className="contact-subtitle">
                     Let's discuss your project and bring your vision to life
                 </p>
             </div>
 
-            {/* Contact Form Section */}
             <div className="contact-form-section">
                 <div className="contact-container">
                     <div className="contact-info">
@@ -222,7 +218,6 @@ const Contact = () => {
                 </div>
             </div>
 
-            {/* Toast Notifications */}
             {submitSuccess && (
                 <div className="toast toast-success">
                     <span className="toast-icon">✓</span>

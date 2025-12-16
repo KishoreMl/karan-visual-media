@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './AboutUs.scss';
 
 const AboutUs = () => {
@@ -52,7 +53,7 @@ const AboutUs = () => {
     return (
         <div className="about-page">
             <div className="about-header">
-                <h1 className="about-title">About Us</h1>
+                <AnimatedHeading text="About Us" tag="h1" className="about-title centered" />
             </div>
             <div 
                 ref={(el) => addToRefs(el, 1)}
@@ -66,7 +67,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* Studio Story Section */}
             <div 
                 ref={(el) => addToRefs(el, 2)}
                 data-section={2}
@@ -83,7 +83,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* Vision Section */}
             <div 
                 ref={(el) => addToRefs(el, 3)}
                 data-section={3}
@@ -98,7 +97,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* Mission Section */}
             <div 
                 ref={(el) => addToRefs(el, 4)}
                 data-section={4}
@@ -113,13 +111,12 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* CTA Section */}
             <div 
                 ref={(el) => addToRefs(el, 5)}
                 data-section={5}
                 className={`about-cta ${visibleSections.includes(5) ? 'visible' : ''}`}
             >
-                <h2>Ready to create something extraordinary?</h2>
+                <AnimatedHeading text="Ready to create something extraordinary?" tag="h2" className="centered" />
                 <p className="cta-description">Let's bring your vision to life</p>
                 <button className="cta-button" onClick={() => navigate('/contact')}>
                     <span>Get In Touch</span>

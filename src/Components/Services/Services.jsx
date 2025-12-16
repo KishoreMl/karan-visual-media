@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Services.scss';
 
 const Services = () => {
@@ -18,7 +19,6 @@ const Services = () => {
                 const sectionIndex = parseInt(entry.target.dataset.index);
                 
                 if (entry.isIntersecting) {
-                    // Add section with a slight delay for sequential effect
                     setTimeout(() => {
                         setVisibleSections(prev => {
                             if (!prev.includes(sectionIndex)) {
@@ -28,7 +28,6 @@ const Services = () => {
                         });
                     }, 50);
                 } else {
-                    // Remove section when it goes out of view
                     setVisibleSections(prev => prev.filter(index => index !== sectionIndex));
                 }
             });
@@ -41,7 +40,6 @@ const Services = () => {
             if (section) observer.observe(section);
         });
 
-        // Scroll progress tracking
         const handleScroll = () => {
             const scrolled = window.scrollY;
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -50,7 +48,6 @@ const Services = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             currentSections.forEach((section) => {
                 if (section) observer.unobserve(section);
@@ -83,7 +80,7 @@ const Services = () => {
             id: 2,
             title: "Social Media Handling",
             description: "Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.",
-            features: ["Content Creation", "Community Management", "Strategy Planning", "Analytics & Reporting"]
+            features: ["Content Creation", "Community Management", "Reels Editing", "Analytics & Reporting"]
         },
         {
             id: 3,
@@ -114,6 +111,12 @@ const Services = () => {
             title: "3D Interior & Exterior Walkthrough Animation",
             description: "Photorealistic architectural visualizations that bring spaces to life. Perfect for real estate, architecture, and interior design projects.",
             features: ["3D Walkthroughs", "Architectural Visualization", "Interior Rendering", "Virtual Tours"]
+        },
+        {
+            id:8,
+            title: "Website Development",
+            description: "Professional website development services that create engaging and functional online experiences. From simple landing pages to complex web applications, we build websites that perform and convert.",
+            features: ["Website Design", "Website Development", "Website Maintenance", "Website Hosting"]
         }
     ];
 
@@ -127,10 +130,7 @@ const Services = () => {
             {/* Header Section */}
             <div className="services-header-section">
                 <div className="services-header">
-                    <h1 className="services-title">Our Services</h1>
-                    <p className="services-subtitle">
-                        Comprehensive visual media solutions tailored to elevate your brand
-                    </p>
+                    <AnimatedHeading text="Our Services" tag="h1" className="services-title centered" />
                     
                     {/* Services Navigation Menu */}
                     <div className="services-nav-menu">
@@ -227,7 +227,7 @@ const Services = () => {
             {/* Bottom CTA Section */}
             <div className="services-cta-section">
                 <div className="services-cta">
-                    <h2>Ready to bring your vision to life?</h2>
+                    <AnimatedHeading text="Ready to bring your vision to life?" tag="h2" className="centered" />
                     <p className="cta-description">Let's create something extraordinary together</p>
                     <Link to="/contact" className="cta-primary-button">
                         <span>Get Started Today</span>

@@ -1,0 +1,44 @@
+.animated-heading {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+
+    .letter-wrapper {
+        display: inline-block;
+        overflow: hidden;
+
+        .letter {
+            display: inline-block;
+            transform: translateY(110%);
+            opacity: 0;
+        }
+    }
+
+    .space {
+        display: inline-block;
+    }
+
+    &.visible {
+        .letter-wrapper {
+            .letter {
+                animation: letterReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+        }
+    }
+}
+
+@keyframes letterReveal {
+    0% {
+        transform: translateY(110%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Ensure centered headings stay centered
+.animated-heading.centered {
+    justify-content: center;
+}

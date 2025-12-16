@@ -1,25 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import DescriptionCard from '../DescriptionCard/DescriptionCard';
-import DescriptiveContent from '../DescriptiveContent/DescriptiveContent';
+import DescriptionCard from './DescriptionCard/DescriptionCard';
+import DescriptiveContent from './DescriptiveContent/DescriptiveContent';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
-// import Door from '../door';
+import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import './Home.scss';
 
 // Import carousel logos
-import animationLogo from '../../assets/images/logos/Animation.png';
-import brandingLogo from '../../assets/images/logos/Branding.png';
-import devLogo from '../../assets/images/logos/Dev.png';
-import mainLogo from '../../assets/images/logos/Logo.png';
-import socialMediaLogo from '../../assets/images/logos/Social_media.png';
-import vfxLogo from '../../assets/images/logos/VFX.png';
+import client_logo_1 from "../../assets/images/logos/Nutrieros_1.png";
+import client_logo_2 from "../../assets/images/logos/big_idea_dark.png";
+import client_logo_3 from "../../assets/images/logos/eagle.png";
+import client_logo_4 from "../../assets/images/logos/tamil_catering.png";
+import client_logo_5 from "../../assets/images/logos/Yuva_bharathi.png";
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
     const cardRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
+    const logoRef = useRef(null);
+    const [logoProgress, setLogoProgress] = useState(0);
 
+
+    // Card Typing Animation
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -44,79 +48,166 @@ const Home = ({ isDarkMode }) => {
         };
     }, []);
 
+
+    // i Logo Animation
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    let startTime = null;
+                    const duration = 1000; 
+                    const animate = (timestamp) => {
+                        if (!startTime) startTime = timestamp;
+                        const elapsed = timestamp - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        
+                        setLogoProgress(progress);
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        }
+                    };
+                    
+                    requestAnimationFrame(animate);
+                    observer.disconnect(); // Run animation only once
+                }
+            },
+            {
+                threshold: 1.0, // Trigger when 100% of element is visible
+                rootMargin: '0px'
+            }
+        );
+
+        if (logoRef.current) {
+            observer.observe(logoRef.current);
+        }
+
+        return () => {
+            if (observer) {
+                observer.disconnect();
+            }
+        };
+    }, []);
+
     return (
         <div className="content-container">
+
+            {/* Hero Section */}
             <div className="header-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
-                <p> Where your ideas come to life.</p>
+                <p className="animated-text">
+                    {" Where your ideas come to life.".split(' ').map((word, index) => (
+                        <span key={index} className="word">
+                            {word}{'   '}
+                        </span>
+                    ))}
+                </p>
             </div>
 
-            <div className="card-cover" ref={cardRef}>
-                <div className="central-card">
-                    <div className="text-block">
-                        <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
-                        <ol className="feature-list">
-                            <li>Search for running races by name using the search box</li>
-                            <li>See filtered results matching their search term</li>
-                            <li>Navigate through paginated search results</li>
-                            <li>The search term is preserved when navigating between pages</li>
-                        </ol>
-                        <p className="follow-up-question">
-                            we craft powerful brand experiences that connect creativity with strategy. From 3D animations to digital marketing, we help businesses stand out in a crowded world with visuals that captivate and campaigns that convert.
-                        </p>
-                    </div>  
-                </div>
+            <div className="central-card" ref={cardRef}>
+                <div className="text-block">
+                    <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
+                </div>  
             </div>
 
-            {/* Carousel Section */}
-            <div className="carousel-section">
-                <div className="carousel-container">
-                    <div className="carousel-track">
-                        {(() => {
-                            const logos = [
-                                { src: animationLogo, alt: 'Animation' },
-                                { src: brandingLogo, alt: 'Branding' },
-                                { src: devLogo, alt: 'Development' },
-                                { src: mainLogo, alt: 'Main Logo' },
-                                { src: socialMediaLogo, alt: 'Social Media' },
-                                { src: vfxLogo, alt: 'VFX' }
-                            ];
-                            // Duplicate twice for seamless infinite loop
-                            const duplicated = [...logos, ...logos];
-                            
-                            return duplicated.map((logo, index) => (
-                                <div key={index} className="company-logo">
-                                    <img src={logo.src} alt={logo.alt} className="logo-image" />
-                                </div>
-                            ));
-                        })()}
-                    </div>
-                </div>
-            </div>
+            {/* Shape Container Section */}
+            <div className='shape-container'>
+                <div className="shape-box" id="box-top"></div>
+                <div className="shape-box" id="box-bottom"></div>
+                <div className="yellow-semicircle"></div>
+                <h2 className="shape-text"> DESIGN <br/>DEVELOPMENT & DIGITAL GROWTH<br/>ALL IN ONE PLACE</h2>
+            </div> 
+
+            {/* Logo Content Section */}
             <div className="autofix-container">
                 <div className="text-content">
                     <h1 className="main-title">Design it once. Design it right.</h1>
                     <p className="main-description">
-                        Spend less time fixing vulnerabilities and more time building features with Copilot Autofix.
+                    Blending Design, Animation, and Technology to Elevate Brands.We Turn Brands into Visual Experiences.
                     </p>
                     <a href="/works" className="explore-link">Explore our works &gt;</a>
                 </div>
-                <div className="logo-content">
+                <div className="logo-content" ref={logoRef}>
                 <div className="logo-icon">
                     <div className="logo-dot"></div>
-                    <div className="logo-bar"></div>
+                    <div className="logo-bar">
+                        <div 
+                            className="logo-bar-progress"
+                            style={{ height: `${logoProgress * 100}%` }}
+                        ></div>
+                    </div>
                 </div>
             </div>
             </div>
 
+            {/* Services Card Section */}
             <DescriptionCard />
-            {/* <Door /> */}
+
+            {/* Descriptive Content Section */}
             <DescriptiveContent />
+
+            {/* Scale Up Screen Section */}
+            <ScaleUpScreen />
+
+            {/* Clients Logo Grid Section */}
+            <div className="logo-grid-section">
+                <h2 className="logo-grid-title">Our Clients</h2>
+                <div className="logo-grid-container">
+                    <div className="logo-grid-item">
+                        <img src={client_logo_1} alt="Nutrieros" className="grid-logo-image" />
+                    </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_2} alt="Big Idea" className="grid-logo-image" />
+                    </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_3} alt="Eagle" className="grid-logo-image" />
+                    </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_4} alt="Tamil Catering" className="grid-logo-image" />
+                    </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_5} alt="Yuva Bharathi" className="grid-logo-image" />
+                    </div>
+                </div>
+            </div>   
+
+            {/* Text Carousel */}
+            <div className="text-carousel-section">
+                <div className="carousel-track-wrapper">
+                    <div className="carousel-track">
+                        <span className="carousel-item">Animation</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Branding</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Design</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Marketing</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Visual Effects</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Development</span>
+                        <span className="carousel-dot">●</span>
+                        {/* Duplicate for seamless loop */}
+                        <span className="carousel-item">Animation</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Branding</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Design</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Marketing</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Visual Effects</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Development</span>
+                        <span className="carousel-dot">●</span>
+                    </div>
+                </div>
+            </div>
+
 
             {/* Contact CTA Section */}
             <div className="contact-cta-section">
                 <div className="cta-content">
-                    <h2 className="cta-title">Have a Project in Mind?</h2>
+                    <AnimatedHeading text="Have a Project in Mind?" tag="h2" className="cta-title centered" />
                     <p className="cta-description">
                         Let's collaborate and bring your vision to life. Reach out to us for a free consultation and discover how we can help your brand stand out.
                     </p>
@@ -126,6 +217,7 @@ const Home = ({ isDarkMode }) => {
                     </Link>
                 </div>
             </div>
+
         </div>
     );
 };

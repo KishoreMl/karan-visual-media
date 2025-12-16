@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Works.scss';
 
 const Works = () => {
     const [filter, setFilter] = useState('ALL');
+    const navigate = useNavigate();
 
     const projects = [
         {
             id: 1,
+            slug: 'kouchure-branding',
             title: 'Kouchure Branding',
             category: 'BRAND DESIGN',
             year: '2024',
@@ -17,6 +21,7 @@ const Works = () => {
         },
         {
             id: 2,
+            slug: 'global-edu-crew',
             title: 'Global Edu Crew',
             category: 'EVENT COLLATERAL',
             year: '2025',
@@ -27,6 +32,7 @@ const Works = () => {
         },
         {
             id: 3,
+            slug: 'blue-door-logo',
             title: 'Blue Door Logo',
             category: 'BRAND DESIGN',
             year: '2023',
@@ -37,6 +43,7 @@ const Works = () => {
         },
         {
             id: 4,
+            slug: 'webvigo-branding-logo',
             title: 'Webvigo Branding & Logo',
             category: 'BRAND DESIGN',
             year: '2024',
@@ -47,6 +54,7 @@ const Works = () => {
         },
         {
             id: 5,
+            slug: 'haruka-social-media',
             title: 'Haruka Social Media',
             category: 'SOCIAL MEDIA',
             year: '2025',
@@ -57,6 +65,7 @@ const Works = () => {
         },
         {
             id: 6,
+            slug: 'goldman-steakhouse-social-media',
             title: 'Goldman Steakhouse Social Media',
             category: 'SOCIAL MEDIA',
             year: '2025',
@@ -67,7 +76,11 @@ const Works = () => {
         }
     ];
 
-    const categories = ['ALL', 'BRAND DESIGN', 'EVENT COLLATERAL', 'SOCIAL MEDIA'];
+    const handleProjectClick = (slug) => {
+        navigate(`/works/${slug}`);
+    };
+
+    const categories = ['All', 'Branding & Design', 'Motion Graphics', '3D Animation', '3D Interior & Exterior Walkthrough Animation', 'Website Development'];
 
     const filteredProjects = filter === 'ALL' 
         ? projects 
@@ -76,7 +89,7 @@ const Works = () => {
     return (
         <div className="works-container">
             <div className="works-header">
-                <h1 className="works-title">Our Works</h1>
+                <AnimatedHeading text="Our Works" tag="h1" className="works-title centered" />
             </div>
 
             {/* Filter Buttons */}
@@ -95,7 +108,11 @@ const Works = () => {
             {/* Projects Grid */}
             <div className="projects-grid">
                 {filteredProjects.map((project) => (
-                    <div key={project.id} className="project-card">
+                    <div 
+                        key={project.id} 
+                        className="project-card"
+                        onClick={() => handleProjectClick(project.slug)}
+                    >
                         <div 
                             className="project-image"
                             style={{ 
@@ -111,7 +128,6 @@ const Works = () => {
                         <div className="project-content">
                             <div className="project-meta">
                                 <span className="project-category">{project.category}</span>
-                                <span className="project-year">📅 {project.year}</span>
                             </div>
                             
                             <h3 className="project-title">{project.title}</h3>

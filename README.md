@@ -1,12 +1,20 @@
 #Pending Tasks
-- Light mode - remove blue color : Kishore - Done
-- Toast Component                : Deeps - DONE
-- Contact Serivce field          : Deeps - DONE
-- Home page animation            : Kishore 
-- Email Test                     : Deeps - DONE
-- Services order change          : Deeps - DONE
-- Serivces list on top           : Deeps - DONE
-- Work Detail page               :
-- Content update                 : 
-- Animate home's contact         : Deeps
 
+- Light mode - remove blue color : Kishore - Done
+- Toast Component : Deeps - Done
+- Contact Serivce field : Deeps - Done
+- Email Test : Deeps - Done
+- Services order change : Deeps - Done
+- Serivces list on top : Deeps - Done
+- Carousel Image Color correction: Deeps - Done
+- Work Detail page : Deeps - DONE
+- Header Animation : Deeps - DONE
+- About Page: button color change: Deeps - DONE
+
+-----------------------------------------------------------
+
+- Content update : Kishore
+- Animate home's contact : Kishore
+- Home page animation : Kishore
+
+- Responsiveness Check - All page: Kishore
