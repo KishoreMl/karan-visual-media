@@ -29,7 +29,7 @@ const AnimatedHeading = ({ text, tag = 'h1', className = '', delay = 0 }) => {
         };
     }, []);
 
-    const words = text.split(' ');
+    const characters = text.split('');
     const Tag = tag;
 
     return (
@@ -37,21 +37,24 @@ const AnimatedHeading = ({ text, tag = 'h1', className = '', delay = 0 }) => {
             ref={headingRef} 
             className={`animated-heading ${className} ${isVisible ? 'visible' : ''}`}
         >
-            {words.map((word, index) => (
-                <span 
-                    key={index} 
-                    className="word-wrapper"
-                >
+            {characters.map((char, index) => (
+                char === ' ' ? (
+                    <span key={index} className="space">&nbsp;</span>
+                ) : (
                     <span 
-                        className="word"
-                        style={{ 
-                            animationDelay: `${delay + index * 0.15}s`
-                        }}
+                        key={index} 
+                        className="letter-wrapper"
                     >
-                        {word}
+                        <span 
+                            className="letter"
+                            style={{ 
+                                animationDelay: `${delay + index * 0.03}s`
+                            }}
+                        >
+                            {char}
+                        </span>
                     </span>
-                    {index < words.length - 1 && <span className="space">&nbsp;</span>}
-                </span>
+                )
             ))}
         </Tag>
     );
