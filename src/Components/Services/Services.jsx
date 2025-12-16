@@ -18,7 +18,6 @@ const Services = () => {
                 const sectionIndex = parseInt(entry.target.dataset.index);
                 
                 if (entry.isIntersecting) {
-                    // Add section with a slight delay for sequential effect
                     setTimeout(() => {
                         setVisibleSections(prev => {
                             if (!prev.includes(sectionIndex)) {
@@ -28,7 +27,6 @@ const Services = () => {
                         });
                     }, 50);
                 } else {
-                    // Remove section when it goes out of view
                     setVisibleSections(prev => prev.filter(index => index !== sectionIndex));
                 }
             });
@@ -41,7 +39,6 @@ const Services = () => {
             if (section) observer.observe(section);
         });
 
-        // Scroll progress tracking
         const handleScroll = () => {
             const scrolled = window.scrollY;
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -50,7 +47,6 @@ const Services = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             currentSections.forEach((section) => {
                 if (section) observer.unobserve(section);
@@ -83,7 +79,7 @@ const Services = () => {
             id: 2,
             title: "Social Media Handling",
             description: "Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.",
-            features: ["Content Creation", "Community Management", "Strategy Planning", "Analytics & Reporting"]
+            features: ["Content Creation", "Community Management", "Reels Editing", "Analytics & Reporting"]
         },
         {
             id: 3,

@@ -23,13 +23,13 @@ function App() {
       <div className="App" data-theme={isDarkMode ? 'dark' : 'light'}>
         <CustomCursor />
         <Header isDarkMode={isDarkMode} />
-        <Routes>
-          <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/works" element={<Works />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/works" element={<Works />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         <Footer />
         
         <ThemeToggleButton isDarkMode={isDarkMode} toggleTheme={toggleTheme} />

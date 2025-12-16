@@ -12,6 +12,7 @@ import client_logo_1 from "../../assets/images/logos/Nutrieros_1.png";
 import client_logo_2 from "../../assets/images/logos/big_idea_dark.png";
 import client_logo_3 from "../../assets/images/logos/eagle.png";
 import client_logo_4 from "../../assets/images/logos/tamil_catering.png";
+import client_logo_5 from "../../assets/images/logos/Yuva_bharathi.png";
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
@@ -20,6 +21,8 @@ const Home = ({ isDarkMode }) => {
     const logoRef = useRef(null);
     const [logoProgress, setLogoProgress] = useState(0);
 
+
+    // Card Typing Animation
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -44,22 +47,20 @@ const Home = ({ isDarkMode }) => {
         };
     }, []);
 
-    // Logo progress bar animation - triggers when element is fully visible
+
+    // i Logo Animation
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    // Element is fully visible, start animation from 0 to 100
                     let startTime = null;
-                    const duration = 700; // 2 seconds animation
-
+                    const duration = 700; 
                     const animate = (timestamp) => {
                         if (!startTime) startTime = timestamp;
                         const elapsed = timestamp - startTime;
                         const progress = Math.min(elapsed / duration, 1);
                         
                         setLogoProgress(progress);
-                        
                         if (progress < 1) {
                             requestAnimationFrame(animate);
                         }
@@ -88,6 +89,8 @@ const Home = ({ isDarkMode }) => {
 
     return (
         <div className="content-container">
+
+            {/* Hero Section */}
             <div className="header-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
                 <p className="animated-text">
@@ -99,46 +102,21 @@ const Home = ({ isDarkMode }) => {
                 </p>
             </div>
 
-            <div className="card-cover" ref={cardRef}>
-                <div className="central-card">
-                    <div className="text-block">
-                        <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
-                        <ol className="feature-list">
-                            <li>Search for running races by name using the search box</li>
-                            <li>See filtered results matching their search term</li>
-                            <li>Navigate through paginated search results</li>
-                            <li>The search term is preserved when navigating between pages</li>
-                        </ol>
-                        <p className="follow-up-question">
-                            we craft powerful brand experiences that connect creativity with strategy. From 3D animations to digital marketing, we help businesses stand out in a crowded world with visuals that captivate and campaigns that convert.
-                        </p>
-                    </div>  
-                </div>
+            <div className="central-card" ref={cardRef}>
+                <div className="text-block">
+                    <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
+                </div>  
             </div>
 
-            {/* Carousel Section */}
-            <div className="carousel-section">
-                <div className="carousel-container">
-                    <div className="carousel-track">
-                        {(() => {
-                            const logos = [
-                                { src: client_logo_1, alt: 'Nutrieros' },
-                                { src: client_logo_2, alt: 'Big Idea' },
-                                { src: client_logo_3, alt: 'Eagle' },
-                                { src: client_logo_4, alt: 'Tamil Catering' },
-                            ];
-                            // Duplicate twice for seamless infinite loop
-                            const duplicated = [...logos, ...logos, ...logos];
-                            
-                            return duplicated.map((logo, index) => (
-                                <div key={index} className="company-logo">
-                                    <img src={logo.src} alt={logo.alt} className="logo-image" />
-                                </div>
-                            ));
-                        })()}
-                    </div>
-                </div>
-            </div>
+            {/* Shape Container Section */}
+            <div className='shape-container'>
+                <div className="shape-box" id="box-top"></div>
+                <div className="shape-box" id="box-bottom"></div>
+                <div className="yellow-semicircle"></div>
+                <h2 className="shape-text"> JUST MAKE <br/>COOL & UX FRIENDLY <br/> DESIGN</h2>
+            </div> 
+
+            {/* Logo Content Section */}
             <div className="autofix-container">
                 <div className="text-content">
                     <h1 className="main-title">Design it right. Design it better.</h1>
@@ -160,12 +138,38 @@ const Home = ({ isDarkMode }) => {
             </div>
             </div>
 
+            {/* Description Card Section */}
             <DescriptionCard />
+
+            {/* Descriptive Content Section */}
             <DescriptiveContent />
+
+            {/* Scale Up Screen Section */}
             <ScaleUpScreen />
 
-            <div className="shapes-container">
-            </div>
+            {/* Carousel Section */}
+            <div className="carousel-section">
+                <div className="carousel-container">
+                    <div className="carousel-track">
+                        {(() => {
+                            const logos = [
+                                { src: client_logo_1, alt: 'Nutrieros' },
+                                { src: client_logo_2, alt: 'Big Idea' },
+                                { src: client_logo_3, alt: 'Eagle' },
+                                { src: client_logo_4, alt: 'Tamil Catering' },
+                                { src: client_logo_5, alt: 'Yuva Bharathi' },
+                            ];
+                            const duplicated = [...logos, ...logos,];
+                            return duplicated.map((logo, index) => (
+                                <div key={index} className="company-logo">
+                                    <img src={logo.src} alt={logo.alt} className="logo-image" />
+                                </div>
+                            ));
+                        })()}
+                    </div>
+                 </div>
+            </div>   
+
             {/* Contact CTA Section */}
             <div className="contact-cta-section">
                 <div className="cta-content">
@@ -179,6 +183,7 @@ const Home = ({ isDarkMode }) => {
                     </Link>
                 </div>
             </div>
+
         </div>
     );
 };

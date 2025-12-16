@@ -9,7 +9,6 @@ const CustomCursor = () => {
     useEffect(() => {
         const cursorDot = cursorDotRef.current;
         let currentTarget = null;
-
         const handleMouseMove = (e) => {
             mousePosition.current = { x: e.clientX, y: e.clientY };
 
@@ -50,7 +49,6 @@ const CustomCursor = () => {
         <div className="cursor-ring" ref={cursorDotRef}>
              <div className="cursor-dot"></div>
         </div>
-       
     );
 };
 

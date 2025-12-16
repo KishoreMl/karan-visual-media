@@ -94,23 +94,19 @@ const Contact = () => {
                 message: ''
             });
 
-            // Hide success message after 5 seconds
             setTimeout(() => setSubmitSuccess(false), 5000);
         } catch (error) {
             console.error('Email sending failed:', error);
             setSubmitError(true);
-            // Hide error message after 5 seconds
             setTimeout(() => setSubmitError(false), 5000);
         } finally {
             setIsSubmitting(false);
         }
-
     };
 
     return (
         <div className="contact-page">
 
-            {/* Header Section */}
             <div className="contact-header">
                 <h1 className="contact-title">Get In Touch</h1>
                 <p className="contact-subtitle">
@@ -118,7 +114,6 @@ const Contact = () => {
                 </p>
             </div>
 
-            {/* Contact Form Section */}
             <div className="contact-form-section">
                 <div className="contact-container">
                     <div className="contact-info">
@@ -222,7 +217,6 @@ const Contact = () => {
                 </div>
             </div>
 
-            {/* Toast Notifications */}
             {submitSuccess && (
                 <div className="toast toast-success">
                     <span className="toast-icon">✓</span>

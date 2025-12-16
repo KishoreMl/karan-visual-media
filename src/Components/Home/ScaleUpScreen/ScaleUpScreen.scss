@@ -8,19 +8,44 @@
     align-items: center;
     overflow: hidden;
     
-    // Ensure no gaps when door scales
     &::after {
         content: '';
         position: absolute;
         inset: 0;
         pointer-events: none;
     }
+
+    .door-header{
+        position: absolute;
+        top: 20%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        font-weight: 700;
+        color:var(--bg-primary);
+        text-align: center;
+        font-size: 8rem;
+        border-radius: 8px;
+        transition: transform 0.05s linear, border-radius 0.1s linear;
+        transform-origin: center center;
+        z-index: 20;
+    }
+
+    .door-footer{
+        position: absolute;
+        bottom: 0;
+        left: 70%;
+        transform: translate(-50%, 0);
+        font-size: 8rem;
+        font-weight: 700;
+        color:var(--bg-primary);
+        z-index: 20;
+    }
 }
 
 .door-container{
     width: 8rem;
     height: 20rem;
-    background: linear-gradient(180deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    background: var(--scale-screen-color);
     transition: transform 0.05s linear, border-radius 0.1s linear;
     transform-origin: center center;
     position: absolute;
@@ -30,7 +55,6 @@
     will-change: transform;
     border-radius: 8px;
     
-    // Ensure no sub-pixel gaps
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     
@@ -44,7 +68,6 @@
     }
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .space-container {
         height: 70vh;

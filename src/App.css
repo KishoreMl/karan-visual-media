@@ -23,6 +23,8 @@
 
   --card-shadow-primary: 0 0 50px #181818;
   --card-shadow-secondary: 0 0 90px rgba(197, 200, 200, 0.2);
+
+  --scale-screen-color: #ffffff;
 }
 
 /* Light Theme */
@@ -31,7 +33,7 @@
   --bg-secondary: #f5f5f5;
   --bg-tertiary: #e0e0e0;
   --bg-card: #ffffff;
-  --bg-gradient: linear-gradient(#ffffff 0%, #f5f5f5 50%, #e0e0e0, #f5f5f5, #ffffff 100%);
+  --bg-gradient: linear-gradient( #e0e0e0, #f5f5f5, #ffffff 100%);
 
   --primary-yellow: #F9A825;
   --secondary-yellow: #F59E0B;
@@ -49,6 +51,8 @@
 
   --card-shadow-primary: 0 20px 60px rgba(0,0,0,0.3);
   --card-shadow-secondary: 0 0 0 1px rgba(255,255,225,0.1);
+
+  --scale-screen-color: #181818;
 }
 
 .App {
@@ -75,7 +79,6 @@ html, body {
 }
 
 
-/* Theme-aware text colors */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
@@ -84,23 +87,19 @@ p, span, li {
   color: var(--text-secondary);
 }
 
-/* Theme-aware backgrounds */
 .card, .section {
   background: var(--bg-card);
   color: var(--text-primary);
 }
 
-/* Theme-aware borders */
 .bordered {
   border-color: var(--border-color);
 }
 
-/* Theme-aware shadows */
 .shadowed {
   box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-/* Page transition styles */
 .page-enter {
   opacity: 0;
   transform: translateY(20px);

@@ -8,7 +8,6 @@ const DescriptiveContent = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                // Toggle visibility based on whether element is in viewport
                 setIsVisible(entry.isIntersecting);
             },
             {

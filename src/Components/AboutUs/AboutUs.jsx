@@ -66,7 +66,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* Studio Story Section */}
             <div 
                 ref={(el) => addToRefs(el, 2)}
                 data-section={2}
@@ -83,7 +82,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* Vision Section */}
             <div 
                 ref={(el) => addToRefs(el, 3)}
                 data-section={3}
@@ -98,7 +96,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* Mission Section */}
             <div 
                 ref={(el) => addToRefs(el, 4)}
                 data-section={4}
@@ -113,7 +110,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* CTA Section */}
             <div 
                 ref={(el) => addToRefs(el, 5)}
                 data-section={5}

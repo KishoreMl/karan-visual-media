@@ -34,7 +34,6 @@ const ScaleUpScreen = () => {
                     progress = Math.max(0, Math.min(1, scrollBeyondTrigger / (windowHeight * 0.3)));
                 }
             }
-            
             setScaleProgress(progress);
         };
 
@@ -45,19 +44,15 @@ const ScaleUpScreen = () => {
         };
     }, []);
 
-    // Calculate scale multiplier based on scroll progress
-    // Scale to fill the entire viewport
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
+
     const doorWidth = doorRef.current?.offsetWidth || 128; // fallback to 8rem = 128px
     const doorHeight = doorRef.current?.offsetHeight || 320; // fallback to 20rem = 320px
     
-    // Calculate scale factors needed to reach 100% of viewport
-    // Add a small buffer (1.01) to ensure full coverage without gaps
     const scaleX = doorWidth > 0 ? (viewportWidth / doorWidth) * 1.01 : 1;
     const scaleY = doorHeight > 0 ? (viewportHeight / doorHeight) * 1.01 : 1;
     
-    // Interpolate scale from 1 (original size) to target scale
     const currentScaleX = 1 + (scaleX - 1) * scaleProgress;
     const currentScaleY = 1 + (scaleY - 1) * scaleProgress;
 
@@ -70,7 +65,10 @@ const ScaleUpScreen = () => {
                     transform: `translate(-50%, -50%) scale(${currentScaleX}, ${currentScaleY})`,
                     borderRadius: `${8 * (1 - scaleProgress)}px`,
                 }}
-            ></div>
+            >
+            </div>
+            <div className="door-header">CREATIVE</div>
+            <div className="door-footer">SOLUTIONS</div>
         </div>
     );
 };

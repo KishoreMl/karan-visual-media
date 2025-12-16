@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import devImg from '../../../assets/images/Dev.png';
 import socialMediaImg from '../../../assets/images/Socialmedia.png';
 import brandingImg from '../../../assets/images/Branding.png';
-
 import './DescriptionCard.scss';
 
 const DescriptionCard = () => {
