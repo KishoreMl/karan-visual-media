@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
   gap: 40px;
   padding: 0 2rem;
-  margin: 9rem 0;
+  margin: 2rem 0 4rem 0;
 
   .card-cover {
     background: transparent;
@@ -16,6 +16,7 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-top: 2rem;
     
     &:active {
       transform: translateY(-4px);

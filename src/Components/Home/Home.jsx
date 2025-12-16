@@ -54,7 +54,7 @@ const Home = ({ isDarkMode }) => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     let startTime = null;
-                    const duration = 700; 
+                    const duration = 1000; 
                     const animate = (timestamp) => {
                         if (!startTime) startTime = timestamp;
                         const elapsed = timestamp - startTime;
@@ -113,7 +113,7 @@ const Home = ({ isDarkMode }) => {
                 <div className="shape-box" id="box-top"></div>
                 <div className="shape-box" id="box-bottom"></div>
                 <div className="yellow-semicircle"></div>
-                <h2 className="shape-text"> JUST MAKE <br/>COOL & UX FRIENDLY <br/> DESIGN</h2>
+                <h2 className="shape-text"> DESIGN <br/>DEVELOPMENT & DIGITAL GROWTH<br/>ALL IN ONE PLACE</h2>
             </div> 
 
             {/* Logo Content Section */}
@@ -121,7 +121,7 @@ const Home = ({ isDarkMode }) => {
                 <div className="text-content">
                     <h1 className="main-title">Design it right. Design it better.</h1>
                     <p className="main-description">
-                        Spend less time fixing vulnerabilities and more time building features with Copilot Autofix.
+                    Blending Design, Animation, and Technology to Elevate Brands.We Turn Brands into Visual Experiences.
                     </p>
                     <a href="/works" className="explore-link">Explore our works &gt;</a>
                 </div>
@@ -170,6 +170,39 @@ const Home = ({ isDarkMode }) => {
                  </div>
             </div>   
 
+
+            {/* Text Carousel */}
+            <div className="text-carousel-section">
+                <div className="carousel-track-wrapper">
+                    <div className="carousel-track">
+                        <span className="carousel-item">Motion</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Animation</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Interactive</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">3D Design</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Branding</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Digital Marketing</span>
+                        <span className="carousel-dot">●</span>
+                        {/* Duplicate for seamless loop */}
+                        <span className="carousel-item">Motion</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Animation</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Interactive</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">3D Design</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Branding</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Digital Marketing</span>
+                        <span className="carousel-dot">●</span>
+                    </div>
+                </div>
+            </div>
             {/* Contact CTA Section */}
             <div className="contact-cta-section">
                 <div className="cta-content">

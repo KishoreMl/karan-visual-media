@@ -24,7 +24,7 @@ const DescriptionCard = () => {
                     </div>
                     <div className="description-content">
                         <p className="card-description">
-                            The vulnerability in the code is due to the fact that user-provided input is directly used in HTTP response without any sanitization. This can lead to a cross-site scripting (XSS) attack if the user input contains malicious scripts.
+                            Comprehensive branding solutions that define your identity. From logo design to complete brand guidelines, we create memorable visual identities.
                         </p>
                     </div>
                 </div>

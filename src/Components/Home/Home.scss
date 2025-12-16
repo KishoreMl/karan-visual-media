@@ -780,7 +780,7 @@
 
 .autofix-container {
   position: relative;
-  padding: 4rem 2rem;
+  padding: 2rem 4rem;
   margin-top: 6rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1266,6 +1266,129 @@
             0 0 25px rgba(255, 255, 255, 0.4);
         }
       }
+    }
+  }
+}
+
+/* Text Carousel Section */
+.text-carousel-section {
+  width: 100%;
+  background: #000000;
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+  margin: 80px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .carousel-track-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    animation: scrollCarousel 30s linear infinite;
+    will-change: transform;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .carousel-item {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 40px;
+    display: inline-block;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--accent-color);
+      transform: scale(1.05);
+    }
+  }
+
+  .carousel-dot {
+    font-size: clamp(7rem, 3vw, 12rem);
+    color: var(--accent-color);
+    margin: 0 20px;
+    display: inline-block;
+    opacity: 0.6;
+  }
+}
+
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .text-carousel-section {
+    padding: 50px 0;
+    margin: 60px 0;
+
+    .carousel-track {
+      animation-duration: 25s;
+    }
+
+    .carousel-item {
+      margin: 0 30px;
+    }
+
+    .carousel-dot {
+      margin: 0 15px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .text-carousel-section {
+    padding: 40px 0;
+    margin: 50px 0;
+
+    .carousel-track {
+      animation-duration: 20s;
+    }
+
+    .carousel-item {
+      margin: 0 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .carousel-dot {
+      margin: 0 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .text-carousel-section {
+    padding: 30px 0;
+    margin: 40px 0;
+
+    .carousel-track {
+      animation-duration: 15s;
+    }
+
+    .carousel-item {
+      margin: 0 15px;
+    }
+
+    .carousel-dot {
+      margin: 0 8px;
+      font-size: clamp(1rem, 2vw, 2rem);
     }
   }
 }

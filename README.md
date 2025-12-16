@@ -1,4 +1,5 @@
 #Pending Tasks
+
 - Light mode - remove blue color : Kishore - Done
 - Toast Component                : Deeps - Done
 - Contact Serivce field          : Deeps - Done
@@ -6,6 +7,7 @@
 - Services order change          : Deeps - Done
 - Serivces list on top           : Deeps - Done
 - Carousel Image Color correction: Deeps - Done
+
 ------------------------------------------------------------------
 
 - Work Detail page               : Deeps
