@@ -29,21 +29,25 @@ const DescriptiveContent = () => {
 
     const fullText = "Design on the web isn't static anymore. Today's brands need energy, personality and meaning. We bring together strategy, design and storytelling to build digital experiences that grab attention, move fast and make people feel.";
     
-    const words = fullText.split(' ');
+    const characters = fullText.split('');
 
     return (
         <div className="descriptive-content" ref={contentRef}>
             <div className="text-content-section">
                 <h2 className={`main-heading ${isVisible ? 'visible' : ''}`}>
-                    {words.map((word, index) => (
-                        <span key={index} className="word-wrapper">
-                            <span 
-                                className="word"
-                                style={{ animationDelay: `${index * 0.05}s` }}
-                            >
-                                {word}
+                    {characters.map((char, index) => (
+                        char === ' ' ? (
+                            <span key={index} className="space">&nbsp;</span>
+                        ) : (
+                            <span key={index} className="letter-wrapper">
+                                <span 
+                                    className="letter"
+                                    style={{ animationDelay: `${index * 0.015}s` }}
+                                >
+                                    {char}
+                                </span>
                             </span>
-                        </span>
+                        )
                     ))}
                 </h2>
             </div>
