@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Services.scss';
 
 const Services = () => {
@@ -129,7 +130,7 @@ const Services = () => {
             {/* Header Section */}
             <div className="services-header-section">
                 <div className="services-header">
-                    <h1 className="services-title">Our Services</h1>
+                    <AnimatedHeading text="Our Services" tag="h1" className="services-title centered" />
                     
                     {/* Services Navigation Menu */}
                     <div className="services-nav-menu">
@@ -226,7 +227,7 @@ const Services = () => {
             {/* Bottom CTA Section */}
             <div className="services-cta-section">
                 <div className="services-cta">
-                    <h2>Ready to bring your vision to life?</h2>
+                    <AnimatedHeading text="Ready to bring your vision to life?" tag="h2" className="centered" />
                     <p className="cta-description">Let's create something extraordinary together</p>
                     <Link to="/contact" className="cta-primary-button">
                         <span>Get Started Today</span>

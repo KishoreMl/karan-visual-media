@@ -165,7 +165,6 @@
 
         &:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(249, 168, 37, 0.3);
 
             .button-arrow {
                 transform: translateX(4px);
