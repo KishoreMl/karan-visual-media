@@ -120,7 +120,7 @@ const Home = ({ isDarkMode }) => {
             {/* Logo Content Section */}
             <div className="autofix-container">
                 <div className="text-content">
-                    <AnimatedHeading text="Design it right. Design it better." tag="h1" className="main-title" />
+                    <h1 className="main-title">Design it once. Design it right.</h1>
                     <p className="main-description">
                     Blending Design, Animation, and Technology to Elevate Brands.We Turn Brands into Visual Experiences.
                     </p>
@@ -139,7 +139,7 @@ const Home = ({ isDarkMode }) => {
             </div>
             </div>
 
-            {/* Description Card Section */}
+            {/* Services Card Section */}
             <DescriptionCard />
 
             {/* Descriptive Content Section */}
@@ -148,62 +148,62 @@ const Home = ({ isDarkMode }) => {
             {/* Scale Up Screen Section */}
             <ScaleUpScreen />
 
-            {/* Carousel Section */}
-            <div className="carousel-section">
-                <div className="carousel-container">
-                    <div className="carousel-track">
-                        {(() => {
-                            const logos = [
-                                { src: client_logo_1, alt: 'Nutrieros' },
-                                { src: client_logo_2, alt: 'Big Idea' },
-                                { src: client_logo_3, alt: 'Eagle' },
-                                { src: client_logo_4, alt: 'Tamil Catering' },
-                                { src: client_logo_5, alt: 'Yuva Bharathi' },
-                            ];
-                            const duplicated = [...logos, ...logos,];
-                            return duplicated.map((logo, index) => (
-                                <div key={index} className="company-logo">
-                                    <img src={logo.src} alt={logo.alt} className="logo-image" />
-                                </div>
-                            ));
-                        })()}
+            {/* Clients Logo Grid Section */}
+            <div className="logo-grid-section">
+                <h2 className="logo-grid-title">Our Clients</h2>
+                <div className="logo-grid-container">
+                    <div className="logo-grid-item">
+                        <img src={client_logo_1} alt="Nutrieros" className="grid-logo-image" />
                     </div>
-                 </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_2} alt="Big Idea" className="grid-logo-image" />
+                    </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_3} alt="Eagle" className="grid-logo-image" />
+                    </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_4} alt="Tamil Catering" className="grid-logo-image" />
+                    </div>
+                    <div className="logo-grid-item">
+                        <img src={client_logo_5} alt="Yuva Bharathi" className="grid-logo-image" />
+                    </div>
+                </div>
             </div>   
-
 
             {/* Text Carousel */}
             <div className="text-carousel-section">
                 <div className="carousel-track-wrapper">
                     <div className="carousel-track">
-                        <span className="carousel-item">Motion</span>
-                        <span className="carousel-dot">●</span>
                         <span className="carousel-item">Animation</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Interactive</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">3D Design</span>
                         <span className="carousel-dot">●</span>
                         <span className="carousel-item">Branding</span>
                         <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Digital Marketing</span>
+                        <span className="carousel-item">Design</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Marketing</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Visual Effects</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Development</span>
                         <span className="carousel-dot">●</span>
                         {/* Duplicate for seamless loop */}
-                        <span className="carousel-item">Motion</span>
-                        <span className="carousel-dot">●</span>
                         <span className="carousel-item">Animation</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Interactive</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">3D Design</span>
                         <span className="carousel-dot">●</span>
                         <span className="carousel-item">Branding</span>
                         <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Digital Marketing</span>
+                        <span className="carousel-item">Design</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Marketing</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Visual Effects</span>
+                        <span className="carousel-dot">●</span>
+                        <span className="carousel-item">Development</span>
                         <span className="carousel-dot">●</span>
                     </div>
                 </div>
             </div>
+
+
             {/* Contact CTA Section */}
             <div className="contact-cta-section">
                 <div className="cta-content">

@@ -985,128 +985,145 @@
   }
 }
 
-/* Carousel Section */
-.carousel-section {
-  background-color: transparent;
-  padding: 50px 0;
-  overflow: hidden;
-  position: relative;
+/* Logo Grid Section */
+.logo-grid-section {
   width: 100%;
-  margin-top: 80px;
+  background: var(--bg-primary);
+  padding: 80px 0;
+  margin: 6rem 0 0 0 ;
+  position: relative;
+  padding: 0 3rem;
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 150px;
-    z-index: 2;
-    pointer-events: none;
+  .logo-grid-title {
+    font-size: 5.5rem;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    padding: 0 3rem;
   }
 }
 
-.carousel-container {
-  width: 100%;
-  position: relative;
-}
-
-.carousel-track {
-  display: flex;
+.logo-grid-container {
+  max-width: 1400px;
+  margin: 5rem auto 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px 40px;
   align-items: center;
-  animation: scroll 20s linear infinite;
-  will-change: transform;
-
-  &:hover {
-    animation-play-state: paused;
-  }
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
-.company-logo {
-  flex-shrink: 0;
-  width: 250px;
-  height: 320px;
+
+.logo-grid-item {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 50px;
+  height: 200px;
+  width: 100%;
+  transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
 
-  .logo-image {
-    max-width: 100%;
-    max-height: 100%;
-    width: 9rem;
-    height: 9rem;
-    object-fit: contain;
-    transition: all 0.3s ease;
-    opacity: 0.8;
-    filter: grayscale(20%);
-    user-select: none;
-    pointer-events: none;
-
-    &:hover {
-      opacity: 1;
-      filter: grayscale(0%);
-      transform: scale(1.1);
-
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(249, 168, 37, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 }
 
-/* Carousel Responsive adjustments */
-@media (max-width: 1024px) {
-  .company-logo {
-    width: 200px;
-    height: 100px;
-    margin: 0 40px;
+.grid-logo-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 120px;
+  object-fit: contain;
+  filter: grayscale(30%);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
 
-    .logo-image {
-      max-width: 90%;
-      max-height: 90%;
+/* Logo Grid Responsive */
+@media (max-width: 1200px) {
+  .logo-grid-section {
+    .logo-grid-title {
+      font-size: 3rem;
     }
+  }
+
+  .logo-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
+    padding: 0 30px;
+  }
+
+  .logo-grid-item {
+    padding: 35px;
+    height: 180px;
   }
 }
 
 @media (max-width: 768px) {
-  .carousel-section {
+  .logo-grid-section {
     padding: 60px 0;
-  }
+    margin: 60px 0;
+    padding: 0 2rem;
 
-  .company-logo {
-    width: 150px;
-    height: 80px;
-    margin: 0 30px;
-
-    .logo-image {
-      max-width: 85%;
-      max-height: 85%;
+    .logo-grid-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
   }
 
-  .carousel-track {
-    animation: scroll 20s linear infinite;
+  .logo-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+    padding: 0 20px;
+  }
+
+  .logo-grid-item {
+    padding: 30px;
+    height: 160px;
   }
 }
 
 @media (max-width: 480px) {
-  .company-logo {
-    width: 120px;
-    height: 70px;
-    margin: 0 20px;
+  .logo-grid-section {
+    padding: 40px 0;
+    margin: 40px 0;
+    padding: 0 1.5rem;
 
-    .logo-image {
-      max-width: 80%;
-      max-height: 80%;
+    .logo-grid-title {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
     }
+  }
+
+  .logo-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 15px;
+    padding: 0 15px;
+  }
+
+  .logo-grid-item {
+    padding: 25px;
+    height: 140px;
+    border-radius: 8px;
+  }
+
+  .grid-logo-image {
+    max-width: 90%;
+    max-height: 90%;
+    height: 100px;
   }
 }
 
@@ -1273,13 +1290,11 @@
 /* Text Carousel Section */
 .text-carousel-section {
   width: 100%;
-  background: #000000;
+  background: transparent;
   padding: 60px 0;
   overflow: hidden;
   position: relative;
   margin: 80px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   .carousel-track-wrapper {
     width: 100%;
@@ -1292,36 +1307,27 @@
     align-items: center;
     gap: 0;
     white-space: nowrap;
-    animation: scrollCarousel 30s linear infinite;
+    animation: scrollCarousel 25s linear infinite;
     will-change: transform;
 
-    &:hover {
-      animation-play-state: paused;
-    }
   }
 
   .carousel-item {
     font-size: clamp(2.5rem, 5vw, 5rem);
-    font-weight: 700;
+    font-weight: 400;
     color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0 40px;
+    letter-spacing: 0.02em;
+    margin: 0 7px;
     display: inline-block;
     transition: all 0.3s ease;
-
-    &:hover {
-      color: var(--accent-color);
-      transform: scale(1.05);
-    }
   }
 
   .carousel-dot {
-    font-size: clamp(7rem, 3vw, 12rem);
-    color: var(--accent-color);
+    font-size: clamp(7rem, 5vw, 12rem);
+    color: var(--text-primary);
     margin: 0 20px;
     display: inline-block;
-    opacity: 0.6;
+    
   }
 }
 
@@ -1330,7 +1336,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.333%);
   }
 }
 
@@ -1340,7 +1346,7 @@
     margin: 60px 0;
 
     .carousel-track {
-      animation-duration: 25s;
+      animation-duration: 22s;
     }
 
     .carousel-item {
@@ -1359,7 +1365,7 @@
     margin: 50px 0;
 
     .carousel-track {
-      animation-duration: 20s;
+      animation-duration: 18s;
     }
 
     .carousel-item {
@@ -1383,12 +1389,13 @@
     }
 
     .carousel-item {
-      margin: 0 15px;
+      font-size: 4rem;
+      margin: 0 7px;
     }
 
     .carousel-dot {
       margin: 0 8px;
-      font-size: clamp(1rem, 2vw, 2rem);
+      font-size: clamp(7rem, 5vw, 12rem);
     }
   }
 }
@@ -1398,9 +1405,7 @@
   padding: 6rem 2rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
-  background: var(--bg-card);
-  border-radius: 30px;
-  border: 1px solid var(--border-color);
+  background: transparent;
   position: relative;
 
   .cta-content {

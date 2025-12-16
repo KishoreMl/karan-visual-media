@@ -259,10 +259,6 @@ We created a complete social media toolkit including post templates, story desig
                         </div>
                     </div>
                 </div>
-                <div className="scroll-indicator animate-on-scroll">
-                    <span>Scroll to explore</span>
-                    <div className="scroll-arrow">↓</div>
-                </div>
             </section>
 
             {/* Content Section */}

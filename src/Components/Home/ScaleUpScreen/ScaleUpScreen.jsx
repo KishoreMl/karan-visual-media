@@ -66,6 +66,10 @@ const ScaleUpScreen = () => {
                     borderRadius: `${8 * (1 - scaleProgress)}px`,
                 }}
             >
+                {/* <div className="plus-symbol">
+                    <div className="plus-horizontal"></div>
+                    <div className="plus-vertical"></div>
+                </div> */}
             </div>
             <div className="door-header">CREATIVE</div>
             <div className="door-footer">SOLUTIONS</div>
