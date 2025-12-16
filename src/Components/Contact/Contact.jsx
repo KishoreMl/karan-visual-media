@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../../utils/emailConfig';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Contact.scss';
 
 const Contact = () => {
@@ -108,7 +109,7 @@ const Contact = () => {
         <div className="contact-page">
 
             <div className="contact-header">
-                <h1 className="contact-title">Get In Touch</h1>
+                <AnimatedHeading text="Get In Touch" tag="h1" className="contact-title centered" />
                 <p className="contact-subtitle">
                     Let's discuss your project and bring your vision to life
                 </p>

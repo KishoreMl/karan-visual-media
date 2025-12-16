@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DescriptionCard from './DescriptionCard/DescriptionCard';
 import DescriptiveContent from './DescriptiveContent/DescriptiveContent';
+import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
 import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
@@ -119,7 +120,7 @@ const Home = ({ isDarkMode }) => {
             {/* Logo Content Section */}
             <div className="autofix-container">
                 <div className="text-content">
-                    <h1 className="main-title">Design it right. Design it better.</h1>
+                    <AnimatedHeading text="Design it right. Design it better." tag="h1" className="main-title" />
                     <p className="main-description">
                         Spend less time fixing vulnerabilities and more time building features with Copilot Autofix.
                     </p>
@@ -173,7 +174,7 @@ const Home = ({ isDarkMode }) => {
             {/* Contact CTA Section */}
             <div className="contact-cta-section">
                 <div className="cta-content">
-                    <h2 className="cta-title">Have a Project in Mind?</h2>
+                    <AnimatedHeading text="Have a Project in Mind?" tag="h2" className="cta-title centered" />
                     <p className="cta-description">
                         Let's collaborate and bring your vision to life. Reach out to us for a free consultation and discover how we can help your brand stand out.
                     </p>

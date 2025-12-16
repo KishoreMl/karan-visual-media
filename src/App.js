@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Header from './Components/Header/Header.jsx';
 import Home from './Components/Home/Home.jsx';
 import Works from './Components/Works/Works.jsx';
+import WorkDetail from './Components/Works/WorkDetail.jsx';
 import Services from './Components/Services/Services.jsx';
 import AboutUs from './Components/AboutUs/AboutUs.jsx';
 import Contact from './Components/Contact/Contact.jsx';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/works" element={<Works />} />
+            <Route path="/works/:workSlug" element={<WorkDetail />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         <Footer />
