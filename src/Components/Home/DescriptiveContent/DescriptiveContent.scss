@@ -1,8 +1,8 @@
 .descriptive-content {
   position: relative;
-  padding: 6rem 4rem;
+  padding: 4rem 4rem;
   max-width: 1400px;
-  margin: 0 auto 7rem auto;
+  margin: 0 auto 3rem auto;
   
   .decorative-icon {
     width: 80px;
@@ -84,7 +84,8 @@
 // Responsive design
 @media (max-width: 1200px) {
   .descriptive-content {
-    padding: 4rem 3rem;
+    padding: 3rem 3rem;
+    margin: 0 auto 2.5rem auto;
     
     .main-heading {
       font-size: 3rem;
@@ -94,7 +95,8 @@
 
 @media (max-width: 768px) {
   .descriptive-content {
-    padding: 3rem 2rem;
+    padding: 2.5rem 2rem;
+    margin: 0 auto 2rem auto;
     
     .decorative-icon {
       width: 60px;
@@ -111,6 +113,7 @@
 @media (max-width: 480px) {
   .descriptive-content {
     padding: 2rem 1.5rem;
+    margin: 0 auto 1.5rem auto;
     
     .decorative-icon {
       width: 50px;

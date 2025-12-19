@@ -245,6 +245,15 @@ We created a complete social media toolkit including post templates, story desig
                     className="hero-image"
                     style={{ backgroundImage: `url(${project.image})` }}
                 >
+                    {/* Back to Works Button */}
+                    <button 
+                        className="back-to-works-hero"
+                        onClick={() => navigate('/works')}
+                    >
+                        <span className="back-arrow">←</span>
+                        <span className="back-text">Back to Works</span>
+                    </button>
+                    
                     <div className="hero-overlay">
                         <div className="hero-content">
                             <span className="hero-category animate-on-scroll">{project.category}</span>
@@ -320,7 +329,7 @@ We created a complete social media toolkit including post templates, story desig
             <section className="work-navigation animate-on-scroll">
                 <button onClick={() => navigate('/works')} className="back-to-works">
                     <span className="back-arrow">←</span>
-                    <span className="back-text">Back to All Works</span>
+                    <span className="back-text">Back to Works</span>
                 </button>
             </section>
 
