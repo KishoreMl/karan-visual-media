@@ -10,7 +10,7 @@
 .header-section {
   text-align: center;
   width:100%;
-  margin-bottom:13rem;
+  margin-bottom: 6rem;
   margin-top: 5rem;
   z-index: 2;
   position: relative;
@@ -51,8 +51,8 @@
     padding: 0 7rem;
   }
   @media (max-width: 768px) {
-    margin-bottom: 15rem;
-    margin-top: 6rem;
+    margin-bottom: 5rem;
+    margin-top: 4rem;
     padding: 0 7rem;
     h1{
       font-size: 8rem;
@@ -70,8 +70,8 @@
     padding: 0 4rem;
   }
   @media (max-width: 480px) {
-    margin-bottom: 15rem;
-    margin-top: 6rem;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
     padding: 0 2rem;
     h1{
       font-size: 6rem;
@@ -91,13 +91,18 @@
 .velocity-scroll-section {
   width: 100%;
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  padding: 60px 0;
+  padding: 50px 0;
   overflow: hidden;
-  margin: 80px 0;
+  margin: 50px 0;
   
   @media (max-width: 768px) {
-    padding: 40px 0;
-    margin: 50px 0;
+    padding: 35px 0;
+    margin: 40px 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 25px 0;
+    margin: 30px 0;
   }
 }
 
@@ -1299,10 +1304,10 @@
 .text-carousel-section {
   width: 100%;
   background: transparent;
-  padding: 60px 0;
+  padding: 50px 0;
   overflow: hidden;
   position: relative;
-  margin: 80px 0;
+  margin: 50px 0;
 
   .carousel-track-wrapper {
     width: 100%;
@@ -1311,13 +1316,15 @@
   }
 
   .carousel-track {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0;
     white-space: nowrap;
+    width: max-content;
     animation: scrollCarousel 25s linear infinite;
     will-change: transform;
-
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .carousel-item {
@@ -1341,17 +1348,17 @@
 
 @keyframes scrollCarousel {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-33.333%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @media (max-width: 1024px) {
   .text-carousel-section {
-    padding: 50px 0;
-    margin: 60px 0;
+    padding: 40px 0;
+    margin: 40px 0;
 
     .carousel-track {
       animation-duration: 22s;
@@ -1369,8 +1376,8 @@
 
 @media (max-width: 768px) {
   .text-carousel-section {
-    padding: 40px 0;
-    margin: 50px 0;
+    padding: 35px 0;
+    margin: 35px 0;
 
     .carousel-track {
       animation-duration: 18s;
@@ -1389,11 +1396,11 @@
 
 @media (max-width: 480px) {
   .text-carousel-section {
-    padding: 30px 0;
-    margin: 40px 0;
+    padding: 25px 0;
+    margin: 25px 0;
 
     .carousel-track {
-      animation-duration: 15s;
+      animation-duration: 14s;
     }
 
     .carousel-item {
@@ -1410,9 +1417,9 @@
 
 /* Contact CTA Section */
 .contact-cta-section {
-  padding: 6rem 2rem;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  padding: 4rem 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   background: transparent;
   position: relative;
 
@@ -1467,8 +1474,8 @@
 
 @media (max-width: 768px) {
   .contact-cta-section {
-    padding: 4rem 1.5rem;
-    margin: 3rem 1rem;
+    padding: 3rem 1.5rem;
+    margin: 2rem 1rem;
     border-radius: 20px;
 
     .cta-description {
@@ -1484,8 +1491,8 @@
 
 @media (max-width: 480px) {
   .contact-cta-section {
-    padding: 3rem 1rem;
-    margin: 2rem 0.5rem;
+    padding: 2.5rem 1rem;
+    margin: 1.5rem 0.5rem;
 
     .cta-title {
       font-size: 1.75rem;

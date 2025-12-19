@@ -5,13 +5,13 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     position: relative;
     overflow-x: hidden;
-    padding: 4rem 2rem 6rem;
+    padding: 3rem 2rem 4rem;
 
     // Header Section
     .contact-header {
         text-align: center;
         max-width: 600px;
-        margin: 0 auto 4rem;
+        margin: 0 auto 3rem;
 
         .contact-title {
             font-size: clamp(2.5rem, 6vw, 4rem);
@@ -226,10 +226,10 @@
 
     // Responsive Design
     @media (max-width: 768px) {
-        padding: 3rem 1.5rem 4rem;
+        padding: 2.5rem 1.5rem 3rem;
 
         .contact-header {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .contact-form-wrapper {
@@ -242,7 +242,7 @@
     }
 
     @media (max-width: 480px) {
-        padding: 2rem 1rem 3rem;
+        padding: 2rem 1rem 2.5rem;
 
         .contact-form-wrapper {
             padding: 1.25rem;

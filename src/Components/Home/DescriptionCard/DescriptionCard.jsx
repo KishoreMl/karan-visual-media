@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import devImg from '../../../assets/images/Dev.png';
 import socialMediaImg from '../../../assets/images/Socialmedia.png';
@@ -7,14 +7,46 @@ import './DescriptionCard.scss';
 
 const DescriptionCard = () => {
     const navigate = useNavigate();
+    const cardsRef = useRef([]);
 
     const handleCardClick = () => {
         navigate('/works');
     };
 
+    useEffect(() => {
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('card-visible');
+                } else {
+                    entry.target.classList.remove('card-visible');
+                }
+            });
+        }, observerOptions);
+
+        cardsRef.current.forEach(card => {
+            if (card) observer.observe(card);
+        });
+
+        return () => {
+            cardsRef.current.forEach(card => {
+                if (card) observer.unobserve(card);
+            });
+        };
+    }, []);
+
     return (
         <div className="glow-info-cards-container">
-            <div className='card-cover' onClick={handleCardClick}>
+            <div 
+                className='card-cover card-animate card-1' 
+                onClick={handleCardClick}
+                ref={el => cardsRef.current[0] = el}
+            >
                 <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={brandingImg} alt="branding" />
@@ -29,7 +61,11 @@ const DescriptionCard = () => {
                     </div>
                 </div>
             </div>  
-            <div className='card-cover' onClick={handleCardClick}>
+            <div 
+                className='card-cover card-animate card-2' 
+                onClick={handleCardClick}
+                ref={el => cardsRef.current[1] = el}
+            >
                 <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={socialMediaImg} alt="social media" />
@@ -44,7 +80,11 @@ const DescriptionCard = () => {
                     </div>
                 </div>
             </div>
-            <div className='card-cover' onClick={handleCardClick}>
+            <div 
+                className='card-cover card-animate card-3' 
+                onClick={handleCardClick}
+                ref={el => cardsRef.current[2] = el}
+            >
                 <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={devImg} alt="dev" />
