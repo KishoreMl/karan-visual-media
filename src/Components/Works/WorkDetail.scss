@@ -315,43 +315,9 @@
                     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
                 }
 
-                .gallery-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(
-                        135deg,
-                        rgba(249, 168, 37, 0.8) 0%,
-                        rgba(245, 158, 11, 0.6) 100%
-                    );
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    opacity: 0;
-                    transition: all 0.4s ease;
-
-                    .gallery-number {
-                        font-size: 3rem;
-                        font-weight: 700;
-                        color: #ffffff;
-                        transform: translateY(20px);
-                        transition: transform 0.4s ease;
-                    }
-                }
-
                 &:hover {
                     img {
                         transform: scale(1.1);
-                    }
-
-                    .gallery-overlay {
-                        opacity: 1;
-
-                        .gallery-number {
-                            transform: translateY(0);
-                        }
                     }
                 }
             }

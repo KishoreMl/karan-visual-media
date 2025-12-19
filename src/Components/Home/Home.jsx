@@ -9,11 +9,11 @@ import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import './Home.scss';
 
 // Import carousel logos
-import client_logo_1 from "../../assets/images/logos/Nutrieros_1.png";
-import client_logo_2 from "../../assets/images/logos/big_idea_dark.png";
-import client_logo_3 from "../../assets/images/logos/eagle.png";
-import client_logo_4 from "../../assets/images/logos/tamil_catering.png";
-import client_logo_5 from "../../assets/images/logos/Yuva_bharathi.png";
+import client_logo_1 from "../../assets/images/logos/Nutrieros.png";
+import client_logo_2 from "../../assets/images/logos/Big_Idea.png";
+import client_logo_3 from "../../assets/images/logos/Eagle.png";
+import client_logo_4 from "../../assets/images/logos/Tamil_Catering.png";
+import client_logo_5 from "../../assets/images/logos/Yuva_Bharathi.png";
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
@@ -55,7 +55,7 @@ const Home = ({ isDarkMode }) => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     let startTime = null;
-                    const duration = 1000; 
+                    const duration = 700; 
                     const animate = (timestamp) => {
                         if (!startTime) startTime = timestamp;
                         const elapsed = timestamp - startTime;
@@ -64,11 +64,13 @@ const Home = ({ isDarkMode }) => {
                         setLogoProgress(progress);
                         if (progress < 1) {
                             requestAnimationFrame(animate);
+                        } else {
+
+                            setLogoProgress(1);
                         }
                     };
-                    
                     requestAnimationFrame(animate);
-                    observer.disconnect(); // Run animation only once
+                    observer.disconnect(); 
                 }
             },
             {
@@ -128,7 +130,14 @@ const Home = ({ isDarkMode }) => {
                 </div>
                 <div className="logo-content" ref={logoRef}>
                 <div className="logo-icon">
-                    <div className="logo-dot"></div>
+                    <div 
+                        className="logo-dot"
+                        style={{ 
+                            background: logoProgress >= 0.99 
+                                ? 'linear-gradient(135deg, #FFA500 0%, #FFB627 100%)' 
+                                : 'transparent'
+                        }}
+                    ></div>
                     <div className="logo-bar">
                         <div 
                             className="logo-bar-progress"
@@ -150,7 +159,7 @@ const Home = ({ isDarkMode }) => {
 
             {/* Clients Logo Grid Section */}
             <div className="logo-grid-section">
-                <h2 className="logo-grid-title">Our Clients</h2>
+                <AnimatedHeading text="Our Clients" tag="h2" className="logo-grid-title" />
                 <div className="logo-grid-container">
                     <div className="logo-grid-item">
                         <img src={client_logo_1} alt="Nutrieros" className="grid-logo-image" />
@@ -202,7 +211,6 @@ const Home = ({ isDarkMode }) => {
                     </div>
                 </div>
             </div>
-
 
             {/* Contact CTA Section */}
             <div className="contact-cta-section">

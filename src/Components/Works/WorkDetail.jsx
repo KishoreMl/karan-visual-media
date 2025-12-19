@@ -3,6 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './WorkDetail.scss';
 
+// Import NPS images
+import npsImage1 from '../../assets/images/Works/nps/nps (1).jpg';
+import npsImage2 from '../../assets/images/Works/nps/nps (2).jpg';
+import npsImage3 from '../../assets/images/Works/nps/nps (3).jpg';
+import npsImage4 from '../../assets/images/Works/nps/nps (4).jpg';
+import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
+
 const WorkDetail = () => {
     const { workSlug } = useParams();
     const navigate = useNavigate();
@@ -150,6 +157,30 @@ We created a complete social media toolkit including post templates, story desig
                 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
                 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
                 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop'
+            ]
+        },
+        {
+            id: 7,
+            slug: 'nps-project',
+            title: 'NPS Project',
+            category: 'BRAND DESIGN',
+            year: '2024',
+            description: 'Comprehensive branding and design project for NPS, featuring modern visual identity and brand guidelines.',
+            fullDescription: `NPS is a forward-thinking organization that required a complete brand refresh to align with their evolving vision and market positioning. Our team worked to create a distinctive visual identity that captures their innovative spirit.
+
+The project involved detailed research into the target audience, market trends, and competitive landscape. We developed a comprehensive brand strategy that reflects NPS's core values and unique positioning in the market.
+
+Our deliverables included logo design, brand guidelines, marketing collateral, and digital assets. The cohesive design system ensures consistent brand presentation across all touchpoints, from print materials to digital platforms.`,
+            tags: ['NPS', 'Branding', 'Design'],
+            image: npsImage1,
+            bgColor: '#1e40af',
+            gallery: [
+                npsImage5,
+                npsImage1,
+                npsImage2,
+                npsImage3,
+                npsImage4,
+               
             ]
         }
     ];

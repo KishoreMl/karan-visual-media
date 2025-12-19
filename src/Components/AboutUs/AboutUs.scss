@@ -16,42 +16,6 @@
         overflow: hidden;
         z-index: 0;
         pointer-events: none;
-
-        .gradient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.2;
-            animation: float 25s infinite ease-in-out;
-
-            &.orb-1 {
-                width: 500px;
-                height: 500px;
-                background: radial-gradient(circle, #2B90E2, transparent);
-                top: -250px;
-                left: -250px;
-                animation-delay: 0s;
-            }
-
-            &.orb-2 {
-                width: 600px;
-                height: 600px;
-                background: radial-gradient(circle, #2BAEE2, transparent);
-                bottom: -300px;
-                right: -300px;
-                animation-delay: 8s;
-            }
-
-            &.orb-3 {
-                width: 450px;
-                height: 450px;
-                background: radial-gradient(circle, #3b82f6, transparent);
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                animation-delay: 16s;
-            }
-        }
     }
 
     @keyframes float {

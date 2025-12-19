@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Works.scss';
 
+// Import NPS image
+import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
+
 const Works = () => {
     const [filter, setFilter] = useState('ALL');
     const navigate = useNavigate();
@@ -73,6 +76,17 @@ const Works = () => {
             tags: ['GMS', 'Social Media'],
             image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=400&fit=crop',
             bgColor: '#d4a574'
+        },
+        {
+            id: 7,
+            slug: 'nps-project',
+            title: 'NPS Project',
+            category: 'BRAND DESIGN',
+            year: '2024',
+            description: 'Comprehensive branding and design project for NPS, featuring modern visual identity and brand guidelines.',
+            tags: ['NPS', 'Branding'],
+            image: npsImage5,
+            bgColor: '#1e40af'
         }
     ];
 
