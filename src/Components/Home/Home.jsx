@@ -1,19 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import DescriptionCard from './DescriptionCard/DescriptionCard';
 import DescriptiveContent from './DescriptiveContent/DescriptiveContent';
-import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
 import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
+import TextCarousel from './TextCarousel/TextCarousel';
+import CtaSection from './CtaSection/CtaSection';
+import LogoGridSection from './LogoGridSection/LogoGridSection';
 import './Home.scss';
-
-// Import carousel logos
-import client_logo_1 from "../../assets/images/logos/Nutrieros.png";
-import client_logo_2 from "../../assets/images/logos/Big_Idea.png";
-import client_logo_3 from "../../assets/images/logos/Eagle.png";
-import client_logo_4 from "../../assets/images/logos/Tamil_Catering.png";
-import client_logo_5 from "../../assets/images/logos/Yuva_Bharathi.png";
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
@@ -158,73 +152,13 @@ const Home = ({ isDarkMode }) => {
             <ScaleUpScreen />
 
             {/* Clients Logo Grid Section */}
-            <div className="logo-grid-section">
-                <AnimatedHeading text="Our Clients" tag="h2" className="logo-grid-title" />
-                <div className="logo-grid-container">
-                    <div className="logo-grid-item">
-                        <img src={client_logo_1} alt="Nutrieros" className="grid-logo-image" />
-                    </div>
-                    <div className="logo-grid-item">
-                        <img src={client_logo_2} alt="Big Idea" className="grid-logo-image" />
-                    </div>
-                    <div className="logo-grid-item">
-                        <img src={client_logo_3} alt="Eagle" className="grid-logo-image" />
-                    </div>
-                    <div className="logo-grid-item">
-                        <img src={client_logo_4} alt="Tamil Catering" className="grid-logo-image" />
-                    </div>
-                    <div className="logo-grid-item">
-                        <img src={client_logo_5} alt="Yuva Bharathi" className="grid-logo-image" />
-                    </div>
-                </div>
-            </div>   
+            <LogoGridSection />
 
             {/* Text Carousel */}
-            <div className="text-carousel-section">
-                <div className="carousel-track-wrapper">
-                    <div className="carousel-track">
-                        <span className="carousel-item">Animation</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Branding</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Design</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Marketing</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Visual Effects</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Development</span>
-                        <span className="carousel-dot">●</span>
-                        {/* Duplicate for seamless loop */}
-                        <span className="carousel-item">Animation</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Branding</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Design</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Marketing</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Visual Effects</span>
-                        <span className="carousel-dot">●</span>
-                        <span className="carousel-item">Development</span>
-                        <span className="carousel-dot">●</span>
-                    </div>
-                </div>
-            </div>
+            <TextCarousel />
 
             {/* Contact CTA Section */}
-            <div className="contact-cta-section">
-                <div className="cta-content">
-                    <AnimatedHeading text="Have a Project in Mind?" tag="h2" className="cta-title centered" />
-                    <p className="cta-description">
-                        Let's collaborate and bring your vision to life. Reach out to us for a free consultation and discover how we can help your brand stand out.
-                    </p>
-                    <Link to="/contact" className="cta-button">
-                        <span>Contact Us</span>
-                        <span className="button-arrow">→</span>
-                    </Link>
-                </div>
-            </div>
+            <CtaSection />
 
         </div>
     );

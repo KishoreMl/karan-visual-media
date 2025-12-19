@@ -33,42 +33,35 @@
     letter-spacing: -0.02em;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.5rem;
     
-    .letter-wrapper {
-      display: inline-block;
+    .line-wrapper {
       overflow: hidden;
-
-      .letter {
-        display: inline-block;
-        transform: translateY(110%);
-        opacity: 0;
-      }
+      display: block;
+      position: relative;
+      padding: 0.2rem 0;
+    }
+    
+    .text-line {
+      display: block;
+      transform: translateY(110%);
     }
 
-    .space {
-      display: inline-block;
-      width: 0.25em;
-    }
-
-    &.visible {
-      .letter-wrapper {
-        .letter {
-          animation: letterReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+    &.animate-lines {
+      .text-line {
+        animation: slideUpReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
     }
   }
 }
 
-@keyframes letterReveal {
+@keyframes slideUpReveal {
   0% {
     transform: translateY(110%);
-    opacity: 0;
   }
   100% {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
@@ -106,6 +99,7 @@
     .main-heading {
       font-size: 2rem;
       line-height: 1.4;
+      gap: 0.3rem;
     }
   }
 }
@@ -122,6 +116,7 @@
     
     .main-heading {
       font-size: 1.5rem;
+      gap: 0.2rem;
     }
   }
 }

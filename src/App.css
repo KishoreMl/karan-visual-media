@@ -5,7 +5,7 @@
   --bg-secondary: #1a1a2e;
   --bg-tertiary: #16213e;
   --bg-card: #181818;
-  --bg-gradient: linear-gradient(#181818 20%, #181818 50%, #0a0a0a, #0a0a0a, #0a0a0a 100%);
+  --bg-gradient: linear-gradient(#181818 40%, #181818 70%, #0a0a0a, #0a0a0a, #0a0a0a 100%);
 
   --primary-yellow: #F9A825;
   --secondary-yellow: #F59E0B;
@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
-p, span, li {
+p,  li {
   color: var(--text-secondary);
 }
 

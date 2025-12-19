@@ -27,27 +27,30 @@ const DescriptiveContent = () => {
         };
     }, []);
 
-    const fullText = "Design on the web isn't static anymore. Today's brands need energy, personality and meaning. We bring together strategy, design and storytelling to build digital experiences that grab attention, move fast and make people feel.";
-    
-    const characters = fullText.split('');
+    const lines = [
+        "Design on the web isn't static anymore.",
+        "Today's brands need energy, personality and meaning.",
+        "We bring together strategy, design and storytelling",
+        "to build digital experiences that grab attention,",
+        "move fast and make people feel."
+    ];
 
     return (
         <div className="descriptive-content" ref={contentRef}>
             <div className="text-content-section">
-                <h2 className={`main-heading ${isVisible ? 'visible' : ''}`}>
-                    {characters.map((char, index) => (
-                        char === ' ' ? (
-                            <span key={index} className="space">&nbsp;</span>
-                        ) : (
-                            <span key={index} className="letter-wrapper">
-                                <span 
-                                    className="letter"
-                                    style={{ animationDelay: `${index * 0.015}s` }}
-                                >
-                                    {char}
-                                </span>
+                <h2 className={`main-heading ${isVisible ? 'animate-lines' : ''}`}>
+                    {lines.map((line, index) => (
+                        <div 
+                            key={index} 
+                            className="line-wrapper"
+                        >
+                            <span 
+                                className="text-line"
+                                style={{ animationDelay: `${index * 0.15}s` }}
+                            >
+                                {line}
                             </span>
-                        )
+                        </div>
                     ))}
                 </h2>
             </div>

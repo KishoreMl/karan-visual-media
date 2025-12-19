@@ -119,14 +119,27 @@
     }
 }
 
+
 @media (max-width: 822px) {
     .space-container {
-
         .screen-text{
             font-size: 5rem;
         }
     }
     
+}
+
+@media (max-width:768px){
+    .space-container {
+        .screen-header{
+            top: 15%;
+            left: 35%;
+        }
+        .screen-footer{
+            left: 60%;
+        }
+
+    }
 }
 
 @media (max-width: 480px) {
