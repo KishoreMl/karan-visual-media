@@ -10,7 +10,7 @@ const DescriptionCard = () => {
     const cardsRef = useRef([]);
 
     const handleCardClick = () => {
-        navigate('/works');
+        navigate('/services');
     };
 
     useEffect(() => {
@@ -75,7 +75,7 @@ const DescriptionCard = () => {
                     </div>
                     <div className="description-content">
                         <p className="card-description">
-                            The vulnerability in the code is due to the fact that user-provided input is directly used in HTTP response without any sanitization. This can lead to a cross-site scripting (XSS) attack if the user input contains malicious scripts.
+                            Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.
                         </p>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ const DescriptionCard = () => {
                     </div>
                     <div className="description-content">
                         <p className="card-description">
-                            The vulnerability in the code is due to the fact that user-provided input is directly used in HTTP response without any sanitization. This can lead to a cross-site scripting (XSS) attack if the user input contains malicious scripts.
+                            Professional website development services that create engaging and functional online experiences. From simple landing pages to complex web applications, we build websites that perform and convert.
                         </p>
                     </div>
                 </div>
