@@ -5,6 +5,7 @@ const ScaleUpScreen = () => {
     const containerRef = useRef(null);
     const doorRef = useRef(null);
     const [scaleProgress, setScaleProgress] = useState(0);
+    const [rotation, setRotation] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -12,6 +13,7 @@ const ScaleUpScreen = () => {
 
             const rect = containerRef.current.getBoundingClientRect();
             const windowHeight = window.innerHeight;
+            const scrolled = window.pageYOffset;
             
             const elementTop = rect.top;
             const elementHeight = rect.height;
@@ -35,6 +37,11 @@ const ScaleUpScreen = () => {
                 }
             }
             setScaleProgress(progress);
+            
+            // Calculate rotation based on scroll position
+            // Rotates 360 degrees for every 1000px scrolled
+            const rotationAngle = (scrolled * 0.36) % 360;
+            setRotation(rotationAngle);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -59,20 +66,31 @@ const ScaleUpScreen = () => {
     return (
         <div className="space-container" ref={containerRef}>
             <div 
-                className="door-container" 
+                className="scale-screen" 
                 ref={doorRef}
                 style={{
                     transform: `translate(-50%, -50%) scale(${currentScaleX}, ${currentScaleY})`,
                     borderRadius: `${8 * (1 - scaleProgress)}px`,
                 }}
             >
-                {/* <div className="plus-symbol">
-                    <div className="plus-horizontal"></div>
-                    <div className="plus-vertical"></div>
-                </div> */}
             </div>
-            <div className="door-header">CREATIVE</div>
-            <div className="door-footer">SOLUTIONS</div>
+
+            <div 
+                className="plus-symbol"
+                style={{ transform: `translate(-50%, -50%) rotate(${rotation}deg)` }}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="mi-outline mi-add" viewBox="0 0 24 24">
+                    <path d="M19 11h-6V5c0-.55-.45-1-1-1s-1 .45-1 1v6H5c-.55 0-1 .45-1 1s.45 1 1 1h6v6c0 .55.45 1 1 1s1-.45 1-1v-6h6c.55 0 1-.45 1-1s-.45-1-1-1"/>
+                </svg>
+            </div>
+
+            <div className="frame frame-top-left"></div>
+            <div className="frame frame-top-right"></div>
+            <div className="frame frame-bottom-left"></div>
+            <div className="frame frame-bottom-right"></div>
+
+            <div className="screen-text screen-header">CREATIVE</div>
+            <div className="screen-text screen-footer">SOLUTIONS</div>
         </div>
     );
 };

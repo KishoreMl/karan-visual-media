@@ -1,10 +1,10 @@
 .works-container {
-    padding: 80px 40px;
+    padding: 60px 40px;
     background: transparent;
     min-height: 100vh;
 
     .works-header {
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,7 +28,7 @@
         justify-content: center;
         align-items: center;
         gap: 1rem;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         flex-wrap: wrap;
 
         .filter-btn {
@@ -100,11 +100,21 @@
         .project-image {
             width: 100%;
             height: 280px;
-            background-size: cover;
-            background-position: center;
             position: relative;
             overflow: hidden;
             transition: transform 0.4s ease;
+            background-color: var(--bg-card);
+
+            .project-background-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                z-index: 0;
+            }
 
             .project-overlay {
                 position: absolute;
@@ -118,6 +128,7 @@
                 justify-content: center;
                 opacity: 0;
                 transition: opacity 0.3s ease;
+                z-index: 1;
 
                 .view-project {
                     color: #ffffff;
@@ -197,7 +208,7 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
     .works-container {
-        padding: 60px 30px;
+        padding: 50px 30px;
 
         .works-header {
             .works-title {
@@ -213,10 +224,10 @@
 
 @media (max-width: 768px) {
     .works-container {
-        padding: 50px 20px;
+        padding: 40px 20px;
 
         .works-header {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
 
             .works-title {
                 font-size: 2.5rem;
@@ -228,7 +239,7 @@
         }
 
         .filter-buttons {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
 
             .filter-btn {
                 padding: 10px 20px;

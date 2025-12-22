@@ -15,72 +15,87 @@
         pointer-events: none;
     }
 
-    .door-header{
-        position: absolute;
-        top: 20%;
-        left: 25%;
-        transform: translate(-50%, -50%);
-        font-weight: 700;
-        color:var(--bg-primary);
-        text-align: center;
-        font-size: 8rem;
-        border-radius: 8px;
-        transition: transform 0.05s linear, border-radius 0.1s linear;
-        transform-origin: center center;
-        z-index: 20;
-    }
-
-    .door-footer{
-        position: absolute;
-        bottom: 0;
-        left: 70%;
-        transform: translate(-50%, 0);
-        font-size: 8rem;
-        font-weight: 700;
-        color:var(--bg-primary);
-        z-index: 20;
-    }
-
-    .plus-symbol {
+    .plus-symbol{
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        width: 50px;
-        height: 50px;
+        width: 2rem;
+        height: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 30;
-    
-        .plus-horizontal,
-        .plus-vertical {
-            position: absolute;
-            background: black;
-        }
-    
-        .plus-horizontal {
-            width: 4px;
-            height: 2px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    
-        .plus-vertical {
-            width: 1px;
-            height: 10px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        color: var(--bg-primary);
+        z-index: 20;
+        will-change: transform;
+        transition: transform 0.05s linear;
+        transform: rotate(-90deg);
+
+        svg{
+            width: 100%;
+            height: 100%;
         }
     }
-    
+
+    .screen-text{
+        position: absolute;
+        font-family: var(--primary-font);
+        font-size: 8rem;
+        font-weight: 700;
+        color: var(--bg-primary);
+        z-index: 20;
+    }
+
+    .screen-header{
+        top: 20%;
+        left: 29%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.05s linear, border-radius 0.1s linear;
+        transform-origin: center center;
+    }
+
+    .screen-footer{
+        bottom: 5%;
+        left: 65%;
+        transform: translate(-50%, 0);
+    }
+
+    .frame{
+        position: absolute;
+        width: 6rem;
+        height: 6rem;
+        z-index: 20;
+    }
+
+    .frame-top-left{
+        border-top: solid 3px var(--bg-primary);
+        border-left: solid 3px var(--bg-primary);
+        top:5%;
+        left:5%;
+
+    }
+    .frame-top-right{
+        border-top: solid 3px var(--bg-primary);
+        border-right: solid 3px var(--bg-primary);
+        top:5%;
+        right:5%;
+    }
+    .frame-bottom-left{
+        border-left: solid 3px var(--bg-primary);
+        border-bottom: solid 3px var(--bg-primary);
+        bottom:5%;
+        left:5%;
+    }
+    .frame-bottom-right{
+        border-bottom: solid 3px var(--bg-primary);
+        border-right: solid 3px var(--bg-primary);
+        bottom:5%;
+        right:5%;
+    }
 }
 
-.door-container{
+.scale-screen{
     width: 8rem;
-    height: 20rem;
+    height: 18rem;
     background: var(--scale-screen-color);
     transition: transform 0.05s linear, border-radius 0.1s linear;
     transform-origin: center center;
@@ -104,55 +119,48 @@
     }
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 822px) {
     .space-container {
-        height: 70vh;
+        .screen-text{
+            font-size: 5rem;
+        }
     }
     
-    .door-container {
-        width: 3rem;
-        height: 8rem;
-    }
+}
 
-    .plus-symbol {
-        width: 35px;
-        height: 35px;
-
-        .plus-horizontal {
-            width: 35px;
-            height: 3px;
+@media (max-width:768px){
+    .space-container {
+        .screen-header{
+            top: 15%;
+            left: 35%;
+        }
+        .screen-footer{
+            left: 60%;
         }
 
-        .plus-vertical {
-            width: 3px;
-            height: 35px;
-        }
     }
 }
 
 @media (max-width: 480px) {
     .space-container {
-        height: 60vh;
-    }
-    
-    .door-container {
-        width: 2.5rem;
-        height: 7rem;
-    }
+        height: 90vh;
 
-    .plus-symbol {
-        width: 25px;
-        height: 25px;
-
-        .plus-horizontal {
-            width: 25px;
-            height: 2.5px;
+        .screen-text{
+            font-size: 2rem;
         }
-
-        .plus-vertical {
-            width: 2.5px;
-            height: 25px;
+        .screen-header{
+            top: 15%;
+            left:32%;
         }
+        .screen-footer{
+            bottom: 10%;
+            left: 60%;
+        }
+    }
+    .scale-screen{
+        width: 4rem;
+        height: 10rem;
     }
 }
 

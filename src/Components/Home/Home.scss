@@ -10,7 +10,7 @@
 .header-section {
   text-align: center;
   width:100%;
-  margin-bottom:13rem;
+  margin-bottom: 6rem;
   margin-top: 5rem;
   z-index: 2;
   position: relative;
@@ -51,8 +51,8 @@
     padding: 0 7rem;
   }
   @media (max-width: 768px) {
-    margin-bottom: 15rem;
-    margin-top: 6rem;
+    margin-bottom: 5rem;
+    margin-top: 4rem;
     padding: 0 7rem;
     h1{
       font-size: 8rem;
@@ -70,8 +70,8 @@
     padding: 0 4rem;
   }
   @media (max-width: 480px) {
-    margin-bottom: 15rem;
-    margin-top: 6rem;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
     padding: 0 2rem;
     h1{
       font-size: 6rem;
@@ -91,13 +91,18 @@
 .velocity-scroll-section {
   width: 100%;
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  padding: 60px 0;
+  padding: 50px 0;
   overflow: hidden;
-  margin: 80px 0;
+  margin: 50px 0;
   
   @media (max-width: 768px) {
-    padding: 40px 0;
-    margin: 50px 0;
+    padding: 35px 0;
+    margin: 40px 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 25px 0;
+    margin: 30px 0;
   }
 }
 
@@ -986,147 +991,17 @@
 }
 
 /* Logo Grid Section */
-.logo-grid-section {
-  width: 100%;
-  background: var(--bg-primary);
-  padding: 80px 0;
-  margin: 6rem 0 0 0 ;
-  position: relative;
-  padding: 0 3rem;
 
-  .logo-grid-title {
-    font-size: 5.5rem;
-    font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    padding: 0 3rem;
+@keyframes fadeIn{
+  from{
+    opacity: 0.3;
+    scale: 0.3;
+  }
+  to{
+    opacity: 1;
+    scale: 1;
   }
 }
-
-.logo-grid-container {
-  max-width: 1400px;
-  margin: 5rem auto 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px 40px;
-  align-items: center;
-}
-
-
-
-.logo-grid-item {
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  width: 100%;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(249, 168, 37, 0.05) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-}
-
-.grid-logo-image {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: 120px;
-  object-fit: contain;
-  filter: grayscale(30%);
-  opacity: 0.85;
-  transition: all 0.3s ease;
-}
-
-/* Logo Grid Responsive */
-@media (max-width: 1200px) {
-  .logo-grid-section {
-    .logo-grid-title {
-      font-size: 3rem;
-    }
-  }
-
-  .logo-grid-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px 30px;
-    padding: 0 30px;
-  }
-
-  .logo-grid-item {
-    padding: 35px;
-    height: 180px;
-  }
-}
-
-@media (max-width: 768px) {
-  .logo-grid-section {
-    padding: 60px 0;
-    margin: 60px 0;
-    padding: 0 2rem;
-
-    .logo-grid-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-  }
-
-  .logo-grid-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px 20px;
-    padding: 0 20px;
-  }
-
-  .logo-grid-item {
-    padding: 30px;
-    height: 160px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-grid-section {
-    padding: 40px 0;
-    margin: 40px 0;
-    padding: 0 1.5rem;
-
-    .logo-grid-title {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-    }
-  }
-
-  .logo-grid-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px 15px;
-    padding: 0 15px;
-  }
-
-  .logo-grid-item {
-    padding: 25px;
-    height: 140px;
-    border-radius: 8px;
-  }
-
-  .grid-logo-image {
-    max-width: 90%;
-    max-height: 90%;
-    height: 100px;
-  }
-}
-
 /* Logo Content Section */
 .logo-content {
   width: 100%;
@@ -1153,17 +1028,15 @@
     .logo-dot {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, #FFA500 0%, #FFB627 100%);
       border-radius: 50%;
+      border: 2px solid var(--primary-yellow);
+      transition: background-color 0.5s ease;
     }
 
     .logo-bar {
       width: 60px;
       height: 240px;
       background: rgba(255, 255, 255, 0.1);
-      box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
       position: relative;
       overflow: hidden;
       border-radius: 4px;
@@ -1244,6 +1117,7 @@
       .logo-dot {
         width: 60px;
         height: 60px;
+        border-width: 1.5px;
       }
 
       .logo-bar {
@@ -1271,6 +1145,7 @@
       .logo-dot {
         width: 50px;
         height: 50px;
+        border-width: 1px;
       }
 
       .logo-bar {
@@ -1288,209 +1163,3 @@
 }
 
 /* Text Carousel Section */
-.text-carousel-section {
-  width: 100%;
-  background: transparent;
-  padding: 60px 0;
-  overflow: hidden;
-  position: relative;
-  margin: 80px 0;
-
-  .carousel-track-wrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .carousel-track {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    white-space: nowrap;
-    animation: scrollCarousel 25s linear infinite;
-    will-change: transform;
-
-  }
-
-  .carousel-item {
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    font-weight: 400;
-    color: var(--text-primary);
-    letter-spacing: 0.02em;
-    margin: 0 7px;
-    display: inline-block;
-    transition: all 0.3s ease;
-  }
-
-  .carousel-dot {
-    font-size: clamp(7rem, 5vw, 12rem);
-    color: var(--text-primary);
-    margin: 0 20px;
-    display: inline-block;
-    
-  }
-}
-
-@keyframes scrollCarousel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.333%);
-  }
-}
-
-@media (max-width: 1024px) {
-  .text-carousel-section {
-    padding: 50px 0;
-    margin: 60px 0;
-
-    .carousel-track {
-      animation-duration: 22s;
-    }
-
-    .carousel-item {
-      margin: 0 30px;
-    }
-
-    .carousel-dot {
-      margin: 0 15px;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .text-carousel-section {
-    padding: 40px 0;
-    margin: 50px 0;
-
-    .carousel-track {
-      animation-duration: 18s;
-    }
-
-    .carousel-item {
-      margin: 0 20px;
-      letter-spacing: 0.03em;
-    }
-
-    .carousel-dot {
-      margin: 0 10px;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .text-carousel-section {
-    padding: 30px 0;
-    margin: 40px 0;
-
-    .carousel-track {
-      animation-duration: 15s;
-    }
-
-    .carousel-item {
-      font-size: 4rem;
-      margin: 0 7px;
-    }
-
-    .carousel-dot {
-      margin: 0 8px;
-      font-size: clamp(7rem, 5vw, 12rem);
-    }
-  }
-}
-
-/* Contact CTA Section */
-.contact-cta-section {
-  padding: 6rem 2rem;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  background: transparent;
-  position: relative;
-
-  .cta-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .cta-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-
-  .cta-description {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-  }
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--secondary-yellow) 100%);
-    color: #0a0a0a;
-    padding: 1.25rem 2.5rem;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-
-    .button-arrow {
-      font-size: 1.3rem;
-      transition: transform 0.3s ease;
-    }
-
-    &:hover {
-      transform: translateY(-3px);
-
-      .button-arrow {
-        transform: translateX(5px);
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-cta-section {
-    padding: 4rem 1.5rem;
-    margin: 3rem 1rem;
-    border-radius: 20px;
-
-    .cta-description {
-      font-size: 1rem;
-    }
-
-    .cta-button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-cta-section {
-    padding: 3rem 1rem;
-    margin: 2rem 0.5rem;
-
-    .cta-title {
-      font-size: 1.75rem;
-    }
-
-    .cta-description {
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-    }
-
-    .cta-button {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-}
