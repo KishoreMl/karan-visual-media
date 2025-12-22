@@ -84,13 +84,35 @@ const ScaleUpScreen = () => {
                 </svg>
             </div>
 
-            <div className="frame frame-top-left"></div>
-            <div className="frame frame-top-right"></div>
-            <div className="frame frame-bottom-left"></div>
-            <div className="frame frame-bottom-right"></div>
+            <div 
+                className="frame frame-top-left"
+                style={{ opacity: scaleProgress }}
+            ></div>
+            <div 
+                className="frame frame-top-right"
+                style={{ opacity: scaleProgress }}
+            ></div>
+            <div 
+                className="frame frame-bottom-left"
+                style={{ opacity: scaleProgress }}
+            ></div>
+            <div 
+                className="frame frame-bottom-right"
+                style={{ opacity: scaleProgress }}
+            ></div>
 
-            <div className="screen-text screen-header">CREATIVE</div>
-            <div className="screen-text screen-footer">SOLUTIONS</div>
+            <div 
+                className="screen-text screen-header"
+                style={{ opacity: scaleProgress }}
+            >
+                CREATIVE
+            </div>
+            <div 
+                className="screen-text screen-footer"
+                style={{ opacity: scaleProgress }}
+            >
+                SOLUTIONS
+            </div>
         </div>
     );
 };

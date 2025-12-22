@@ -99,11 +99,11 @@ const Home = ({ isDarkMode }) => {
                 </p>
             </div>
 
-            <div className="central-card" ref={cardRef}>
+            {/* <div className="central-card" ref={cardRef}>
                 <div className="text-block">
                     <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
                 </div>  
-            </div>
+            </div> */}
 
             {/* Shape Container Section */}
             <div className='shape-container'>

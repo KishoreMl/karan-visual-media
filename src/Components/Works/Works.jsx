@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Works.scss';
 
 // Import NPS image
 import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
-import artBoardImage from '../../assets/images/Works/ad/Artboard 1-100.jpg';;
+import artBoardImage from '../../assets/images/Works/ad/Artboard 1-100.jpg';
 const Works = () => {
     const [filter, setFilter] = useState('ALL');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const projects = [
         {

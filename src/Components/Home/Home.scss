@@ -70,11 +70,12 @@
     padding: 0 4rem;
   }
   @media (max-width: 480px) {
+    height: 100vh;
     margin-bottom: 4rem;
     margin-top: 3rem;
     padding: 0 2rem;
-    h1{
-      font-size: 6rem;
+    img{
+      margin-top: 4rem;
     }
     p{
       font-size: 1rem;
