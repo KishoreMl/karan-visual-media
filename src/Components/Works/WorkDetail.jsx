@@ -96,9 +96,8 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
-                } else {
-                    // Remove class when element leaves viewport so it can animate again
-                    entry.target.classList.remove('animate-in');
+                    // Once animated, stop observing to prevent flickering
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);

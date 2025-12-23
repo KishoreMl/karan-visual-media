@@ -27,8 +27,8 @@ const Services = () => {
                             return prev;
                         });
                     }, 50);
-                } else {
-                    setVisibleSections(prev => prev.filter(index => index !== sectionIndex));
+                    // Once visible, stop observing to prevent flickering
+                    observer.unobserve(entry.target);
                 }
             });
         };

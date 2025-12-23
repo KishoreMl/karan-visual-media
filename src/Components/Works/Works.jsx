@@ -7,7 +7,7 @@ import './Works.scss';
 import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/images/Works/ad/Artboard 1-100.jpg';
 const Works = () => {
-    const [filter, setFilter] = useState('ALL');
+    const [filter, setFilter] = useState('All');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Works = () => {
             id: 1,
             slug: 'nps-project',
             title: 'NPS Project',
-            category: 'BRAND DESIGN',
+            category: 'Branding & Design',
             year: '2024',
             description: 'Comprehensive branding and design project for NPS, featuring modern visual identity and brand guidelines.',
             tags: ['NPS', 'Branding'],
@@ -27,10 +27,10 @@ const Works = () => {
             bgColor: '#1e40af'
         },
         {
-            id:2,
-            slug:'Art Board',
+            id: 2,
+            slug: 'Art Board',
             title: 'Art Board',
-            category: 'BRAND DESIGN',
+            category: 'Branding & Design',
             year: '2025',
             description: 'Art board with logo variations and high-quality mockups for their conference event.',
             tags: ['Art Board', 'Branding'],
@@ -45,7 +45,7 @@ const Works = () => {
 
     const categories = ['All', 'Branding & Design', 'Motion Graphics', '3D Animation', '3D Interior & Exterior Walkthrough Animation', 'Website Development'];
 
-    const filteredProjects = filter === 'ALL' 
+    const filteredProjects = filter === 'All' 
         ? projects 
         : projects.filter(project => project.category === filter);
 
@@ -69,46 +69,56 @@ const Works = () => {
             </div>
 
             {/* Projects Grid */}
-            <div className="projects-grid">
-                {filteredProjects.map((project) => (
-                    <div 
-                        key={project.id} 
-                        className="project-card"
-                        onClick={() => handleProjectClick(project.slug)}
-                    >
-                        <div className="project-image">
-                            {project.image && (
-                                <img 
-                                    src={project.image} 
-                                    alt={project.title}
-                                    className="project-background-img"
-                                />
-                            )}
-                            <div className="project-overlay">
-                                <span className="view-project">View Project →</span>
+            {filteredProjects.length > 0 ? (
+                <div className="projects-grid">
+                    {filteredProjects.map((project) => (
+                        <div 
+                            key={project.id} 
+                            className="project-card"
+                            onClick={() => handleProjectClick(project.slug)}
+                        >
+                            <div className="project-image">
+                                {project.image && (
+                                    <img 
+                                        src={project.image} 
+                                        alt={project.title}
+                                        className="project-background-img"
+                                    />
+                                )}
+                                <div className="project-overlay">
+                                    <span className="view-project">View Project →</span>
+                                </div>
+                            </div>
+                            
+                            <div className="project-content">
+                                <div className="project-meta">
+                                    <span className="project-category">{project.category}</span>
+                                </div>
+                                
+                                <h3 className="project-title">{project.title}</h3>
+                                
+                                <p className="project-description">{project.description}</p>
+                                
+                                <div className="project-tags">
+                                    {project.tags.map((tag, index) => (
+                                        <span key={index} className="project-tag">
+                                            {index === 0 ? '♥' : '👁'} {tag}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                        
-                        <div className="project-content">
-                            <div className="project-meta">
-                                <span className="project-category">{project.category}</span>
-                            </div>
-                            
-                            <h3 className="project-title">{project.title}</h3>
-                            
-                            <p className="project-description">{project.description}</p>
-                            
-                            <div className="project-tags">
-                                {project.tags.map((tag, index) => (
-                                    <span key={index} className="project-tag">
-                                        {index === 0 ? '♥' : '👁'} {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="no-projects-message">
+                    <h3>Coming Soon</h3>
+                    <p>We're working on exciting {filter} projects. Stay tuned for updates!</p>
+                    <button className="filter-btn" onClick={() => setFilter('All')}>
+                        View All Projects
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

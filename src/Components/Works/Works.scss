@@ -285,3 +285,51 @@
     }
 }
 
+/* No Projects Message */
+.no-projects-message {
+    text-align: center;
+    padding: 80px 40px;
+    max-width: 500px;
+    margin: 0 auto;
+
+    h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+        background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--secondary-yellow) 100%);
+        color: #0a0a0a;
+        border: none;
+        padding: 12px 28px;
+        font-weight: 600;
+        
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .no-projects-message {
+        padding: 60px 20px;
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+}
+
