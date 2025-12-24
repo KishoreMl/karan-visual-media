@@ -47,7 +47,6 @@ const DescriptionCard = () => {
                 onClick={handleCardClick}
                 ref={el => cardsRef.current[0] = el}
             >
-                <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={brandingImg} alt="branding" />
                     </div>
@@ -59,14 +58,12 @@ const DescriptionCard = () => {
                             Comprehensive branding solutions that define your identity. From logo design to complete brand guidelines, we create memorable visual identities.
                         </p>
                     </div>
-                </div>
             </div>  
             <div 
                 className='card-cover card-animate card-2' 
                 onClick={handleCardClick}
                 ref={el => cardsRef.current[1] = el}
             >
-                <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={socialMediaImg} alt="social media" />
                     </div>
@@ -77,7 +74,6 @@ const DescriptionCard = () => {
                         <p className="card-description">
                             Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.
                         </p>
-                    </div>
                 </div>
             </div>
             <div 
@@ -85,7 +81,6 @@ const DescriptionCard = () => {
                 onClick={handleCardClick}
                 ref={el => cardsRef.current[2] = el}
             >
-                <div className="glow-info-card">
                     <div className="card-img-container">
                         <img src={devImg} alt="dev" />
                     </div>
@@ -97,7 +92,6 @@ const DescriptionCard = () => {
                             Professional website development services that create engaging and functional online experiences. From simple landing pages to complex web applications, we build websites that perform and convert.
                         </p>
                     </div>
-                </div>
             </div>
         </div>
     );

@@ -60,41 +60,6 @@
         left: 65%;
         transform: translate(-50%, 0);
     }
-
-    .frame{
-        position: absolute;
-        width: 6rem;
-        height: 6rem;
-        z-index: 20;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .frame-top-left{
-        border-top: solid 3px var(--bg-primary);
-        border-left: solid 3px var(--bg-primary);
-        top:5%;
-        left:5%;
-
-    }
-    .frame-top-right{
-        border-top: solid 3px var(--bg-primary);
-        border-right: solid 3px var(--bg-primary);
-        top:5%;
-        right:5%;
-    }
-    .frame-bottom-left{
-        border-left: solid 3px var(--bg-primary);
-        border-bottom: solid 3px var(--bg-primary);
-        bottom:5%;
-        left:5%;
-    }
-    .frame-bottom-right{
-        border-bottom: solid 3px var(--bg-primary);
-        border-right: solid 3px var(--bg-primary);
-        bottom:5%;
-        right:5%;
-    }
 }
 
 .scale-screen{

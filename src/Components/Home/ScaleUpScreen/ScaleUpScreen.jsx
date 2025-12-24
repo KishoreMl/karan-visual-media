@@ -85,23 +85,6 @@ const ScaleUpScreen = () => {
             </div>
 
             <div 
-                className="frame frame-top-left"
-                style={{ opacity: scaleProgress }}
-            ></div>
-            <div 
-                className="frame frame-top-right"
-                style={{ opacity: scaleProgress }}
-            ></div>
-            <div 
-                className="frame frame-bottom-left"
-                style={{ opacity: scaleProgress }}
-            ></div>
-            <div 
-                className="frame frame-bottom-right"
-                style={{ opacity: scaleProgress }}
-            ></div>
-
-            <div 
                 className="screen-text screen-header"
                 style={{ opacity: scaleProgress }}
             >
