@@ -12,7 +12,7 @@ const CtaSection = () => {
                     Let's collaborate and bring your vision to life. Reach out to us for a free consultation and discover how we can help your brand stand out.
                 </p>
                 <Link to="/contact" className="cta-button">
-                    <span>Contact Us</span>
+                    <span>Let's Talk</span>
                     <span className="button-arrow">→</span>
                 </Link>
             </div>

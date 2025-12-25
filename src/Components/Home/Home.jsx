@@ -100,9 +100,6 @@ const Home = ({ isDarkMode }) => {
                 </p>
             </div>
 
-            {/* Poster Section */}
-            {/* <Poster /> */}
-
             {/* Logo Content Section */}
             <div className="autofix-container">
                 <div className="text-content">
