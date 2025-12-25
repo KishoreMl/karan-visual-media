@@ -4,10 +4,11 @@ import DescriptiveContent from './DescriptiveContent/DescriptiveContent';
 import darkLogo from '../../assets/images/dark_theme_logo.png';
 import lightLogo from '../../assets/images/light_theme_logo.png';
 import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
-import TextCarousel from './TextCarousel/TextCarousel';
 import CtaSection from './CtaSection/CtaSection';
 import LogoGridSection from './LogoGridSection/LogoGridSection';
+// import Poster from './PosterSection/Poster';
 import './Home.scss';
+import HorizontalText from './HorizontalText/HorixontalText';
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
@@ -68,7 +69,7 @@ const Home = ({ isDarkMode }) => {
                 }
             },
             {
-                threshold: 1.0, // Trigger when 100% of element is visible
+                threshold: 0.9, // Trigger when 100% of element is visible
                 rootMargin: '0px'
             }
         );
@@ -98,20 +99,6 @@ const Home = ({ isDarkMode }) => {
                     ))}
                 </p>
             </div>
-
-            {/* <div className="central-card" ref={cardRef}>
-                <div className="text-block">
-                    <h2 className={`card-heading ${isVisible ? 'typing-active' : ''}`}>The search functionality is now fully implemented. Users can:</h2>
-                </div>  
-            </div> */}
-
-            {/* Shape Container Section */}
-            <div className='shape-container'>
-                <div className="shape-box" id="box-top"></div>
-                <div className="shape-box" id="box-bottom"></div>
-                <div className="yellow-semicircle"></div>
-                <h2 className="shape-text"> DESIGN <br/>DEVELOPMENT & DIGITAL GROWTH<br/>ALL IN ONE PLACE</h2>
-            </div> 
 
             {/* Logo Content Section */}
             <div className="autofix-container">
@@ -155,7 +142,8 @@ const Home = ({ isDarkMode }) => {
             <LogoGridSection />
 
             {/* Text Carousel */}
-            <TextCarousel />
+            {/* <TextCarousel /> */}
+            <HorizontalText />
 
             {/* Contact CTA Section */}
             <CtaSection />

@@ -8,7 +8,11 @@ const DescriptiveContent = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsVisible(entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    // Once visible, stop observing to prevent flickering
+                    observer.disconnect();
+                }
             },
             {
                 threshold: 0.2,
