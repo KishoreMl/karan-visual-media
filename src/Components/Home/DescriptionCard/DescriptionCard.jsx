@@ -23,8 +23,8 @@ const DescriptionCard = () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('card-visible');
-                } else {
-                    entry.target.classList.remove('card-visible');
+                    // Once animated, stop observing to prevent flickering
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);

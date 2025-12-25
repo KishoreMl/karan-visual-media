@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './Components/Header/Header.jsx';
 import Home from './Components/Home/Home.jsx';
 import Works from './Components/Works/Works.jsx';
@@ -12,12 +12,24 @@ import Footer from './Components/Footer/Footer.jsx';
 import CustomCursor from './Components/CustomCursor/CustomCursor.jsx';
 import ThemeToggleButton from './Components/Header/ThemeToggleButton.jsx';
 
+// ScrollToTop component - scrolls to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function AppContent({ isDarkMode, toggleTheme }) {
   const location = useLocation();
   const isWorkDetailPage = location.pathname.startsWith('/works/') && location.pathname !== '/works/';
 
   return (
     <div className="App" data-theme={isDarkMode ? 'dark' : 'light'}>
+      <ScrollToTop />
       <CustomCursor />
       {!isWorkDetailPage && <Header isDarkMode={isDarkMode} />}
         <Routes>

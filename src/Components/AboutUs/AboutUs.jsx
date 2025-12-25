@@ -14,7 +14,7 @@ const AboutUs = () => {
             rootMargin: '0px'
         };
 
-        const observerCallback = (entries) => {
+        const observerCallback = (entries, observer) => {
             entries.forEach((entry) => {
                 const sectionIndex = parseInt(entry.target.dataset.section);
                 if (entry.isIntersecting) {
@@ -24,8 +24,8 @@ const AboutUs = () => {
                         }
                         return prev;
                     });
-                } else {
-                    setVisibleSections(prev => prev.filter(index => index !== sectionIndex));
+                    // Once visible, stop observing to prevent flickering
+                    observer.unobserve(entry.target);
                 }
             });
         };
