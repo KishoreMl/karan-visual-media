@@ -6,9 +6,10 @@ import lightLogo from '../../assets/images/light_theme_logo.png';
 import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import CtaSection from './CtaSection/CtaSection';
 import LogoGridSection from './LogoGridSection/LogoGridSection';
+import HorizontalText from './HorizontalText/HorixontalText';
 // import Poster from './PosterSection/Poster';
 import './Home.scss';
-import HorizontalText from './HorizontalText/HorixontalText';
+
 
 const Home = ({ isDarkMode }) => {
     const logo = isDarkMode ? darkLogo : lightLogo;
@@ -99,6 +100,7 @@ const Home = ({ isDarkMode }) => {
                     ))}
                 </p>
             </div>
+
 
             {/* Logo Content Section */}
             <div className="autofix-container">
