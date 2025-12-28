@@ -12,17 +12,17 @@
   }
 
   .cta-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(var(--type-h2), 5vw, var(--type-h1));
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
   }
 
   .cta-description {
-    font-size: 1.2rem;
+    font-size: clamp(var(--type-body), 2vw, var(--type-h4));
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: var(--line-height-relaxed);
     margin-bottom: 2.5rem;
   }
 
@@ -34,7 +34,7 @@
     color: #0a0a0a;
     padding: 1.25rem 2.5rem;
     border-radius: 50px;
-    font-size: 1.1rem;
+    font-size: var(--type-body);
     font-weight: 700;
     text-decoration: none;
     transition: all 0.3s ease;

@@ -3,6 +3,16 @@ import { Link } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Services.scss';
 
+// Import service GIFs
+import brandingGif from '../../assets/images/Services/brand.gif';
+import socialMediaGif from '../../assets/images/Services/social media icons.gif';
+import motionGraphicsGif from '../../assets/images/Services/gif-of-motion-graphics.gif';
+import digitalMarketingGif from '../../assets/images/Services/digital marketing.gif';
+import visualEffectsGif from '../../assets/images/Services/visual effects.gif';
+import animation3dGif from '../../assets/images/Services/3d animation.gif';
+import interiorExteriorGif from '../../assets/images/Services/3d interior and exterior.gif';
+import webDevGif from '../../assets/images/Services/web_design.gif';
+
 const Services = () => {
     const sectionsRef = useRef([]);
     const [visibleSections, setVisibleSections] = useState([]);
@@ -10,8 +20,8 @@ const Services = () => {
 
     useEffect(() => {
         const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '50px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '100px 0px 0px 0px'
         };
 
         const observerCallback = (entries) => {
@@ -19,14 +29,12 @@ const Services = () => {
                 const sectionIndex = parseInt(entry.target.dataset.index);
                 
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        setVisibleSections(prev => {
-                            if (!prev.includes(sectionIndex)) {
-                                return [...prev, sectionIndex].sort((a, b) => a - b);
-                            }
-                            return prev;
-                        });
-                    }, 50);
+                    setVisibleSections(prev => {
+                        if (!prev.includes(sectionIndex)) {
+                            return [...prev, sectionIndex].sort((a, b) => a - b);
+                        }
+                        return prev;
+                    });
                     // Once visible, stop observing to prevent flickering
                     observer.unobserve(entry.target);
                 }
@@ -74,49 +82,57 @@ const Services = () => {
             id: 1,
             title: "Branding & Design",
             description: "Comprehensive branding solutions that define your identity. From logo design to complete brand guidelines, we create memorable visual identities.",
-            features: ["Logo Design", "Brand Identity", "Style Guides", "Marketing Collateral"]
+            features: ["Logo Design", "Brand Identity", "Style Guides", "Marketing Collateral"],
+            gif: brandingGif
         },
         {
             id: 2,
             title: "Social Media Handling",
             description: "Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.",
-            features: ["Content Creation", "Community Management", "Reels Editing", "Analytics & Reporting"]
+            features: ["Content Creation", "Community Management", "Reels Editing", "Analytics & Reporting"],
+            gif: socialMediaGif
         },
         {
             id: 3,
             title: "Motion Graphics",
             description: "Create compelling motion graphics that bring your brand to life. From animated logos to dynamic explainer videos, we deliver stunning visual storytelling.",
-            features: ["Animated Logos", "Explainer Videos", "Title Sequences", "Brand Animation"]
+            features: ["Animated Logos", "Explainer Videos", "Title Sequences", "Brand Animation"],
+            gif: motionGraphicsGif
         },
         {
             id: 4,
             title: "Digital Marketing",
             description: "Data-driven digital marketing campaigns that deliver measurable results. Reach your target audience and maximize your ROI.",
-            features: ["SEO Optimization", "PPC Campaigns", "Email Marketing", "Content Strategy"]
+            features: ["SEO Optimization", "PPC Campaigns", "Email Marketing", "Content Strategy"],
+            gif: digitalMarketingGif
         },
         {
             id: 5,
             title: "Visual Effects",
             description: "Industry-leading VFX services that seamlessly blend reality with imagination. Enhance your footage with stunning visual effects and compositing.",
-            features: ["Compositing", "CGI Integration", "Color Grading", "Post-Production VFX"]
+            features: ["Compositing", "CGI Integration", "Color Grading", "Post-Production VFX"],
+            gif: visualEffectsGif
         },
         {
             id: 6,
             title: "3D Animation",
             description: "Professional 3D animation services that transform concepts into photorealistic visual experiences. Perfect for product showcases and immersive storytelling.",
-            features: ["Product Animation", "Character Animation", "3D Modeling", "Rendering"]
+            features: ["Product Animation", "Character Animation", "3D Modeling", "Rendering"],
+            gif: animation3dGif
         },
         {
             id: 7,
             title: "3D Interior & Exterior Walkthrough Animation",
             description: "Photorealistic architectural visualizations that bring spaces to life. Perfect for real estate, architecture, and interior design projects.",
-            features: ["3D Walkthroughs", "Architectural Visualization", "Interior Rendering", "Virtual Tours"]
+            features: ["3D Walkthroughs", "Architectural Visualization", "Interior Rendering", "Virtual Tours"],
+            gif: interiorExteriorGif
         },
         {
-            id:8,
+            id: 8,
             title: "Website Development",
             description: "Professional website development services that create engaging and functional online experiences. From simple landing pages to complex web applications, we build websites that perform and convert.",
-            features: ["Website Design", "Website Development", "Website Maintenance", "Website Hosting"]
+            features: ["Website Design", "Website Development", "Website Maintenance", "Website Hosting"],
+            gif: webDevGif
         }
     ];
 
@@ -166,20 +182,17 @@ const Services = () => {
                                 ref={(el) => addToRefs(el, gifIndex)}
                                 data-index={gifIndex}
                                 className={`scroll-section gif-section ${visibleSections.includes(gifIndex) ? 'visible' : ''}`}
-                                style={{ 
-                                    transitionDelay: visibleSections.includes(gifIndex) 
-                                        ? `${visibleSections.indexOf(gifIndex) * 0.1}s` 
-                                        : '0s' 
-                                }}
                             >
                                 <div className="section-content">
                                     <h2 className="section-title">{service.title}</h2>
                                     <div className="gif-container">
-                                        <div className="gif-placeholder">
-                                            <div className="gif-overlay">
-                                                <span className="gif-icon">▶</span>
-                                            </div>
-                                            <div className="gif-shimmer"></div>
+                                        <div className="gif-wrapper">
+                                            <img 
+                                                src={service.gif} 
+                                                alt={`${service.title} preview`}
+                                                className="service-gif"
+                                                loading="lazy"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -190,11 +203,6 @@ const Services = () => {
                                 ref={(el) => addToRefs(el, contentIndex)}
                                 data-index={contentIndex}
                                 className={`scroll-section content-section ${visibleSections.includes(contentIndex) ? 'visible' : ''}`}
-                                style={{ 
-                                    transitionDelay: visibleSections.includes(contentIndex) 
-                                        ? `${visibleSections.indexOf(contentIndex) * 0.1}s` 
-                                        : '0s' 
-                                }}
                             >
                                 <div className="section-content">
                                     <div className="content-wrapper">
@@ -208,7 +216,6 @@ const Services = () => {
                                                     <div 
                                                         key={idx} 
                                                         className="feature-card"
-                                                        style={{ transitionDelay: `${0.35 + idx * 0.05}s` }}
                                                     >
                                                         <span className="feature-icon">✓</span>
                                                         <span className="feature-text">{feature}</span>
