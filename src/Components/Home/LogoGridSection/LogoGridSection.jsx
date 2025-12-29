@@ -4,7 +4,7 @@ import './LogoGridSection.scss';
 
 // Import carousel logos
 import client_logo_1 from "../../../assets/images/logos/nutrieros.png";
-import client_logo_2 from "../../../assets/images/logos/Big_Idea.png";
+import client_logo_2 from "../../../assets/images/logos/Big_Idea.jpg";
 import client_logo_3 from "../../../assets/images/logos/eagle.png";
 import client_logo_4 from "../../../assets/images/logos/tamil_catering.png";
 import client_logo_5 from "../../../assets/images/logos/Yuva_bharathi.png";

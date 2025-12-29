@@ -14,17 +14,18 @@
         margin: 0 auto 3rem;
 
         .contact-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(var(--type-h2), 6vw, var(--type-h1));
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
             letter-spacing: -1px;
+            line-height: var(--line-height-tight);
         }
 
         .contact-subtitle {
-            font-size: 1.1rem;
+            font-size: var(--type-body);
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: var(--line-height-golden);
         }
     }
 
@@ -45,16 +46,17 @@
         text-align: center;
 
         .info-heading {
-            font-size: 1.5rem;
+            font-size: var(--type-h3);
             font-weight: 600;
             color: var(--primary-yellow);
             margin-bottom: 0.75rem;
+            line-height: var(--line-height-tight);
         }
 
         .info-text {
-            font-size: 1rem;
+            font-size: var(--type-body);
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: var(--line-height-golden);
             max-width: 500px;
             margin: 0 auto;
         }
@@ -91,7 +93,7 @@
     }
 
     .form-label {
-        font-size: 0.875rem;
+        font-size: var(--type-small);
         font-weight: 500;
         color: var(--text-primary);
 
@@ -102,7 +104,7 @@
         .optional {
             color: var(--text-tertiary);
             font-weight: 400;
-            font-size: 0.8rem;
+            font-size: var(--type-xs);
         }
     }
 
@@ -114,7 +116,7 @@
         border: 1px solid var(--border-color);
         border-radius: 8px;
         color: var(--text-primary);
-        font-size: 1rem;
+        font-size: var(--type-body);
         font-family: inherit;
         transition: border-color 0.2s ease;
 
@@ -148,7 +150,7 @@
         padding: 1rem 2rem;
         border-radius: 8px;
         color: #0a0a0a;
-        font-size: 1rem;
+        font-size: var(--type-body);
         font-weight: 600;
         cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease;

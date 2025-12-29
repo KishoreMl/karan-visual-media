@@ -1,7 +1,4 @@
 #Pending Tasks
+- Home Page: Animation - Deeps/Kishore
 
-- Services Page: Gif            - Waiting
-- Home Page: Animation          - Deeps/Kishore
-- Clients Logo color change     -
-- Font size correction          - 
-- Scale screen animation        - 
+

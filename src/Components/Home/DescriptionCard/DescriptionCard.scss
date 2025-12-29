@@ -5,6 +5,35 @@
   padding: 0 2rem;
   margin: 1.5rem 0 3rem 0;
 
+  // Bounce keyframe animation
+  @keyframes cardBounce {
+    0% { transform: translateY(0) scale(1); }
+    20% { transform: translateY(-18px) scale(1.03); }
+    40% { transform: translateY(-8px) scale(1.02); }
+    60% { transform: translateY(-14px) scale(1.025); }
+    80% { transform: translateY(-10px) scale(1.02); }
+    100% { transform: translateY(-12px) scale(1.02); }
+  }
+
+  @keyframes imageBounce {
+    0% { transform: translateX(-16px) scale(1) rotate(0deg); }
+    25% { transform: translateX(-16px) scale(1.15) rotate(-5deg); }
+    50% { transform: translateX(-16px) scale(1.08) rotate(-2deg); }
+    75% { transform: translateX(-16px) scale(1.12) rotate(-4deg); }
+    100% { transform: translateX(-16px) scale(1.1) rotate(-3deg); }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1); }
+    50% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 20px rgba(var(--primary-yellow-rgb, 255, 193, 7), 0.15); }
+  }
+
+  @keyframes textSlide {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(3px); }
+  }
+
   .card-cover {
     background: transparent;
     border: 0.5px solid var(--text-primary);
@@ -13,11 +42,25 @@
     position: relative;
     z-index: 2;
     cursor: pointer;
-    transition: all 0.3s ease;
     margin-top: 0;
+    overflow: hidden;
+    
+    // Base transition
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    
+    // Bouncy hover animation with keyframes
+    &:hover {
+      animation: cardBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                 glowPulse 2s ease-in-out infinite 0.5s;
+      border-color: var(--primary-yellow);
+    }
     
     &:active {
-      transform: translateY(-4px);
+      transform: translateY(-6px) scale(0.98);
+      animation: none;
+      transition: transform 0.1s ease;
     }
 
     .card-img-container {
@@ -25,40 +68,94 @@
         width:9rem;
         height:9rem;
         transform: translateX(-16px);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
+    }
+
+    // Bouncy image on card hover
+    &:hover .card-img-container img {
+      animation: imageBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
 
     .card-header{
       h2{
         margin-bottom: 1rem;
+        transition: color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        font-size: var(--type-h3);
+        line-height: var(--line-height-tight);
       }
+    }
+
+    &:hover .card-header h2 {
+      color: var(--primary-yellow);
+      animation: textSlide 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    .description-content .card-description {
+      font-size: var(--type-body);
+      line-height: var(--line-height-golden);
+    }
+
+    .description-content {
+      .card-description {
+        transition: transform 0.3s ease 0.1s, opacity 0.3s ease;
+        opacity: 0.8;
+      }
+    }
+
+    &:hover .description-content .card-description {
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+
+    // Shimmer effect on hover
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      left: 100%;
     }
   }
 
-  // Card scroll animations
+  // Card scroll animations - starts from bottom of viewport
   .card-animate {
     opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 0.5s ease-out,
-                transform 0.5s ease-out;
+    transform: translateY(150px) scale(0.9); // Start smaller and from bottom
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); // Bouncy spring effect
+    will-change: opacity, transform;
 
     &.card-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
   }
 
-  // Staggered animation delays for each card
+  // Faster staggered animation delays
   .card-1 {
     transition-delay: 0s;
   }
 
   .card-2 {
-    transition-delay: 0.25s;
+    transition-delay: 0.12s;
   }
 
   .card-3 {
-    transition-delay: 0.5s;
+    transition-delay: 0.24s;
   }
 }
 

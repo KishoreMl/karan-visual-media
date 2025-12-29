@@ -10,16 +10,18 @@
         align-items: center;
 
         .works-title {
-            font-size: 6rem;
+            font-size: clamp(var(--type-h1), 10vw, 6.854rem);
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
             letter-spacing: -2px;
+            line-height: var(--line-height-tight);
         }
 
         .works-subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(var(--type-body), 2vw, var(--type-h4));
             color: var(--text-secondary);
+            line-height: var(--line-height-golden);
         }
     }
 
@@ -37,7 +39,7 @@
             border: 1px solid var(--border-color);
             color: var(--text-secondary);
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: var(--type-small);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -168,18 +170,18 @@
             }
 
             .project-title {
-                font-size: 1.6rem;
+                font-size: var(--type-h3);
                 font-weight: 700;
                 color: var(--text-primary);
                 margin-bottom: 12px;
-                line-height: 1.3;
+                line-height: var(--line-height-tight);
                 letter-spacing: -0.5px;
             }
 
             .project-description {
-                font-size: 0.95rem;
+                font-size: var(--type-small);
                 color: var(--text-secondary);
-                line-height: 1.6;
+                line-height: var(--line-height-golden);
                 margin-bottom: 20px;
             }
 
@@ -293,16 +295,17 @@
     margin: 0 auto;
 
     h3 {
-        font-size: 1.8rem;
+        font-size: var(--type-h3);
         font-weight: 600;
         color: var(--text-primary);
         margin-bottom: 1rem;
+        line-height: var(--line-height-tight);
     }
 
     p {
-        font-size: 1.1rem;
+        font-size: var(--type-body);
         color: var(--text-secondary);
-        line-height: 1.6;
+        line-height: var(--line-height-golden);
         margin-bottom: 2rem;
     }
 

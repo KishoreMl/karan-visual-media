@@ -1,154 +1,103 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import posterBackground from '../../../assets/images/Works/ad/Artboard 3-100.jpg';
 import './Poster.scss';
 
 const Poster = () => {
-    const containerRef = useRef(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
+    const sectionRef = useRef(null);
+    const textRef = useRef(null);
+    const backgroundRef = useRef(null);
+    const yellowOverlayRef = useRef(null);
 
     useEffect(() => {
-        let rafId = null;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const section = sectionRef.current;
+        const text = textRef.current;
+        const background = backgroundRef.current;
+        const yellowOverlay = yellowOverlayRef.current;
+
+        if (!section || !text || !background || !yellowOverlay) return;
+
+        const backgroundImg = background.querySelector('img');
         
-        const handleScroll = () => {
-            if (rafId) {
-                cancelAnimationFrame(rafId);
+        // Set initial states
+        gsap.set(background, { y: 0 });
+        if (backgroundImg) {
+            gsap.set(backgroundImg, { y: 0 });
+        }
+        gsap.set(text, { scale: 1, z: 0 });
+        // Yellow overlay starts from top (hidden)
+        gsap.set(yellowOverlay, { clipPath: 'inset(0% 0 100% 0)' });
+
+        // Create a timeline for the yellow overlay animation with pinning
+        const yellowOverlayTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: '+=100vh', // Pin for 100vh of scroll
+                scrub: 1,
+                pin: true,
+                pinSpacing: true
             }
-            
-            rafId = requestAnimationFrame(() => {
-                if (!containerRef.current) return;
+        });
 
-                const rect = containerRef.current.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                const elementTop = rect.top;
-                
-                let progress = 0;
-                
-                // Animation happens over 2 viewport heights of scrolling
-                const animationDistance = windowHeight * 2;
-                
-                // Start animation when element top reaches viewport top
-                if (elementTop <= windowHeight && elementTop >= -animationDistance) {
-                    // Calculate scroll progress through the animation
-                    const scrolled = windowHeight - elementTop;
-                    progress = Math.max(0, Math.min(1, scrolled / animationDistance));
-                } else if (elementTop < windowHeight - animationDistance) {
-                    // Animation completed
-                    progress = 1;
-                }
-                
-                setScrollProgress(progress);
-            });
-        };
+        // Yellow overlay animates from top to bottom - this is the main animation
+        yellowOverlayTimeline.to(yellowOverlay, {
+            clipPath: 'inset(0% 0 0% 0)',
+            ease: 'none',
+            duration: 1
+        });
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll(); // Initial call
-        
+        // Parallax effect: background moves up (negative Y) when scrolling
+        gsap.to(background, {
+            y: '-20%',
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: '+=100vh',
+                scrub: 1
+            }
+        });
+
+        // Text scales down and moves back in Z-axis when scrolling
+        gsap.to(text, {
+            scale: 0.6,
+            z: -800,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: '+=100vh',
+                scrub: 1
+            }
+        });
+
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-            if (rafId) {
-                cancelAnimationFrame(rafId);
-            }
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
     }, []);
 
-    // Calculate blob position based on scroll progress
-    // Phase 1 (0-0.4): Move from top to center (vertically)
-    // Phase 2 (0.4-0.7): Move from center to left (horizontally)
-    // Phase 3 (0.7-1): Move back to center and scale up
-    const getBlobPosition = () => {
-        // Easing function for smooth animation
-        const easeInOutCubic = (t) => {
-            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        };
-        
-        const easedProgress = easeInOutCubic(scrollProgress);
-        
-        if (easedProgress <= 0.4) {
-            // Phase 1: Top to center (vertical movement)
-            const phase1Progress = easedProgress / 0.4; // 0 to 1
-            const startTop = -15; // Start above viewport (%)
-            const centerTop = 50; // Center vertically (%)
-            
-            return {
-                top: `${startTop + (centerTop - startTop) * phase1Progress}%`,
-                left: '50%',
-                translateX: '-50%',
-                translateY: '-50%',
-                opacity: phase1Progress,
-                scale: 0.3 + phase1Progress * 0.7, // Scale from 0.3 to 1
-            };
-        } else if (easedProgress <= 0.7) {
-            // Phase 2: Center to left (horizontal movement)
-            const phase2Progress = (easedProgress - 0.4) / 0.3; // 0 to 1
-            const centerTop = 50;
-            const centerLeft = 50;
-            const endLeft = 10; // Left side (%)
-            
-            // Interpolate translateX from -50% to 0% as we move left
-            const translateXPercent = -50 * (1 - phase2Progress);
-            
-            return {
-                top: `${centerTop}%`,
-                left: `${centerLeft + (endLeft - centerLeft) * phase2Progress}%`,
-                translateX: `${translateXPercent}%`,
-                translateY: '-50%',
-                opacity: 1,
-                scale: 1,
-            };
-        } else {
-            // Phase 3: Move back to center and scale up
-            const phase3Progress = (easedProgress - 0.7) / 0.3; // 0 to 1
-            const centerTop = 50;
-            const startLeft = 10;
-            const centerLeft = 50;
-            
-            // Interpolate translateX from 0% back to -50% as we move back to center
-            const translateXPercent = -50 * phase3Progress;
-            
-            // Scale up from 1 to 1.5
-            const scale = 1 + phase3Progress * 0.5;
-            
-            return {
-                top: `${centerTop}%`,
-                left: `${startLeft + (centerLeft - startLeft) * phase3Progress}%`,
-                translateX: `${translateXPercent}%`,
-                translateY: '-50%',
-                opacity: 1,
-                scale: scale,
-            };
-        }
-    };
-
-    const blobPosition = getBlobPosition();
-
     return (
-        <div className="poster-section" ref={containerRef}>
-            <div className="poster-container">
-                {/* Black blob with scroll-based animation */}
-                <div className="poster-top-section">
-                    <div 
-                        className="poster-blob"
-                        style={{
-                            top: blobPosition.top,
-                            left: blobPosition.left,
-                            opacity: blobPosition.opacity,
-                            transform: `translate(${blobPosition.translateX}, ${blobPosition.translateY}) scale(${blobPosition.scale}) rotate(-5deg)`,
-                        }}
-                    >
-                        {/* <div className="poster-blob-text">
-                            <span className="poster-text-large">Small</span>
-                            <span className="poster-text-medium">Habits</span>
-                        </div> */}
-                    </div>
-                </div>
-            
-                {/* Bottom left - "That Secretly Change Your Life" */}
-                {/* <div className="poster-bottom-section">
-                    <div className="poster-text-line">That</div>
-                    <div className="poster-text-line">Secretly</div>
-                    <div className="poster-text-line poster-text-highlight">Change</div>
-                    <div className="poster-text-line poster-text-highlight">Your Life</div>
-                </div> */}
+        <div className="poster-section" ref={sectionRef}>
+            <div className="poster-background" ref={backgroundRef}>
+                
             </div>
+            <div className="yellow-overlay" ref={yellowOverlayRef}>
+            <img 
+                    src={posterBackground} 
+                    alt="Poster background"
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center'
+                    }}
+                />
+            </div>
+            <h1 className="next-project-text" ref={textRef}>INNOVATION</h1>
         </div>
     );
 };
