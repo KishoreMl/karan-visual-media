@@ -83,7 +83,10 @@ const Poster = () => {
     return (
         <div className="poster-section" ref={sectionRef}>
             <div className="poster-background" ref={backgroundRef}>
-                <img 
+                
+            </div>
+            <div className="yellow-overlay" ref={yellowOverlayRef}>
+            <img 
                     src={posterBackground} 
                     alt="Poster background"
                     style={{
@@ -94,8 +97,7 @@ const Poster = () => {
                     }}
                 />
             </div>
-            <div className="yellow-overlay" ref={yellowOverlayRef}></div>
-            <h1 className="next-project-text" ref={textRef}>NEXT PROJECT</h1>
+            <h1 className="next-project-text" ref={textRef}>INNOVATION</h1>
         </div>
     );
 };

@@ -5,11 +5,11 @@ import './Services.scss';
 
 // Import service GIFs
 import brandingGif from '../../assets/images/Services/brand.gif';
-import socialMediaGif from '../../assets/images/Services/social media icons.gif';
+import socialMediaGif from '../../assets/images/Services/social media.gif';
 import motionGraphicsGif from '../../assets/images/Services/gif-of-motion-graphics.gif';
 import digitalMarketingGif from '../../assets/images/Services/digital marketing.gif';
 import visualEffectsGif from '../../assets/images/Services/visual effects.gif';
-import animation3dGif from '../../assets/images/Services/3d animation.gif';
+import animation3dGif from '../../assets/images/Services/3d_animation.gif';
 import interiorExteriorGif from '../../assets/images/Services/3d interior and exterior.gif';
 import webDevGif from '../../assets/images/Services/web_design.gif';
 

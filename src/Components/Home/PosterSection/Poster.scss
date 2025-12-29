@@ -9,6 +9,7 @@
     justify-content: center;
     overflow: hidden;
     perspective: 1000px; // For 3D effect
+    background: var(--primary-yellow);
 
     .poster-background {
         position: absolute;
@@ -44,7 +45,7 @@
 
     .next-project-text {
         position: relative;
-        font-size: clamp(4rem, 12vw, 10rem);
+        font-size: clamp(4rem, 10vw, 10rem);
         font-weight: 700;
         color: #ffffff;
         text-align: center;

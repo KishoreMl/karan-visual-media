@@ -408,12 +408,28 @@
     transform-style: preserve-3d;
     transform: translateZ(20px);
 
-    .logo-dot {
+    .logo-dot-wrapper {
       width: 80px;
       height: 80px;
-      border-radius: 50%;
-      border: 2px solid var(--primary-yellow);
-      transition: background-color 0.5s ease;
+      position: relative;
+    }
+
+    .logo-dot-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .logo-dot-bg {
+      transition: opacity 0.3s ease;
+    }
+
+    .logo-dot-progress {
+      transition: stroke-dashoffset 0.5s linear;
+    }
+
+    .logo-dot-fill {
+      transition: opacity 0.5s ease, fill 0.3s ease;
     }
 
     .logo-bar {
@@ -497,10 +513,9 @@
     .logo-icon {
       gap: 15px;
 
-      .logo-dot {
+      .logo-dot-wrapper {
         width: 60px;
         height: 60px;
-        border-width: 1.5px;
       }
 
       .logo-bar {
@@ -525,10 +540,9 @@
     .logo-icon {
       gap: 12px;
 
-      .logo-dot {
+      .logo-dot-wrapper {
         width: 50px;
         height: 50px;
-        border-width: 1px;
       }
 
       .logo-bar {

@@ -6,7 +6,6 @@
     position: relative;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    // Golden ratio typography variables are now defined globally in App.css
 
     // Scroll Progress Bar
     .scroll-progress-bar {
@@ -441,7 +440,7 @@
 
             h2 {
                 // H2: Golden ratio level 2 (φ² = 2.618rem, scales up to φ³)
-                font-size: clamp(var(--type-h2), 5vw, var(--type-h1));
+                font-size: clamp(var(--type-h2), 3vw, var(--type-h1));
                 font-weight: 700;
                 margin-bottom: 1.5rem;
                 color: var(--text-primary);
@@ -459,8 +458,8 @@
             .cta-primary-button {
                 background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--secondary-yellow) 100%);
                 border: none;
-                padding: 1.5rem 4rem;
-                border-radius: 15px;
+                padding: 1rem 2rem;
+                border-radius: 10px;
                 color: #0a0a0a;
                 font-size: calc(var(--type-body) * 1.1); // Slightly larger for emphasis
                 font-weight: 700;
