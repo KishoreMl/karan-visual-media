@@ -38,11 +38,12 @@
         z-index: 1;
 
         .about-title {
-            font-size: 7rem;
+            font-size: clamp(var(--type-h1), 10vw, 6.854rem);
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 0;
             letter-spacing: -2px;
+            line-height: var(--line-height-tight);
         }
     }
 
@@ -141,8 +142,8 @@
 
         .section-content {
             .intro-text {
-                font-size: 2rem;
-                line-height: 1.6;
+                font-size: clamp(var(--type-h3), 3vw, var(--type-h2));
+                line-height: var(--line-height-golden);
                 color: var(--text-secondary);
                 text-align: center;
                 font-weight: 400;
@@ -150,16 +151,17 @@
             }
 
             .section-heading {
-                font-size: 2.5rem;
+                font-size: clamp(var(--type-h3), 4vw, var(--type-h2));
                 font-weight: 700;
                 color: var(--text-primary);
                 margin-bottom: 1.5rem;
                 letter-spacing: -1px;
+                line-height: var(--line-height-tight);
             }
 
             .section-text {
-                font-size: 1.15rem;
-                line-height: 1.8;
+                font-size: clamp(var(--type-body), 2vw, var(--type-h4));
+                line-height: var(--line-height-relaxed);
                 color: var(--text-secondary);
                 margin: 0;
             }
@@ -175,12 +177,13 @@
                     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 
                 .highlight-title {
-                    font-size: 2rem;
+                    font-size: clamp(var(--type-h3), 3vw, var(--type-h2));
                     font-weight: 700;
                     color: var(--text-primary); 
                     margin-bottom: 1.5rem;
                     text-align: center;
                     letter-spacing: -1px;
+                    line-height: var(--line-height-tight);
                 }
             }
         }
@@ -262,18 +265,19 @@
         }
 
         h2 {
-            font-size: 2.8rem;
+            font-size: clamp(var(--type-h3), 4vw, var(--type-h2));
             font-weight: 700;
             margin-bottom: 1.2rem;
             color: var(--text-primary);
-            letter-spacing: -1px;   
+            letter-spacing: -1px;
+            line-height: var(--line-height-tight);
         }
 
         .cta-description {
-            font-size: 1.3rem;
+            font-size: clamp(var(--type-body), 2vw, var(--type-h4));
             color: var(--text-secondary);
             margin-bottom: 3rem;
-            line-height: 1.6;
+            line-height: var(--line-height-golden);
         }
 
         .cta-button {
@@ -282,7 +286,7 @@
             padding: 1.5rem 4rem;
             border-radius: 15px;
             color: #0a0a0a;
-            font-size: 1.2rem;
+            font-size: var(--type-body);
             font-weight: 700;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

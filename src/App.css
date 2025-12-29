@@ -9,6 +9,7 @@
 
   --primary-yellow: #F9A825;
   --secondary-yellow: #F59E0B;
+  --primary-yellow-rgb: 249, 168, 37;
   
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.8);
@@ -26,8 +27,23 @@
 
   --scale-screen-color: #ffffff;
 
-
   --primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Golden Ratio Typography Scale (φ = 1.618) */
+  /* Each level = previous ÷ 1.618 */
+  --phi: 1.618;
+  --type-h1: 4.236rem;      /* 1rem × φ³ - Main page titles */
+  --type-h2: 2.618rem;      /* 1rem × φ² - Section headings */
+  --type-h3: 1.618rem;      /* 1rem × φ  - Subsection headings */
+  --type-h4: 1.236rem;      /* φ ÷ 1.309 - Small headings */
+  --type-body: 1rem;        /* Base size */
+  --type-small: 0.875rem;   /* UI elements, captions */
+  --type-xs: 0.75rem;       /* Fine print */
+  
+  /* Golden ratio line height */
+  --line-height-golden: 1.618;
+  --line-height-tight: 1.2;
+  --line-height-relaxed: 1.8;
 }
 
 /* Light Theme */
@@ -84,12 +100,48 @@ html, body {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+/* Golden Ratio Typography Defaults */
+h1 {
+  font-size: clamp(2.618rem, 6vw, var(--type-h1));
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.618rem, 4vw, var(--type-h2));
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.236rem, 3vw, var(--type-h3));
+  line-height: var(--line-height-golden);
   color: var(--text-primary);
 }
 
-p,  li {
+h4 {
+  font-size: var(--type-h4);
+  line-height: var(--line-height-golden);
+  color: var(--text-primary);
+}
+
+h5, h6 {
+  font-size: var(--type-body);
+  line-height: var(--line-height-golden);
+  color: var(--text-primary);
+}
+
+p, li {
+  font-size: var(--type-body);
+  line-height: var(--line-height-golden);
   color: var(--text-secondary);
+}
+
+small, .text-small {
+  font-size: var(--type-small);
+  line-height: var(--line-height-golden);
 }
 
 .card, .section {

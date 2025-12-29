@@ -7,7 +7,7 @@ import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import CtaSection from './CtaSection/CtaSection';
 import LogoGridSection from './LogoGridSection/LogoGridSection';
 import HorizontalText from './HorizontalText/HorixontalText';
-// import Poster from './PosterSection/Poster';
+import Poster from './PosterSection/Poster';
 import './Home.scss';
 
 
@@ -101,6 +101,7 @@ const Home = ({ isDarkMode }) => {
                 </p>
             </div>
 
+            <Poster />
 
             {/* Logo Content Section */}
             <div className="autofix-container">
@@ -109,7 +110,7 @@ const Home = ({ isDarkMode }) => {
                     <p className="main-description">
                     Blending Design, Animation, and Technology to Elevate Brands.We Turn Brands into Visual Experiences.
                     </p>
-                    <a href="/works" className="explore-link">Explore our works &gt;</a>
+                    <a href="/works" className="explore-link">Explore our works</a>
                 </div>
                 <div className="logo-content" ref={logoRef}>
                 <div className="logo-icon">
