@@ -10,12 +10,12 @@
 .header-section {
   text-align: center;
   width:100%;
-  margin-bottom: 6rem;
+  height: 100vh;
   margin-top: 5rem;
   z-index: 2;
   position: relative;
   padding: 0 17rem;
-
+  
   img{
     width: 65%;
   }
@@ -26,6 +26,7 @@
     line-height: var(--line-height-golden);
     letter-spacing: 2px;
     font-weight: 400;
+    display: block;
   }
   
   .animated-text {

@@ -1,3 +1,4 @@
+
 .poster-section {
     position: relative;
     width: 100%;
@@ -40,7 +41,7 @@
         background: var(--primary-yellow, #F9A825);
         z-index: 1;
         will-change: clip-path;
-        clip-path: inset(0% 0 100% 0); // Start hidden from top
+        clip-path: inset(0% 0 100% 0);
     }
 
     .next-project-text {
@@ -50,7 +51,7 @@
         color: #ffffff;
         text-align: center;
         letter-spacing: -0.05em;
-        font-family: helvetica;
+        font-family: 'Coolvetica', sans-serif;
         text-transform: uppercase;
         line-height: 0.9;
         margin: 0;
@@ -59,7 +60,7 @@
         will-change: transform;
         // Condensed/tall font styling - using letter-spacing and line-height for effect
         transform: scaleY(1.1) scale(1);
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        // text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 }
 

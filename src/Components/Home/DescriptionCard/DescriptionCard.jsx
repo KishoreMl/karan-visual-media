@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import devImg from '../../../assets/images/Dev.png';
 import socialMediaImg from '../../../assets/images/Socialmedia.png';
-import brandingImg from '../../../assets/images/Branding.png';
+import brandingImg from '../../../assets/images/Logo.png';
+import motionGraphicsImg from '../../../assets/images/Animation.png';
 import './DescriptionCard.scss';
 
 const DescriptionCard = () => {
@@ -90,6 +91,24 @@ const DescriptionCard = () => {
                     <div className="description-content">
                         <p className="card-description">
                             Professional website development services that create engaging and functional online experiences. From simple landing pages to complex web applications, we build websites that perform and convert.
+                        </p>
+                    </div>
+            </div>
+
+            <div 
+                className='card-cover card-animate card-4' 
+                onClick={handleCardClick}
+                ref={el => cardsRef.current[3] = el}
+            >
+                    <div className="card-img-container">
+                        <img src={motionGraphicsImg} alt="motion graphics" />
+                    </div>
+                    <div className="card-header">
+                        <h2>Motion Graphics</h2>    
+                    </div>
+                    <div className="description-content">
+                        <p className="card-description">
+                            Create compelling motion graphics that bring your brand to life. From animated logos to dynamic explainer videos, we deliver stunning visual storytelling.
                         </p>
                     </div>
             </div>
