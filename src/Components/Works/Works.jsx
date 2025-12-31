@@ -28,8 +28,8 @@ const Works = () => {
         },
         {
             id: 2,
-            slug: 'adharsh-photography',
-            title: 'Adharsh Photography',
+            slug: 'ad-photography',
+            title: 'Ad Photography',
             category: 'Branding & Design',
             year: '2025',
             description: 'Art board with logo variations and high-quality mockups for their conference event.',

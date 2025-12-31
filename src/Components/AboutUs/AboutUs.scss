@@ -5,7 +5,9 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     position: relative;
     overflow-x: hidden;
-    padding-bottom: 6rem;
+    padding: 0 4rem 6rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
 
     .about-background {
         position: fixed;
@@ -46,89 +48,10 @@
             line-height: var(--line-height-tight);
         }
     }
-
-    // Image Placeholder Section
-    .about-image-section {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        margin: 3rem 0;
-        padding: 0;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-
-        &.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 500px;
-            background: rgba(19, 22, 31, 0.7);
-            border-top: 1px solid rgba(43, 144, 226, 0.3);
-            border-bottom: 1px solid rgba(43, 144, 226, 0.3);
-            backdrop-filter: blur(20px);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(135deg, 
-                    rgba(43, 144, 226, 0.15) 0%, 
-                    rgba(43, 174, 226, 0.15) 100%
-                );
-            }
-
-            .placeholder-overlay {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-
-                .placeholder-text {
-                    font-size: 2rem;
-                    font-weight: 600;
-                    color: rgba(255, 255, 255, 0.4);
-                    text-transform: uppercase;
-                    letter-spacing: 4px;
-                }
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .image-placeholder {
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            margin: 3rem 0;
-            
-            .image-placeholder {
-                height: 300px;
-
-                .placeholder-overlay .placeholder-text {
-                    font-size: 1.5rem;
-                }
-            }
-        }
-    }
-
+    
     .about-section {
         position: relative;
         z-index: 1;
-        max-width: 900px;
         margin: 3rem auto;
         padding: 0 4rem;
         opacity: 0;
@@ -142,7 +65,7 @@
 
         .section-content {
             .intro-text {
-                font-size: clamp(var(--type-h3), 3vw, var(--type-h2));
+                font-size: clamp(var(--type-h3), 2vw, var(--type-h2));
                 line-height: var(--line-height-golden);
                 color: var(--text-secondary);
                 text-align: center;
@@ -194,7 +117,7 @@
         }
 
         @media (max-width: 768px) {
-            padding: 0 1.5rem;
+            padding: 0 1rem;
             margin: 2rem auto;
 
             .section-content {
@@ -221,6 +144,9 @@
         }
 
         @media (max-width: 480px) {
+            padding: 0 0.5rem;
+            margin: 1.5rem auto;
+
             .section-content {
                 .intro-text {
                     font-size: 1.3rem;
@@ -230,8 +156,17 @@
                     font-size: 1.7rem;
                 }
 
+                .section-text {
+                    font-size: 0.95rem;
+                }
+
                 &.highlight-box {
                     padding: 1.5rem;
+                    border-radius: 20px;
+
+                    .highlight-title {
+                        font-size: 1.4rem;
+                    }
                 }
             }
         }
@@ -240,18 +175,15 @@
     // CTA Section
     .about-cta {
         text-align: center;
-        margin: 4rem auto 0;
+        margin: 9rem auto 4rem auto;
         position: relative;
         z-index: 1;
-        background: var(--bg-card);
-        backdrop-filter: blur(30px);
+        background: transparent;
+        // backdrop-filter: blur(30px);
         border: 1px solid rgba(43, 144, 226, 0.2);
         border-radius: 30px;
         padding: 3.5rem 3rem;
         max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 3rem;
         box-shadow: 
             0 20px 60px rgba(0, 0, 0, 0.4),
             0 0 0 1px rgba(255, 255, 255, 0.1) inset;
@@ -334,8 +266,8 @@
         }
 
         @media (max-width: 768px) {
-            margin: 3rem 1.5rem 2rem;
-            padding: 2.5rem 2rem;
+            margin: 3rem 1rem 2rem;
+            padding: 2.5rem 1.5rem;
 
             h2 {
                 font-size: 2rem;
@@ -355,22 +287,36 @@
         }
 
         @media (max-width: 480px) {
-            padding: 2.5rem 1.5rem;
+            margin: 2rem 0.5rem 1.5rem;
+            padding: 2rem 1rem;
+            border-radius: 20px;
 
             h2 {
-                font-size: 1.7rem;
+                font-size: 1.3rem;
             }
 
             .cta-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.5rem 1rem;
                 font-size: 1rem;
             }
         }
     }
 
     // Responsive Design
+    @media (max-width: 1024px) {
+        padding: 0 2rem 4rem 2rem;
+    }
+
     @media (max-width: 768px) {
+        padding: 0 1.5rem 3rem 1.5rem;
+
         .about-header {
-            padding: 3rem 1.5rem 2rem;
+            padding: 3rem 1rem 2rem;
 
             .about-title {
                 font-size: 2.5rem;
@@ -380,9 +326,14 @@
     }
 
     @media (max-width: 480px) {
+        padding: 0 1rem 2rem 1rem;
+
         .about-header {
+            padding: 2rem 1rem 1.5rem;
+
             .about-title {
                 font-size: 2rem;
+                letter-spacing: -0.5px;
             }
         }
     }

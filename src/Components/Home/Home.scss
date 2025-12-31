@@ -10,12 +10,12 @@
 .header-section {
   text-align: center;
   width:100%;
-  margin-bottom: 6rem;
+  height: 100vh;
   margin-top: 5rem;
   z-index: 2;
   position: relative;
   padding: 0 17rem;
-
+  
   img{
     width: 65%;
   }
@@ -26,17 +26,22 @@
     line-height: var(--line-height-golden);
     letter-spacing: 2px;
     font-weight: 400;
+    display: block;
   }
   
   .animated-text {
     display: inline-block;
     
-    .word {
+    .letter {
       display: inline-block;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: font-weight 0.4s ease;
       cursor: default;
-      margin-right: 10px;
-    
+      font-weight: 300;
+      
+      // When letter has hover-bold class, increase font weight
+      &.hover-bold {
+        font-weight: 750;
+      }
     }
   }
 
@@ -76,7 +81,7 @@
     }
     p{
       font-size: 1rem;
-      margin-top: 9rem;
+      margin-top: 7rem;
     }
     
     .animated-text .word:hover {
