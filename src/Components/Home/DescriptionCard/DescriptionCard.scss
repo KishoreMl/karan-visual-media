@@ -1,9 +1,10 @@
 .glow-info-cards-container {
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  grid-template-columns: repeat(4, 1fr); // 4 cards per row on large screens
   gap: 30px;
   padding: 0 4rem;
-  margin: 1.5rem auto 3rem auto;
+  margin: 1.5rem auto 8rem auto;
+  width: 100%;
 
   // Bounce keyframe animation
   @keyframes cardBounce {
@@ -131,31 +132,44 @@
     }
   }
 
-  // Card scroll animations - starts from bottom of viewport
+  // Card scroll animations - only for large screens (4 cards)
   .card-animate {
     opacity: 0;
-    transform: translateY(150px) scale(0.9); // Start smaller and from bottom
-    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); // Bouncy spring effect
+    transform: translateY(400px); // Start from bottom
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
     will-change: opacity, transform;
 
+    // Enter animation - move from bottom to middle (only once)
+    &.card-enter {
+      opacity: 1;
+      transform: translateY(0); // Stay in middle position
+    }
+
+    // Fallback for smaller screens
     &.card-visible {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
   }
 
-  // Faster staggered animation delays
-  .card-1 {
-    transition-delay: 0s;
-  }
+  // Staggered animation delays for large screens
+  @media (min-width: 1025px) {
+    .card-1 {
+      transition-delay: 0s;
+    }
 
-  .card-2 {
-    transition-delay: 0.12s;
-  }
+    .card-2 {
+      transition-delay: 0.35s;
+    }
 
-  .card-3 {
-    transition-delay: 0.24s;
+    .card-3 {
+      transition-delay: 0.55s;
+    }
+
+    .card-4 {
+      transition-delay: 0.70s;
+    }
   }
 }
 
@@ -200,6 +214,16 @@
   
 }
 
+// Medium screens: 2 cards per row
+@media (max-width: 1024px) and (min-width: 769px) {
+  .glow-info-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0 2rem;
+  }
+}
+
+// Small screens: 1 card per row
 @media (max-width: 768px) {
   .glow-info-cards-container {
     grid-template-columns: 1fr;

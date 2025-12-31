@@ -19,6 +19,7 @@ const Home = ({ isDarkMode }) => {
     const [isVisible, setIsVisible] = useState(false);
     const logoRef = useRef(null);
     const [logoProgress, setLogoProgress] = useState(0);
+    const animatedTextRef = useRef(null);
 
 
     // Card Typing Animation
@@ -46,6 +47,61 @@ const Home = ({ isDarkMode }) => {
         };
     }, []);
 
+    // Animated text hover effect
+    useEffect(() => {
+        const animatedText = animatedTextRef.current;
+        if (!animatedText) return;
+
+        const letters = animatedText.querySelectorAll('.letter');
+        
+        const handleMouseEnter = (e) => {
+            const currentLetter = e.target;
+            const index = Array.from(letters).indexOf(currentLetter);
+            
+            // Add hover class to current letter
+            currentLetter.classList.add('hover-bold');
+            
+            // Add hover class to previous letter if it exists
+            if (index > 0 && letters[index - 1]) {
+                letters[index - 1].classList.add('hover-bold');
+            }
+            
+            // Add hover class to next letter if it exists
+            if (index < letters.length - 1 && letters[index + 1]) {
+                letters[index + 1].classList.add('hover-bold');
+            }
+        };
+        
+        const handleMouseLeave = (e) => {
+            const currentLetter = e.target;
+            const index = Array.from(letters).indexOf(currentLetter);
+            
+            // Remove hover class from current letter
+            currentLetter.classList.remove('hover-bold');
+            
+            // Remove hover class from previous letter if it exists
+            if (index > 0 && letters[index - 1]) {
+                letters[index - 1].classList.remove('hover-bold');
+            }
+            
+            // Remove hover class from next letter if it exists
+            if (index < letters.length - 1 && letters[index + 1]) {
+                letters[index + 1].classList.remove('hover-bold');
+            }
+        };
+        
+        letters.forEach(letter => {
+            letter.addEventListener('mouseenter', handleMouseEnter);
+            letter.addEventListener('mouseleave', handleMouseLeave);
+        });
+        
+        return () => {
+            letters.forEach(letter => {
+                letter.removeEventListener('mouseenter', handleMouseEnter);
+                letter.removeEventListener('mouseleave', handleMouseLeave);
+            });
+        };
+    }, []);
 
     // Logo Animation - based on scroll progress with pinning
     useEffect(() => {
@@ -88,10 +144,10 @@ const Home = ({ isDarkMode }) => {
             {/* Hero Section */}
             <div className="header-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
-                <p className="animated-text">
-                    {" Where your ideas come to life.".split(' ').map((word, index) => (
-                        <span key={index} className="word">
-                            {word}{'   '}
+                <p className="animated-text" ref={animatedTextRef}>
+                    {" Where your ideas come to life.".split('').map((char, index) => (
+                        <span key={index} className="letter">
+                            {char === ' ' ? '\u00A0' : char}
                         </span>
                     ))}
                 </p>

@@ -32,12 +32,16 @@
   .animated-text {
     display: inline-block;
     
-    .word {
+    .letter {
       display: inline-block;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: font-weight 0.4s ease;
       cursor: default;
-      margin-right: 10px;
-    
+      font-weight: 300;
+      
+      // When letter has hover-bold class, increase font weight
+      &.hover-bold {
+        font-weight: 750;
+      }
     }
   }
 
@@ -77,7 +81,7 @@
     }
     p{
       font-size: 1rem;
-      margin-top: 9rem;
+      margin-top: 7rem;
     }
     
     .animated-text .word:hover {
