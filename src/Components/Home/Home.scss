@@ -1,36 +1,40 @@
 /* Content.scss */
 .content-container {
   position: relative;
-  padding: 2rem 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
-
 /* Header Section */
-.header-section {
+.hero-section {
   text-align: center;
   width:100%;
-  height: 100vh;
-  margin-top: 5rem;
+  height: calc(100vh - var(--header-height, 100px));
   z-index: 2;
   position: relative;
   padding: 0 17rem;
-  
+
   img{
+    margin-top: 5rem;
+    margin-bottom: auto;
     width: 65%;
   }
   p{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: clamp(var(--type-body), 3vw, var(--type-h2));
     color: var(--text-primary);
-    margin: 6.5rem auto 0 auto;
+    margin: 0;
     line-height: var(--line-height-golden);
     letter-spacing: 2px;
     font-weight: 400;
-    display: block;
+    text-align: center;
+    width: calc(100% - 34rem);
+    max-width: 100%;
   }
   
   .animated-text {
-    display: inline-block;
     
     .letter {
       display: inline-block;
@@ -38,7 +42,6 @@
       cursor: default;
       font-weight: 300;
       
-      // When letter has hover-bold class, increase font weight
       &.hover-bold {
         font-weight: 750;
       }
@@ -47,10 +50,18 @@
 
   @media (max-width: 1200px) {
     padding: 0 7rem;
+    
+    p {
+      width: calc(100% - 14rem);
+    }
   }
 
   @media (max-width: 980px){
     padding: 0 7rem;
+    
+    p {
+      width: calc(100% - 14rem);
+    }
   }
   @media (max-width: 768px) {
     margin-bottom: 5rem;
@@ -61,6 +72,7 @@
     }
     p{
       font-size: 1.2rem;
+      width: calc(100% - 14rem);
     }
     
     .animated-text .word:hover {
@@ -70,6 +82,10 @@
 
   @media (max-width: 600px) {
     padding: 0 4rem;
+    
+    p {
+      width: calc(100% - 8rem);
+    }
   }
   @media (max-width: 480px) {
     height: 100vh;
@@ -82,80 +98,13 @@
     p{
       font-size: 1rem;
       margin-top: 7rem;
+      width: calc(100% - 4rem);
     }
     
     .animated-text .word:hover {
       transform: translateY(-4px);
     }
   }
-}
-
-.scroll-text {
-  font-size: clamp(2.5rem, 5vw, 5rem);
-  font-weight: 900;
-  color: transparent;
-  background: linear-gradient(90deg, 
-    var(--text-primary) 0%, 
-    var(--accent-color) 50%, 
-    var(--text-primary) 100%
-  );
-  background-size: 200% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-  animation: gradientShift 3s ease infinite;
-  margin: 0 30px;
-  
-  @media (max-width: 768px) {
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    margin: 0 20px;
-    letter-spacing: 0.05em;
-  }
-  
-  @media (max-width: 480px) {
-    margin: 0 15px;
-  }
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-
-.main-title {
-  font-size: clamp(var(--type-h2), 5vw, var(--type-h1));
-  font-family: 'Orbiga', sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  position: relative;
-  cursor: default;
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-  line-height: var(--line-height-tight);
-}
-
-.card-cover {
-  margin: 0 auto;
-  width: fit-content;
-  max-width: 100%;
-  background: transparent;
-  border: solid 1px white;
-  border-radius: 16px;
-  padding: 1rem;
-  backdrop-filter: blur(10px);
-  position: relative;
-  z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
 }
 
 .explore-link {
@@ -171,10 +120,10 @@
   }
 }
 
-.autofix-container {
+.logo-container {
   position: relative;
   padding: 2rem 4rem;
-  margin-top: 6rem;
+  // margin-top: 6rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: center;
@@ -414,8 +363,8 @@
     transform: translateZ(20px);
 
     .logo-dot-wrapper {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       position: relative;
     }
 
@@ -438,8 +387,8 @@
     }
 
     .logo-bar {
-      width: 60px;
-      height: 240px;
+      width: 70px;
+      height: 280px;
       background: rgba(255, 255, 255, 0.1);
       position: relative;
       overflow: hidden;

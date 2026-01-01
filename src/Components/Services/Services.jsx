@@ -230,18 +230,6 @@ const Services = () => {
                     );
                 })}
             </div>
-
-            {/* Bottom CTA Section */}
-            <div className="services-cta-section">
-                <div className="services-cta">
-                    <AnimatedHeading text="Ready to bring your vision to life?" tag="h2" className="centered" />
-                    <p className="cta-description">Let's create something extraordinary together</p>
-                    <Link to="/contact" className="cta-primary-button">
-                        <span>Get Started Today</span>
-                        <span className="cta-button-icon">→</span>
-                    </Link>
-                </div>
-            </div>
         </div>
     );
 };
