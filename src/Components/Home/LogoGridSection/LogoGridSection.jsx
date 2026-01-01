@@ -3,13 +3,13 @@ import AnimatedHeading from '../../AnimatedHeading/AnimatedHeading';
 import './LogoGridSection.scss';
 
 // Import carousel logos
-import client_logo_1 from "../../../assets/images/logos/nutrieros.jpg";
-import client_logo_2 from "../../../assets/images/logos/big_idea.png";
-import client_logo_3 from "../../../assets/images/logos/eagle.jpg";
-import client_logo_4 from "../../../assets/images/logos/tamil_catering.jpg";
-import client_logo_5 from "../../../assets/images/logos/yuva_bharathi.jpg";
-import client_logo_6 from "../../../assets/images/logos/meinigar.png";
-import client_logo_7 from "../../../assets/images/logos/swadeshi.jpg";
+import client_logo_1 from "../../../assets/images/clients/nutrieros.jpg";
+import client_logo_2 from "../../../assets/images/clients/bigidea.jpg";
+import client_logo_3 from "../../../assets/images/clients/eagle.jpg";
+import client_logo_4 from "../../../assets/images/clients/tamil_catering.jpg";
+import client_logo_5 from "../../../assets/images/clients/yuva_bharathi.jpg";
+import client_logo_6 from "../../../assets/images/clients/meinigar.png";
+import client_logo_7 from "../../../assets/images/clients/swadeshi.jpg";
 
 const LogoGridSection = () => {
     const containerRef = useRef(null);
