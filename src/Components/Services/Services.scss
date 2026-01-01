@@ -67,7 +67,7 @@
             .services-title {
                 // H1: Golden ratio level 1 (φ³ = 4.236rem, scales up to ~6.854rem)
                 font-size: clamp(var(--type-h1), 8vw, 6.854rem);
-                font-weight: 700;
+                font-weight: 600;
                 color: var(--text-primary);
                 margin-bottom: 1.5rem;
                 letter-spacing: -3px;
@@ -217,7 +217,7 @@
         .section-title {
             // H2: Golden ratio level 2 (φ² = 2.618rem, scales up to φ³ = 4.236rem)
             font-size: clamp(var(--type-h2), 6vw, var(--type-h1));
-            font-weight: 700;
+            font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 3rem;
             letter-spacing: -2px;
@@ -273,7 +273,6 @@
                             0 30px 100px rgba(0, 0, 0, 0.1),
                             0 0 0 1px rgba(0, 0, 0, 0.05) inset;
                     }
-
                     .service-gif {
                         transform: scale(1.02);
                     }
@@ -406,106 +405,6 @@
 
                 .btn-arrow {
                     transform: translateX(5px);
-                }
-            }
-        }
-    }
-
-    // CTA Section
-    .services-cta-section {
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 4rem 2rem;
-        position: relative;
-        z-index: 1;
-
-        .services-cta {
-            text-align: center;
-            max-width: 900px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(30px);
-            border: 1px solid var(--border-color);
-            border-radius: 30px;
-            padding: 4.5rem 3rem;
-            box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-            
-            [data-theme="light"] & {
-                background: rgba(0, 0, 0, 0.02);
-            }
-
-            h2 {
-                // H2: Golden ratio level 2 (φ² = 2.618rem, scales up to φ³)
-                font-size: clamp(var(--type-h2), 3vw, var(--type-h1));
-                font-weight: 700;
-                margin-bottom: 1.5rem;
-                color: var(--text-primary);
-                letter-spacing: -1.5px;
-            }
-
-            .cta-description {
-                // Body scaled up slightly with golden ratio
-                font-size: clamp(var(--type-body), 2.5vw, var(--type-h3));
-                color: var(--text-secondary);
-                margin-bottom: 3rem;
-                line-height: 1.618; // Golden ratio line height
-            }
-
-            .cta-primary-button {
-                background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--secondary-yellow) 100%);
-                border: none;
-                padding: 1rem 2rem;
-                border-radius: 10px;
-                color: #0a0a0a;
-                font-size: calc(var(--type-body) * 1.1); // Slightly larger for emphasis
-                font-weight: 700;
-                cursor: pointer;
-                transition: transform 0.2s ease;
-                display: inline-flex;
-                align-items: center;
-                gap: 0.75rem;
-                position: relative;
-                overflow: hidden;
-                text-decoration: none;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: -100%;
-                    width: 100%;
-                    height: 100%;
-                    background: linear-gradient(90deg, 
-                        transparent, 
-                        rgba(255, 255, 255, 0.3), 
-                        transparent
-                    );
-                    transition: left 0.6s ease;
-                }
-
-                .cta-button-icon {
-                    font-size: var(--type-h3); // 1.618rem - golden ratio
-                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                }
-
-                &:hover {
-                    transform: translateY(-3px);
-
-                    &::before {
-                        left: 100%;
-                    }
-
-                    .cta-button-icon {
-                        transform: translateX(5px);
-                    }
-                }
-
-                &:active {
-                    transform: translateY(-1px);
                 }
             }
         }

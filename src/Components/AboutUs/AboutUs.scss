@@ -41,7 +41,7 @@
 
         .about-title {
             font-size: clamp(var(--type-h1), 10vw, 6.854rem);
-            font-weight: 700;
+            font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0;
             letter-spacing: -2px;
@@ -75,7 +75,7 @@
 
             .section-heading {
                 font-size: clamp(var(--type-h3), 4vw, var(--type-h2));
-                font-weight: 700;
+                font-weight: 500;
                 color: var(--text-primary);
                 margin-bottom: 1.5rem;
                 letter-spacing: -1px;
@@ -83,7 +83,7 @@
             }
 
             .section-text {
-                font-size: clamp(var(--type-body), 2vw, var(--type-h4));
+                font-size: clamp(var(--type-body), 1.5vw, var(--type-h4));
                 line-height: var(--line-height-relaxed);
                 color: var(--text-secondary);
                 margin: 0;
@@ -101,7 +101,7 @@
 
                 .highlight-title {
                     font-size: clamp(var(--type-h3), 3vw, var(--type-h2));
-                    font-weight: 700;
+                    font-weight: 500;
                     color: var(--text-primary); 
                     margin-bottom: 1.5rem;
                     text-align: center;

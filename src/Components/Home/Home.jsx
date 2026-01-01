@@ -142,7 +142,7 @@ const Home = ({ isDarkMode }) => {
         <div className="content-container">
 
             {/* Hero Section */}
-            <div className="header-section">
+            <div className="hero-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
                 <p className="animated-text" ref={animatedTextRef}>
                     {" Where your ideas come to life.".split('').map((char, index) => (
@@ -153,10 +153,11 @@ const Home = ({ isDarkMode }) => {
                 </p>
             </div>
 
+            {/* Poster Section */}
             <Poster />
 
             {/* Logo Content Section */}
-            <div className="autofix-container">
+            <div className="logo-container">
                 <div className="text-content">
                     <h1 className="main-title">Design it once. Design it right.</h1>
                     <p className="main-description">

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
+import CtaSection from '../Home/CtaSection/CtaSection';
 import './AboutUs.scss';
 
 const AboutUs = () => {
@@ -14,7 +15,7 @@ const AboutUs = () => {
             rootMargin: '0px'
         };
 
-        const observerCallback = (entries, observer) => {
+        const observerCallback = (entries,observer) => {
             entries.forEach((entry) => {
                 const sectionIndex = parseInt(entry.target.dataset.section);
                 if (entry.isIntersecting) {
@@ -111,18 +112,8 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            <div 
-                ref={(el) => addToRefs(el, 5)}
-                data-section={5}
-                className={`about-cta ${visibleSections.includes(5) ? 'visible' : ''}`}
-            >
-                <AnimatedHeading text="Ready to create something extraordinary?" tag="h2" className="centered" />
-                <p className="cta-description">Let's bring your vision to life</p>
-                <button className="cta-button" onClick={() => navigate('/contact')}>
-                    <span>Get In Touch</span>
-                    <span className="cta-arrow">→</span>
-                </button>
-            </div>
+            {/* Contact CTA Section */}
+            <CtaSection />
         </div>
     );
 };
