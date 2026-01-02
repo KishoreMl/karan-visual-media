@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import posterBackground from '../../../assets/images/Works/ad/Artboard 3-100.jpg';
+import posterBackground from '../../../assets/images/Works/ad/Artboard 1-100.jpg';
 import './Poster.scss';
 
 const Poster = () => {

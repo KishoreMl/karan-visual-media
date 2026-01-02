@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import AnimatedHeading from '../../AnimatedHeading/AnimatedHeading';
-import './LogoGridSection.scss';
+import './ClientLogoSection.scss';
 
 // Import carousel logos
 import client_logo_1 from "../../../assets/images/clients/nutrieros.jpg";
