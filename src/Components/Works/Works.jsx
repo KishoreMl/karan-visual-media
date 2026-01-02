@@ -8,6 +8,7 @@ import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/images/Works/ad/Artboard 1-100.jpg';
 const Works = () => {
     const [filter, setFilter] = useState('All');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -43,6 +44,15 @@ const Works = () => {
         navigate(`/works/${slug}`);
     };
 
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleFilterChange = (category) => {
+        setFilter(category);
+        setIsDropdownOpen(false);
+    };
+
     const categories = ['All', 'Branding & Design', 'Motion Graphics', '3D Animation', '3D Interior & Exterior Walkthrough Animation', 'Website Development'];
 
     const filteredProjects = filter === 'All' 
@@ -57,15 +67,40 @@ const Works = () => {
 
             {/* Filter Buttons */}
             <div className="filter-buttons">
-                {categories.map((cat) => (
-                    <button
-                        key={cat}
-                        className={`filter-btn ${filter === cat ? 'active' : ''}`}
-                        onClick={() => setFilter(cat)}
+                {/* Desktop View - Horizontal Buttons */}
+                <div className="filter-buttons-desktop">
+                    {categories.map((cat) => (
+                        <button
+                            key={cat}
+                            className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                            onClick={() => setFilter(cat)}
+                        >
+                            {cat}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Mobile View - Dropdown */}
+                <div className="filter-buttons-mobile">
+                    <button 
+                        className="filter-dropdown-toggle"
+                        onClick={toggleDropdown}
                     >
-                        {cat}
+                        {filter}
+                        <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
                     </button>
-                ))}
+                    <div className={`filter-dropdown-menu ${isDropdownOpen ? 'open' : ''}`}>
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                className={`filter-dropdown-item ${filter === cat ? 'active' : ''}`}
+                                onClick={() => handleFilterChange(cat)}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                </div>
             </div>
 
             {/* Projects Grid */}

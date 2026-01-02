@@ -91,25 +91,134 @@
                 margin-bottom: 3rem;
                 animation: subtitleFadeIn 1s ease-out 0.4s backwards;
 
-                .service-nav-item {
-                    background: transparent;
-                    border: 1px solid var(--border-color);
-                    padding: 0.75rem 1.5rem;
-                    border-radius: 50px;
-                    color: var(--text-secondary);
-                    font-size: var(--type-small);
-                    font-weight: 500;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
+                // Desktop View - Horizontal Menu
+                .services-nav-desktop {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 1rem;
+                    width: 100%;
 
-                    &:hover {
-                        background: rgba(0, 0, 0, 0.1);
-                        border-color: var(--text-secondary);
-                        color: var(--text-primary);
-                        transform: translateY(-2px);
+                    .service-nav-item {
+                        background: transparent;
+                        border: 1px solid var(--border-color);
+                        padding: 0.75rem 1.5rem;
+                        border-radius: 50px;
+                        color: var(--text-secondary);
+                        font-size: var(--type-small);
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
 
-                        [data-theme="light"] & {
-                            background: rgba(0, 0, 0, 0.05);
+                        &:hover {
+                            background: rgba(0, 0, 0, 0.1);
+                            border-color: var(--text-secondary);
+                            color: var(--text-primary);
+                            transform: translateY(-2px);
+
+                            [data-theme="light"] & {
+                                background: rgba(0, 0, 0, 0.05);
+                            }
+                        }
+                    }
+                }
+
+                // Mobile View - Dropdown Menu
+                .services-nav-mobile {
+                    display: none;
+                    position: relative;
+                    width: 100%;
+                    max-width: 400px;
+                    margin: 0 auto;
+
+                    .services-dropdown-toggle {
+                        width: 100%;
+                        background: transparent;
+                        border: 1px solid var(--border-color);
+                        padding: 1rem 1.5rem;
+                        border-radius: 50px;
+                        color: var(--text-secondary);
+                        font-size: var(--type-small);
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .dropdown-arrow {
+                            font-size: 0.8rem;
+                            transition: transform 0.3s ease;
+                            margin-left: 1rem;
+
+                            &.open {
+                                transform: rotate(180deg);
+                            }
+                        }
+
+                        &:hover {
+                            background: rgba(0, 0, 0, 0.1);
+                            border-color: var(--text-secondary);
+                            color: var(--text-primary);
+
+                            [data-theme="light"] & {
+                                background: rgba(0, 0, 0, 0.05);
+                            }
+                        }
+                    }
+
+                    .services-dropdown-menu {
+                        position: absolute;
+                        top: calc(100% + 0.5rem);
+                        left: 0;
+                        right: 0;
+                        background: var(--bg-primary);
+                        border: 1px solid var(--border-color);
+                        border-radius: 16px;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                        z-index: 300;
+                        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+                        &.open {
+                            max-height: 500px;
+                            overflow-y: auto;
+                        }
+
+                        .service-dropdown-item {
+                            display: block;
+                            width: 100%;
+                            padding: 1rem 1.5rem;
+                            background: transparent;
+                            border: none;
+                            border-bottom: 1px solid var(--border-color);
+                            color: var(--text-secondary);
+                            font-size: var(--type-small);
+                            font-weight: 500;
+                            cursor: pointer;
+                            text-align: left;
+                            transition: all 0.3s ease;
+                            z-index: 300;
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            &:hover {
+                                background: rgba(0, 0, 0, 0.1);
+                                color: var(--text-primary);
+                                padding-left: 2rem;
+
+                                [data-theme="light"] & {
+                                    background: rgba(0, 0, 0, 0.05);
+                                }
+                            }
+
+                            &.active {
+                                color: var(--primary-yellow);
+                                background: rgba(255, 165, 0, 0.1);
+                            }
                         }
                     }
                 }
@@ -411,6 +520,23 @@
     }
 
     // Responsive Design
+    // Show mobile dropdown, hide desktop menu on smaller screens
+    @media (max-width: 768px) {
+        .services-header-section {
+            .services-header {
+                .services-nav-menu {
+                    .services-nav-desktop {
+                        display: none;
+                    }
+
+                    .services-nav-mobile {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
     @media (max-width: 1024px) {
         .scroll-section {
             padding: 3rem 1.5rem;
@@ -433,11 +559,6 @@
             .services-nav-menu {
                 gap: 0.5rem;
                 margin-bottom: 2rem;
-
-                .service-nav-item {
-                    padding: 0.5rem 1rem;
-                    font-size: 0.85rem;
-                }
             }
         }
 
@@ -467,32 +588,29 @@
             .content-features .features-grid {
                 grid-template-columns: 1fr;
             }
-
-            .service-cta-btn {
-                width: 100%;
-                justify-content: center;
-                padding: 1rem 2rem;
-            }
-        }
-
-        .services-cta-section .services-cta {
-            padding: 3rem 2rem;
-            border-radius: 20px;
-
-            .cta-primary-button {
-                width: 100%;
-                justify-content: center;
-                padding: 1.2rem 3rem;
-            }
         }
     }
 
     @media (max-width: 480px) {
+        .services-header-section{
+            align-items: flex-start;
+            .services-header {
+                .services-title {
+                    font-size: 3rem;
+                    letter-spacing: -2px;
+                    margin-top: 2rem;
+                }
+            }
+        }
         .scroll-section {
             min-height: 85vh;
         }
 
         .gif-section {
+            .section-title {
+                font-size: 1.8rem;
+                letter-spacing: -0.5px;
+            }
             .gif-container .gif-wrapper {
                 height: 40vh;
                 min-height: 250px;
@@ -505,10 +623,6 @@
 
         .content-section .content-wrapper {
             padding: 1.5rem 1rem;
-        }
-
-        .services-cta-section .services-cta {
-            padding: 2.5rem 1.5rem;
         }
     }
 }
