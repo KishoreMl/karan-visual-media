@@ -1,11 +1,12 @@
 .logo-grid-section {
   width: 100%;
-  background:transparent;
+  background: transparent;
   padding: 80px 0;
   margin-top: 10rem;
   margin-bottom: 8rem;
   position: relative;
   padding: 0 4rem;
+  overflow: hidden;
 
   .logo-grid-title {
     font-size: 6rem;
@@ -17,61 +18,92 @@
   }
 }
 
-.logo-grid-container {
-  max-width: 1400px;
-  margin-top: 5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
-  gap: 1rem 1rem;
-}
-
-.logo-grid-item {
-  height: 180px;
-  margin-right:1rem;
-  background: white;
-  box-shadow: 
-  0 2px 10px rgba(0,0,0,0.3);
-  border-radius: 5px;
-  transition: all 0.3s ease;
+.logo-carousel-wrapper {
+  width: 100%;
   overflow: hidden;
+  margin-top: 5rem;
+  position: relative;
   
-  // Initial state for animation
-  opacity: 0;
-  transform: translateY(50px) scale(0.8);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
   
-  // Animated state
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-primary), transparent);
+  }
+  
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-primary), transparent);
   }
 }
 
-.grid-logo-image {
-  width: 100%;
-  height: 100%;
-  scale: 1.2;
-  object-fit: contain;
-  transition: all 0.3s ease;
+.logo-carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  animation: scroll-infinite 30s linear infinite;
+  will-change: transform;
 }
 
-/* Logo Grid Responsive */
+.logo-carousel-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  background:white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.carousel-logo-image {
+  width: 100%;
+  height: 100%;
+  scale: 1.4;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Carousel Responsive */
 @media (max-width: 1200px) {
   .logo-grid-section {
+    padding: 0 2rem;
+
     .logo-grid-title {
       font-size: 3rem;
       padding-left: 1.4rem;
     }
   }
 
-  .logo-grid-container {
-    gap: 50px 30px;
-    padding: 0 30px;
-  }
-
-  .logo-grid-item {
-    padding: 35px;
+  .logo-carousel-item {
+    width: 250px;
     height: 180px;
+    padding: 1.5rem;
   }
 }
 
@@ -88,21 +120,29 @@
     }
   }
 
-  .logo-grid-container {
-    gap: 30px 20px;
-    padding: 0 20px;
+  .logo-carousel-wrapper {
     margin-top: 2.5rem;
+    
+    &::before,
+    &::after {
+      width: 80px;
+    }
   }
 
-  .logo-grid-item {
-    padding: 30px;
+  .logo-carousel-track {
+    gap: 1.5rem;
+    animation-duration: 25s;
+  }
+
+  .logo-carousel-item {
+    width: 220px;
     height: 160px;
+    padding: 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
   .logo-grid-section {
-
     margin: 6rem 0 1rem 0;
     padding: 0 0.5rem;
 
@@ -113,24 +153,25 @@
     }
   }
 
-  .logo-grid-container {
-    gap: 20px 15px;
-    padding: 0 15px;
+  .logo-carousel-wrapper {
     margin-top: 2rem;
+    
+    &::before,
+    &::after {
+      width: 50px;
+    }
   }
 
-  .logo-grid-item {
-    padding: 0;
+  .logo-carousel-track {
+    gap: 1rem;
+    animation-duration: 20s;
+  }
+
+  .logo-carousel-item {
+    width: 180px;
     height: 140px;
+    padding: 1rem;
     border-radius: 8px;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .grid-logo-image {
-    max-width: 90%;
-    max-height: 90%;
-    height: 120px;
   }
 }
 

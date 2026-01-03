@@ -99,11 +99,11 @@ const Home = ({ isDarkMode }) => {
             {/* Descriptive Content Section */}
             <DescriptiveContent />
 
+            {/* Clients Logo Grid Section */}
+             <ClientLogoSection />
+
             {/* Scale Up Screen Section */}
             <ScaleUpScreen />
-
-            {/* Clients Logo Grid Section */}
-            <ClientLogoSection />
 
             {/* Text Carousel */}
             <HorizontalText />
