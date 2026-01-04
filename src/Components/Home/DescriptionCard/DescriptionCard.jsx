@@ -4,6 +4,7 @@ import devImg from '../../../assets/images/Dev.png';
 import socialMediaImg from '../../../assets/images/Socialmedia.png';
 import brandingImg from '../../../assets/images/Logo.png';
 import motionGraphicsImg from '../../../assets/images/Animation.png';
+import AnimatedHeading from '../../AnimatedHeading/AnimatedHeading';
 import './DescriptionCard.scss';
 
 const DescriptionCard = () => {
@@ -120,6 +121,10 @@ const DescriptionCard = () => {
     }, []);
 
     return (
+        <>
+        <div className='description-card-header'>
+            <AnimatedHeading text="What we do" tag="h2" className="description-card-title" />
+        </div>
         <div className="glow-info-cards-container" ref={containerRef}>
             <div 
                 className='card-cover card-animate card-1' 
@@ -191,6 +196,7 @@ const DescriptionCard = () => {
                     </div>
             </div>
         </div>
+    </>
     );
 };
 

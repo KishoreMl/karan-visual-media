@@ -1,25 +1,25 @@
 import React from 'react';
 import AnimatedHeading from '../../AnimatedHeading/AnimatedHeading';
-import './ClientLogoSection.scss';
+import './ClientCarousel.scss';
 
 // Import carousel logos
-import client_logo_1 from "../../../assets/images/clients/nutrieros.jpg";
-import client_logo_2 from "../../../assets/images/clients/bigidea.jpg";
-import client_logo_3 from "../../../assets/images/clients/eagle.jpg";
-import client_logo_4 from "../../../assets/images/clients/tamil_catering.jpg";
-import client_logo_5 from "../../../assets/images/clients/yuva_bharathi.jpg";
+import client_logo_7 from "../../../assets/images/clients/nutrieros.jpg";
+import client_logo_1 from "../../../assets/images/clients/bigidea.jpg";
+import client_logo_4 from "../../../assets/images/clients/eagle.jpg";
+import client_logo_5 from "../../../assets/images/clients/tamil_catering.jpg";
+import client_logo_2 from "../../../assets/images/clients/yuva_bharathi.jpg";
 import client_logo_6 from "../../../assets/images/clients/meinigar.png";
-import client_logo_7 from "../../../assets/images/clients/swadeshi.jpg";
+import client_logo_3 from "../../../assets/images/clients/swadeshi.jpg";
 
-const LogoGridSection = () => {
+const ClientCarousel = () => {
     const logos = [
-        { src: client_logo_1, alt: "Nutrieros" },
-        { src: client_logo_2, alt: "Big Idea" },
-        { src: client_logo_3, alt: "Eagle" },
-        { src: client_logo_4, alt: "Tamil Catering" },
-        { src: client_logo_5, alt: "Yuva Bharathi" },
+        { src: client_logo_1, alt: "Big Idea" },
+        { src: client_logo_2, alt: "Yuva Bharathi" },
+        { src: client_logo_3, alt: "Swadeshi" },
+        { src: client_logo_4, alt: "Eagle" },
+        { src: client_logo_5, alt: "Tamil Catering" },
         { src: client_logo_6, alt: "Meinigar" },
-        { src: client_logo_7, alt: "Swadeshi" }
+        { src: client_logo_7, alt: "Nutrieros" }
     ];
 
     // Duplicate logos for seamless infinite scroll
@@ -41,5 +41,5 @@ const LogoGridSection = () => {
     );
 };
 
-export default LogoGridSection;
+export default ClientCarousel;
 

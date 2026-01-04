@@ -20,8 +20,8 @@ const LogoSection = () => {
         // Create scroll trigger for logo progress with pinning
         ScrollTrigger.create({
             trigger: logoContentElement,
-            start: 'top top',
-            end: '+=100vh', // Pin for 100vh of scroll to complete animation
+            start: 'top bottom-=500px', // Start animation 200px before element enters viewport
+            end: '+=100vh', // Pin for 90vh of scroll to complete animation
             scrub: 1,
             pin: true,
             pinSpacing: true,
