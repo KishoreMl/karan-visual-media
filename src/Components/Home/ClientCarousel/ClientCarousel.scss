@@ -1,0 +1,177 @@
+.logo-grid-section {
+  width: 100%;
+  background: transparent;
+  padding: 80px 0;
+  margin-top: 10rem;
+  margin-bottom: 8rem;
+  position: relative;
+  padding: 0 0;
+  overflow: hidden;
+
+  .logo-grid-title {
+    font-size: 6rem;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    padding-left: 4rem;
+  }
+}
+
+.logo-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 5rem;
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-primary), transparent);
+  }
+  
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-primary), transparent);
+  }
+}
+
+.logo-carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  animation: scroll-infinite 30s linear infinite;
+  will-change: transform;
+}
+
+.logo-carousel-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  background:white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.carousel-logo-image {
+  width: 100%;
+  height: 100%;
+  scale: 1.5;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Carousel Responsive */
+@media (max-width: 1200px) {
+  .logo-grid-section {
+    padding: 0;
+
+    .logo-grid-title {
+      font-size: 3rem;
+      padding-left: 1.4rem;
+    }
+  }
+
+  .logo-carousel-item {
+    width: 250px;
+    height: 180px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-grid-section {
+    padding:0;
+    margin: 60px 0;
+
+    .logo-grid-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      padding-left: 1.4rem;
+    }
+  }
+
+  .logo-carousel-wrapper {
+    margin-top: 2.5rem;
+    
+    &::before,
+    &::after {
+      width: 80px;
+    }
+  }
+
+  .logo-carousel-track {
+    gap: 1.5rem;
+    animation-duration: 25s;
+  }
+
+  .logo-carousel-item {
+    width: 220px;
+    height: 160px;
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-grid-section {
+    margin: 6rem 0 4rem 0;
+    padding: 0;
+
+    .logo-grid-title {
+      font-size: 2.33rem;
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+    }
+  }
+
+  .logo-carousel-wrapper {
+    margin-top: 2rem;
+    
+    &::before,
+    &::after {
+      width: 50px;
+    }
+  }
+
+  .logo-carousel-track {
+    gap: 1rem;
+    animation-duration: 20s;
+  }
+
+  .logo-carousel-item {
+    width: 180px;
+    height: 140px;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+}
+

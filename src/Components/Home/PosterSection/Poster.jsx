@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import posterBackground from '../../../assets/images/Works/ad/Artboard 3-100.jpg';
+import posterBackground from '../../../assets/images/Poster.png';
 import './Poster.scss';
 
 const Poster = () => {
@@ -64,7 +64,7 @@ const Poster = () => {
 
         // Text scales down and moves back in Z-axis when scrolling
         gsap.to(text, {
-            scale: 0.6,
+            scale: 0.8,
             z: -800,
             ease: 'none',
             scrollTrigger: {

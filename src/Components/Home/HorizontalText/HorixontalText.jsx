@@ -97,7 +97,7 @@ const HorizontalText = () => {
         <div className="horizontal-text Horizontal" ref={wrapperRef}>
             <div className="container">
                 <h3 className="Horizontal__text heading-xl" ref={textRef}>
-                    Animation ● Branding ● Design ● Marketing ● Visual Effects ● Development
+                    Get ready to create something extraordinary with us!
                 </h3>
             </div>
         </div>

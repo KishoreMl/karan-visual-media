@@ -50,7 +50,6 @@
 
   @media (max-width: 1200px) {
     padding: 0 7rem;
-    
     p {
       width: calc(100% - 14rem);
     }
@@ -58,7 +57,6 @@
 
   @media (max-width: 980px){
     padding: 0 7rem;
-    
     p {
       width: calc(100% - 14rem);
     }
@@ -88,12 +86,10 @@
     }
   }
   @media (max-width: 480px) {
-    height: 100vh;
-    margin-bottom: 4rem;
-    margin-top: 3rem;
+    height: calc(100vh - var(--header-height, 100px));
     padding: 0 2rem;
     img{
-      margin-top: 4rem;
+      margin-top: 6rem;
     }
     p{
       font-size: 1rem;
@@ -107,53 +103,6 @@
   }
 }
 
-.explore-link {
-  color: var(--primary-yellow);
-  font-size: var(--type-body);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: var(--secondary-yellow);
-    text-decoration: underline;
-  }
-}
-
-.logo-container {
-  position: relative;
-  padding: 2rem 4rem;
-  // margin-top: 6rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  align-items: center;
-  gap: 4rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-
-  .text-content {
-    flex: 1;
-    max-width: 600px;
-    z-index: 2;
-    position: relative;
-    color:var(--text-primary);  
-  
-    .main-title {
-      font-size: clamp(var(--type-h2), 5vw, var(--type-h1));
-      font-weight: 700;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-      color: var(--text-primary);
-      margin-bottom: 1.5rem;
-      line-height: var(--line-height-tight);
-    }
-    
-    .main-description {
-      font-size: clamp(var(--type-body), 2vw, var(--type-h4));
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      line-height: var(--line-height-golden);
-    }
-  }
-}
 
 @supports (animation-timeline: scroll()) {
   .progress {
@@ -339,76 +288,6 @@
     scale: 1;
   }
 }
-/* Logo Content Section */
-.logo-content {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 40px;
-  background: transparent;
-  position: relative;
-  min-height: 60vh;
-  margin-bottom: 6rem;
-  transform-style: preserve-3d;
-  perspective: 950px;
-  perspective-origin: 70% 20%;
-
-  .logo-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    transform-style: preserve-3d;
-    transform: translateZ(20px);
-
-    .logo-dot-wrapper {
-      width: 90px;
-      height: 90px;
-      position: relative;
-    }
-
-    .logo-dot-svg {
-      width: 100%;
-      height: 100%;
-      transform: rotate(-90deg);
-    }
-
-    .logo-dot-bg {
-      transition: opacity 0.3s ease;
-    }
-
-    .logo-dot-progress {
-      transition: stroke-dashoffset 0.5s linear;
-    }
-
-    .logo-dot-fill {
-      transition: opacity 0.5s ease, fill 0.3s ease;
-    }
-
-    .logo-bar {
-      width: 70px;
-      height: 280px;
-      background: rgba(255, 255, 255, 0.1);
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      
-      .logo-bar-progress {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: var(--text-primary);
-        box-shadow: 
-          0 0 20px rgba(255, 255, 255, 0.6),
-          0 0 40px rgba(255, 255, 255, 0.4),
-          inset 0 2px 0 rgba(255, 255, 255, 0.8);
-        border-radius: 4px 4px 0 0;
-      }
-    }
-  }
-}
 
 @keyframes fadeIn {
   from {
@@ -458,59 +337,5 @@
   }
 }
 
-/* Responsive Logo */
-@media (max-width: 768px) {
-  .logo-content {
-    padding: 60px 30px;
-    min-height: 50vh;
-
-    .logo-icon {
-      gap: 15px;
-
-      .logo-dot-wrapper {
-        width: 60px;
-        height: 60px;
-      }
-
-      .logo-bar {
-        width: 45px;
-        height: 180px;
-        
-        .logo-bar-progress {
-          box-shadow: 
-            0 0 15px rgba(255, 255, 255, 0.6),
-            0 0 30px rgba(255, 255, 255, 0.4);
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-content {
-    padding: 50px 20px;
-    min-height: 40vh;
-
-    .logo-icon {
-      gap: 12px;
-
-      .logo-dot-wrapper {
-        width: 50px;
-        height: 50px;
-      }
-
-      .logo-bar {
-        width: 35px;
-        height: 150px;
-        
-        .logo-bar-progress {
-          box-shadow: 
-            0 0 12px rgba(255, 255, 255, 0.6),
-            0 0 25px rgba(255, 255, 255, 0.4);
-        }
-      }
-    }
-  }
-}
 
 /* Text Carousel Section */

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Services.scss';
 
@@ -17,6 +16,8 @@ const Services = () => {
     const sectionsRef = useRef([]);
     const [visibleSections, setVisibleSections] = useState([]);
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState(null);
 
     useEffect(() => {
         const observerOptions = {
@@ -75,6 +76,12 @@ const Services = () => {
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        setIsDropdownOpen(false);
+        setSelectedService(serviceId);
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
     };
 
     const servicesData = [
@@ -150,15 +157,42 @@ const Services = () => {
                     
                     {/* Services Navigation Menu */}
                     <div className="services-nav-menu">
-                        {servicesData.map((service) => (
-                            <button
-                                key={service.id}
-                                className="service-nav-item"
-                                onClick={() => scrollToService(service.id)}
+                        {/* Desktop View - Horizontal Menu */}
+                        <div className="services-nav-desktop">
+                            {servicesData.map((service) => (
+                                <button
+                                    key={service.id}
+                                    className="service-nav-item"
+                                    onClick={() => scrollToService(service.id)}
+                                >
+                                    {service.title}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Mobile View - Dropdown Menu */}
+                        <div className="services-nav-mobile">
+                            <button 
+                                className="services-dropdown-toggle"
+                                onClick={toggleDropdown}
                             >
-                                {service.title}
+                                {selectedService 
+                                    ? servicesData.find(s => s.id === selectedService)?.title 
+                                    : 'Select a Service'}
+                                <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
                             </button>
-                        ))}
+                            <div className={`services-dropdown-menu ${isDropdownOpen ? 'open' : ''}`}>
+                                {servicesData.map((service) => (
+                                    <button
+                                        key={service.id}
+                                        className={`service-dropdown-item ${selectedService === service.id ? 'active' : ''}`}
+                                        onClick={() => scrollToService(service.id)}
+                                    >
+                                        {service.title}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     <div className="scroll-indicator">
