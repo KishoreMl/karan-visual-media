@@ -97,7 +97,7 @@ const HorizontalText = () => {
         <div className="horizontal-text Horizontal" ref={wrapperRef}>
             <div className="container">
                 <h3 className="Horizontal__text heading-xl" ref={textRef}>
-                    Get ready to create something extraordinary with us!
+                    Get Ready To Create Something Exraordinary With Us!
                 </h3>
             </div>
         </div>

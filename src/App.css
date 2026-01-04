@@ -7,6 +7,8 @@
   --bg-card: #181818;
   --bg-gradient: linear-gradient(#181818 40%, #181818 70%, #0a0a0a, #0a0a0a, #0a0a0a 100%);
 
+  --nav-bar-hover-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(200, 200, 200, 0.15) 100%);
+
   --primary-yellow: #F9A825;
   --secondary-yellow: #F59E0B;
   --primary-yellow-rgb: 249, 168, 37;
@@ -53,6 +55,9 @@
   --bg-tertiary: #e0e0e0;
   --bg-card: #ffffff;
   --bg-gradient: linear-gradient( #e0e0e0, #f5f5f5, #ffffff 100%);
+
+  --nav-bar-hover-color: red;
+  --nav-bar-hover-colo: linear-gradient(135deg, #66c0ea 0%, #4b67a2 100%);
 
   --primary-yellow: #F9A825;
   --secondary-yellow: #F59E0B;

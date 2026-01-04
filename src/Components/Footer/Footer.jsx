@@ -12,7 +12,11 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-content">
                 <div className="footer-top">
-                    <div className='footer-item'>
+                    <div 
+                        className='footer-item' 
+                        onClick={() => window.location.href = 'mailto:creativeknackshub@gmail.com'}
+                        style={{ cursor: 'pointer' }}
+                    >
                         <div className='footer-icon'>
                             <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -24,7 +28,7 @@ const Footer = () => {
                                 <path d="M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m-.11 3.64-7.5 4.5c-.12.07-.25.11-.39.11s-.27-.04-.39-.11l-7.5-4.5c-.36-.21-.47-.67-.26-1.03s.67-.47 1.03-.26l7.11 4.27 7.11-4.27a.751.751 0 1 1 .77 1.29Z"/>
                             </svg>
                         </div>
-                        <p>creativeknackshub@gmail.com</p>
+                        <p className='footer-text'>creativeknackshub@gmail.com</p>
                     </div>
                     <div className='footer-item'>
                         <div className='footer-icon'>
@@ -38,7 +42,7 @@ const Footer = () => {
                                     <path d="M12 2c3.87 0 7 3.13 7 7 0 5.25-7 13-7 13S5 14.25 5 9c0-3.87 3.13-7 7-7m0 4.5a2.5 2.5 0 0 0 0 5 2.5 2.5 0 0 0 0-5"/>
                                 </svg>
                         </div>
-                        <p>Coimbatore, Tamil Nadu,India</p>
+                        <p className='footer-text'>Coimbatore, Tamil Nadu,India</p>
                     </div>
                     <div className="social-icons">
                         <div className='footer-icon' onClick={() => redirectToUrl(INSTAGRAM_URL)}>
