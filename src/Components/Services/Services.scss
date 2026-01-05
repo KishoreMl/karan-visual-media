@@ -298,98 +298,158 @@
     .services-scroll-container {
         position: relative;
         z-index: 1;
+        padding-top: 2rem;
     }
 
-    // Scroll Section (Full Screen)
-    .scroll-section {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 4rem 2rem;
-        position: relative;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        will-change: opacity, transform;
-
-        &.visible {
+    // Keyframe animations for service sections
+    @keyframes slideInFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-200px) scale(0.95);
+        }
+        100% {
             opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-content {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
+            transform: translateX(0) scale(1);
         }
     }
 
-    .gif-section {
-        .section-title {
-            // H2: Golden ratio level 2 (φ² = 2.618rem, scales up to φ³ = 4.236rem)
-            font-size: clamp(var(--type-h2), 6vw, var(--type-h1));
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 3rem;
-            letter-spacing: -2px;
-            text-align: center;
+    @keyframes slideInFromRight {
+        0% {
+            opacity: 0;
+            transform: translateX(200px) scale(0.95);
         }
+        100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+    }
 
-        .gif-container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
+    @keyframes slideInFromBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(120px) scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
 
-            .gif-wrapper {
+    // Service Row - Side by side on large screens
+    .service-row {
+        min-height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5rem 8%;
+        gap: 6%;
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+
+        // GIF section - initially hidden
+        .gif-section {
+            flex: 0 0 48%;
+            max-width: 48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(-200px) scale(0.95);
+
+            .section-content {
                 width: 100%;
-                height: 60vh;
-                min-height: 400px;
-                max-height: 600px;
-                background: transparent;
-                border: 2px solid var(--border-color);
-                border-radius: 30px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 
-                    0 20px 80px rgba(0, 0, 0, 0.2),
-                    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-                transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            }
 
-                [data-theme="light"] & {
-                    box-shadow: 
-                        0 20px 80px rgba(0, 0, 0, 0.1),
-                        0 0 0 1px rgba(0, 0, 0, 0.03) inset;
-                }
+            .section-title {
+                display: none; // Hide title in gif section on desktop
+                font-size: clamp(var(--type-h2), 6vw, var(--type-h1));
+                font-weight: 600;
+                color: var(--text-primary);
+                margin-bottom: 2rem;
+                letter-spacing: -2px;
+                text-align: center;
+            }
 
-                .service-gif {
+            .gif-container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+
+                .gif-wrapper {
                     width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    border-radius: 28px;
-                    transition: transform 0.4s ease;
-                }
-
-                &:hover {
-                    border-color: var(--text-tertiary);
-                    transform: translateY(-5px);
+                    aspect-ratio: 16 / 10;
+                    background: transparent;
+                    border: 2px solid var(--border-color);
+                    border-radius: 20px;
+                    position: relative;
+                    overflow: hidden;
                     box-shadow: 
-                        0 30px 100px rgba(0, 0, 0, 0.15),
-                        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-                    
+                        0 15px 50px rgba(0, 0, 0, 0.15),
+                        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+                    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
                     [data-theme="light"] & {
                         box-shadow: 
-                            0 30px 100px rgba(0, 0, 0, 0.1),
-                            0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+                            0 15px 50px rgba(0, 0, 0, 0.08),
+                            0 0 0 1px rgba(0, 0, 0, 0.03) inset;
                     }
+
                     .service-gif {
-                        transform: scale(1.02);
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 18px;
+                    }
+
+                    &:hover {
+                        border-color: var(--text-tertiary);
+                        box-shadow: 
+                            0 25px 70px rgba(0, 0, 0, 0.2),
+                            0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+                        
+                        [data-theme="light"] & {
+                            box-shadow: 
+                                0 25px 70px rgba(0, 0, 0, 0.1),
+                                0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+                        }
                     }
                 }
+            }
+        }
+
+        // Content section - initially hidden
+        .content-section {
+            flex: 0 0 48%;
+            max-width: 48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(200px) scale(0.95);
+
+            .section-content {
+                width: 100%;
+            }
+
+            .content-wrapper {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+
+        // When visible, trigger animations
+        &.visible {
+            .gif-section {
+                animation: slideInFromLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+            .content-section {
+                animation: slideInFromRight 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
             }
         }
     }
@@ -408,12 +468,12 @@
         background: transparent;
 
         .content-wrapper {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 3rem;
+            padding: 2rem;
             background: transparent;
             border: 1px solid var(--border-color);
-            border-radius: 30px;
+            border-radius: 24px;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.15),
                 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
@@ -421,11 +481,12 @@
 
         .content-heading {
             // H3: Golden ratio level 3 (φ = 1.618rem, scales up to φ² = 2.618rem)
-            font-size: clamp(var(--type-h3), 4vw, var(--type-h2));
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
         }
 
         .content-description {
@@ -542,17 +603,29 @@
     }
 
     @media (max-width: 1024px) {
-        .scroll-section {
-            padding: 3rem 1.5rem;
-        }
+        .service-row {
+            padding: 4rem 4%;
+            gap: 4%;
 
-        .gif-section .gif-container .gif-wrapper {
-            height: 50vh;
-            min-height: 350px;
+            .gif-section {
+                flex: 0 0 48%;
+                max-width: 48%;
+            }
+            
+            .content-section {
+                flex: 0 0 48%;
+                max-width: 48%;
+            }
         }
 
         .content-section .content-wrapper {
-            padding: 2.5rem;
+            padding: 1.5rem;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .service-row + .service-row {
+            border-top: 1px solid var(--border-color);
         }
     }
 
@@ -566,15 +639,51 @@
             }
         }
 
-        .scroll-section {
-            padding: 2rem 1rem;
-            min-height: 90vh;
+        // Stack vertically on small screens
+        .service-row {
+            flex-direction: column;
+            padding: 3rem 1.5rem;
+            gap: 1.5rem;
+
+            .gif-section {
+                flex: 0 0 100%;
+                max-width: 100%;
+                width: 100%;
+                opacity: 0;
+                transform: translateY(120px) scale(0.95);
+
+                .section-title {
+                    display: block !important; // Show title in gif section on mobile
+                }
+            }
+
+            .content-section {
+                flex: 0 0 100%;
+                max-width: 100%;
+                width: 100%;
+                opacity: 0;
+                transform: translateY(120px) scale(0.95);
+                
+                .content-wrapper {
+                    border: 1px solid var(--border-color);
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+                    padding: 2rem 1.5rem;
+                }
+            }
+
+            &.visible {
+                .gif-section {
+                    animation: slideInFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                }
+                .content-section {
+                    animation: slideInFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+                }
+            }
         }
 
         .gif-section {
             .gif-container .gif-wrapper {
-                height: 45vh;
-                min-height: 300px;
+                aspect-ratio: 16 / 10;
                 border-radius: 20px;
 
                 .service-gif {
@@ -584,8 +693,11 @@
         }
 
         .content-section {
+            .content-heading {
+                display: none; // Hide duplicate title in content section on mobile
+            }
+
             .content-wrapper {
-                padding: 2rem 1.5rem;
                 border-radius: 20px;
             }
 
@@ -606,8 +718,10 @@
                 }
             }
         }
-        .scroll-section {
-            min-height: 85vh;
+
+        .service-row {
+            padding: 2rem 1rem;
+            gap: 1.5rem;
         }
 
         .gif-section {
@@ -616,11 +730,10 @@
                 letter-spacing: -0.5px;
             }
             .gif-container .gif-wrapper {
-                height: 40vh;
-                min-height: 250px;
+                border-radius: 16px;
 
                 .service-gif {
-                    border-radius: 16px;
+                    border-radius: 14px;
                 }
             }
         }
@@ -630,3 +743,4 @@
         }
     }
 }
+
