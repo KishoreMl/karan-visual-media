@@ -231,18 +231,15 @@
         }
 
         .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            animation: scrollIndicatorFadeIn 0.8s ease-out 0.5s both;
+            margin-top: 3rem;
+            margin-bottom: -2rem;
 
             .scroll-text {
-                font-size: var(--type-small);
+                font-size: 0.8rem;
                 color: var(--primary-yellow);
                 text-transform: uppercase;
                 letter-spacing: 2px;
@@ -250,7 +247,7 @@
             }
 
             .scroll-arrow {
-                font-size: var(--type-h2);
+                font-size: 1.5rem;
                 color: var(--primary-yellow);
                 animation: bounce 2s infinite;
             }
@@ -295,7 +292,7 @@
             transform: translateY(0);
         }
         50% {
-            transform: translateY(15px);
+            transform: translateY(10px);
         }
     }
 
@@ -626,6 +623,28 @@
         .content-section .content-wrapper {
             padding: 1.5rem;
         }
+
+        .services-header-section {
+            .services-header {
+                display: flex;
+                flex-direction: column;
+                min-height: calc(100vh - 4rem);
+            }
+
+            .scroll-indicator {
+                margin-top: auto;
+                margin-bottom: 0;
+                padding-bottom: 3rem;
+                
+                .scroll-text {
+                    font-size: 0.75rem;
+                }
+                
+                .scroll-arrow {
+                    font-size: 1.4rem;
+                }
+            }
+        }
     }
 
     @media (min-width: 769px) {
@@ -641,6 +660,27 @@
             .services-nav-menu {
                 gap: 0.5rem;
                 margin-bottom: 2rem;
+            }
+
+            .services-header {
+                display: flex;
+                flex-direction: column;
+                min-height: calc(100vh - 3rem);
+            }
+
+            .scroll-indicator {
+                margin-top: auto;
+                margin-bottom: 0;
+                padding-bottom: 5rem;
+                
+                .scroll-text {
+                    font-size: 0.7rem;
+                    letter-spacing: 1.5px;
+                }
+                
+                .scroll-arrow {
+                    font-size: 1.25rem;
+                }
             }
         }
 

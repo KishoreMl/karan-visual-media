@@ -191,11 +191,10 @@ const Services = () => {
                         </div>
                     </div>
 
-                </div>
-                
-                <div className="scroll-indicator">
-                    <span className="scroll-text">Scroll to explore</span>
-                    <div className="scroll-arrow">↓</div>
+                    <div className="scroll-indicator">
+                        <span className="scroll-text">Scroll to explore</span>
+                        <div className="scroll-arrow">↓</div>
+                    </div>
                 </div>
             </div>
 
