@@ -38,17 +38,14 @@ const Services = () => {
                     entries.forEach((entry) => {
                         const index = parseInt(entry.target.dataset.index);
                         if (entry.isIntersecting) {
-                            // Stagger animations when multiple elements trigger at once
-                            setTimeout(() => {
-                                setVisibleSections(prev => ({ ...prev, [index]: true }));
-                            }, index * 150);
+                            setVisibleSections(prev => ({ ...prev, [index]: true }));
                             observer.unobserve(entry.target);
                         }
                     });
                 },
                 {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -150px 0px'
                 }
             );
 
@@ -58,7 +55,7 @@ const Services = () => {
 
             // Store observer for cleanup
             window._serviceObserver = observer;
-        }, 500);
+        }, 300);
 
         return () => {
             clearTimeout(timer);
@@ -194,10 +191,11 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div className="scroll-indicator">
-                        <span className="scroll-text">Scroll to explore</span>
-                        <div className="scroll-arrow">↓</div>
-                    </div>
+                </div>
+                
+                <div className="scroll-indicator">
+                    <span className="scroll-text">Scroll to explore</span>
+                    <div className="scroll-arrow">↓</div>
                 </div>
             </div>
 

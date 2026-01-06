@@ -228,26 +228,31 @@
                 }
             }
 
-            .scroll-indicator {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-                animation: scrollIndicatorFadeIn 1s ease-out 0.6s backwards;
+        }
 
-                .scroll-text {
-                    font-size: var(--type-small);
-                    color: var(--primary-yellow);
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                    font-weight: 600;
-                }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: scrollIndicatorFadeIn 0.8s ease-out 0.5s both;
 
-                .scroll-arrow {
-                    font-size: var(--type-h2);
-                    color: var(--primary-yellow);
-                    animation: bounce 2s infinite;
-                }
+            .scroll-text {
+                font-size: var(--type-small);
+                color: var(--primary-yellow);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: 600;
+            }
+
+            .scroll-arrow {
+                font-size: var(--type-h2);
+                color: var(--primary-yellow);
+                animation: bounce 2s infinite;
             }
         }
     }
@@ -277,11 +282,11 @@
     @keyframes scrollIndicatorFadeIn {
         from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateX(-50%) translateY(20px);
         }
         to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(-50%) translateY(0);
         }
     }
 
@@ -327,7 +332,7 @@
     @keyframes slideInFromBottom {
         0% {
             opacity: 0;
-            transform: translateY(120px) scale(0.95);
+            transform: translateY(80px) scale(0.98);
         }
         100% {
             opacity: 1;
@@ -642,15 +647,16 @@
         // Stack vertically on small screens
         .service-row {
             flex-direction: column;
-            padding: 3rem 1.5rem;
+            padding: 4rem 1.5rem;
             gap: 1.5rem;
+            margin-bottom: 2rem;
 
             .gif-section {
                 flex: 0 0 100%;
                 max-width: 100%;
                 width: 100%;
                 opacity: 0;
-                transform: translateY(120px) scale(0.95);
+                transform: translateY(80px) scale(0.98);
 
                 .section-title {
                     display: block !important; // Show title in gif section on mobile
@@ -662,7 +668,7 @@
                 max-width: 100%;
                 width: 100%;
                 opacity: 0;
-                transform: translateY(120px) scale(0.95);
+                transform: translateY(80px) scale(0.98);
                 
                 .content-wrapper {
                     border: 1px solid var(--border-color);
@@ -673,10 +679,10 @@
 
             &.visible {
                 .gif-section {
-                    animation: slideInFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                    animation: slideInFromBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
                 }
                 .content-section {
-                    animation: slideInFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+                    animation: slideInFromBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
                 }
             }
         }
