@@ -1,11 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import devImg from '../../../assets/images/Dev.png';
 import socialMediaImg from '../../../assets/images/Socialmedia.png';
 import brandingImg from '../../../assets/images/Logo.png';
 import motionGraphicsImg from '../../../assets/images/Animation.png';
 import AnimatedHeading from '../../AnimatedHeading/AnimatedHeading';
 import './DescriptionCard.scss';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const DescriptionCard = () => {
     const navigate = useNavigate();
@@ -20,30 +24,55 @@ const DescriptionCard = () => {
         const container = containerRef.current;
         if (!container) return;
 
-        // Check if container displays 4 cards in full width (large screens)
-        const checkIfFourCardsLayout = () => {
-            const screenWidth = window.innerWidth;
-            const computedStyle = window.getComputedStyle(container);
-            const gridColumns = computedStyle.gridTemplateColumns;
-            
-            // Check if screen width is > 1024px (matches SCSS media query)
-            // and verify grid has 4 columns
-            if (screenWidth > 1024) {
-                // Count the number of columns in grid-template-columns
-                const columns = gridColumns.split(' ').filter(col => col.trim() !== '').length;
-                return columns === 4;
-            }
-            return false;
-        };
+        const cards = cardsRef.current.filter(card => card !== null);
+        if (cards.length === 0) return;
 
-        const cards = cardsRef.current;
-        
-        // Only apply scroll animations if 4 cards are displayed
-        if (!checkIfFourCardsLayout()) {
-            // On smaller screens (1 or 2 cards), use simple visibility animation
+        // Check if large screen (4 cards layout)
+        const isLargeScreen = window.innerWidth > 1024;
+
+        if (isLargeScreen) {
+            // Large screens: Sequential scroll-triggered animation
+            // Each card appears one by one as you scroll
+            
+            // Set initial state for all cards - start from below with slight scale
+            gsap.set(cards, {
+                opacity: 0,
+                y: 80,
+                scale: 0.9
+            });
+
+            // Create a timeline that animates cards sequentially based on scroll
+            // Page stays pinned while cards pop up one by one
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: container,
+                    start: 'top center', // Start when container reaches center of viewport
+                    end: '+=400vh', // Pin for 400vh of scroll (100vh per card)
+                    scrub: true, // Directly tied to scroll - only animates when scrolling
+                    pin: true, // Pin the container while animating
+                    pinSpacing: true, // Add spacing for the pinned duration
+                    anticipatePin: 1,
+                    // markers: true, // Uncomment for debugging
+                }
+            });
+
+            // Animate each card one by one - each card completes before the next starts
+            cards.forEach((card, index) => {
+                // Each card animation starts only after previous one is complete
+                tl.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 2, // Each card takes a long scroll distance
+                    ease: 'none' // Linear - directly maps to scroll position
+                }, index === 0 ? 0 : '>'); // First card starts at 0, others start after previous ends
+            });
+
+        } else {
+            // Small/medium screens: Individual card animations on scroll
             const observerOptions = {
-                threshold: 0.05,
-                rootMargin: '50px 0px 0px 0px'
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -66,56 +95,12 @@ const DescriptionCard = () => {
             };
         }
 
-        // Large screen scroll-triggered animations - animate only once on enter
-        // Only runs when 4 cards are displayed in full width
-        const animatedCards = new Set(); // Track which cards have been animated
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const card = entry.target;
-                const cardIndex = Array.from(cards).indexOf(card);
-                
-                // Only animate if card hasn't been animated yet and is entering viewport
-                if (entry.isIntersecting && !animatedCards.has(cardIndex)) {
-                    // Add enter class to trigger animation
-                    card.classList.add('card-enter');
-                    // Mark as animated so it won't animate again
-                    animatedCards.add(cardIndex);
-                    // Stop observing this card
-                    observer.unobserve(card);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards
-        cards.forEach(card => {
-            if (card) observer.observe(card);
-        });
-
-        // Handle window resize - recheck layout
-        const handleResize = () => {
-            if (!checkIfFourCardsLayout()) {
-                // Reset animations if layout changes
-                cards.forEach(card => {
-                    if (card) {
-                        card.classList.remove('card-enter');
-                        observer.unobserve(card);
-                    }
-                });
-            }
-        };
-
-        window.addEventListener('resize', handleResize);
-
+        // Cleanup
         return () => {
-            window.removeEventListener('resize', handleResize);
-            cards.forEach(card => {
-                if (card) observer.unobserve(card);
+            ScrollTrigger.getAll().forEach(trigger => {
+                if (trigger.vars.trigger === container) {
+                    trigger.kill();
+                }
             });
         };
     }, []);
