@@ -13,42 +13,12 @@ import interiorExteriorGif from '../../assets/images/Services/3d interior and ex
 import webDevGif from '../../assets/images/Services/web_design.gif';
 
 const Services = () => {
-    const sectionsRef = useRef([]);
-    const [visibleSections, setVisibleSections] = useState([]);
+    const [visibleSections, setVisibleSections] = useState({});
     const [scrollProgress, setScrollProgress] = useState(0);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedService, setSelectedService] = useState(null);
 
     useEffect(() => {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '100px 0px 0px 0px'
-        };
-
-        const observerCallback = (entries) => {
-            entries.forEach((entry) => {
-                const sectionIndex = parseInt(entry.target.dataset.index);
-                
-                if (entry.isIntersecting) {
-                    setVisibleSections(prev => {
-                        if (!prev.includes(sectionIndex)) {
-                            return [...prev, sectionIndex].sort((a, b) => a - b);
-                        }
-                        return prev;
-                    });
-                    // Once visible, stop observing to prevent flickering
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const currentSections = sectionsRef.current;
-
-        currentSections.forEach((section) => {
-            if (section) observer.observe(section);
-        });
-
         const handleScroll = () => {
             const scrolled = window.scrollY;
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -57,19 +27,45 @@ const Services = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        // Longer delay to ensure page has scrolled to top and elements are ready
+        const timer = setTimeout(() => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        const index = parseInt(entry.target.dataset.index);
+                        if (entry.isIntersecting) {
+                            setVisibleSections(prev => ({ ...prev, [index]: true }));
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -150px 0px'
+                }
+            );
+
+            // Find all service rows and observe them
+            const rows = document.querySelectorAll('.service-row');
+            rows.forEach(row => observer.observe(row));
+
+            // Store observer for cleanup
+            window._serviceObserver = observer;
+        }, 300);
+
         return () => {
-            currentSections.forEach((section) => {
-                if (section) observer.unobserve(section);
-            });
-            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timer);
+            if (window._serviceObserver) {
+                window._serviceObserver.disconnect();
+            }
         };
     }, []);
 
-    const addToRefs = (el, index) => {
-        if (el && !sectionsRef.current.includes(el)) {
-            sectionsRef.current[index] = el;
-        }
-    };
+    const isVisible = (index) => visibleSections[index] === true;
 
     const scrollToService = (serviceId) => {
         const element = document.getElementById(`service-${serviceId}`);
@@ -205,18 +201,15 @@ const Services = () => {
             {/* Services Scroll Container */}
             <div className="services-scroll-container">
                 {servicesData.map((service, index) => {
-                    const gifIndex = index * 2;
-                    const contentIndex = index * 2 + 1;
-                    
                     return (
-                        <React.Fragment key={service.id}>
+                        <div 
+                            key={service.id}
+                            id={`service-${service.id}`}
+                            data-index={index}
+                            className={`service-row ${isVisible(index) ? 'visible' : ''}`}
+                        >
                             {/* GIF/Image Section */}
-                            <div 
-                                id={`service-${service.id}`}
-                                ref={(el) => addToRefs(el, gifIndex)}
-                                data-index={gifIndex}
-                                className={`scroll-section gif-section ${visibleSections.includes(gifIndex) ? 'visible' : ''}`}
-                            >
+                            <div className="gif-section">
                                 <div className="section-content">
                                     <h2 className="section-title">{service.title}</h2>
                                     <div className="gif-container">
@@ -233,11 +226,7 @@ const Services = () => {
                             </div>
 
                             {/* Content Section */}
-                            <div 
-                                ref={(el) => addToRefs(el, contentIndex)}
-                                data-index={contentIndex}
-                                className={`scroll-section content-section ${visibleSections.includes(contentIndex) ? 'visible' : ''}`}
-                            >
+                            <div className="content-section">
                                 <div className="section-content">
                                     <div className="content-wrapper">
                                         <h3 className="content-heading">{service.title}</h3>
@@ -260,7 +249,7 @@ const Services = () => {
                                     </div>
                                 </div>
                             </div>
-                        </React.Fragment>
+                        </div>
                     );
                 })}
             </div>
