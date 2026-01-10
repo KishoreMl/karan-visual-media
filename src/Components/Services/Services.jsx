@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Services.scss';
 
@@ -201,12 +201,13 @@ const Services = () => {
             {/* Services Scroll Container */}
             <div className="services-scroll-container">
                 {servicesData.map((service, index) => {
+                    const isEven = index % 2 === 0;
                     return (
                         <div 
                             key={service.id}
                             id={`service-${service.id}`}
                             data-index={index}
-                            className={`service-row ${isVisible(index) ? 'visible' : ''}`}
+                            className={`service-row ${isEven ? 'gif-left' : 'gif-right'} ${isVisible(index) ? 'visible' : ''}`}
                         >
                             {/* GIF/Image Section */}
                             <div className="gif-section">

@@ -1,24 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './WorkDetail.scss';
 
 // Import NPS images
-import npsImage1 from '../../assets/images/Works/nps/nps (1).jpg';
-import npsImage2 from '../../assets/images/Works/nps/nps (2).jpg';
-import npsImage3 from '../../assets/images/Works/nps/nps (3).jpg';
-import npsImage4 from '../../assets/images/Works/nps/nps (4).jpg';
-import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
+import npsImage1 from '../../assets/works/nps/nps (1).jpg';
+import npsImage2 from '../../assets/works/nps/nps (2).jpg';
+import npsImage3 from '../../assets/works/nps/nps (3).jpg';
+import npsImage4 from '../../assets/works/nps/nps (4).jpg';
+import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 
 //Import Art Board images
-import artBoardImage1 from '../../assets/images/Works/ad/Artboard 1-100.jpg';
-import artBoardImage2 from '../../assets/images/Works/ad/Artboard 2-100.jpg';
-import artBoardImage3 from '../../assets/images/Works/ad/Artboard 3-100.jpg';
-import artBoardImage5 from '../../assets/images/Works/ad/Artboard 5-100.jpg';
-import artBoardImage6 from '../../assets/images/Works/ad/Artboard 6-100.jpg';  
-import artBoardImage7 from '../../assets/images/Works/ad/Artboard 7-100.jpg';
-import artBoardImage8 from '../../assets/images/Works/ad/Artboard 8-100.jpg';
-    
+import artBoardImage1 from '../../assets/works/ad/Artboard 1-100.jpg';
+import artBoardImage2 from '../../assets/works/ad/Artboard 2-100.jpg';
+import artBoardImage3 from '../../assets/works/ad/Artboard 3-100.jpg';
+import artBoardImage5 from '../../assets/works/ad/Artboard 5-100.jpg';
+import artBoardImage6 from '../../assets/works/ad/Artboard 6-100.jpg';  
+import artBoardImage7 from '../../assets/works/ad/Artboard 7-100.jpg';
+import artBoardImage8 from '../../assets/works/ad/Artboard 8-100.jpg';
+
+// Import Swadeshi videos
+import swadeshiVideo1 from '../../assets/works/swadeshi/Swadeshi_Ai1.mp4';
+import swadeshiVideo2 from '../../assets/works/swadeshi/Swadeshi_Ai2.mp4';
+import swadeshiVideo3 from '../../assets/works/swadeshi/Swadeshi_Ai3.mp4';
+import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
 
 const WorkDetail = () => {
     const { workSlug } = useParams();
@@ -29,6 +34,7 @@ const WorkDetail = () => {
     const heroRef = useRef(null);
     const contentRef = useRef(null);
     const galleryRef = useRef(null);
+    const videoRef = useRef(null);
 
     const projects = [
        
@@ -76,6 +82,27 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
                 artBoardImage7,
                 artBoardImage8,
             ]
+        },
+        {
+            id: 3,
+            slug: 'swadeshi-glass-plywood',
+            title: 'Swadeshi Glass & Plywood',
+            category: 'BRAND DESIGN',
+            year: '2025',
+            description: 'Branding and design project for Swadeshi Glass & Plywood, featuring modern visual identity and brand guidelines.',
+            fullDescription: `Swadeshi Glass & Plywood is a leading manufacturer that required a comprehensive brand refresh to align with their market positioning. Our team created a distinctive visual identity that captures their innovative spirit and commitment to quality.
+
+The project involved detailed research into the target audience, market trends, and competitive landscape. We developed a comprehensive brand strategy that reflects Swadeshi's core values and unique positioning in the market.
+
+Our deliverables included video content showcasing the brand identity, product presentations, and marketing materials. The cohesive design system ensures consistent brand presentation across all touchpoints.`,
+            tags: ['Swadeshi Glass & Plywood', 'Branding', 'Video'],
+            image: swadeshiImage,
+            bgColor: '#1e40af',
+            videoGallery: [
+                swadeshiVideo1,
+                swadeshiVideo2,
+                swadeshiVideo3,
+            ]
         }
     ];
 
@@ -119,21 +146,38 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
     };
 
     const closeLightbox = () => {
+        // Pause video if playing
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
         setLightboxOpen(false);
         document.body.style.overflow = 'auto';
     };
 
-    const goToPrevious = () => {
+    const goToPrevious = useCallback(() => {
+        // Pause video if playing
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+        const gallery = project.gallery || project.videoGallery || [];
         setCurrentImageIndex((prev) => 
-            prev === 0 ? project.gallery.length - 1 : prev - 1
+            prev === 0 ? gallery.length - 1 : prev - 1
         );
-    };
+    }, [project]);
 
-    const goToNext = () => {
+    const goToNext = useCallback(() => {
+        // Pause video if playing
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+        const gallery = project.gallery || project.videoGallery || [];
         setCurrentImageIndex((prev) => 
-            prev === project.gallery.length - 1 ? 0 : prev + 1
+            prev === gallery.length - 1 ? 0 : prev + 1
         );
-    };
+    }, [project]);
 
     // Handle keyboard navigation
     useEffect(() => {
@@ -146,7 +190,7 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [lightboxOpen]);
+    }, [lightboxOpen, goToNext, goToPrevious]);
 
     if (!project) {
         return (
@@ -233,21 +277,35 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
                     </div>
                     
                     <div className="gallery-grid">
-                        {project.gallery.map((img, index) => (
-                            <div 
-                                key={index} 
-                                className={`gallery-item animate-on-scroll gallery-item-${index + 1}`}
-                                style={{ animationDelay: `${index * 0.15}s` }}
-                                onClick={() => openLightbox(index)}
-                            >
-                                <div className="gallery-image-wrapper">
-                                    <img src={img} alt={`${project.title} - Image ${index + 1}`} />
-                                    <div className="gallery-overlay">
-                                        <span className="gallery-number">0{index + 1}</span>
+                        {(project.gallery || project.videoGallery || []).map((item, index) => {
+                            const isVideo = project.videoGallery && project.videoGallery.includes(item);
+                            return (
+                                <div 
+                                    key={index} 
+                                    className={`gallery-item animate-on-scroll gallery-item-${index + 1}`}
+                                    style={{ animationDelay: `${index * 0.15}s` }}
+                                    onClick={() => openLightbox(index)}
+                                >
+                                    <div className="gallery-image-wrapper">
+                                        {isVideo ? (
+                                            <video 
+                                                src={item} 
+                                                className="gallery-video"
+                                                muted
+                                                loop
+                                                playsInline
+                                            />
+                                        ) : (
+                                            <img src={item} alt={`${project.title} - ${index + 1}`} />
+                                        )}
+                                        <div className="gallery-overlay">
+                                            <span className="gallery-number">0{index + 1}</span>
+                                            {isVideo && <span className="gallery-video-icon">▶</span>}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -273,12 +331,23 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
                         </button>
                         
                         <div className="lightbox-image-container">
-                            <img 
-                                src={project.gallery[currentImageIndex]} 
-                                alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                            />
+                            {project.videoGallery ? (
+                                <video 
+                                    ref={videoRef}
+                                    src={project.videoGallery[currentImageIndex]} 
+                                    className="lightbox-video"
+                                    controls
+                                    autoPlay
+                                    playsInline
+                                />
+                            ) : (
+                                <img 
+                                    src={project.gallery[currentImageIndex]} 
+                                    alt={`${project.title} - ${currentImageIndex + 1}`}
+                                />
+                            )}
                             <div className="lightbox-counter">
-                                {currentImageIndex + 1} / {project.gallery.length}
+                                {currentImageIndex + 1} / {(project.gallery || project.videoGallery || []).length}
                             </div>
                         </div>
                         
