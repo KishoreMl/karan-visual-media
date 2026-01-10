@@ -5,8 +5,8 @@ import ContactSection from '../Home/CtaSection/CtaSection';
 import './Works.scss';
 
 // Import NPS image
-import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
-import artBoardImage from '../../assets/images/Works/ad/Artboard 1-100.jpg';
+import npsImage5 from '../../assets/works/nps/nps (5).jpg';
+import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
 
 const Works = () => {
     const [filter, setFilter] = useState('All');

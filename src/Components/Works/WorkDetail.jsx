@@ -4,20 +4,20 @@ import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './WorkDetail.scss';
 
 // Import NPS images
-import npsImage1 from '../../assets/images/Works/nps/nps (1).jpg';
-import npsImage2 from '../../assets/images/Works/nps/nps (2).jpg';
-import npsImage3 from '../../assets/images/Works/nps/nps (3).jpg';
-import npsImage4 from '../../assets/images/Works/nps/nps (4).jpg';
-import npsImage5 from '../../assets/images/Works/nps/nps (5).jpg';
+import npsImage1 from '../../assets/works/nps/nps (1).jpg';
+import npsImage2 from '../../assets/works/nps/nps (2).jpg';
+import npsImage3 from '../../assets/works/nps/nps (3).jpg';
+import npsImage4 from '../../assets/works/nps/nps (4).jpg';
+import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 
 //Import Art Board images
-import artBoardImage1 from '../../assets/images/Works/ad/Artboard 1-100.jpg';
-import artBoardImage2 from '../../assets/images/Works/ad/Artboard 2-100.jpg';
-import artBoardImage3 from '../../assets/images/Works/ad/Artboard 3-100.jpg';
-import artBoardImage5 from '../../assets/images/Works/ad/Artboard 5-100.jpg';
-import artBoardImage6 from '../../assets/images/Works/ad/Artboard 6-100.jpg';  
-import artBoardImage7 from '../../assets/images/Works/ad/Artboard 7-100.jpg';
-import artBoardImage8 from '../../assets/images/Works/ad/Artboard 8-100.jpg';
+import artBoardImage1 from '../../assets/works/ad/Artboard 1-100.jpg';
+import artBoardImage2 from '../../assets/works/ad/Artboard 2-100.jpg';
+import artBoardImage3 from '../../assets/works/ad/Artboard 3-100.jpg';
+import artBoardImage5 from '../../assets/works/ad/Artboard 5-100.jpg';
+import artBoardImage6 from '../../assets/works/ad/Artboard 6-100.jpg';  
+import artBoardImage7 from '../../assets/works/ad/Artboard 7-100.jpg';
+import artBoardImage8 from '../../assets/works/ad/Artboard 8-100.jpg';
     
 
 const WorkDetail = () => {
