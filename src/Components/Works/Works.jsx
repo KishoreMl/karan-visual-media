@@ -7,6 +7,7 @@ import './Works.scss';
 // Import NPS image
 import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
+import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
 
 const Works = () => {
     const [filter, setFilter] = useState('All');
@@ -39,6 +40,17 @@ const Works = () => {
             tags: ['Art Board', 'Branding'],
             image: artBoardImage,
             bgColor: '#c4b5a0'
+        },
+        {
+            id:3,
+            slug:'swadeshi-glass-plywood',
+            title: 'Swadeshi Glass & Plywood',
+            category: 'Branding & Design',
+            year: '2025',
+            description: 'Branding and design project for Swadeshi Glass & Plywood, featuring modern visual identity and brand guidelines.',
+            tags: ['Swadeshi Glass & Plywood', 'Branding'],
+            image: swadeshiImage,
+            bgColor: '#1e40af'
         }
     ];
 
