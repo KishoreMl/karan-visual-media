@@ -45,7 +45,7 @@ const Works = () => {
             id:3,
             slug:'swadeshi-glass-plywood',
             title: 'Swadeshi Glass & Plywood',
-            category: 'Branding & Design',
+            category: 'Social Media Management',
             year: '2025',
             description: 'Branding and design project for Swadeshi Glass & Plywood, featuring modern visual identity and brand guidelines.',
             tags: ['Swadeshi Glass & Plywood', 'Branding'],
@@ -67,7 +67,7 @@ const Works = () => {
         setIsDropdownOpen(false);
     };
 
-    const categories = ['All', 'Branding & Design', 'Motion Graphics', '3D Animation', '3D Interior & Exterior Walkthrough Animation', 'Website Development'];
+    const categories = ['All', 'Branding & Design', 'Motion Graphics', '3D Animation', '3D Interior & Exterior Walkthrough Animation', 'Social Media Management', 'Website Development'];
 
     const filteredProjects = filter === 'All' 
         ? projects 
