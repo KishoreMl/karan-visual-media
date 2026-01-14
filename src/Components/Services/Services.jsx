@@ -31,7 +31,6 @@ const Services = () => {
     }, []);
 
     useEffect(() => {
-        // Longer delay to ensure page has scrolled to top and elements are ready
         const timer = setTimeout(() => {
             const observer = new IntersectionObserver(
                 (entries) => {
@@ -49,11 +48,9 @@ const Services = () => {
                 }
             );
 
-            // Find all service rows and observe them
             const rows = document.querySelectorAll('.service-row');
             rows.forEach(row => observer.observe(row));
 
-            // Store observer for cleanup
             window._serviceObserver = observer;
         }, 300);
 
