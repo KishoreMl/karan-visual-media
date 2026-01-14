@@ -4,7 +4,7 @@ import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import ContactSection from '../Home/CtaSection/CtaSection';
 import './Works.scss';
 
-// Import NPS image
+// Import works cover images
 import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
 import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
@@ -18,7 +18,7 @@ const Works = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const projects = [
+    const works = [
         {
             id: 1,
             slug: 'nps-project',
@@ -69,9 +69,9 @@ const Works = () => {
 
     const categories = ['All', 'Branding & Design', 'Motion Graphics', '3D Animation', '3D Interior & Exterior Walkthrough Animation', 'Social Media Management', 'Website Development'];
 
-    const filteredProjects = filter === 'All' 
-        ? projects 
-        : projects.filter(project => project.category === filter);
+    const filteredWorks = filter === 'All' 
+        ? works 
+        : works.filter(work => work.category === filter);
 
     return (
         <div className="works-container">
@@ -118,19 +118,19 @@ const Works = () => {
             </div>
 
             {/* Projects Grid */}
-            {filteredProjects.length > 0 ? (
+            {filteredWorks.length > 0 ? (
                 <div className="projects-grid">
-                    {filteredProjects.map((project) => (
+                    {filteredWorks.map((work) => (
                         <div 
-                            key={project.id} 
+                            key={work.id} 
                             className="project-card"
-                            onClick={() => handleProjectClick(project.slug)}
+                            onClick={() => handleProjectClick(work.slug)}
                         >
                             <div className="project-image">
-                                {project.image && (
+                                {work.image && (
                                     <img 
-                                        src={project.image} 
-                                        alt={project.title}
+                                        src={work.image} 
+                                        alt={work.title}
                                         className="project-background-img"
                                     />
                                 )}
@@ -141,15 +141,15 @@ const Works = () => {
                             
                             <div className="project-content">
                                 <div className="project-meta">
-                                    <span className="project-category">{project.category}</span>
+                                    <span className="project-category">{work.category}</span>
                                 </div>
                                 
-                                <h3 className="project-title">{project.title}</h3>
+                                <h3 className="project-title">{work.title}</h3>
                                 
-                                <p className="project-description">{project.description}</p>
+                                <p className="project-description">{work.description}</p>
                                 
                                 <div className="project-tags">
-                                    {project.tags.map((tag, index) => (
+                                    {work.tags.map((tag, index) => (
                                         <span key={index} className="project-tag">
                                             {index === 0 ? '♥' : '👁'} {tag}
                                         </span>

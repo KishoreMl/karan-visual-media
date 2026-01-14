@@ -7,6 +7,15 @@
   font-display: swap;
 }
 
+/* Coolvetica Font */
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('./assets/fonts/Coolvetica\ Rg\ Cram.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;

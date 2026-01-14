@@ -42,7 +42,7 @@ const WorkDetail = () => {
             id: 1,
             slug: 'nps-project',
             title: 'NPS Project',
-            category: 'BRAND DESIGN',
+            category: 'Branding & Design',
             year: '2024',
             description: 'Comprehensive branding and design project for NPS, featuring modern visual identity and brand guidelines.',
             fullDescription: `NPS is a forward-thinking organization that required a complete brand refresh to align with their evolving vision and market positioning. Our team worked to create a distinctive visual identity that captures their innovative spirit.
@@ -66,7 +66,7 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
             id:2,
             slug:'ad-photography',
             title: 'Ad Photography',
-            category: 'BRAND DESIGN',
+            category: 'Branding & Design',
             year: '2025',
             description: 'Art board with logo variations and high-quality mockups for their conference event.',
             fullDescription: `Art board with logo variations and high-quality mockups for their conference event.`,
@@ -87,7 +87,7 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
             id: 3,
             slug: 'swadeshi-glass-plywood',
             title: 'Swadeshi Glass & Plywood',
-            category: 'BRAND DESIGN',
+            category: 'Social Media Management',
             year: '2025',
             description: 'Branding and design project for Swadeshi Glass & Plywood, featuring modern visual identity and brand guidelines.',
             fullDescription: `Swadeshi Glass & Plywood is a leading manufacturer that required a comprehensive brand refresh to align with their market positioning. Our team created a distinctive visual identity that captures their innovative spirit and commitment to quality.
@@ -95,7 +95,7 @@ Our deliverables included logo design, brand guidelines, marketing collateral, a
 The project involved detailed research into the target audience, market trends, and competitive landscape. We developed a comprehensive brand strategy that reflects Swadeshi's core values and unique positioning in the market.
 
 Our deliverables included video content showcasing the brand identity, product presentations, and marketing materials. The cohesive design system ensures consistent brand presentation across all touchpoints.`,
-            tags: ['Swadeshi Glass & Plywood', 'Branding', 'Video'],
+            tags: ['Swadeshi Glass & Plywood', 'Social Media', 'Video'],
             image: swadeshiImage,
             bgColor: '#1e40af',
             videoGallery: [
@@ -262,7 +262,7 @@ Our deliverables included video content showcasing the brand identity, product p
                         </div>
                         <div className="info-card">
                             <span className="info-label">Client</span>
-                            <span className="info-value">{project.title.split(' ')[0]}</span>
+                            <span className="info-value">{project.title}</span>
                         </div>
                     </div>
                 </div>
@@ -337,6 +337,7 @@ Our deliverables included video content showcasing the brand identity, product p
                                     src={project.videoGallery[currentImageIndex]} 
                                     className="lightbox-video"
                                     controls
+                                    controlsList="nodownload"
                                     autoPlay
                                     playsInline
                                 />

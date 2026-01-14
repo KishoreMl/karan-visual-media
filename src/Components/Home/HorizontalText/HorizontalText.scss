@@ -24,6 +24,12 @@
 }
 
 
+@media (max-width: 768px) {
+    .heading-xl {
+        font-size: clamp(3rem, 17vw, 14rem);
+    }
+}
+
 @media (max-width: 480px) {
     .heading-xl {
         font-size: clamp(3rem, 12vw, 12rem);
