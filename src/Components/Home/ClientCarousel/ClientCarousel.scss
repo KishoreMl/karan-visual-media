@@ -58,10 +58,10 @@
 
 .logo-carousel-item {
   flex-shrink: 0;
-  width: 300px;
-  height: 170px;
+  width: 380px;
+  height: 190px;
   background:white;
-  border-radius: 10px;
+  border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,8 +137,8 @@
   }
 
   .logo-carousel-item {
-    width: 220px;
-    height: 160px;
+    width: 300px;
+    height: 140px;
     padding: 1.25rem;
   }
 }

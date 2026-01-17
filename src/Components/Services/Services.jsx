@@ -8,7 +8,7 @@ import socialMediaGif from '../../assets/images/Services/social media.gif';
 import motionGraphicsGif from '../../assets/images/Services/gif-of-motion-graphics.gif';
 import digitalMarketingGif from '../../assets/images/Services/digital marketing.gif';
 import visualEffectsGif from '../../assets/images/Services/visual effects.gif';
-import animation3dGif from '../../assets/images/Services/3d_animation.gif';
+import butterflyVideo from '../../assets/works/butterfly.mp4';
 import interiorExteriorGif from '../../assets/images/Services/3d interior and exterior.gif';
 import webDevGif from '../../assets/images/Services/web_design.gif';
 
@@ -118,7 +118,7 @@ const Services = () => {
             title: "3D Animation",
             description: "Professional 3D animation services that transform concepts into photorealistic visual experiences. Perfect for product showcases and immersive storytelling.",
             features: ["Product Animation", "Character Animation", "3D Modeling", "Rendering"],
-            gif: animation3dGif
+            video: butterflyVideo
         },
         {
             id: 7,
@@ -206,18 +206,29 @@ const Services = () => {
                             data-index={index}
                             className={`service-row ${isEven ? 'gif-left' : 'gif-right'} ${isVisible(index) ? 'visible' : ''}`}
                         >
-                            {/* GIF/Image Section */}
+                            {/* GIF/Image/Video Section */}
                             <div className="gif-section">
                                 <div className="section-content">
                                     <h2 className="section-title">{service.title}</h2>
                                     <div className="gif-container">
                                         <div className="gif-wrapper">
-                                            <img 
-                                                src={service.gif} 
-                                                alt={`${service.title} preview`}
-                                                className="service-gif"
-                                                loading="lazy"
-                                            />
+                                            {service.video ? (
+                                                <video 
+                                                    src={service.video} 
+                                                    className="service-gif"
+                                                    autoPlay
+                                                    loop
+                                                    muted
+                                                    playsInline
+                                                />
+                                            ) : (
+                                                <img 
+                                                    src={service.gif} 
+                                                    alt={`${service.title} preview`}
+                                                    className="service-gif"
+                                                    loading="lazy"
+                                                />
+                                            )}
                                         </div>
                                     </div>
                                 </div>
