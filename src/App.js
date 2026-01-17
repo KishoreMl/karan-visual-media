@@ -11,6 +11,7 @@ import Contact from './Components/Contact/Contact.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import CustomCursor from './Components/CustomCursor/CustomCursor.jsx';
 import ThemeToggleButton from './Components/Header/ThemeToggleButton.jsx';
+import SplashScreen from './Components/SplashScreen/SplashScreen.jsx';
 
 // ScrollToTop component - scrolls to top on route change
 function ScrollToTop() {
@@ -49,14 +50,20 @@ function AppContent({ isDarkMode, toggleTheme }) {
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
   return (
     <Router>
       <AppContent isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
     </Router>
   );
 }

@@ -1,9 +1,7 @@
-/* Content.scss */
 .content-container {
   position: relative;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
-
 
 .hero-section {
   text-align: center;
@@ -12,15 +10,17 @@
   z-index: 2;
   position: relative;
   padding: 0 17rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   img{
-    margin-top: 5rem;
-    margin-bottom: auto;
     width: 65%;
   }
   p{
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     font-size: clamp(var(--type-body), 3vw, var(--type-h2));
@@ -49,30 +49,28 @@
 
   @media (max-width: 1200px) {
     padding: 0 7rem;
-    p {
+    p{
       width: calc(100% - 14rem);
     }
   }
 
   @media (max-width: 980px){
     padding: 0 7rem;
-    p {
+    p{
       width: calc(100% - 14rem);
     }
   }
 
   @media (max-width: 768px) {
     margin-bottom: 5rem;
-    margin-top: 1rem;
     padding: 0 7rem;
-    h1{
-      font-size: 8rem;
+    img{
+      transform: translateY(-10px);
     }
     p{
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       width: calc(100% - 14rem);
     }
-    
     .animated-text .word:hover {
       transform: translateY(-30px);
     }
@@ -80,8 +78,7 @@
 
   @media (max-width: 600px) {
     padding: 0 4rem;
-    
-    p {
+    p{
       width: calc(100% - 8rem);
     }
   }
@@ -90,11 +87,12 @@
     height: calc(100vh - var(--header-height, 100px));
     padding: 0 2rem;
     img{
-      margin-top: 6rem;
+      transform: translateY(-30px);
+      width: 65%;
     }
     p{
-      font-size: 1rem;
-      margin-top: 7rem;
+      bottom: 25%;
+      font-size: 0.9rem;
       width: calc(100% - 4rem);
     }
     

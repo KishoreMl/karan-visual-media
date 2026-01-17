@@ -46,12 +46,11 @@
 
     .next-project-text {
         position: relative;
-        font-size: clamp(4rem, 30vw, 23rem);
-        font-weight: 300;
+        font-size: clamp(4rem, 13vw, 12rem);
+        font-weight: 700;
         color: #ffffff;
         text-align: center;
-        letter-spacing: 6px;
-        font-family: 'Coolvetica', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
         text-transform: uppercase;
         line-height: 0.9;
         margin: 0;

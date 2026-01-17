@@ -31,6 +31,7 @@
 
   --primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
+
   /* Golden Ratio Typography Scale (φ = 1.618) */
   /* Each level = previous ÷ 1.618 */
   --phi: 1.618;
