@@ -25,6 +25,10 @@ import swadeshiVideo2 from '../../assets/works/swadeshi/Swadeshi_Ai2.mp4';
 import swadeshiVideo3 from '../../assets/works/swadeshi/Swadeshi_Ai3.mp4';
 import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
 
+// Import Thum Tea images
+import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
+import thumTeaVideo from '../../assets/works/Thum tea/butterfly.mp4';
+
 const WorkDetail = () => {
     const { workSlug } = useParams();
     const navigate = useNavigate();
@@ -102,6 +106,21 @@ Our deliverables included video content showcasing the brand identity, product p
                 swadeshiVideo1,
                 swadeshiVideo2,
                 swadeshiVideo3,
+            ]
+        },
+        {
+            id:4,
+            slug:'thum-tea',
+            title: 'Thum Tea',
+            category: '3D Animation',
+            year:'2023',
+            description: '3D animation project for Thum Tea, featuring modern visual identity and brand guidelines.',
+            fullDescription: `3D animation project for Thum Tea, featuring modern visual identity and brand guidelines.`,
+            tags: ['Thum Tea', '3D Animation'],
+            image: thumTeaImage,
+            bgColor: '#1e40af',
+            videoGallery: [
+                thumTeaVideo,
             ]
         }
     ];
