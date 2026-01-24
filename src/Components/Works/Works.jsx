@@ -8,6 +8,7 @@ import './Works.scss';
 import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
 import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
+import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
 
 const Works = () => {
     const [filter, setFilter] = useState('All');
@@ -50,6 +51,17 @@ const Works = () => {
             description: 'Branding and design project for Swadeshi Glass & Plywood, featuring modern visual identity and brand guidelines.',
             tags: ['Swadeshi Glass & Plywood', 'Branding'],
             image: swadeshiImage,
+            bgColor: '#1e40af'
+        },
+        {
+            id:4,
+            slug:'thum-tea',
+            title: 'Thum Tea',
+            category: '3D Animation',
+            year:'2023',
+            description: '3D animation project for Thumb Tea, featuring modern visual identity and brand guidelines.',
+            tags: ['Thum Tea', '3D Animation'],
+            image: thumTeaImage,
             bgColor: '#1e40af'
         }
     ];
