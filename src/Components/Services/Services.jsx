@@ -210,6 +210,7 @@ const Services = () => {
                             <div className="gif-section">
                                 <div className="section-content">
                                     <h2 className="section-title">{service.title}</h2>
+                                    <p className="section-description">{service.description}</p>
                                     <div className="gif-container">
                                         <div className="gif-wrapper">
                                             {service.video ? (
@@ -229,6 +230,18 @@ const Services = () => {
                                                     loading="lazy"
                                                 />
                                             )}
+                                        </div>
+                                    </div>
+                                    {/* Mobile Key Features - shown only on mobile */}
+                                    <div className="section-features">
+                                        <h4 className="features-title">Key Features</h4>
+                                        <div className="features-grid">
+                                            {service.features.map((feature, idx) => (
+                                                <div key={idx} className="feature-card">
+                                                    <span className="feature-icon">✓</span>
+                                                    <span className="feature-text">{feature}</span>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>

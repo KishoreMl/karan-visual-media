@@ -159,10 +159,41 @@
   }
 
   .glow-info-cards-container {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    padding: 0;
     margin: 2rem 0;
+    
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card-cover {
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      margin: 0;
+      padding: 2rem 1.5rem;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      border-top: 0.5px solid var(--text-primary);
+      border-bottom: 0.5px solid var(--text-primary);
+      
+      &:first-child {
+        border-top: 0.5px solid var(--text-primary);
+      }
+    }
   }
 }
 
@@ -175,13 +206,11 @@
     }
   }
   .glow-info-cards-container {
-    gap: 20px;
-    padding: 0 0.5rem;
     margin: 1.5rem 0;
 
     .card-cover {
-      padding: 1.3rem;
-      margin-top: 1.4rem;
+      padding: 1.5rem 1rem;
+      
       .card-img-container {
         img{
           width: 7rem;
