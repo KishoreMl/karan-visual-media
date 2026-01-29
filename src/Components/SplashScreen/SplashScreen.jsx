@@ -10,7 +10,7 @@ const SplashScreen = ({ onComplete }) => {
         document.body.style.overflow = 'hidden';
 
         // Animation duration in milliseconds - slower and smoother
-        const duration = 5000; // 6 seconds for smoother animation
+        const duration = 4000; // 6 seconds for smoother animation
         const startTime = Date.now();
         let animationFrameId = null;
 

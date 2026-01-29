@@ -8,7 +8,7 @@ import socialMediaGif from '../../assets/images/Services/social media.gif';
 import motionGraphicsGif from '../../assets/images/Services/gif-of-motion-graphics.gif';
 import digitalMarketingGif from '../../assets/images/Services/digital marketing.gif';
 import visualEffectsGif from '../../assets/images/Services/visual effects.gif';
-import butterflyVideo from '../../assets/works/butterfly.mp4';
+import butterflyVideo from '../../assets/works/Thum tea/butterfly.mp4';
 import interiorExteriorGif from '../../assets/images/Services/3d interior and exterior.gif';
 import webDevGif from '../../assets/images/Services/web_design.gif';
 

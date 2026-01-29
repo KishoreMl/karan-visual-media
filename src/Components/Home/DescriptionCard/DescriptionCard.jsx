@@ -32,13 +32,13 @@ const DescriptionCard = () => {
 
         if (isLargeScreen) {
             // Large screens: Sequential scroll-triggered animation
-            // Each card appears one by one as you scroll
+            // Each card pops up fully one by one as you scroll
             
-            // Set initial state for all cards - start from below with slight scale
+            // Set initial state for all cards - completely hidden below
             gsap.set(cards, {
                 opacity: 0,
-                y: 80,
-                scale: 0.9
+                y: 100,
+                scale: 0.85
             });
 
             // Create a timeline that animates cards sequentially based on scroll
@@ -46,9 +46,9 @@ const DescriptionCard = () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: container,
-                    start: 'top center', // Start when container reaches center of viewport
-                    end: '+=400vh', // Pin for 400vh of scroll (100vh per card)
-                    scrub: true, // Directly tied to scroll - only animates when scrolling
+                    start: 'top 40%', // Start when container is near center
+                    end: '+=300%', // Total scroll distance for all 4 cards
+                    scrub: 0.8, // Smooth scrolling with slight lag
                     pin: true, // Pin the container while animating
                     pinSpacing: true, // Add spacing for the pinned duration
                     anticipatePin: 1,
@@ -56,16 +56,23 @@ const DescriptionCard = () => {
                 }
             });
 
-            // Animate each card one by one - each card completes before the next starts
+            // Calculate total duration - each card gets equal portion
+            const cardDuration = 1; // Duration per card in timeline units
+            const pauseBetween = 0.3; // Small pause between cards
+            
+            // Animate each card one by one - each card FULLY completes before the next starts
             cards.forEach((card, index) => {
-                // Each card animation starts only after previous one is complete
+                // Calculate start position for this card
+                const startPosition = index * (cardDuration + pauseBetween);
+                
+                // Each card has its own complete animation
                 tl.to(card, {
                     opacity: 1,
                     y: 0,
                     scale: 1,
-                    duration: 2, // Each card takes a long scroll distance
-                    ease: 'none' // Linear - directly maps to scroll position
-                }, index === 0 ? 0 : '>'); // First card starts at 0, others start after previous ends
+                    duration: cardDuration,
+                    ease: 'power2.out' // Pop effect - starts fast, eases at end
+                }, startPosition);
             });
 
         } else {
