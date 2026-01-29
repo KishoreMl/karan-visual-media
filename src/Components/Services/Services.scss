@@ -380,9 +380,23 @@
                 font-size: clamp(var(--type-h2), 6vw, var(--type-h1));
                 font-weight: 600;
                 color: var(--text-primary);
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
                 letter-spacing: -2px;
                 text-align: center;
+            }
+
+            .section-description {
+                display: none; // Hide description in gif section on desktop
+                font-size: 1rem;
+                line-height: 1.6;
+                color: var(--text-secondary);
+                text-align: center;
+                margin-bottom: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .section-features {
+                display: none; // Hide features in gif section on desktop
             }
 
             .gif-container {
@@ -736,28 +750,64 @@
                 .section-title {
                     display: block !important; // Show title in gif section on mobile
                 }
+
+                .section-description {
+                    display: block !important; // Show description in gif section on mobile
+                }
+
+                .section-features {
+                    display: block !important; // Show features in gif section on mobile
+                    margin-top: 1.5rem;
+                    text-align: left;
+
+                    .features-title {
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: var(--text-secondary);
+                        margin-bottom: 1rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                    }
+
+                    .features-grid {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 0.75rem;
+                    }
+
+                    .feature-card {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+                        padding: 0.875rem 1rem;
+                        background: rgba(255, 255, 255, 0.03);
+                        border: 1px solid var(--border-color);
+                        border-radius: 12px;
+
+                        [data-theme="light"] & {
+                            background: rgba(0, 0, 0, 0.02);
+                        }
+
+                        .feature-icon {
+                            color: var(--primary-yellow);
+                            font-weight: 700;
+                        }
+
+                        .feature-text {
+                            font-size: 0.9rem;
+                            color: var(--text-secondary);
+                        }
+                    }
+                }
             }
 
             .content-section {
-                flex: 0 0 100%;
-                max-width: 100%;
-                width: 100%;
-                opacity: 0;
-                transform: translateY(80px) scale(0.98);
-                
-                .content-wrapper {
-                    border: 1px solid var(--border-color);
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-                    padding: 2rem 1.5rem;
-                }
+                display: none !important; // Hide content section on mobile - all content moved to gif-section
             }
 
             &.visible {
                 .gif-section {
                     animation: slideInFromBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-                }
-                .content-section {
-                    animation: slideInFromBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
                 }
             }
         }
@@ -773,19 +823,6 @@
             }
         }
 
-        .content-section {
-            .content-heading {
-                display: none; // Hide duplicate title in content section on mobile
-            }
-
-            .content-wrapper {
-                border-radius: 20px;
-            }
-
-            .content-features .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     }
 
     @media (max-width: 480px) {

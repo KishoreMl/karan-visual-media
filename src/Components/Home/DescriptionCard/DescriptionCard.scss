@@ -1,3 +1,14 @@
+// Section wrapper for pinning
+.description-card-section {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    
+    @media (max-width: 768px) {
+        padding: 1rem 0;
+    }
+}
+
 .description-card-title {
     font-size: 17rem;
     font-weight: 300;
@@ -113,26 +124,11 @@
     }
   }
 
-  // Card scroll animations
+  // Card scroll animations - GSAP handles all screen sizes
   .card-animate {
     will-change: opacity, transform;
-    // Large screens: GSAP handles animation, no CSS transitions needed
-    @media (min-width: 1025px) {
-      // GSAP will set initial state and animate
-      // Don't set opacity/transform here to avoid conflicts
-    }
-
-    @media (max-width: 1024px) {
-      opacity: 0;
-      transform: translateY(60px) scale(0.98);
-      transition: opacity 0.6s ease-out,
-                  transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-      &.card-visible {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
+    // GSAP will set initial state and animate on all screen sizes
+    // Don't set opacity/transform here to avoid conflicts with GSAP
   }
 }
 
@@ -159,10 +155,23 @@
   }
 
   .glow-info-cards-container {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 1.5rem;
     margin: 2rem 0;
+    overflow: visible !important;
+    min-height: auto;
+
+    .card-cover {
+      width: 100%;
+      margin: 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 0.5px solid var(--text-primary);
+      // Ensure cards are visible when GSAP animates them
+      visibility: visible !important;
+    }
   }
 }
 
@@ -175,13 +184,14 @@
     }
   }
   .glow-info-cards-container {
-    gap: 20px;
-    padding: 0 0.5rem;
     margin: 1.5rem 0;
+    padding: 0 1rem;
+    gap: 15px;
 
     .card-cover {
-      padding: 1.3rem;
-      margin-top: 1.4rem;
+      padding: 1.25rem 1rem;
+      border-radius: 10px;
+      
       .card-img-container {
         img{
           width: 7rem;
