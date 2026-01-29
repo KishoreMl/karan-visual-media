@@ -32,7 +32,7 @@ const DescriptionCard = () => {
 
         if (isLargeScreen) {
             // Large screens: Sequential scroll-triggered animation
-            // Each card pops up fully one by one as you scroll
+            // Cards appear 1→2→3→4, then disappear 4→3→2→1
             
             // Set initial state for all cards - completely hidden below
             gsap.set(cards, {
@@ -42,12 +42,12 @@ const DescriptionCard = () => {
             });
 
             // Create a timeline that animates cards sequentially based on scroll
-            // Page stays pinned while cards pop up one by one
+            // Page stays pinned while cards pop up one by one, then exit in reverse
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: container,
                     start: 'top 40%', // Start when container is near center
-                    end: '+=300%', // Total scroll distance for all 4 cards
+                    end: '+=500%', // Total scroll distance for appear + hold + disappear
                     scrub: 0.8, // Smooth scrolling with slight lag
                     pin: true, // Pin the container while animating
                     pinSpacing: true, // Add spacing for the pinned duration
@@ -56,23 +56,46 @@ const DescriptionCard = () => {
                 }
             });
 
-            // Calculate total duration - each card gets equal portion
-            const cardDuration = 1; // Duration per card in timeline units
-            const pauseBetween = 0.3; // Small pause between cards
+            // Calculate timing
+            const cardDuration = 1; // Duration per card animation
+            const pauseBetween = 0.3; // Pause between cards
+            const holdDuration = 1; // Hold time when all cards are visible
             
-            // Animate each card one by one - each card FULLY completes before the next starts
+            // PHASE 1: Cards APPEAR one by one (1→2→3→4)
             cards.forEach((card, index) => {
-                // Calculate start position for this card
                 const startPosition = index * (cardDuration + pauseBetween);
                 
-                // Each card has its own complete animation
                 tl.to(card, {
                     opacity: 1,
                     y: 0,
                     scale: 1,
                     duration: cardDuration,
-                    ease: 'power2.out' // Pop effect - starts fast, eases at end
+                    ease: 'power2.out' // Pop effect
                 }, startPosition);
+            });
+
+            // Calculate when all cards are visible
+            const allVisibleTime = (cards.length - 1) * (cardDuration + pauseBetween) + cardDuration;
+            
+            // PHASE 2: Hold - all cards visible (brief pause)
+            // Timeline naturally holds here
+            
+            // PHASE 3: Cards DISAPPEAR one by one in REVERSE order (4→3→2→1)
+            const exitStartTime = allVisibleTime + holdDuration;
+            
+            // Reverse the cards array for exit animation
+            const reversedCards = [...cards].reverse();
+            
+            reversedCards.forEach((card, index) => {
+                const exitPosition = exitStartTime + (index * (cardDuration + pauseBetween));
+                
+                tl.to(card, {
+                    opacity: 0,
+                    y: -80, // Exit upward
+                    scale: 0.9,
+                    duration: cardDuration,
+                    ease: 'power2.in' // Accelerate out
+                }, exitPosition);
             });
 
         } else {
