@@ -45,9 +45,7 @@ const DescriptionCard = () => {
 
             // Set initial state for all cards - completely hidden below
             gsap.set(cards, {
-                opacity: 0,
-                y: 100,
-                scale: 0.85
+                y: 500,
             });
 
             // Create a timeline that animates cards sequentially based on scroll
@@ -75,9 +73,7 @@ const DescriptionCard = () => {
                 const startPosition = index * (cardDuration + pauseBetween);
 
                 tl.to(card, {
-                    opacity: 1,
                     y: 0,
-                    scale: 1,
                     duration: cardDuration,
                     ease: 'power2.out'
                 }, startPosition);
@@ -94,9 +90,7 @@ const DescriptionCard = () => {
                 const exitPosition = exitStartTime + (index * (cardDuration + pauseBetween));
 
                 tl.to(card, {
-                    opacity: 0,
                     y: -80,
-                    scale: 0.9,
                     duration: cardDuration,
                     ease: 'power2.in'
                 }, exitPosition);
