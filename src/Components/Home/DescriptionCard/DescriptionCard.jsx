@@ -32,17 +32,15 @@ const DescriptionCard = () => {
         const screenWidth = window.innerWidth;
 
         // Determine screen type
-        const isLargeScreen = screenWidth > 1024;      // 4 cards in row
-        const isMediumScreen = screenWidth > 768 && screenWidth <= 1024;  // 2x2 grid
-        const isSmallScreen = screenWidth <= 768;     // Vertical stack
+        const isLargeScreen = screenWidth > 1024;      // 4 cards in row - animation enabled
 
-        if (isLargeScreen || isMediumScreen) {
-            // Large & Medium screens: Original behavior - pin only the cards container
+        if (isLargeScreen) {
+            // Large screens only: Scroll animation
             // Cards appear 1→2→3→4, then disappear 4→3→2→1
 
             // Adjust scroll distance - longer to allow one card per scroll action
             // 4 cards appear + hold + 4 cards disappear = ~10 scroll segments
-            const scrollDistance = isLargeScreen ? '+=1000%' : '+=800%';
+            const scrollDistance = '+=1000%';
 
             // Set initial state for all cards - completely hidden below
             gsap.set(cards, {
@@ -98,9 +96,8 @@ const DescriptionCard = () => {
                 }, exitPosition);
             });
 
-        } else if (isSmallScreen) {
-            // Small screens (mobile): No animation - cards are visible by default
-            // Just ensure cards are visible
+        } else {
+            // Small & Medium screens: No animation - cards are visible by default
             gsap.set(cards, {
                 opacity: 1,
                 y: 0,
