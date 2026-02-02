@@ -40,8 +40,9 @@ const DescriptionCard = () => {
             // Large & Medium screens: Original behavior - pin only the cards container
             // Cards appear 1→2→3→4, then disappear 4→3→2→1
 
-            // Adjust scroll distance based on screen size
-            const scrollDistance = isLargeScreen ? '+=500%' : '+=400%';
+            // Adjust scroll distance - longer to allow one card per scroll action
+            // 4 cards appear + hold + 4 cards disappear = ~10 scroll segments
+            const scrollDistance = isLargeScreen ? '+=1000%' : '+=800%';
 
             // Set initial state for all cards - completely hidden below
             gsap.set(cards, {
@@ -49,13 +50,12 @@ const DescriptionCard = () => {
             });
 
             // Create a timeline that animates cards sequentially based on scroll
-            // Pin only the cards container (original behavior)
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: cardsContainer,
                     start: 'top 40%',
                     end: scrollDistance,
-                    scrub: 0.8,
+                    scrub: 1,  // Smoother scrub for distinct card movements
                     pin: true,
                     pinSpacing: true,
                     anticipatePin: 1,
@@ -63,14 +63,15 @@ const DescriptionCard = () => {
                 }
             });
 
-            // Calculate timing
-            const cardDuration = 1;
-            const pauseBetween = 0.3;
-            const holdDuration = 1;
+            // Calculate timing - each card gets its own dedicated scroll segment
+            const cardDuration = 1;      // Duration for each card animation
+            const gapBetween = 0.2;      // Small gap between cards (no overlap)
+            const holdDuration = 1;      // Hold time when all cards are visible
 
-            // PHASE 1: Cards APPEAR one by one (1→2→3→4)
+            // PHASE 1: Cards APPEAR one by one (1→2→3→4) from below
+            // Each card animates completely before the next one starts
             cards.forEach((card, index) => {
-                const startPosition = index * (cardDuration + pauseBetween);
+                const startPosition = index * (cardDuration + gapBetween);
 
                 tl.to(card, {
                     y: 0,
@@ -80,17 +81,18 @@ const DescriptionCard = () => {
             });
 
             // Calculate when all cards are visible
-            const allVisibleTime = (cards.length - 1) * (cardDuration + pauseBetween) + cardDuration;
+            const allVisibleTime = (cards.length - 1) * (cardDuration + gapBetween) + cardDuration;
 
-            // PHASE 3: Cards DISAPPEAR one by one in REVERSE order (4→3→2→1)
+            // PHASE 2: Cards DISAPPEAR one by one in REVERSE order (4→3→2→1) moving upward
+            // Each card exits completely before the next one starts
             const exitStartTime = allVisibleTime + holdDuration;
             const reversedCards = [...cards].reverse();
 
             reversedCards.forEach((card, index) => {
-                const exitPosition = exitStartTime + (index * (cardDuration + pauseBetween));
+                const exitPosition = exitStartTime + (index * (cardDuration + gapBetween));
 
                 tl.to(card, {
-                    y: -80,
+                    y: -800,  // Move upward to fully disappear
                     duration: cardDuration,
                     ease: 'power2.in'
                 }, exitPosition);
