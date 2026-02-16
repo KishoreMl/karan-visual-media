@@ -70,20 +70,75 @@
         margin-bottom: 30px;
     }
 
+    .review-text-container {
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        [data-theme="dark"] & {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+            &::before {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            }
+        }
+
+        .review-text,
+        .review-name {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
     .review-text {
         font-size: 25px;
         line-height: 1.8;
+        text-align: left;
         color: var(--text-primary);
         font-weight: 400;
         flex: 1;
         margin: 0;
-        padding: 0 40px;
+        padding: 30px 60px;
+        word-break: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
 
         [data-theme="dark"] & {
             color: #d0d0d0;
         }
 
         &.animated-text {
+            white-space: normal;
+            
+            .word {
+                display: inline-block;
+                white-space: nowrap;
+                
+                &.space {
+                    white-space: pre;
+                    width: 0.3em;
+                }
+            }
+            
             .letter {
                 display: inline-block;
                 transition: font-weight 0.4s ease;
@@ -102,7 +157,7 @@
         color: var(--text-primary);
         margin-bottom: 40px;
         font-weight: 500;
-        padding: 0 40px;
+        padding: 0 60px;
 
         [data-theme="dark"] & {
             color: #a0a0a0;
@@ -152,11 +207,11 @@
         }
 
         &.nav-arrow-left {
-            left: -80px;
+            left: -250px;
         }
 
         &.nav-arrow-right {
-            right: -80px;
+            right: -250px;
         }
     }
 
