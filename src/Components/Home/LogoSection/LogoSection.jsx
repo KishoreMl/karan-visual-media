@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './LogoSection.scss';
 
 const LogoSection = () => {
+    const containerRef = useRef(null);
     const logoRef = useRef(null);
     const [logoProgress, setLogoProgress] = useState(0);
 
@@ -11,17 +12,18 @@ const LogoSection = () => {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
+        const containerElement = containerRef.current;
         const logoContentElement = logoRef.current;
-        if (!logoContentElement) return;
+        if (!containerElement || !logoContentElement) return;
 
         // Set initial progress
         setLogoProgress(0);
 
-        // Create scroll trigger for logo progress with pinning
+        // Create scroll trigger for logo progress with pinning - pin the entire container
         ScrollTrigger.create({
-            trigger: logoContentElement,
-            start: 'top bottom-=500px', // Start animation 200px before element enters viewport
-            end: '+=100vh', // Pin for 90vh of scroll to complete animation
+            trigger: containerElement,
+            start: 'top bottom-=500px', // Start animation 500px before element enters viewport
+            end: '+=700vh', // Pin for 700vh of scroll to complete animation (slower)
             scrub: 1,
             pin: true,
             pinSpacing: true,
@@ -35,7 +37,7 @@ const LogoSection = () => {
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => {
-                if (trigger.vars.trigger === logoContentElement) {
+                if (trigger.vars.trigger === containerElement) {
                     trigger.kill();
                 }
             });
@@ -43,7 +45,7 @@ const LogoSection = () => {
     }, []);
 
     return (
-        <div className="logo-container">
+        <div className="logo-container" ref={containerRef}>
             <div className="text-content">
                 <h1 className="main-title">Design it once. Design it right.</h1>
                 <p className="main-description">
