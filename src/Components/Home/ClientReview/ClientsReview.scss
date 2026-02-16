@@ -19,6 +19,7 @@
     .review-container {
         max-width: 800px;
         width: 100%;
+        height: 90%;
         position: relative;
         padding: 40px;
         margin-left: auto;
@@ -80,6 +81,19 @@
 
         [data-theme="dark"] & {
             color: #d0d0d0;
+        }
+
+        &.animated-text {
+            .letter {
+                display: inline-block;
+                transition: font-weight 0.4s ease;
+                cursor: default;
+                font-weight: 400;
+                
+                &.hover-bold {
+                    font-weight: 750;
+                }
+            }
         }
     }
 

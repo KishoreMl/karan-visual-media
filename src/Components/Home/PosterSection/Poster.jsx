@@ -66,8 +66,8 @@ const Poster = () => {
 
         // Calculate total scroll distance
         // First phase: yellow overlay reveal (100vh)
-        // Second phase: video scale down and move (100vh) - only for large screens (increased for slower animation)
-        const totalScrollDistance = isLargeScreen ? '+=200vh' : '+=100vh';
+        // Second phase: video scale down and move (200vh) - only for large screens (increased for slower animation)
+        const totalScrollDistance = isLargeScreen ? '+=1500vh' : '+=100vh';
 
         // Create a timeline for all animations with pinning
         const mainTimeline = gsap.timeline({
@@ -110,7 +110,7 @@ const Poster = () => {
                 scale: 0.2,
                 transformOrigin: 'top left',
                 ease: 'power2.inOut',
-                duration: 1.0
+                duration: 2.0
             }, '>');
             
             // Content text slides up from below and fades in
