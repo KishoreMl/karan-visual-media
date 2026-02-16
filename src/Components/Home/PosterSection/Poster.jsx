@@ -113,13 +113,13 @@ const Poster = () => {
                 duration: 2.0
             }, '>');
             
-            // Content text slides up from below and fades in
+            // Content text slides up from below and fades in - starts when video is halfway scaled down
             mainTimeline.to(contentText, {
                 y: 0,
                 opacity: 1,
                 ease: 'power2.out',
-                duration: 0.6
-            }, '>');
+                duration: 0.3
+            }, '>-=1'); // Start 1 second after the video scaling starts (halfway through the 2.0s duration)
         }
 
         // Parallax effect: background moves up (negative Y) when scrolling
@@ -176,7 +176,7 @@ const Poster = () => {
             </div>
             <h1 className="next-project-text" ref={textRef}>INNOVATION</h1>
             <div className="content-text" ref={contentTextRef}>
-                <h2 className="content-heading">Design on the web isn't static anymore. Today's brands need energy, personality and meaning. We bring together strategy, design and storytelling to build digital experiences that grab attention.</h2>
+                <h2 className="content-heading">Design on the web isn't static anymore. Today's brands need energy, personality and meaning. We bring together strategy, design and storytelling to build digital experiences that grab attention. Design on the web isn't static anymore. Today's brands need energy, personality and meaning.</h2>
             </div>
         </div>
     );

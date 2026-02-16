@@ -14,8 +14,12 @@ const ClientsReview = () => {
             name: "Rahul"
         },
         {
-            text: "I am totally satisfied with the service and creative work of karan visual media, Thankyou, Excellent work.",
+            text: "I am totally satisfied with the service and creative work of creative knacks, Thankyou, Excellent work.",
             name: "Rpm vidhyalya school"
+        },
+        {
+            text:"Consistent, professional, and receptive to feedback. I've noticed clear progress in his work over time. A dependable choice for editing and social media handling",
+            name:"Nutrieros health studio"
         }
     ];
 
@@ -103,20 +107,33 @@ const ClientsReview = () => {
                             <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </button>
-                    <p className="review-text animated-text" ref={animatedTextRef}>
-                        {currentTestimonial.text.split('').map((char, index) => (
-                            <span key={index} className="letter">
-                                {char === ' ' ? '\u00A0' : char}
-                            </span>
-                        ))}
-                    </p>
+                    <div className="review-text-container">
+                        <p className="review-text animated-text" ref={animatedTextRef}>
+                            {currentTestimonial.text.split(/(\s+)/).map((word, wordIndex) => {
+                                if (word.trim() === '') {
+                                    // This is a space/whitespace
+                                    return <span key={wordIndex} className="word space"> </span>;
+                                }
+                                return (
+                                    <span key={wordIndex} className="word">
+                                        {word.split('').map((char, charIndex) => (
+                                            <span key={charIndex} className="letter">
+                                                {char}
+                                            </span>
+                                        ))}
+                                    </span>
+                                );
+                            })}
+                        </p>
+                        <p className="review-name">{currentTestimonial.name}</p>
+                    </div>
                     <button className="nav-arrow nav-arrow-right" onClick={goToNext}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </button>
                 </div>
-                <p className="review-name">{currentTestimonial.name}</p>
+                
             </div>
         </div>
     );
