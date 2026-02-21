@@ -19,23 +19,64 @@ const LogoSection = () => {
         // Set initial progress
         setLogoProgress(0);
 
-        // Create scroll trigger for logo progress with pinning - pin the entire container
-        ScrollTrigger.create({
-            trigger: containerElement,
-            start: 'top bottom-=500px', // Start animation 500px before element enters viewport
-            end: '+=700vh', // Pin for 700vh of scroll to complete animation (slower)
-            scrub: 1,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            onUpdate: (self) => {
-                // Calculate progress based on scroll position (0 to 1)
-                const progress = self.progress;
-                setLogoProgress(progress);
+        // Function to determine scroll trigger start based on screen size
+        const getScrollStart = () => {
+            const isMediumOrSmall = window.innerWidth <= 768;
+            // For medium/small screens, start only when logo is fully visible (bottom of element reaches bottom of viewport)
+            // For larger screens, keep the original behavior (start 500px before element enters)
+            return isMediumOrSmall ? 'bottom bottom' : 'top bottom-=500px';
+        };
+
+        let scrollTrigger = null;
+        let currentBreakpoint = window.innerWidth <= 768;
+
+        // Function to create or recreate scroll trigger
+        const createScrollTrigger = () => {
+            // Kill existing trigger if it exists
+            if (scrollTrigger) {
+                scrollTrigger.kill();
             }
-        });
+
+            // Create scroll trigger for logo progress with pinning - pin the entire container
+            scrollTrigger = ScrollTrigger.create({
+                trigger: containerElement,
+                start: getScrollStart(),
+                end: '+=700vh', // Pin for 700vh of scroll to complete animation (slower)
+                scrub: 1,
+                pin: true,
+                pinSpacing: true,
+                anticipatePin: 1,
+                onUpdate: (self) => {
+                    // Calculate progress based on scroll position (0 to 1)
+                    const progress = self.progress;
+                    setLogoProgress(progress);
+                }
+            });
+        };
+
+        // Create initial scroll trigger
+        createScrollTrigger();
+
+        // Handle window resize to recreate scroll trigger when crossing breakpoint
+        const handleResize = () => {
+            const newBreakpoint = window.innerWidth <= 768;
+            // Only recreate if breakpoint changed
+            if (newBreakpoint !== currentBreakpoint) {
+                currentBreakpoint = newBreakpoint;
+                createScrollTrigger();
+            } else {
+                // Just refresh if breakpoint didn't change
+                ScrollTrigger.refresh();
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
 
         return () => {
+            window.removeEventListener('resize', handleResize);
+            if (scrollTrigger) {
+                scrollTrigger.kill();
+            }
             ScrollTrigger.getAll().forEach(trigger => {
                 if (trigger.vars.trigger === containerElement) {
                     trigger.kill();
@@ -47,7 +88,7 @@ const LogoSection = () => {
     return (
         <div className="logo-container" ref={containerRef}>
             <div className="text-content">
-                <h1 className="main-title">Design it once. Design it right.</h1>
+                <h1 className="main-title">DESIGN IT ONCE. DESIGN IT RIGHT.</h1>
                 <p className="main-description">
                     Blending Design, Animation, and Technology to Elevate Brands.We Turn Brands into Visual Experiences.
                 </p>
