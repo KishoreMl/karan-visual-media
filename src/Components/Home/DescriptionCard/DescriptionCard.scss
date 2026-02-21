@@ -124,11 +124,14 @@
     }
   }
 
-  // Card scroll animations - GSAP handles all screen sizes
   .card-animate {
     will-change: opacity, transform;
-    // GSAP will set initial state and animate on all screen sizes
-    // Don't set opacity/transform here to avoid conflicts with GSAP
+  }
+}
+
+@media (max-width: 1024px) {
+  .glow-info-cards-container .card-animate {
+    will-change: auto;
   }
 }
 
@@ -162,16 +165,21 @@
     margin: 2rem 0;
     overflow: visible !important;
     min-height: auto;
+    align-items: stretch;
+  }
 
-    .card-cover {
-      width: 100%;
-      margin: 0;
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 0.5px solid var(--text-primary);
-      // Ensure cards are visible when GSAP animates them
-      visibility: visible !important;
-    }
+  .glow-info-cards-container .card-cover {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 0.5px solid var(--text-primary);
+    visibility: visible !important;
+    /* No animation on mobile – prevent overlap, force normal flow */
+    transform: none !important;
+    position: relative !important;
+    opacity: 1 !important;
   }
 }
 
@@ -187,16 +195,19 @@
     margin: 1.5rem 0;
     padding: 0 1rem;
     gap: 15px;
+  }
 
-    .card-cover {
-      padding: 1.25rem 1rem;
-      border-radius: 10px;
-      
-      .card-img-container {
-        img{
-          width: 7rem;
-          height: 7rem;
-        }
+  .glow-info-cards-container .card-cover {
+    padding: 1.25rem 1rem;
+    border-radius: 10px;
+    transform: none !important;
+    position: relative !important;
+    opacity: 1 !important;
+
+    .card-img-container {
+      img{
+        width: 7rem;
+        height: 7rem;
       }
     }
   }

@@ -31,8 +31,8 @@ const DescriptionCard = () => {
 
         const screenWidth = window.innerWidth;
 
-        // Determine screen type
-        const isLargeScreen = screenWidth > 1024;      // 4 cards in row - animation enabled
+        // Animation only on large screens; no animation on tablet/mobile to avoid overlap
+        const isLargeScreen = screenWidth > 1024;
 
         if (isLargeScreen) {
             // Large screens only: Scroll animation
@@ -97,20 +97,30 @@ const DescriptionCard = () => {
             });
 
         } else {
-            // Small & Medium screens: No animation - cards are visible by default
+            // Small & medium screens: No animation – reset all transforms so cards stack normally (no overlap)
             gsap.set(cards, {
                 opacity: 1,
                 y: 0,
-                scale: 1
+                x: 0,
+                scale: 1,
+                clearProps: 'transform,opacity'
             });
         }
 
-        // Cleanup - kill all ScrollTriggers related to this component
+        const handleResize = () => {
+            if (window.innerWidth <= 1024) {
+                const cardsEls = cardsRef.current.filter(card => card !== null);
+                gsap.set(cardsEls, { clearProps: 'all' });
+            }
+        };
+        window.addEventListener('resize', handleResize);
+
         return () => {
+            window.removeEventListener('resize', handleResize);
             ScrollTrigger.getAll().forEach(trigger => {
                 if (trigger.vars.trigger === section ||
                     trigger.vars.trigger === cardsContainer ||
-                    cards.includes(trigger.vars.trigger)) {
+                    (trigger.vars.trigger && cards.includes(trigger.vars.trigger))) {
                     trigger.kill();
                 }
             });
