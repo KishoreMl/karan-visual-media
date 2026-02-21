@@ -1,0 +1,318 @@
+.clients-review {
+    width: 100%;
+    padding: 80px 20px;
+    position:relative;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    height: 100vh;
+
+    h2{
+        font-size: 5rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    }
+
+    [data-theme="dark"] & {
+        background: transparent;
+    }
+
+    .review-container {
+        max-width: 800px;
+        width: 100%;
+        height: 90%;
+        position: relative;
+        padding: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3rem;
+    }
+
+    .quote-mark {
+        width: auto;
+        height: auto;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: flex-start;
+        line-height: 0;
+
+        img {
+            width: 120px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .quote-light {
+            display: block;
+        }
+
+        .quote-dark {
+            display: none;
+        }
+
+        [data-theme="dark"] & {
+            .quote-light {
+                display: none;
+            }
+
+            .quote-dark {
+                display: block;
+                scale: 1.3;
+                margin:0;
+            }
+        }
+    }
+
+    .review-content-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .review-text-container {
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        [data-theme="dark"] & {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+            &::before {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            }
+        }
+
+        .review-text,
+        .review-name {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .review-text {
+        font-size: 25px;
+        line-height: 1.8;
+        text-align: left;
+        color: var(--text-primary);
+        font-weight: 400;
+        flex: 1;
+        margin: 0;
+        padding: 30px 60px;
+        word-break: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+
+        [data-theme="dark"] & {
+            color: #d0d0d0;
+        }
+
+        &.animated-text {
+            white-space: normal;
+            
+            .word {
+                display: inline-block;
+                white-space: nowrap;
+                
+                &.space {
+                    white-space: pre;
+                    width: 0.3em;
+                }
+            }
+            
+            .letter {
+                display: inline-block;
+                transition: font-weight 0.4s ease;
+                cursor: default;
+                font-weight: 400;
+                
+                &.hover-bold {
+                    font-weight: 750;
+                }
+            }
+        }
+    }
+
+    .review-name {
+        font-size: 18px;
+        color: var(--text-primary);
+        margin-bottom: 40px;
+        font-weight: 500;
+        padding: 0 60px;
+
+        [data-theme="dark"] & {
+            color: #a0a0a0;
+        }
+    }
+
+    .nav-arrow {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        background: #f0f0f0;
+        color: #6a6a6a;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;
+
+        [data-theme="dark"] & {
+            background: #2a2a2a;
+            color: #8a8a8a;
+        }
+
+        &:hover {
+            background: #e0e0e0;
+            color: #4a4a4a;
+
+            [data-theme="dark"] & {
+                background: #3a3a3a;
+                color: #b0b0b0;
+            }
+        }
+
+        &:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &.nav-arrow-left {
+            left: -250px;
+        }
+
+        &.nav-arrow-right {
+            right: -250px;
+        }
+    }
+
+    // Responsive design
+    @media (max-width: 768px) {
+        padding: 60px 20px;
+        h2{
+            font-size: 2.618rem;
+        }
+
+        .review-container {
+            padding: 30px 20px;
+        }
+
+        .quote-mark {
+            img {
+                width: 90px;
+            }
+        }
+
+        .review-text {
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 0 50px;
+        }
+
+        .nav-arrow {
+            &.nav-arrow-left {
+                left: 10px;
+            }
+
+            &.nav-arrow-right {
+                right: 10px;
+            }
+        }
+
+        .review-name {
+            font-size: 14px;
+        }
+
+        .nav-arrow {
+            width: 36px;
+            height: 36px;
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 40px 15px;
+       
+            h2{
+                font-size: 1.6rem;
+            }
+
+        .review-container {
+            padding: 20px 15px;
+            margin-top: 1rem;
+        }
+
+        .quote-mark {
+            margin-bottom: 15px;
+            
+            img {
+                width: 70px;
+            }
+        }
+
+        .review-content-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            padding: 0 40px;
+        }
+
+        .nav-arrow {
+            width: 32px;
+            height: 32px;
+
+            &.nav-arrow-left {
+                left: 5px;
+            }
+
+            &.nav-arrow-right {
+                right: 5px;
+            }
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .review-name {
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+    }
+}

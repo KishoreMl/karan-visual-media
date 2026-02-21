@@ -9,6 +9,7 @@ import ClientCarousel from './ClientCarousel/ClientCarousel';
 import HorizontalText from './HorizontalText/HorixontalText';
 import Poster from './PosterSection/Poster';
 import LogoSection from './LogoSection/LogoSection';
+import ClientsReview from './ClientReview/ClientsReview';
 import './Home.scss';
 
 
@@ -104,6 +105,9 @@ const Home = ({ isDarkMode }) => {
 
             {/* Scale Up Screen Section */}
             <ScaleUpScreen />
+
+            {/* Clients Review Section */}
+            <ClientsReview />
 
             {/* Text Carousel */}
             <HorizontalText />
