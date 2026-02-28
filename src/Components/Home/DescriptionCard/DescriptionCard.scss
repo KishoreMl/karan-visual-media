@@ -10,10 +10,9 @@
 }
 
 .description-card-title {
-    font-size: 17rem;
-    font-weight: 300;
-    font-family: 'Coolvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    letter-spacing:5px;
+    font-size: 8rem;
+    font-weight: 600;
+    font-family: var(--primary-font);
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     line-height: 1.1;
@@ -148,7 +147,7 @@
 
 @media (max-width: 768px) {
   .description-card-title{
-    font-size: 12rem;
+    font-size: 3rem;
     padding-left: 1rem;
   }
 
@@ -181,9 +180,9 @@
 @media (max-width: 480px) {
   .description-card-header{
     .description-card-title{
-      font-size: 6rem;
+      font-size: 2.33rem;
       margin-bottom: 2rem;
-      padding-left: 2rem;
+      padding-left: 1rem;
     }
   }
   .glow-info-cards-container {

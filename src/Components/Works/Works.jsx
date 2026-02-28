@@ -9,6 +9,8 @@ import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
 import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
 import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
+import meinigarImage from '../../assets/images/clients/meinigar.png';
+import tamilCateringImage from '../../assets/images/clients/tamil_catering.jpg';
 
 const Works = () => {
     const [filter, setFilter] = useState('All');
@@ -63,6 +65,29 @@ const Works = () => {
             tags: ['Thum Tea', '3D Animation'],
             image: thumTeaImage,
             bgColor: '#1e40af'
+        },
+        {
+            id:5,
+            slug:'meinigar',
+            title: 'Meinigar',
+            category: 'Branding & Design',
+            year: '2025',
+            description: 'Branding and design project for Meinigar, featuring modern visual identity and brand guidelines.',
+            tags: ['Meinigar', 'Branding'],
+            image: meinigarImage,
+            bgColor: '#1e40af'
+        },
+        {
+            id: 6,
+            slug:'tamil-catering',
+            title: 'Tamil Catering',
+            category: 'Branding & Design',
+            year: '2025',
+            description: 'Branding and design project for Tamil Catering, featuring modern visual identity and brand guidelines.',
+            tags: ['Tamil Catering', 'Branding'],
+            image: tamilCateringImage,
+            bgColor: '#1e40af'
+
         }
     ];
 
@@ -88,7 +113,7 @@ const Works = () => {
     return (
         <div className="works-container">
             <div className="works-header">
-                <AnimatedHeading text="Our Works" tag="h1" className="works-title centered" />
+                <AnimatedHeading text="OUR WORKS" tag="h1" className="works-title centered" />
             </div>
 
             {/* Filter Buttons */}

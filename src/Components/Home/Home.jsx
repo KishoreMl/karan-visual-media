@@ -80,7 +80,7 @@ const Home = ({ isDarkMode }) => {
             <div className="hero-section">
                 <img src={logo} alt="Creative Knacks" className="logo" />
                 <p className="animated-text" ref={animatedTextRef}>
-                    {" Where your ideas come to life.".split('').map((char, index) => (
+                    {" Where your ideas come to life".split('').map((char, index) => (
                         <span key={index} className="letter">
                             {char === ' ' ? '\u00A0' : char}
                         </span>

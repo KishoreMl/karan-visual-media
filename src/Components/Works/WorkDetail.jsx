@@ -29,6 +29,14 @@ import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
 import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
 import thumTeaVideo from '../../assets/works/Thum tea/butterfly.mp4';
 
+// Import Meinigar videos
+import meinigarImage from '../../assets/images/clients/meinigar.png';
+import meinigarVideo from '../../assets/works/Meinigar/meinigar_logo_animation.mp4';
+
+// Import Tamil Catering videos
+import tamilCateringImage from '../../assets/images/clients/tamil_catering.jpg';
+import tamilCateringVideo from '../../assets/works/Cooking Chanel/cooking_channel_logo_animation.mp4';
+
 const WorkDetail = () => {
     const { workSlug } = useParams();
     const navigate = useNavigate();
@@ -121,6 +129,36 @@ Our deliverables included video content showcasing the brand identity, product p
             bgColor: '#1e40af',
             videoGallery: [
                 thumTeaVideo,
+            ]
+        },
+        {
+            id:5,
+            slug:'meinigar',
+            title: 'Meinigar',
+            category: 'Branding & Design',
+            year: '2025',
+            description: 'Branding and design project for Meinigar, featuring modern visual identity and brand guidelines.',
+            fullDescription: `Branding and design project for Meinigar, featuring modern visual identity and brand guidelines.`,
+            tags: ['Meinigar', 'Branding'],
+            image: meinigarImage,
+            bgColor: '#1e40af',
+            videoGallery: [
+                meinigarVideo,
+            ]
+        },
+        {
+            id:6,
+            slug:'tamil-catering',
+            title: 'Tamil Catering',
+            category: 'Branding & Design',
+            year: '2025',
+            description: 'Branding and design project for Tamil Catering, featuring modern visual identity and brand guidelines.',
+            fullDescription: `Branding and design project for Tamil Catering, featuring modern visual identity and brand guidelines.`,
+            tags: ['Tamil Catering', 'Branding'],
+            image: tamilCateringImage,
+            bgColor: '#1e40af',
+            videoGallery: [
+                tamilCateringVideo,
             ]
         }
     ];
