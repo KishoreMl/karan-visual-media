@@ -89,7 +89,7 @@ const Services = () => {
             id: 2,
             title: "Social Media Handling",
             description: "Strategic social media management that grows your online presence. We create engaging content and manage your brand across all platforms.",
-            features: ["Content Creation", "Community Management", "Reels Editing", "Analytics & Reporting"],
+            features: ["Content Creation", "Community Management", "Reels Editing", "Digital Marketing", "Personal Branding"],
             gif: socialMediaGif
         },
         {
@@ -146,7 +146,7 @@ const Services = () => {
             {/* Header Section */}
             <div className="services-header-section">
                 <div className="services-header">
-                    <AnimatedHeading text="Our Services" tag="h1" className="services-title centered" />
+                    <AnimatedHeading text="OUR SERVICES" tag="h1" className="services-title centered" />
                     
                     {/* Services Navigation Menu */}
                     <div className="services-nav-menu">
