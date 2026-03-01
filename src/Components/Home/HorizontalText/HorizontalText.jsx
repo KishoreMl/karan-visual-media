@@ -70,8 +70,8 @@ const HorizontalText = () => {
                 // Medium screens: add moderate delay (15% viewport)
                 extraOffset = viewportHeight * 0.15;
             } else {
-                // Large screens: use original delay (10% viewport)
-                extraOffset = viewportHeight * 0.1;
+                // Large screens: add more delay (25% viewport) to start later
+                extraOffset = viewportHeight * 0.25;
             }
             
             // Start when ClientsReview's bottom is at 95% of viewport (only 5% visible)
