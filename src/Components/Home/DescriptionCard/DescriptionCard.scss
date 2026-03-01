@@ -118,16 +118,8 @@
     }
   }
 
-  .card-animate {
-    will-change: opacity, transform;
-  }
 }
 
-@media (max-width: 1024px) {
-  .glow-info-cards-container .card-animate {
-    will-change: auto;
-  }
-}
 
 @media (max-width: 1200px) {
   .description-card-title{

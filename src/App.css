@@ -19,6 +19,7 @@
   
   --border-color: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.3);
+  --logo-shadow-color: rgba(49, 49, 49, 0.6);
   
   --accent-primary: #2B90E2;
   --accent-secondary: #2BAEE2;
@@ -69,6 +70,7 @@
   
   --border-color: rgba(0, 0, 0, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
+  --logo-shadow-color: rgba(0, 0, 0, 0.25);
   
   --accent-primary: #2B90E2;
   --accent-secondary: #929292;
