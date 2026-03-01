@@ -6,7 +6,7 @@ import lightLogo from '../../assets/images/light_theme_logo.png';
 import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import CtaSection from './CtaSection/CtaSection';
 import ClientCarousel from './ClientCarousel/ClientCarousel';
-import HorizontalText from './HorizontalText/HorixontalText';
+import HorizontalText from './HorizontalText/HorizontalText';
 import Poster from './PosterSection/Poster';
 import LogoSection from './LogoSection/LogoSection';
 import ClientsReview from './ClientReview/ClientsReview';

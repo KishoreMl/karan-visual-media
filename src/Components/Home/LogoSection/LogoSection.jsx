@@ -88,11 +88,19 @@ const LogoSection = () => {
     return (
         <div className="logo-container" ref={containerRef}>
             <div className="text-content">
-                <h1 className="main-title">DESIGN IT ONCE. DESIGN IT RIGHT.</h1>
+                <h1 className="main-title">
+                    <span className="title-bold">DESIGN</span>{' '}
+                    <span className="title-light">IT</span>{' '}
+                    <span className="title-light">ONCE</span>{' '}
+                    <br />
+                    <span className="title-light">DESIGN</span>{' '}
+                    <span className="title-light">IT</span>{' '}
+                    <span className="title-bold">RIGHT</span>
+                </h1>
                 <p className="main-description">
                     Blending Design, Animation, and Technology to Elevate Brands.We Turn Brands into Visual Experiences.
                 </p>
-                <a href="/works" className="explore-link">Explore our works</a>
+                <a href="/works" className="explore-link">EXPLORE OUR WORKS</a>
             </div>
             <div className="logo-content" ref={logoRef}>
                 <div className="logo-icon">

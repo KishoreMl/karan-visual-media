@@ -67,8 +67,10 @@
     .review-content-wrapper {
         display: flex;
         align-items: center;
+        justify-content: center;
         margin-bottom: 30px;
         height:80%;
+        position: relative;
     }
 
     .review-text-container {
@@ -81,6 +83,10 @@
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
         overflow: hidden;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
 
         &::before {
             content: '';
@@ -112,7 +118,7 @@
     }
 
     .review-text {
-        font-size: 25px;
+        font-size: 20px;
         line-height: 1.8;
         text-align: left;
         color: var(--text-primary);
@@ -183,6 +189,7 @@
         top: 50%;
         transform: translateY(-50%);
         z-index: 100;
+        align-self: center;
 
         [data-theme="dark"] & {
             background: #2a2a2a;
@@ -235,19 +242,19 @@
         }
 
         .review-text {
-            font-size: 22px;
+            font-size: 19px;
             line-height: 1.6;
             padding: 40px 40px;
             
         }
 
-        .nav-arrow {
+        .nav-arrow {           
             &.nav-arrow-left {
-                left: 10px;
+                left: -30px;
             }
 
             &.nav-arrow-right {
-                right: 10px;
+                right: -30px;
             }
         }
 
@@ -256,8 +263,8 @@
         }
 
         .nav-arrow {
-            width: 36px;
-            height: 36px;
+            width: 46px;
+            height: 46px;
 
             svg {
                 width: 18px;
@@ -304,13 +311,13 @@
             height: 32px;
 
             &.nav-arrow-left {
-                top: 77%;
-                left: -2px;
+                top: 50%;
+                left: -20px;
             }
 
             &.nav-arrow-right {
-                top: 77%;
-                right: -2px;
+                top: 50%;
+                right: -20px;
             }
 
             svg {

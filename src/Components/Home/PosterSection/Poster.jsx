@@ -53,8 +53,10 @@ const Poster = () => {
         // Set initial state for content text (hidden below, transparent) - only visible on large screens
         if (isLargeScreen) {
             gsap.set(contentText, {
-                y: 100,
-                opacity: 0
+                y: '60vh', // Start below the viewport
+                opacity: 0,
+                xPercent: -50, // Center horizontally
+                yPercent: -50 // Will be adjusted when animating
             });
         } else {
             // Hide content text on small/medium screens
@@ -114,8 +116,10 @@ const Poster = () => {
             }, '>');
             
             // Content text slides up from below and fades in - starts when video is halfway scaled down
+            // Position it centered below the video (which is at top: 10% and scaled to 0.2)
             mainTimeline.to(contentText, {
-                y: 0,
+                y: '50vh', // Center vertically in viewport
+                yPercent: -50, // Perfect vertical centering
                 opacity: 1,
                 ease: 'power2.out',
                 duration: 0.3
