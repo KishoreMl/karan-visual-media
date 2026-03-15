@@ -75,11 +75,6 @@
     gap: 20px;
     transform-style: preserve-3d;
     transform: translateZ(20px);
-    filter: 
-      drop-shadow(0 2px 4px var(--logo-shadow-color))
-      drop-shadow(0 4px 8px var(--logo-shadow-color))
-      drop-shadow(0 8px 16px var(--logo-shadow-color))
-      drop-shadow(0 12px 24px var(--logo-shadow-color));
 
     .logo-dot-wrapper {
       width: 90px;

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import CtaSection from '../Home/CtaSection/CtaSection';
+import authorImage from '../../assets/images/Karan.jpeg';
 import './AboutUs.scss';
 
 const AboutUs = () => {
@@ -54,13 +55,16 @@ const AboutUs = () => {
     return (
         <div className="about-page">
             <div className="about-header">
-                <AnimatedHeading text="About Us" tag="h1" className="about-title centered" />
+                <AnimatedHeading text="ABOUT US" tag="h1" className="about-title centered" />
             </div>
             <div 
                 ref={(el) => addToRefs(el, 1)}
                 data-section={1}
                 className={`about-section ${visibleSections.includes(1) ? 'visible' : ''}`}
             >
+                <div className="author-image">
+                    <img src={authorImage} alt="Author" />
+                </div>
                 <div className="section-content">
                     <p className="intro-text">
                         A creative studio built on purpose and the belief that great brands start with great ideas.

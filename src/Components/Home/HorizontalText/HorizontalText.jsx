@@ -69,6 +69,9 @@ const HorizontalText = () => {
             } else if (screenWidth <= 1024) {
                 // Medium screens: add moderate delay (15% viewport)
                 extraOffset = viewportHeight * 0.15;
+            } else if (screenWidth <= 1440) {
+                // Laptop screens: add significant delay (35% viewport) to prevent overlap
+                extraOffset = viewportHeight * 0.35;
             } else {
                 // Large screens: add more delay (25% viewport) to start later
                 extraOffset = viewportHeight * 0.25;

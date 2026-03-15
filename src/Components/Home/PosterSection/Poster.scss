@@ -78,7 +78,7 @@
 
     .content-text {
         position: absolute;
-        left: 50%;
+        left: 4rem;
         padding: 10px 0;
         background: transparent;
         z-index: 3;
@@ -90,7 +90,7 @@
             padding: 10px 40px;
             width: 80%;
             max-width: 1200px;
-            text-align: center;
+            text-align: left;
         }
 
         .content-heading {
@@ -118,6 +118,15 @@
     .poster-section {
         .content-text {
             display: none; // Keep hidden on small/medium screens
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .poster-section {
+        .content-text {
+            left: 2rem;
+            padding: 10px 20px;
         }
     }
 }

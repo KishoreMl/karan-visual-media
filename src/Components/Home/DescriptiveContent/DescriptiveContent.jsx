@@ -32,11 +32,11 @@ const DescriptiveContent = () => {
     }, []);
 
     const lines = [
-        "Design on the web isn't static anymore.",
-        "Today's brands need energy, personality and meaning.",
-        "We bring together strategy, design and storytelling",
-        "to build digital experiences that grab attention,",
-        "move fast and make people feel."
+        "Creativity that builds powerful brands.",
+        "Today’s businesses need more than just design.",
+        "We combine strategy, storytelling and design",
+        "to create digital experiences that people remember.",
+        "Ideas that make brands stand out."
     ];
 
     return (

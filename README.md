@@ -15,9 +15,9 @@ A modern, interactive portfolio website for Creative Knacks, a creative studio s
 ### Pages & Sections
 - **Home Page** - Showcase of services, client testimonials, and portfolio highlights
 - **Services Page** - Detailed service offerings with interactive cards
-- **Works/Portfolio** - Dynamic portfolio gallery with detailed project pages
-- **About Us** - Studio story and team information
-- **Contact** - Contact form with EmailJS integration
+- **Works Page** - Dynamic portfolio gallery with detailed project pages
+- **About Us Page** - Studio story and team information
+- **Contact Page** - Contact form with EmailJS integration
 
 ### Key Components
 - **Poster Section** - Video-based hero section with scroll-triggered animations

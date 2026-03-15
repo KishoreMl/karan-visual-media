@@ -11,15 +11,25 @@
 
 .description-card-title {
     font-size: 8rem;
-    font-weight: 600;
+    font-weight: 850;
     font-family: var(--primary-font);
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     line-height: 1.1;
     padding: 0 4rem;
-    margin-bottom: 5rem;
+    margin-bottom: 0;
 }
 
+.description-card-sub-title {
+    font-size: 6rem;
+    font-weight: 450;
+    font-family: var(--primary-font);
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 5rem;
+    padding: 0 4rem;
+}
 .glow-info-cards-container {
   display:grid;
   grid-template-columns: repeat(4, 1fr); 
@@ -95,38 +105,17 @@
       opacity: 1;
     }
 
-    // Shimmer effect on hover
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: -100%;
-    //   width: 100%;
-    //   height: 100%;
-    //   background: linear-gradient(
-    //     90deg,
-    //     transparent,
-    //     rgba(255, 255, 255, 0.1),
-    //     transparent
-    //   );
-    //   transition: left 0.6s ease;
-    //   pointer-events: none;
-    // }
-
     &:hover::before {
       left: 100%;
     }
   }
-
 }
-
 
 @media (max-width: 1200px) {
   .description-card-title{
     font-size: 15rem;
   }
 }
-
 
 @media (max-width: 1024px) and (min-width: 769px) {
   .glow-info-cards-container {
@@ -139,8 +128,13 @@
 
 @media (max-width: 768px) {
   .description-card-title{
+    font-size: 5rem;
+    padding-left: 2rem;
+  }
+  .description-card-sub-title{
     font-size: 3rem;
-    padding-left: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
   }
 
   .glow-info-cards-container {
@@ -172,6 +166,10 @@
 @media (max-width: 480px) {
   .description-card-header{
     .description-card-title{
+      font-size: 4rem;
+      padding-left: 1rem;
+    }
+    .description-card-sub-title{
       font-size: 2.33rem;
       margin-bottom: 2rem;
       padding-left: 1rem;
