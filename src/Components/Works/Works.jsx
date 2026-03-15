@@ -9,7 +9,7 @@ import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
 import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
 import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
-import meinigarImage from '../../assets/images/clients/meinigar.png';
+import meinigarImage from '../../assets/images/clients/meinigar_color.jpeg';
 import tamilCateringImage from '../../assets/images/clients/tamil_catering.jpg';
 
 const Works = () => {

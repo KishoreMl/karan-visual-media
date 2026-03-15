@@ -52,11 +52,19 @@ const Poster = () => {
         
         // Set initial state for content text (hidden below, transparent) - only visible on large screens
         if (isLargeScreen) {
+            // Determine left position based on screen width
+            const getLeftPosition = () => {
+                const screenWidth = window.innerWidth;
+                if (screenWidth >= 1200) return '4rem';
+                if (screenWidth >= 1024) return '2rem';
+                return '2rem';
+            };
+            
             gsap.set(contentText, {
                 y: '60vh', // Start below the viewport
                 opacity: 0,
-                xPercent: -50, // Center horizontally
-                yPercent: -50 // Will be adjusted when animating
+                xPercent: 0, // Left aligned
+                left: getLeftPosition() // Responsive left positioning
             });
         } else {
             // Hide content text on small/medium screens
@@ -116,10 +124,10 @@ const Poster = () => {
             }, '>');
             
             // Content text slides up from below and fades in - starts when video is halfway scaled down
-            // Position it centered below the video (which is at top: 10% and scaled to 0.2)
+            // Position it below the video (which is at top: 10% and scaled to 0.2)
+            // Calculate position: video is at 10% top, scaled to 0.2, so we position text below it
             mainTimeline.to(contentText, {
-                y: '50vh', // Center vertically in viewport
-                yPercent: -50, // Perfect vertical centering
+                y: '10vh', // Position below the scaled video (video at 10% + scaled height)
                 opacity: 1,
                 ease: 'power2.out',
                 duration: 0.3

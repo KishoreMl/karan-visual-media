@@ -30,7 +30,7 @@ import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
 import thumTeaVideo from '../../assets/works/Thum tea/butterfly.mp4';
 
 // Import Meinigar videos
-import meinigarImage from '../../assets/images/clients/meinigar.png';
+import meinigarImage from '../../assets/images/clients/meinigar_color.jpeg';
 import meinigarVideo from '../../assets/works/Meinigar/meinigar_logo_animation.mp4';
 
 // Import Tamil Catering videos

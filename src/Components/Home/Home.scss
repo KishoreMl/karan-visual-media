@@ -28,28 +28,33 @@
     letter-spacing: 2px;
     font-weight: 400;
     text-align: center;
-    width: calc(100% - 34rem);
+    // width: calc(100% - 34rem);
     max-width: 100%;
   }
 
   .scroll-to-explore {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
     margin-top: 2rem;
     position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 10%;
+    left: 3rem;
+
+    .scroll-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: fit-content;
+    }
 
     .scroll-text {
-      font-size: clamp(0.75rem, 1.2vw, 1rem);
+      font-size: clamp(0.75rem, 1vw, 1rem);
       font-weight: 600;
       letter-spacing: 3px;
       color: var(--primary-yellow);
       text-transform: uppercase;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      text-align: left;
+      align-self: flex-start;
     }
 
     .scroll-arrow {
@@ -78,12 +83,18 @@
     p{
       width: calc(100% - 14rem);
     }
+    .scroll-to-explore {
+      left: 7rem;
+    }
   }
 
   @media (max-width: 980px){
     padding: 0 7rem;
     p{
-      width: calc(100% - 14rem);
+      // width: calc(100% - 14rem);
+    }
+    .scroll-to-explore {
+      left: 7rem;
     }
   }
 
@@ -94,14 +105,15 @@
       transform: translateY(-10px);
     }
     p{
-      font-size: 1.5rem;
-      width: calc(100% - 14rem);
+      font-size: 1.2rem;
+      // width: calc(100% - 14rem);
     }
     .animated-text .word:hover {
       transform: translateY(-30px);
     }
     .scroll-to-explore {
       bottom: 3%;
+      left: 2rem;
       .scroll-text {
         font-size: 0.7rem;
         letter-spacing: 2px;
@@ -120,6 +132,7 @@
     }
     .scroll-to-explore {
       bottom: 2%;
+      left: 4rem;
     }
   }
 
@@ -136,7 +149,8 @@
       margin-bottom: 1rem;
     }
     .scroll-to-explore {
-      bottom: 5%;
+      bottom: -6%;
+      left: 6rem;
       .scroll-text {
         font-size: 0.65rem;
         letter-spacing: 1.5px;

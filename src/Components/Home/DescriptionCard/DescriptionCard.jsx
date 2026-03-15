@@ -37,7 +37,8 @@ const DescriptionCard = () => {
     return (
         <section className="description-card-section">
             <div className='description-card-header'>
-                <AnimatedHeading text="What we do" tag="h2" className="description-card-title" />
+                <h2 className="description-card-title">WHAT</h2>
+                <h4 className="description-card-sub-title">WE DO</h4>
             </div>
             <div className="glow-info-cards-container">
                 <div
