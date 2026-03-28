@@ -188,7 +188,11 @@ const Poster = () => {
             </div>
             <h1 className="next-project-text" ref={textRef}>INNOVATION</h1>
             <div className="content-text" ref={contentTextRef}>
-                <h2 className="content-heading">Design on the web isn't static anymore. Today's brands need energy, personality and meaning. We bring together strategy, design and storytelling to build digital experiences that grab attention. Design on the web isn't static anymore. Today's brands need energy, personality and meaning.</h2>
+                <h2 className="content-heading">Creativity that builds powerful brands.
+                    Today's businesses need more than just design.
+                    We combine strategy, storytelling and design
+                    to create Digital experiences that people remember.
+                </h2>
             </div>
         </div>
     );

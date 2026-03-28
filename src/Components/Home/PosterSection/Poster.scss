@@ -84,11 +84,12 @@
         z-index: 3;
         will-change: transform, opacity;
         display: none; 
+        width: 130%;
 
         @media (min-width: 1024px) {
             display: block; // Show on large screens only
             padding: 10px 40px;
-            width: 80%;
+            width: 100%;
             max-width: 1200px;
             text-align: left;
         }

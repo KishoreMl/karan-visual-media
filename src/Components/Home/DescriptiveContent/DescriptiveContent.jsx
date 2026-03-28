@@ -31,12 +31,12 @@ const DescriptiveContent = () => {
         };
     }, []);
 
+
     const lines = [
-        "Creativity that builds powerful brands.",
-        "Today’s businesses need more than just design.",
-        "We combine strategy, storytelling and design",
-        "to create digital experiences that people remember.",
-        "Ideas that make brands stand out."
+        "Ideas that make brands stand out.",
+        "From strategy to storytelling,",
+        "we craft designs and digital experiences",
+        "that capture attention and inspire people.",
     ];
 
     return (
