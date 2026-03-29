@@ -91,7 +91,7 @@ const ClientsReview = () => {
                 letter.removeEventListener('mouseleave', handleMouseLeave);
             });
         };
-    }, [currentIndex]); // Re-run when testimonial changes
+    }, [currentIndex]); 
 
     return (
         <div className="clients-review">

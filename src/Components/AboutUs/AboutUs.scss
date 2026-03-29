@@ -204,6 +204,14 @@
                     width: 100%;
                 }
             }
+
+            @media (max-width: 480px) {
+                .hero-left {
+                    .about-title {
+                        font-size: 1.9rem;
+                    }
+                }
+            }
         }
 
         // ── Shared section content ─────────────────────────────────────────
@@ -254,7 +262,7 @@
 
             .section-content {
                 .section-heading {
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
                 }
 
                 .section-text {
