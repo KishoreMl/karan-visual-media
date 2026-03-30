@@ -17,7 +17,7 @@
     }
 
     .review-container {
-        max-width: 800px;
+        max-width: 1100px;
         width: 100%;
         height: 90%;
         position: relative;
@@ -75,7 +75,7 @@
 
     .review-text-container {
         height:100%;
-        border-radius: 10px;
+        border-radius: 30px;
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(40px);
         -webkit-backdrop-filter: blur(40px);
@@ -129,6 +129,7 @@
         word-break: normal;
         overflow-wrap: break-word;
         word-wrap: break-word;
+        margin-top: 3.5rem;
 
         [data-theme="dark"] & {
             color: #d0d0d0;
@@ -166,6 +167,7 @@
         margin-bottom: 40px;
         font-weight: 500;
         padding: 0 60px;
+        align-self: flex-end;
 
         [data-theme="dark"] & {
             color: #a0a0a0;

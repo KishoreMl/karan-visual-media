@@ -41,7 +41,7 @@
 
     .scroll-text {
       display: block;
-      font-size: clamp(0.45rem, 1vw, 0.6rem);
+      font-size: clamp(0.45rem, 1vw, 0.7rem);
       font-weight: 600;
       letter-spacing: 3px;
       color: var(--primary-yellow);
@@ -54,6 +54,7 @@
     .scroll-arrow {
       position: absolute;
       left: 50%;
+      bottom: 6px;
       transform: translateX(-50%);
       color: var(--primary-yellow);
       animation: bounceArrow 2s infinite;

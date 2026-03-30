@@ -53,18 +53,11 @@ const Poster = () => {
         // Set initial state for content text (hidden below, transparent) - only visible on large screens
         if (isLargeScreen) {
             // Determine left position based on screen width
-            const getLeftPosition = () => {
-                const screenWidth = window.innerWidth;
-                if (screenWidth >= 1200) return '4rem';
-                if (screenWidth >= 1024) return '2rem';
-                return '2rem';
-            };
-            
             gsap.set(contentText, {
-                y: '60vh', // Start below the viewport
+                y: '60vh',
                 opacity: 0,
-                xPercent: 0, // Left aligned
-                left: getLeftPosition() // Responsive left positioning
+                left: 0,
+                right: 0
             });
         } else {
             // Hide content text on small/medium screens
@@ -117,7 +110,7 @@ const Poster = () => {
             // Scale down with transform origin at top left, which keeps top left corner fixed (slower animation)
             mainTimeline.to(video, {
                 top:'10%',
-                scale: 0.2,
+                scale: 0.35,
                 transformOrigin: 'top left',
                 ease: 'power2.inOut',
                 duration: 2.0
@@ -127,7 +120,7 @@ const Poster = () => {
             // Position it below the video (which is at top: 10% and scaled to 0.2)
             // Calculate position: video is at 10% top, scaled to 0.2, so we position text below it
             mainTimeline.to(contentText, {
-                y: '10vh', // Position below the scaled video (video at 10% + scaled height)
+                y: '18vh', // Position below the scaled video (video at 10% + scaled height)
                 opacity: 1,
                 ease: 'power2.out',
                 duration: 0.3
@@ -188,10 +181,10 @@ const Poster = () => {
             </div>
             <h1 className="next-project-text" ref={textRef}>INNOVATION</h1>
             <div className="content-text" ref={contentTextRef}>
-                <h2 className="content-heading">Creativity that builds powerful brands.
-                    Today's businesses need more than just design.
-                    We combine strategy, storytelling and design
-                    to create Digital experiences that people remember.
+                <h2 className="content-heading">Creativity that builds powerful brands. Today’s businesses need more than just design they need purpose, clarity, and impact. 
+                    We combine strategy, storytelling and design to create digital experiences that people remember.
+                     We transform ideas into meaningful brand identities, crafting visuals and narratives that connect deeply with your audience.
+                     Every element we create is designed to build consistency, strengthen presence, and enhance user experience across platforms.
                 </h2>
             </div>
         </div>
