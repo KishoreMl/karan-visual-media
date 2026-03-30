@@ -96,7 +96,6 @@ const AboutUs = () => {
                 className={`about-section vision-mission-grid ${visibleSections.includes(6) ? 'visible' : ''}`}
             >
                 <div className="vm-card vision-card">
-                    <span className="vm-icon">✦</span>
                     <h2 className="vm-heading">Our Vision</h2>
                     <p className="vm-text">
                         To become a leading creative force that shapes the future of brands through innovation, creativity, and digital excellence.
@@ -106,7 +105,6 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="vm-card mission-card">
-                    <span className="vm-icon">◈</span>
                     <h2 className="vm-heading">Our Mission</h2>
                     <ul className="mission-list">
                         <li>To deliver high-quality creative solutions with real impact</li>
