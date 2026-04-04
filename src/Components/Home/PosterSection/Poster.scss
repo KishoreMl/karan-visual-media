@@ -133,6 +133,19 @@
     }
 }
 
+@media (max-width: 1023px) {
+    .poster-section {
+        .yellow-overlay {
+            .poster-video {
+                transform: none !important;
+                scale: 1 !important;
+                top: 0 !important;
+                left: 0 !important;
+            }
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .poster-section {
         .next-project-text {

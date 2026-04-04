@@ -26,7 +26,7 @@ import swadeshiVideo3 from '../../assets/works/swadeshi/Swadeshi_Ai3.mp4';
 import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
 
 // Import Thum Tea images
-import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
+import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.jpg';
 import thumTeaVideo from '../../assets/works/Thum tea/butterfly.mp4';
 
 // Import Meinigar videos
