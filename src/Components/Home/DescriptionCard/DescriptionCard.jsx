@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import websiteImg from '../../../assets/images/website.png';
 import socialMediaImg from '../../../assets/images/social_media_icon.png';
-import brandingImg from '../../../assets/images/branding.png';
+import brandingImg from '../../../assets/images/Branding.png';
 import motionGraphicsImg from '../../../assets/images/motion_graphics.png';
 import './DescriptionCard.scss';
 
