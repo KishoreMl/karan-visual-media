@@ -8,7 +8,7 @@ import client_logo_1 from "../../../assets/images/clients/bigidea.jpg";
 import client_logo_4 from "../../../assets/images/clients/eagle.jpg";
 import client_logo_5 from "../../../assets/images/clients/tamil_catering.jpg";
 import client_logo_2 from "../../../assets/images/clients/yuva_bharathi.jpg";
-import client_logo_6 from "../../../assets/images/clients/meinigar_color.jpeg";
+import client_logo_6 from "../../../assets/images/clients/meinigar.jpg";
 import client_logo_3 from "../../../assets/images/clients/swadeshi.jpg";
 import client_logo_8 from "../../../assets/images/clients/FSS.png";
 import client_logo_9 from "../../../assets/images/clients/ST.png";

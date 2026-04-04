@@ -1,7 +1,8 @@
 .clients-review {
     width: 100%;
     padding: 80px 20px;
-    position:relative;
+    position: relative;
+    z-index: 10;
     justify-content: center;
     align-items: center;
     background: transparent;
@@ -118,7 +119,7 @@
     }
 
     .review-text {
-        font-size: 15px;
+        font-size: 10px;
         line-height: 1.8;
         text-align: left;
         color: var(--text-primary);
@@ -228,21 +229,68 @@
 
     // Responsive design
 
-    @media (max-width: 2560px){
+
+    // Laptop 75%
+    @media (max-width: 1707px){
+        .nav-arrow {
+            &.nav-arrow-left {
+                left: -140px;
+            }
+
+            &.nav-arrow-right {
+                right: -140px;
+            }
+        }
         .review-text{
             font-size: 22px;
         }
     }
 
-    @media (max-width: 1440px) {
-        .review-text {
-            font-size: 20px;
+    // Laptop 80% 
+    @media (max-width: 1600px){
+        .nav-arrow {
+            &.nav-arrow-left {
+                left: -150px;
+            }
+
+            &.nav-arrow-right {
+                right: -150px;
+            }
+        }
+        .review-text{
+            font-size: 22px;
         }
     }
 
-    @media (max-width: 1024px) {
+    // Laptop 90% 
+    @media (max-width: 1422px) {
+        .nav-arrow {
+            &.nav-arrow-left {
+                left: -50px;
+            }
+
+            &.nav-arrow-right {
+                right: -50px;
+            }
+        }
         .review-text {
-            font-size: 19px;
+            font-size: 18px;
+        }
+    }
+
+    // Laptop 100% 
+    @media (max-width: 1280px) {
+        .nav-arrow {
+            &.nav-arrow-left {
+                left: -80px;
+            }
+
+            &.nav-arrow-right {
+                right: -80px;
+            }
+        }
+        .review-text {
+            font-size: 15px;
         }
     }
 
@@ -250,6 +298,10 @@
         padding: 60px 20px;
         h2{
             font-size: 2.618rem;
+        }
+
+        .review-content-wrapper {
+            height: 50%;
         }
 
         .review-container {
@@ -307,7 +359,6 @@
 
         .quote-mark {
             margin-bottom: 15px;
-            
             img {
                 width: 70px;
             }
@@ -315,7 +366,7 @@
 
         .review-content-wrapper {
             margin-bottom: 20px;
-            height:90%;
+            height:65%;
         }
 
         .review-text {
