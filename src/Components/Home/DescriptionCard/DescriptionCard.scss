@@ -68,7 +68,7 @@
       img{
         width:7.4rem;
         height:7rem;
-        // scale: 0.2;
+        object-fit: contain;
         transform: translateX(-16px);
         transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         margin-bottom: 1.5rem;

@@ -8,9 +8,9 @@ import './Works.scss';
 import npsImage5 from '../../assets/works/nps/nps (5).jpg';
 import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
 import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
-import thumTeaImage from '../../assets/works/Thum tea/Thumb_Tea.png';
-import meinigarImage from '../../assets/images/clients/meinigar_color.jpeg';
-import tamilCateringImage from '../../assets/images/clients/tamil_catering.jpg';
+import thumTeaImage from '../../assets/works/Thum tea/Thum_Tea.jpg';
+import meinigarImage from '../../assets/works/Meinigar/meinigar.jpg';
+import tamilCateringImage from '../../assets/works/Cooking Chanel/cooking.jpg';
 
 const Works = () => {
     const [filter, setFilter] = useState('All');
@@ -29,7 +29,7 @@ const Works = () => {
             category: 'Branding & Design',
             year: '2024',
             description: 'Comprehensive branding and design project for NPS, featuring modern visual identity and brand guidelines.',
-            tags: ['NPS', 'Branding'],
+            tags: ['Branding'],
             image: npsImage5,
             bgColor: '#1e40af'
         },
@@ -40,7 +40,7 @@ const Works = () => {
             category: 'Branding & Design',
             year: '2025',
             description: 'Art board with logo variations and high-quality mockups for their conference event.',
-            tags: ['Art Board', 'Branding'],
+            tags: ['Branding'],
             image: artBoardImage,
             bgColor: '#c4b5a0'
         },
@@ -51,7 +51,7 @@ const Works = () => {
             category: 'Social Media Management',
             year: '2025',
             description: 'Branding and design project for Swadeshi Glass & Plywood, featuring modern visual identity and brand guidelines.',
-            tags: ['Swadeshi Glass & Plywood', 'Branding'],
+            tags: ['Branding'],
             image: swadeshiImage,
             bgColor: '#1e40af'
         },
@@ -60,9 +60,9 @@ const Works = () => {
             slug:'thum-tea',
             title: 'Thum Tea',
             category: '3D Animation',
-            year:'2023',
+            year:'2023',    
             description: '3D animation project for Thumb Tea, featuring modern visual identity and brand guidelines.',
-            tags: ['Thum Tea', '3D Animation'],
+            tags: ['3D Animation'],
             image: thumTeaImage,
             bgColor: '#1e40af'
         },
@@ -73,7 +73,7 @@ const Works = () => {
             category: 'Branding & Design',
             year: '2025',
             description: 'Branding and design project for Meinigar, featuring modern visual identity and brand guidelines.',
-            tags: ['Meinigar', 'Branding'],
+            tags: ['Branding'],
             image: meinigarImage,
             bgColor: '#1e40af'
         },
@@ -84,7 +84,7 @@ const Works = () => {
             category: 'Branding & Design',
             year: '2025',
             description: 'Branding and design project for Tamil Catering, featuring modern visual identity and brand guidelines.',
-            tags: ['Tamil Catering', 'Branding'],
+            tags: ['Branding'],
             image: tamilCateringImage,
             bgColor: '#1e40af'
 
@@ -188,7 +188,7 @@ const Works = () => {
                                 <div className="project-tags">
                                     {work.tags.map((tag, index) => (
                                         <span key={index} className="project-tag">
-                                            {index === 0 ? '♥' : '👁'} {tag}
+                                            {tag}
                                         </span>
                                     ))}
                                 </div>

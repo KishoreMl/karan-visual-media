@@ -36,9 +36,6 @@ const HorizontalText = () => {
 
         if (!wrapper || !text) return;
 
-        // Find the ClientsReview section
-        const clientsReviewSection = document.querySelector('.clients-review');
-        
         let split = null;
 
         // Create SplitText instance if available
@@ -50,67 +47,29 @@ const HorizontalText = () => {
             }
         }
 
-        // Calculate start position: start later - when ClientsReview is mostly scrolled past
-        const calculateStartPosition = () => {
-            if (!clientsReviewSection) return "top top";
-            
-            const viewportHeight = window.innerHeight;
-            const screenWidth = window.innerWidth;
-            const clientsReviewRect = clientsReviewSection.getBoundingClientRect();
-            const clientsReviewBottom = clientsReviewRect.bottom + window.pageYOffset;
-            const wrapperRect = wrapper.getBoundingClientRect();
-            const wrapperTop = wrapperRect.top + window.pageYOffset;
-            
-            // Determine screen size and adjust delay accordingly
-            let extraOffset = 0;
-            if (screenWidth <= 768) {
-                // Small screens: add more delay (20% viewport)
-                extraOffset = viewportHeight * 0.2;
-            } else if (screenWidth <= 1024) {
-                // Medium screens: add moderate delay (15% viewport)
-                extraOffset = viewportHeight * 0.15;
-            } else if (screenWidth <= 1440) {
-                // Laptop screens: add significant delay (35% viewport) to prevent overlap
-                extraOffset = viewportHeight * 0.35;
-            } else {
-                // Large screens: add more delay (25% viewport) to start later
-                extraOffset = viewportHeight * 0.25;
-            }
-            
-            // Start when ClientsReview's bottom is at 95% of viewport (only 5% visible)
-            // Adding extra offset based on screen size to start later
-            const targetScrollPos = clientsReviewBottom - (viewportHeight * 0.95) + extraOffset;
-            
-            // Calculate offset from wrapper's top
-            const offset = targetScrollPos - wrapperTop;
-            
-            // Start when wrapper's top reaches the calculated position
-            return offset > 0 ? `top+=${Math.round(offset)}px top` : `top top`;
-        };
-
         let scrollTween = null;
         let timeoutId = null;
         let resizeHandler = null;
 
         // Function to initialize scroll animation
         const initializeAnimation = () => {
-            const startPosition = calculateStartPosition();
-
             // Kill existing scrollTween if it exists
             if (scrollTween && scrollTween.scrollTrigger) {
                 scrollTween.scrollTrigger.kill();
             }
 
-            // Create horizontal scroll tween (works with or without SplitText)
+            // refreshPriority: -1 ensures this trigger refreshes AFTER the Poster's
+            // pin spacer is set up, so GSAP calculates the correct start scroll position
             scrollTween = gsap.to(text, {
                 xPercent: -100,
                 ease: "none",
                 scrollTrigger: {
                     trigger: wrapper,
-                    start: startPosition,
+                    start: "top top",
                     pin: true,
                     end: "+=5000px",
-                    scrub: true
+                    scrub: true,
+                    refreshPriority: -1
                 }
             });
 
@@ -126,25 +85,24 @@ const HorizontalText = () => {
                             containerAnimation: scrollTween,
                             start: "left 100%",
                             end: "left 30%",
-                            scrub: 1
+                            scrub: 1,
+                            refreshPriority: -1
                         }
                     });
                 });
             }
         };
 
-        // Small delay to ensure accurate calculations
+        // Longer delay ensures the Poster section's pin spacer is fully injected
+        // into the DOM before we calculate HorizontalText's scroll start position
         timeoutId = setTimeout(() => {
             initializeAnimation();
-        }, 100);
+            ScrollTrigger.refresh();
+        }, 400);
 
-        // Handle window resize to recalculate start position
+        // Handle window resize
         resizeHandler = () => {
-            if (scrollTween && scrollTween.scrollTrigger) {
-                const newStartPosition = calculateStartPosition();
-                scrollTween.scrollTrigger.vars.start = newStartPosition;
-                ScrollTrigger.refresh();
-            }
+            ScrollTrigger.refresh();
         };
         window.addEventListener('resize', resizeHandler);
 

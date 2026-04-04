@@ -135,12 +135,12 @@
       width: 65%;
     }
     p{
-      font-size: 0.9rem;
-      width: calc(100% - 4rem);
+      font-size: 0.7rem;
+      width: 100%;
       margin-bottom: 1rem;
     }
     .scroll-to-explore {
-      bottom: -6%;
+      bottom: 6%;
       padding: 0 2rem;
       .scroll-text {
         font-size: 0.65rem;
@@ -150,6 +150,7 @@
       .scroll-arrow {
         width: 18px;
         height: 18px;
+        bottom: -34%;
       }
     }
   }
