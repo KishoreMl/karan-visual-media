@@ -112,16 +112,12 @@ const HorizontalText = () => {
             if (timeoutId) {
                 clearTimeout(timeoutId);
             }
-            
-            // Remove resize listener
             if (resizeHandler) {
                 window.removeEventListener('resize', resizeHandler);
             }
-            
-            // Kill all ScrollTriggers
+
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
             
-            // Revert SplitText if it was created
             if (split && split.revert) {
                 try {
                     split.revert();

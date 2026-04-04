@@ -20,6 +20,10 @@ const ClientsReview = () => {
         {
             text:"Consistent, professional, and receptive to feedback. I've noticed clear progress in his work over time. A dependable choice for editing and social media handling",
             name:"Nutrieros health studio"
+        },
+        {
+            text:"The 3D animation work was impressive, with good attention to detail and realistic movements. The lighting, textures, and overall rendering quality added depth and visuals stand out.",
+            name:"Thum Tea production"
         }
     ];
 

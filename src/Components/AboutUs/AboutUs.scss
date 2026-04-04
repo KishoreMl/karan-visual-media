@@ -111,7 +111,7 @@
 
                     img {
                         width: 100%;
-                        height: 820px;
+                        // height: 820px;
                         border-radius: 16px;
                         object-fit: cover;
                         object-position: top;
@@ -179,7 +179,6 @@
                 grid-template-columns: 1fr 42%;
             }
 
-            // Mobile — single column, photo first
             @media (max-width: 768px) {
                 display: flex;
                 flex-direction: column;
@@ -218,7 +217,7 @@
                         width:500px
                     }
                     .author-info{
-                        transform: translateY(-213px);
+                        transform: translateY(-13px);
                         p{
                             transform: translateY(-7px);
                         }
@@ -229,8 +228,11 @@
             @media (max-width: 480px) {
                 .hero-right{
                     .author-image{
-                        height: 550px;
-                        width:400px
+                        height: 450px;
+                        width:440px
+                        img {
+                            height:0px !important;
+                        }
                     }
                     .author-info{
                         transform: translateY(0px);
@@ -375,8 +377,8 @@
         padding: 0 !important;
 
         .vm-card {
-            background: #121212;
-            border: 1px solid #313131;
+            background: var(--vm-card-background-color);
+            border: 1px solid var(--vm-card-border-color);
             border-radius: 24px;
             padding: 2.5rem;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
