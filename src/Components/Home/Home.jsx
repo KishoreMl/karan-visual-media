@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import DescriptionCard from './DescriptionCard/DescriptionCard';
 import DescriptiveContent from './DescriptiveContent/DescriptiveContent';
-import darkLogo from '../../assets/dark-theme-logo.png';
-import lightLogo from '../../assets/light-theme-logo.png';
 import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import CtaSection from './CtaSection/CtaSection';
 import ClientCarousel from './ClientCarousel/ClientCarousel';
@@ -10,6 +8,10 @@ import HorizontalText from './HorizontalText/HorizontalText';
 import Poster from './PosterSection/Poster';
 import LogoSection from './LogoSection/LogoSection';
 import ClientsReview from './ClientReview/ClientsReview';
+
+import darkLogo from '../../assets/dark-theme-logo.png';
+import lightLogo from '../../assets/light-theme-logo.png';
+
 import './Home.scss';
 
 
@@ -23,14 +25,11 @@ const Home = ({ isDarkMode }) => {
         if (!animatedText) return;
 
         const letters = animatedText.querySelectorAll('.letter');
-        
         const handleMouseEnter = (e) => {
             const currentLetter = e.target;
             const index = Array.from(letters).indexOf(currentLetter);
-            
             // Add hover class to current letter
             currentLetter.classList.add('hover-bold');
-            
             // Add hover class to previous letter if it exists
             if (index > 0 && letters[index - 1]) {
                 letters[index - 1].classList.add('hover-bold');
@@ -120,7 +119,7 @@ const Home = ({ isDarkMode }) => {
 
             {/* Contact CTA Section */}
             <CtaSection />
-
+            
         </div>
     );
 };

@@ -47,7 +47,6 @@ const Header = () => {
 
     return (
         <>
-
             <header className="header" ref={headerRef}>
                 <div className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Link to="/">
