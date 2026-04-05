@@ -708,7 +708,7 @@
             .services-header {
                 display: flex;
                 flex-direction: column;
-                min-height: calc(100vh - 3rem);
+                min-height: auto;
                 margin-top: 2rem;
 
                 .services-title {
@@ -718,9 +718,9 @@
             }
 
             .scroll-indicator {
-                margin-top: 6rem;
+                margin-top: 2rem;
                 margin-bottom: 0;
-                padding-bottom: 5rem;
+                padding-bottom: 2rem;
                 
                 .scroll-text {
                     font-size: 0.7rem;
@@ -837,7 +837,7 @@
             }
 
             .scroll-indicator {
-                margin-top: 4rem;
+                margin-top: 1.5rem;
             }
         }
 

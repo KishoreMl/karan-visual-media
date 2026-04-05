@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import AnimatedHeading from '../../AnimatedHeading/AnimatedHeading';
-import quotesImgLight from '../../../assets/images/Double_Quotes_light.png';
-import quotesImgDark from '../../../assets/images/Double_Quotes_Dark.png';
+import quotesImgLight from '../../../assets/double-quotes-light.png';
+import quotesImgDark from '../../../assets/double-quotes-dark.png';
 import './ClientsReview.scss';
 
 const ClientsReview = () => {

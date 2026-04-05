@@ -3,15 +3,16 @@ import AnimatedHeading from '../../AnimatedHeading/AnimatedHeading';
 import './ClientCarousel.scss';
 
 // Import carousel logos
-import client_logo_7 from "../../../assets/images/clients/nutrieros.jpg";
-import client_logo_1 from "../../../assets/images/clients/bigidea.jpg";
-import client_logo_4 from "../../../assets/images/clients/eagle.jpg";
-import client_logo_5 from "../../../assets/images/clients/tamil_catering.jpg";
-import client_logo_2 from "../../../assets/images/clients/yuva_bharathi.jpg";
-import client_logo_6 from "../../../assets/images/clients/meinigar.jpg";
-import client_logo_3 from "../../../assets/images/clients/swadeshi.jpg";
-import client_logo_8 from "../../../assets/images/clients/FSS.png";
-import client_logo_9 from "../../../assets/images/clients/ST.png";
+import client_logo_7 from "../../../assets/client-logos/nutrieros.jpg";
+import client_logo_1 from "../../../assets/client-logos/big-idea.jpg";
+import client_logo_4 from "../../../assets/client-logos/eagle.jpg";
+import client_logo_5 from "../../../assets/client-logos/tamil-catering.jpg";
+import client_logo_2 from "../../../assets/client-logos/yuva-bharathi.jpg";
+import client_logo_6 from "../../../assets/client-logos/meinigar.jpg";
+import client_logo_3 from "../../../assets/client-logos/swadeshi.jpg";
+import client_logo_8 from "../../../assets/client-logos/fss.png";
+import client_logo_9 from "../../../assets/client-logos/st.png";
+import client_logo_10 from "../../../assets/client-logos/thum-tea.jpg";
 
 const ClientCarousel = () => {
     const logos = [
@@ -23,7 +24,8 @@ const ClientCarousel = () => {
         { src: client_logo_6, alt: "Meinigar" },
         { src: client_logo_7, alt: "Nutrieros" },
         { src: client_logo_8, alt: "FSS" },
-        { src: client_logo_9, alt: "ST" }
+        { src: client_logo_9, alt: "ST" },
+        { src: client_logo_10, alt: "Thum Tea" }
     ];
 
     // Duplicate logos for seamless infinite scroll

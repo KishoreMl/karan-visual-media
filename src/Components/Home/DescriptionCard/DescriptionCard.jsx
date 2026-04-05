@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
-import websiteImg from '../../../assets/images/website.png';
-import socialMediaImg from '../../../assets/images/social_media_icon.png';
-import brandingImg from '../../../assets/images/Branding.png';
-import motionGraphicsImg from '../../../assets/images/motion_graphics.png';
+import websiteImg from '../../../assets/cards-logos/website.png';
+import socialMediaImg from '../../../assets/cards-logos/social-media.png';
+import brandingImg from '../../../assets/cards-logos/branding.png';
+import motionGraphicsImg from '../../../assets/cards-logos/motion-graphics.png';
 import './DescriptionCard.scss';
 
 const DescriptionCard = () => {

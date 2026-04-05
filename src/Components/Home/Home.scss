@@ -28,7 +28,6 @@
     letter-spacing: 2px;
     font-weight: 400;
     text-align: center;
-    // width: calc(100% - 34rem);
     max-width: 100%;
   }
 
@@ -96,7 +95,6 @@
     }
     p{
       font-size: 1.2rem;
-      // width: calc(100% - 14rem);
     }
     .animated-text .word:hover {
       transform: translateY(-30px);
@@ -140,7 +138,7 @@
       margin-bottom: 1rem;
     }
     .scroll-to-explore {
-      bottom: 17%;
+      bottom: 20%;
       padding: 0 2rem;
       .scroll-text {
         font-size: 0.65rem;

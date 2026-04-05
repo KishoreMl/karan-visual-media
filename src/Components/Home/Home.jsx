@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import DescriptionCard from './DescriptionCard/DescriptionCard';
 import DescriptiveContent from './DescriptiveContent/DescriptiveContent';
-import darkLogo from '../../assets/images/dark_theme_logo.png';
-import lightLogo from '../../assets/images/light_theme_logo.png';
+import darkLogo from '../../assets/dark-theme-logo.png';
+import lightLogo from '../../assets/light-theme-logo.png';
 import ScaleUpScreen from './ScaleUpScreen/ScaleUpScreen';
 import CtaSection from './CtaSection/CtaSection';
 import ClientCarousel from './ClientCarousel/ClientCarousel';

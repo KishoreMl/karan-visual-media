@@ -3,7 +3,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './HorizontalText.scss';
 
-// Try to import SplitText, but handle if it's not available (premium plugin)
 let SplitText = null;
 try {
     // @ts-ignore
@@ -106,7 +105,6 @@ const HorizontalText = () => {
         };
         window.addEventListener('resize', resizeHandler);
 
-        // Cleanup function
         return () => {
             // Clear timeout if component unmounts before it executes
             if (timeoutId) {

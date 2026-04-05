@@ -3,14 +3,14 @@ import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Services.scss';
 
 // Import service GIFs
-import brandingGif from '../../assets/images/Services/brand.gif';
-import socialMediaGif from '../../assets/images/Services/social media.gif';
-import motionGraphicsGif from '../../assets/images/Services/gif-of-motion-graphics.gif';
-import digitalMarketingGif from '../../assets/images/Services/digital marketing.gif';
-import visualEffectsGif from '../../assets/images/Services/visual effects.gif';
-import butterflyVideo from '../../assets/works/Thum tea/butterfly.mp4';
-import interiorExteriorGif from '../../assets/images/Services/3d interior and exterior.gif';
-import webDevGif from '../../assets/images/Services/web_design.gif';
+import brandingGif from '../../assets/services/brand.gif';
+import socialMediaGif from '../../assets/services/social-media.gif';
+import motionGraphicsGif from '../../assets/services/gif-of-motion-graphics.gif';
+import digitalMarketingGif from '../../assets/services/digital-marketing.gif';
+import visualEffectsGif from '../../assets/services/visual-effects.gif';
+import butterflyVideo from '../../assets/works/thum-tea/butterfly.mp4';
+import interiorExteriorGif from '../../assets/services/3d-interior-and-exterior.gif';
+import webDevGif from '../../assets/services/web-design.gif';
 
 const Services = () => {
     const [visibleSections, setVisibleSections] = useState({});
