@@ -4,38 +4,38 @@ import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './WorkDetail.scss';
 
 // Import NPS images
-import npsImage1 from '../../assets/works/nps/nps (1).jpg';
-import npsImage2 from '../../assets/works/nps/nps (2).jpg';
-import npsImage3 from '../../assets/works/nps/nps (3).jpg';
-import npsImage4 from '../../assets/works/nps/nps (4).jpg';
-import npsImage5 from '../../assets/works/nps/nps (5).jpg';
+import npsImage1 from '../../assets/works/nps/nps-1.jpg';
+import npsImage2 from '../../assets/works/nps/nps-2.jpg';
+import npsImage3 from '../../assets/works/nps/nps-3.jpg';
+import npsImage4 from '../../assets/works/nps/nps-4.jpg';
+import npsImage5 from '../../assets/works/nps/nps-5.jpg';
 
 //Import Art Board images
-import artBoardImage1 from '../../assets/works/ad/Artboard 1-100.jpg';
-import artBoardImage2 from '../../assets/works/ad/Artboard 2-100.jpg';
-import artBoardImage3 from '../../assets/works/ad/Artboard 3-100.jpg';
-import artBoardImage5 from '../../assets/works/ad/Artboard 5-100.jpg';
-import artBoardImage6 from '../../assets/works/ad/Artboard 6-100.jpg';  
-import artBoardImage7 from '../../assets/works/ad/Artboard 7-100.jpg';
-import artBoardImage8 from '../../assets/works/ad/Artboard 8-100.jpg';
+import artBoardImage1 from '../../assets/works/ad/artboard-1.jpg';
+import artBoardImage2 from '../../assets/works/ad/artboard-2.jpg';
+import artBoardImage3 from '../../assets/works/ad/artboard-3.jpg';
+import artBoardImage5 from '../../assets/works/ad/artboard-5.jpg';
+import artBoardImage6 from '../../assets/works/ad/artboard-6.jpg';
+import artBoardImage7 from '../../assets/works/ad/artboard-7.jpg';
+import artBoardImage8 from '../../assets/works/ad/artboard-8.jpg';
 
 // Import Swadeshi videos
-import swadeshiVideo1 from '../../assets/works/swadeshi/Swadeshi_Ai1.mp4';
-import swadeshiVideo2 from '../../assets/works/swadeshi/Swadeshi_Ai2.mp4';
-import swadeshiVideo3 from '../../assets/works/swadeshi/Swadeshi_Ai3.mp4';
-import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
+import swadeshiVideo1 from '../../assets/works/swadeshi/swadeshi-ai1.mp4';
+import swadeshiVideo2 from '../../assets/works/swadeshi/swadeshi-ai2.mp4';
+import swadeshiVideo3 from '../../assets/works/swadeshi/swadeshi-ai3.mp4';
+import swadeshiImage from '../../assets/client-logos/swadeshi.jpg';
 
 // Import Thum Tea images
-import thumTeaImage from '../../assets/works/Thum tea/Thum_Tea.jpg';
-import thumTeaVideo from '../../assets/works/Thum tea/butterfly.mp4';
+import thumTeaImage from '../../assets/client-logos/thum-tea.jpg';
+import thumTeaVideo from '../../assets/works/thum-tea/butterfly.mp4';
 
 // Import Meinigar videos
-import meinigarImage from '../../assets/images/clients/meinigar.jpg';
-import meinigarVideo from '../../assets/works/Meinigar/meinigar_logo_animation.mp4';
+import meinigarImage from '../../assets/client-logos/meinigar.jpg';
+import meinigarVideo from '../../assets/works/meinigar/meinigar-animation.mp4';
 
 // Import Tamil Catering videos
-import tamilCateringImage from '../../assets/images/clients/tamil_catering.jpg';
-import tamilCateringVideo from '../../assets/works/Cooking Chanel/cooking_channel_logo_animation.mp4';
+import tamilCateringImage from '../../assets/client-logos/tamil-catering.jpg';
+import tamilCateringVideo from '../../assets/works/cooking-channel/cooking-channel-animation.mp4';
 
 const WorkDetail = () => {
     const { workSlug } = useParams();

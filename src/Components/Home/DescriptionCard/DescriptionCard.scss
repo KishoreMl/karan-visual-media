@@ -1,10 +1,9 @@
 
-// Section wrapper for pinning
 .description-card-section {
     width: 100%;
     position: relative;
     overflow: visible;
-    background: #0a0a0a;
+    background: var(--description-card-background-color);
     padding: 4rem 0 2rem 0;
     
     @media (max-width: 768px) {
@@ -43,8 +42,8 @@
   width: 100%;
 
   .card-cover {
-    background: #121212;
-    border: 0.5px solid #313131;
+    background: var(--vm-card-background-color);
+    border: 0.5px solid var(--vm-card-border-color);
     border-radius: 16px;
     padding: 2rem;
     position: relative;

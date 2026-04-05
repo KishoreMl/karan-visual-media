@@ -5,12 +5,12 @@ import ContactSection from '../Home/CtaSection/CtaSection';
 import './Works.scss';
 
 // Import works cover images
-import npsImage5 from '../../assets/works/nps/nps (5).jpg';
-import artBoardImage from '../../assets/works/ad/Artboard 1-100.jpg';
-import swadeshiImage from '../../assets/images/clients/swadeshi.jpg';
-import thumTeaImage from '../../assets/works/Thum tea/Thum_Tea.jpg';
-import meinigarImage from '../../assets/works/Meinigar/meinigar.jpg';
-import tamilCateringImage from '../../assets/works/Cooking Chanel/cooking.jpg';
+import npsImage5 from '../../assets/works/nps/nps-5.jpg';
+import artBoardImage from '../../assets/works/ad/artboard-1.jpg';
+import swadeshiImage from '../../assets/client-logos/swadeshi.jpg';
+import thumTeaImage from '../../assets/client-logos/thum-tea.jpg';
+import meinigarImage from '../../assets/client-logos/meinigar.jpg';
+import tamilCateringImage from '../../assets/client-logos/tamil-catering.jpg';
 
 const Works = () => {
     const [filter, setFilter] = useState('All');

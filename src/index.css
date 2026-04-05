@@ -1,20 +1,3 @@
-/* Orbiga Font */
-@font-face {
-  font-family: 'Orbiga';
-  src: url('./assets/fonts/Orbiga.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Coolvetica Font */
-@font-face {
-  font-family: 'Coolvetica';
-  src: url('./assets/fonts/Coolvetica\ Rg\ Cram.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 * {
   margin: 0;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import videoSrc from '../../../assets/works/Thum tea/butterfly.mp4';
+import videoSrc from '../../../assets/works/thum-tea/butterfly.mp4';
 import './Poster.scss';
 
 const Poster = () => {

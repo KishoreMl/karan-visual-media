@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/images/primary_logo.png';
+import logo from '../../assets/primary-logo.png';
 import MobileMenu from './MobileMenu';
 import './Header.scss';
 
@@ -47,7 +47,6 @@ const Header = () => {
 
     return (
         <>
-
             <header className="header" ref={headerRef}>
                 <div className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Link to="/">

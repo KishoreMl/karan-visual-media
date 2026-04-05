@@ -30,14 +30,13 @@
 
   --scale-screen-color: #ffffff;
 
+  --description-card-background-color: #0a0a0a;
   --vm-card-border-color: #313131;
   --vm-card-background-color: #121212;
 
   --primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
 
-  /* Golden Ratio Typography Scale (φ = 1.618) */
-  /* Each level = previous ÷ 1.618 */
   --phi: 1.618;
   --type-h1: 4.236rem;      /* 1rem × φ³ - Main page titles */
   --type-h2: 2.618rem;      /* 1rem × φ² - Section headings */
@@ -84,6 +83,7 @@
 
   --scale-screen-color: #181818;
 
+  --description-card-background-color: #ffffff;
   --vm-card-background-color: #ffffff;
   --vm-card-border-color: #e0e0e0;
 
