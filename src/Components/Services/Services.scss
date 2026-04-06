@@ -7,7 +7,6 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
 
-    // Scroll Progress Bar
     .scroll-progress-bar {
         position: fixed;
         top: 0;
@@ -839,6 +838,10 @@
             .scroll-indicator {
                 margin-top: 1.5rem;
             }
+        }
+
+        .services-scroll-container {
+            transform: translateY(-170px);
         }
 
         .service-row {
