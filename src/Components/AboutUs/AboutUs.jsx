@@ -38,7 +38,6 @@ const AboutUs = () => {
 
     return (
         <div className="about-page">
-
             {/* Hero — heading + text left | photo + author info right */}
             <div
                 ref={(el) => addToRefs(el, 1)}

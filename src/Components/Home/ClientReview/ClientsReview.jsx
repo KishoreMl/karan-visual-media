@@ -7,7 +7,6 @@ import './ClientsReview.scss';
 const ClientsReview = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const animatedTextRef = useRef(null);
-
     const testimonials = [
         {
             text: "I’m incredibly impressed with the video editing work! The attention to detail, smooth transitions, and creative touch truly brought the video to life. It exceeded my expectations, and I’m grateful for such a thoughtful gift. Highly recommend their services for anyone looking for professional and creative video editing!",
