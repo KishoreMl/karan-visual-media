@@ -229,6 +229,16 @@
 
     // Responsive design
 
+    // laptop 67%
+    @media (max-width: 1920px) {
+        .review-content-wrapper{
+            height: 70%;
+        }
+        .review-text{
+            font-size: 22px;
+        }
+    }
+
 
     // Laptop 75%
     @media (max-width: 1707px){
