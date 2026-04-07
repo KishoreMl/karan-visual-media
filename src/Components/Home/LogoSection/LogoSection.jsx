@@ -89,11 +89,11 @@ const LogoSection = () => {
         <div className="logo-container" ref={containerRef}>
             <div className="text-content">
                 <h1 className="main-title">
-                    <span className="title-bold">DESIGN</span>{' '}
+                    <span className="title-bold">THINK</span>{' '}
                     <span className="title-light">IT</span>{' '}
                     <span className="title-light">ONCE</span>{' '}
                     <br />
-                    <span className="title-light">DESIGN</span>{' '}
+                    <span className="title-light">EXECUTE</span>{' '}
                     <span className="title-light">IT</span>{' '}
                     <span className="title-bold">RIGHT</span>
                 </h1>
