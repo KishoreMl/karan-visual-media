@@ -94,7 +94,7 @@ const LogoSection = () => {
                     <span className="title-bold">RIGHT</span>
                 </h1>
                 <p className="main-description">
-                    Where creattivity meets technology to elevate modern brands.
+                    Where creativity meets technology to elevate modern brands.
                 </p>
                 <a href="/works" className="explore-link">EXPLORE OUR WORKS</a>
             </div>
