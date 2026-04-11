@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import CtaSection from '../Home/CtaSection/CtaSection';
-import authorImage from '../../assets/karan.jpeg';
+import authorImage from '../../assets/images/karan.jpeg';
 import './AboutUs.scss';
 
 const AboutUs = () => {

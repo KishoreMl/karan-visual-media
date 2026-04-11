@@ -20,18 +20,6 @@
         pointer-events: none;
     }
 
-    @keyframes float {
-        0%, 100% {
-            transform: translate(0, 0) scale(1);
-        }
-        33% {
-            transform: translate(80px, -80px) scale(1.1);
-        }
-        66% {
-            transform: translate(-80px, 80px) scale(0.9);
-        }
-    }
-
     .about-section {
         position: relative;
         z-index: 1;
@@ -45,8 +33,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        // ── Hero: editorial two-column layout ──────────────────────────────
+            // ── Hero: editorial two-column layout ──────────────────────────────
         &.hero-split {
             display: grid;
             grid-template-columns: 1fr 38%;
@@ -58,7 +45,6 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
-                // background: #121212;
 
                 .about-title {
                     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -188,7 +174,6 @@
                 }
             }
  
-            // Tablet — tighten the gap
             @media (max-width: 1024px) {
                 gap: 3rem;
                 grid-template-columns: 1fr 42%;
@@ -228,7 +213,7 @@
                     width: 100%;
 
                     .author-image{
-                        height:500px;
+                        height:400px;
                         width:500px
                     }
                     .author-info{
@@ -242,15 +227,18 @@
 
             @media (max-width: 480px) {
                 .hero-right{
+                    height: 600px;
                     .author-image{
-                        height: 450px;
-                        width:440px
+                        height: 650px;
+                        width: 450px;
                         img {
-                            height:0px !important;
+                            height:100%;
+                            scale: 0.7;
+                            transform: translateY(-200px);
                         }
                     }
                     .author-info{
-                        transform: translateY(0px);
+                        transform: translateY(-190px);
                     }
                 }
                 .hero-left {
@@ -707,7 +695,6 @@
         }
     }
 
-    // Responsive Design
     @media (max-width: 1024px) {
         padding: 0 2rem 4rem 2rem;
     }

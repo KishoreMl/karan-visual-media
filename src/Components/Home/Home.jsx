@@ -9,8 +9,8 @@ import Poster from './PosterSection/Poster';
 import LogoSection from './LogoSection/LogoSection';
 import ClientsReview from './ClientReview/ClientsReview';
 
-import darkLogo from '../../assets/dark-theme-logo.png';
-import lightLogo from '../../assets/light-theme-logo.png';
+import darkLogo from '../../assets/images/dark-theme-logo.png';
+import lightLogo from '../../assets/images/light-theme-logo.png';
 
 import './Home.scss';
 
@@ -28,14 +28,12 @@ const Home = ({ isDarkMode }) => {
         const handleMouseEnter = (e) => {
             const currentLetter = e.target;
             const index = Array.from(letters).indexOf(currentLetter);
-            // Add hover class to current letter
+
             currentLetter.classList.add('hover-bold');
-            // Add hover class to previous letter if it exists
+
             if (index > 0 && letters[index - 1]) {
                 letters[index - 1].classList.add('hover-bold');
             }
-            
-            // Add hover class to next letter if it exists
             if (index < letters.length - 1 && letters[index + 1]) {
                 letters[index + 1].classList.add('hover-bold');
             }
@@ -45,15 +43,12 @@ const Home = ({ isDarkMode }) => {
             const currentLetter = e.target;
             const index = Array.from(letters).indexOf(currentLetter);
             
-            // Remove hover class from current letter
             currentLetter.classList.remove('hover-bold');
             
-            // Remove hover class from previous letter if it exists
             if (index > 0 && letters[index - 1]) {
                 letters[index - 1].classList.remove('hover-bold');
             }
             
-            // Remove hover class from next letter if it exists
             if (index < letters.length - 1 && letters[index + 1]) {
                 letters[index + 1].classList.remove('hover-bold');
             }
