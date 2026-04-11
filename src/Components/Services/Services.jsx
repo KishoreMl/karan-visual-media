@@ -211,7 +211,7 @@ const Services = () => {
                                 <div className="section-content">
                                     <h2 className="section-title">{service.title}</h2>
                                     <p className="section-description">{service.description}</p>
-                                    <div className="gif-container">
+                                    <div className="gif-container" id={`gif-container-${service.id}`}>
                                         <div className="gif-wrapper">
                                             {service.video ? (
                                                 <video 

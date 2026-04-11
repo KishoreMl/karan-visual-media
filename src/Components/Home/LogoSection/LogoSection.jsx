@@ -16,14 +16,11 @@ const LogoSection = () => {
         const logoContentElement = logoRef.current;
         if (!containerElement || !logoContentElement) return;
 
-        // Set initial progress
         setLogoProgress(0);
 
         // Function to determine scroll trigger start based on screen size
         const getScrollStart = () => {
             const isMediumOrSmall = window.innerWidth <= 768;
-            // For medium/small screens, start only when logo is fully visible (bottom of element reaches bottom of viewport)
-            // For larger screens, keep the original behavior (start 500px before element enters)
             return isMediumOrSmall ? 'bottom bottom' : 'top bottom-=500px';
         };
 
@@ -47,7 +44,6 @@ const LogoSection = () => {
                 pinSpacing: true,
                 anticipatePin: 1,
                 onUpdate: (self) => {
-                    // Calculate progress based on scroll position (0 to 1)
                     const progress = self.progress;
                     setLogoProgress(progress);
                 }
@@ -98,7 +94,7 @@ const LogoSection = () => {
                     <span className="title-bold">RIGHT</span>
                 </h1>
                 <p className="main-description">
-                    Blending Design, Animation, and Technology to Elevate Brands.We Turn Brands into Visual Experiences.
+                    Where creattivity meets technology to elevate modern brands.
                 </p>
                 <a href="/works" className="explore-link">EXPLORE OUR WORKS</a>
             </div>

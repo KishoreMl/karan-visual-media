@@ -37,18 +37,6 @@
 
     }
 
-    @keyframes float {
-        0%, 100% {
-            transform: translate(0, 0) scale(1);
-        }
-        33% {
-            transform: translate(100px, -100px) scale(1.15);
-        }
-        66% {
-            transform: translate(-100px, 100px) scale(0.85);
-        }
-    }
-
     // Header Section (Full Screen)
     .services-header-section {
         min-height: 100vh;
@@ -64,7 +52,6 @@
             max-width: 900px;
 
             .services-title {
-                // H1: Golden ratio level 1 (φ³ = 4.236rem, scales up to ~6.854rem)
                 font-size: clamp(var(--type-h1), 8vw, 6.854rem);
                 font-weight: 600;
                 color: var(--text-primary);
@@ -73,11 +60,10 @@
             }
 
             .services-subtitle {
-                // Body text scaled with golden ratio
                 font-size: clamp(var(--type-body), 2.5vw, var(--type-h3));
                 color: var(--text-secondary);
                 margin-bottom: 3rem;
-                line-height: 1.618; // Golden ratio line height
+                line-height: 1.618;
                 font-weight: 300;
                 animation: subtitleFadeIn 1s ease-out 0.3s backwards;
             }
@@ -396,6 +382,11 @@
 
             .section-features {
                 display: none; // Hide features in gif section on desktop
+            }
+            #gif-container-6{
+                video{
+                    scale: 1.4;
+                }
             }
 
             .gif-container {
@@ -842,6 +833,10 @@
 
         .services-scroll-container {
             transform: translateY(-350px);
+            margin-bottom: -350px;
+            .scroll-arrow{
+                margin-top: 6rem;
+            }
         }
 
         .service-row {
