@@ -44,7 +44,7 @@ function AppContent({ isDarkMode, toggleTheme }) {
       <Footer />
       
       <ThemeToggleButton isDarkMode={isDarkMode} toggleTheme={toggleTheme} /> */}
-      <h3>Website temporarily closed. Payment pending to the developer.</h3>
+      <h3>Website temporarily unavailable. Payment is still pending to the developer.</h3>
     </div>
   );
 }
