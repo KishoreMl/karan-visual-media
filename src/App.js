@@ -30,7 +30,7 @@ function AppContent({ isDarkMode, toggleTheme }) {
 
   return (
     <div className="App" data-theme={isDarkMode ? 'dark' : 'light'}>
-      {/* <ScrollToTop />
+      <ScrollToTop />
       <CustomCursor />
       {!isWorkDetailPage && <Header isDarkMode={isDarkMode} />}
         <Routes>
@@ -43,8 +43,8 @@ function AppContent({ isDarkMode, toggleTheme }) {
         </Routes>
       <Footer />
       
-      <ThemeToggleButton isDarkMode={isDarkMode} toggleTheme={toggleTheme} /> */}
-      <h3>Website temporarily unavailable. Payment is still pending to the developer.</h3>
+      <ThemeToggleButton isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      {/* <h3>Website temporarily unavailable. Payment is still pending to the developer.</h3> */}
     </div>
   );
 }
@@ -64,7 +64,7 @@ function App() {
   return (
     <Router>
       <AppContent isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      {false && <SplashScreen onComplete={handleSplashComplete} />}
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
     </Router>
   );
 }
