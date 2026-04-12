@@ -827,6 +827,7 @@
             }
 
             .scroll-indicator {
+                transform:translateY(190px);
                 margin-top: 1.5rem;
                 .scroll-arrow{
                     margin-top: 2rem;
@@ -836,8 +837,8 @@
         }
 
         .services-scroll-container {
-            transform: translateY(-350px);
-            margin-bottom: -350px;
+            transform: translateY(-110px);
+            margin-bottom: -50px;
             .scroll-arrow{
                 margin-top: 6rem;
             }
