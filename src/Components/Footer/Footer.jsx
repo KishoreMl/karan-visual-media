@@ -77,7 +77,7 @@ const Footer = () => {
 
                 <div className="footer-bottom">
                     <div className="footer-meta">  
-                        <p>Copyright © 2025 Creative Knacks. All rights reserved.</p>
+                        <p>Copyright © 2026 Creative Knacks. All rights reserved.</p>
                     </div>
                 </div>
             </div>
