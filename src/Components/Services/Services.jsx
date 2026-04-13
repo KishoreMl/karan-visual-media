@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import AnimatedHeading from '../AnimatedHeading/AnimatedHeading';
 import './Services.scss';
 
@@ -17,6 +17,7 @@ const Services = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedService, setSelectedService] = useState(null);
+    const dropdownRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -72,6 +73,17 @@ const Services = () => {
         setIsDropdownOpen(false);
         setSelectedService(serviceId);
     };
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -138,7 +150,6 @@ const Services = () => {
 
     return (
         <div className="services-page">
-            {/* Scroll Progress Indicator */}
             <div className="scroll-progress-bar">
                 <div className="progress-fill" style={{ width: `${scrollProgress}%` }}></div>
             </div>
@@ -148,6 +159,10 @@ const Services = () => {
                 <div className="services-header">
                     <AnimatedHeading text="OUR SERVICES" tag="h1" className="services-title centered" />
                     
+                    <p className="services-subtitle-mobile">
+                        We design, build, and grow brands through creativity, strategy, and impactful marketing.
+                    </p>
+
                     {/* Services Navigation Menu */}
                     <div className="services-nav-menu">
                         {/* Desktop View - Horizontal Menu */}
@@ -164,7 +179,7 @@ const Services = () => {
                         </div>
 
                         {/* Mobile View - Dropdown Menu */}
-                        <div className="services-nav-mobile">
+                        <div className="services-nav-mobile" ref={dropdownRef}>
                             <button 
                                 className="services-dropdown-toggle"
                                 onClick={toggleDropdown}
@@ -190,7 +205,9 @@ const Services = () => {
 
                     <div className="scroll-indicator">
                         <span className="scroll-text">Scroll to explore</span>
-                        <div className="scroll-arrow">↓</div>
+                        <svg className="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 10L12 15L17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
                     </div>
                 </div>
             </div>

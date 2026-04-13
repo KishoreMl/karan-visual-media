@@ -68,6 +68,10 @@
                 animation: subtitleFadeIn 1s ease-out 0.3s backwards;
             }
 
+            .services-subtitle-mobile {
+                display: none;
+            }
+
             .services-nav-menu {
                 display: flex;
                 flex-wrap: wrap;
@@ -133,6 +137,7 @@
                         align-items: center;
                         position: relative;
                         z-index: 10001; // Above dropdown menu when closed
+                        transform: translateY(50px);
 
                         .dropdown-arrow {
                             font-size: 0.8rem;
@@ -162,6 +167,7 @@
                         right: 0;
                         background: var(--bg-primary);
                         // border: 1px solid var(--border-color);
+                        height: 350px;
                         border-radius: 16px;
                         max-height: 0;
                         overflow: hidden;
@@ -705,6 +711,18 @@
                     font-size: 3rem;
                     letter-spacing: -2px;
                 }
+
+                .services-subtitle-mobile {
+                    display: block;
+                    font-size: 0.7rem;
+                    color: var(--text-secondary);
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    line-height: 1.6;
+                    font-weight: 400;
+                    margin-bottom: 2rem;
+                    padding: 0 0.5rem;
+                }
             }
 
             .scroll-indicator {
@@ -827,7 +845,7 @@
             }
 
             .scroll-indicator {
-                transform:translateY(190px);
+                transform:translateY(90px);
                 margin-top: 1.5rem;
                 .scroll-arrow{
                     margin-top: 2rem;
