@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from './Components/Header/Header.jsx';
@@ -13,7 +12,8 @@ import CustomCursor from './Components/CustomCursor/CustomCursor.jsx';
 import ThemeToggleButton from './Components/Header/ThemeToggleButton.jsx';
 import SplashScreen from './Components/SplashScreen/SplashScreen.jsx';
 
-// ScrollToTop component - scrolls to top on route change
+import './App.css';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
