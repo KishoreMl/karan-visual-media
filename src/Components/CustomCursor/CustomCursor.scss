@@ -55,8 +55,21 @@ textarea {
     }
 }
 
-/* Handle cursor on mobile/touch devices - show default cursor */
+/* Hide custom cursor on touch devices and mobile/tablet screens */
 @media (hover: none) and (pointer: coarse) {
+    .cursor-ring,
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+    
+    body,
+    body * {
+        cursor: auto !important;
+    }
+}
+
+@media (max-width: 1024px) {
     .cursor-ring,
     .cursor-dot,
     .cursor-outline {

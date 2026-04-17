@@ -1,12 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './CustomCursor.scss';
 
+const isMobileOrTablet = () => {
+    return (
+        window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+        window.innerWidth <= 1024
+    );
+};
+
 const CustomCursor = () => {
+    const [visible, setVisible] = useState(() => !isMobileOrTablet());
     const cursorDotRef = useRef(null);
     const requestRef = useRef(null);
     const mousePosition = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
+        const handleResize = () => setVisible(!isMobileOrTablet());
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        if (!visible) return;
         const cursorDot = cursorDotRef.current;
         let currentTarget = null;
         const handleMouseMove = (e) => {
@@ -43,7 +58,9 @@ const CustomCursor = () => {
                 cancelAnimationFrame(requestRef.current);
             }
         };
-    }, []);
+    }, [visible]);
+
+    if (!visible) return null;
 
     return (
         <div className="cursor-ring" ref={cursorDotRef}>
